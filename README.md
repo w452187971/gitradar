@@ -1,24 +1,69 @@
-# GitRadar V3 — 爆款发现 + 可选 AI 中文摘要
+# GitRadar — 中文 GitHub 爆款发现雷达
 
-适用仓库：`w452187971/gitradar`
+面向中文用户，从 GitHub 搜索候选池中发现近期增长、有趣、实用的开源项目，覆盖影音、下载、效率、隐私、系统工具和 AI 应用等领域。
 
-## 升级（请务必保留历史数据）
+[访问网站](https://w452187971.github.io/gitradar/) · [项目交接与对话记录](docs/CHAT_HISTORY.md)
 
-1. **先不要删除仓库中的 `data/history.json`、`data/projects.json`！** V3 继续使用 V2 的历史快照。
-2. 仅将压缩包里的 `index.html`、`collect.py`、`.github/workflows/update.yml` 上传到原仓库对应路径，覆盖旧文件。
-3. `.github` 隐藏文件夹上传不方便时，在 GitHub 网页上编辑现有的 `.github/workflows/update.yml`，替换为本包对应内容。
-4. 确认仓库 Settings → Actions → General → Workflow permissions 允许 Read and write permissions。
-5. 在 Actions → Update GitRadar data → Run workflow 手动执行一次。
-6. 等待成功后刷新网站（可能需要几分钟才能发布）。
+## 当前功能与范围
 
-## AI 中文摘要（可选，可能产生 API 费用）
+- 综合发现评分、Star 增量、分类、搜索和浏览器本地收藏。
+- GitHub Actions 每日采集，GitHub Pages 提供静态网站；Python 与前端均使用标准库或浏览器原生能力，无需安装第三方依赖。
+- 中文简介采用公开描述与 README 的规则提取，无付费 AI API、翻译服务或个人 API Key 要求。
+- 每轮仅检查排名前 40 个候选项目的 README，缓存 14 天。未覆盖或资料不足时明确提示；安装方式依据 README 标记推断，未经实际安装验证，也不代表项目安全性或质量保证。
 
-无需配置也能运行 V3。若希望生成 AI 中文摘要：在仓库 Settings → Secrets and variables → Actions → New repository secret，名称填 `OPENAI_API_KEY`，值填**你自己的 API 密钥**（不要把密钥发给别人，也不要写进仓库代码）。工作流将每天最多生成 12 个新增或简介发生变化的摘要，并缓存结果。仅基于英文描述和 README 摘录总结，不代表对项目的安全性或功能做过验证。默认使用 `gpt-4.1-mini`，需要账户支持该模型并有 API 额度。
+候选来自有限的搜索条件，每个条件只取一页、最多 100 条结果，再刷新此前跟踪的项目。因此榜单代表本站候选池，不能解释为 GitHub 全站热度或增长排名。综合评分是启发式发现指标；关键词分类和中文提取也可能有偏差，应结合原项目 README 判断用途。
 
-## 局限
+## Star 历史与增量
 
-- 榜单是搜索条件筛选出的**候选池**，不是 GitHub 全站 Star 增长完整排名。
-- 7 天增量需至少 8 天每日快照；首次升级不会立即出现真实的 7 天增长。
-- 发现评分是启发式指标，不代表项目安全性、实际质量或已核实的爆火原因。
-- GitHub API 有搜索结果上限和速率限制，定时任务可能延迟。
-- 保留 V2 的 `data/history.json` 才能延续原有 Star 记录。
+`data/history.json` 是持续观测的基础，**升级、部署和故障恢复时必须保留，不能用空文件或旧包覆盖**。采集保留所有已有日期记录，不再按 45 天清理；同一个 UTC 日期多次运行，会更新该日快照，不保留日内每次观测。
+
+每日计划时间为 UTC 02:23（北京时间 10:23），GitHub 调度可能延迟。历史按 UTC 日期记录，而非精确到采集时刻：页面中的 1 天/7 天增量是对应日期快照之差，并非精确滚动 24 小时/168 小时。缺少对应 UTC 日期基准时显示“待积累”，不把未知增长当作零；7 天净变化只需要当天与目标日期的端点快照，中间缺日不影响两端之差。
+
+此前跟踪项目临时刷新失败时，保留原有列表信息，不写入该项目当日的新快照，其当轮增量为空，并在 `warnings` 中记录原因。请同时查看数据更新时间、警告和覆盖范围，避免将旧 Star 数量当作最新观测。
+
+若一次采集跨过 UTC 午夜，保存前会停止，保留现有文件；重新运行即可，避免把次日观测写入前一天。
+
+## 本地检查与运行
+
+环境：Python 3.12、Node.js 22。测试使用临时数据与离线样例，不调用采集 API：
+
+```sh
+python3 -m unittest discover -s tests
+node --test tests/frontend.test.cjs
+```
+
+静态页面通过 HTTP 访问，避免直接打开 HTML 时浏览器限制读取 JSON：
+
+```sh
+python3 -m http.server 8000
+```
+
+然后打开 `http://localhost:8000`。如需主动刷新数据，在确认已有历史完整、当前改动已妥善保存后运行：
+
+```sh
+python3 collect.py
+```
+
+此命令会访问 GitHub 并更新 `data/`。可通过环境变量 `GH_API_TOKEN` 提供 GitHub 令牌以提高请求额度；不要把令牌写进代码或提交到仓库。Actions 自动使用内置 `GITHUB_TOKEN`，无需提供个人密钥。候选池扩张、限流和网络故障可能造成部分刷新失败，需检查输出及 `data/projects.json` 的 `warnings`。
+
+## GitHub Actions 与 Pages
+
+`.github/workflows/update.yml` 支持每日计划和手动运行，使用 Python 3.12、Node.js 22。工作流先通过两组离线测试，再采集并提交 `data/projects.json`、`data/history.json`、`data/summaries.json`；`contents: write` 用于提交数据，采集任务通过并发组避免同时运行。
+
+仓库继续使用现有 GitHub Pages 配置，网站入口为根目录 `index.html`。在 Settings → Pages 确认发布源；在 Actions 中分别核对采集和 Pages 发布结果，再检查线上页面及 JSON 的更新时间。公开仓库的标准 GitHub 托管 runner 和 GitHub Pages 可免费使用，仍受平台调度、API 配额及使用限制约束。
+
+如需手动采集：Actions → Update GitRadar data → Run workflow。请先确认上传的是当前代码、测试和工作流，保留整个 `data/`。运行测试失败时不会进入采集；历史文件损坏或结构异常时采集会终止，避免用默认空历史继续写入。
+
+采集先验证数据再通过临时文件替换 JSON，以减少写入中断损坏单个文件的风险。三个文件不是跨文件事务，恢复时应检查同一轮的数据是否一致。采集成功后若提交或推送失败，任务会失败，并尝试把本轮三个 JSON 保存为 `gitradar-snapshots-运行编号-尝试次数` 附件，保留 7 天。下载后先检查历史完整性与警告，人工合并需要保留的快照，再重新提交；不要直接覆盖远端较新的历史。推送采用普通更新，不会强制覆盖其他提交。
+
+## 项目文件
+
+- `index.html`：中文静态页面。
+- `collect.py`：候选搜索、历史快照、规则解读与缓存。
+- `data/projects.json`：最新候选列表、生成时间和采集警告。
+- `data/history.json`：各项目按 UTC 日期保存的 Star 历史。
+- `data/summaries.json`：免费 README 解读与安装线索缓存。
+- `tests/`：采集与前端的离线回归测试。
+- [AGENTS.md](AGENTS.md)：后续开发的交接约束。
+
+[CHAT_HISTORY.md](docs/CHAT_HISTORY.md) 根据可见对话整理，包含产品决策和早期运行记录，并非逐字聊天导出；当前行为应以仓库代码和实际数据为准。

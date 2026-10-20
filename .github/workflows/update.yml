@@ -13,13 +13,22 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Collect data and optionally summarize
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Test collector
+        run: python -m unittest discover -s tests
+      - name: Test frontend
+        run: node --test tests/frontend.test.cjs
+      - name: Collect data and inspect README files
+        id: collect
         env:
           GH_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
         run: python collect.py
       - name: Commit snapshots
         run: |
@@ -28,5 +37,16 @@ jobs:
           git add data/projects.json data/history.json data/summaries.json
           if ! git diff --cached --quiet; then
             git commit -m 'data: refresh GitRadar snapshots'
-            git push
+            git push origin "HEAD:${GITHUB_REF_NAME}"
           fi
+      - name: Preserve snapshots after commit or push failure
+        if: ${{ failure() && steps.collect.outcome == 'success' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: gitradar-snapshots-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            data/projects.json
+            data/history.json
+            data/summaries.json
+          if-no-files-found: error
+          retention-days: 7
