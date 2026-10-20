@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""GitRadar V3.1: free discovery with validated, persistent daily snapshots."""
+"""GitRadar V3.3: bounded discovery with persistent observations and README evidence."""
 from __future__ import annotations
 
 import base64
@@ -14,19 +14,20 @@ import urllib.parse
 import urllib.request
 from typing import Optional, TypedDict, cast
 
+from discovery_stats import (ObservationFields, SearchReport, StatsProject,
+                             collectionStats, observationMetadata)
+
 DATA_DIR = pathlib.Path(__file__).parent / 'data'
 MAX_READMES = 40
+MAX_SEARCHES = 20
 SUMMARY_MODE = 'free-v311'
 History = dict[str, dict[str, int]]
 
 
-class Project(TypedDict, total=False):
-    full_name: str
+class Project(StatsProject, total=False):
     html_url: str
     description: str
     stargazers_count: int
-    delta_1d: Optional[int]
-    delta_7d: Optional[int]
     language: Optional[str]
     topics: list[str]
     created_at: str
@@ -35,7 +36,7 @@ class Project(TypedDict, total=False):
     discovery_score: float
     summary_zh: Optional[str]
     difficulty_zh: str
-    readme_checked: bool
+    readme_checked_at: Optional[str]
     platforms_zh: list[str]
 
 
@@ -51,6 +52,8 @@ class Summary(TypedDict, total=False):
     difficulty: str
     readme_checked: bool
     source_description: str
+    last_attempt_at: str
+    refresh_failed: bool
 
 
 def readJson(path: pathlib.Path, default: object) -> object:
@@ -108,7 +111,7 @@ def loadState(dataDir: pathlib.Path) -> tuple[list[Project], History, dict[str, 
 
 
 def api(url: str, token: Optional[str] = None) -> dict[str, object]:
-    headers = {'Accept': 'application/vnd.github+json', 'User-Agent': 'GitRadar-V3.1'}
+    headers = {'Accept': 'application/vnd.github+json', 'User-Agent': 'GitRadar-V3.3'}
     if token:
         headers['Authorization'] = 'Bearer ' + token
     request = urllib.request.Request(url, headers=headers)
@@ -120,7 +123,7 @@ def api(url: str, token: Optional[str] = None) -> dict[str, object]:
 
 
 def discoveryQueries(today: dt.date) -> list[str]:
-    return [
+    queries = [
         f'created:>={today-dt.timedelta(days=7)} stars:20..2000',
         f'created:>={today-dt.timedelta(days=30)} stars:50..5000',
         f'created:>={today-dt.timedelta(days=90)} stars:100..10000',
@@ -130,30 +133,75 @@ def discoveryQueries(today: dt.date) -> list[str]:
         'topic:privacy stars:>50', 'topic:self-hosted stars:>50',
         'topic:ai-agent stars:>50', 'topic:productivity stars:>30',
         'android tv remove ads in:description stars:>10', 'ad blocker in:description stars:>30',
+        f'created:>={today-dt.timedelta(days=30)} stars:5..49',
     ]
+    queries.extend(f'created:<{today-dt.timedelta(days=90)} pushed:>={today-dt.timedelta(days=7)} stars:{stars}'
+                   for stars in ['20..2999', '3000..9999', '>=10000'])
+    return [query + ' fork:false archived:false' for query in queries]
 
 
-def discover(today: dt.date, token: Optional[str], warnings: list[str]) -> dict[str, Repository]:
+def searchPage(query: str, sort: str, page: int, token: Optional[str],
+               repos: dict[str, Repository], warnings: list[str]) -> SearchReport:
+    report: SearchReport = {'query': query, 'sort': sort, 'page': page, 'returned': 0,
+                            'total_count': None, 'incomplete': False, 'limited': False, 'succeeded': False}
+    try:
+        params = urllib.parse.urlencode({'q': query, 'sort': sort, 'order': 'desc', 'per_page': 100, 'page': page})
+        payload = api('https://api.github.com/search/repositories?' + params, token)
+        results = payload.get('items')
+        if not isinstance(results, list):
+            raise ValueError('Search response has no repository list.')
+        total = payload.get('total_count')
+        total = total if type(total) is int and total >= 0 else None
+        incomplete = payload.get('incomplete_results') is True
+        report.update(returned=len(results), total_count=total, incomplete=incomplete,
+                      limited=incomplete or (total is not None and total > 100))
+        for result in results:
+            repo = validateRepository(result)
+            if not repo.get('fork') and not repo.get('archived'):
+                repos[repo['full_name'].lower()] = repo
+        report['succeeded'] = True
+        if incomplete:
+            warnings.append(f'Search incomplete results: {query} page {page}')
+    except (OSError, ValueError, KeyError) as error:
+        warnings.append(f'Search {query} page {page}: {error}')
+    time.sleep(2.1)
+    return report
+
+
+def extraSearchPages(today: dt.date, reports: list[SearchReport]) -> list[tuple[str, str, int]]:
+    eligible = [report for report in reports if report.get('succeeded') and
+                (report.get('total_count') or 0) > 100]
+    plans: list[tuple[str, str, int]] = []
+    for offset in range(MAX_SEARCHES - 18):
+        if not eligible:
+            break
+        turn = today.toordinal()*2 + offset
+        report = eligible[turn % len(eligible)]
+        maximum = min(10, ((report.get('total_count') or 0) + 99)//100)
+        page = 2 + (turn//len(eligible)) % (maximum - 1)
+        plan = (report['query'], report['sort'], page)
+        if plan not in plans:
+            plans.append(plan)
+    return plans
+
+
+def discover(today: dt.date, token: Optional[str], warnings: list[str],
+             reports: Optional[list[SearchReport]] = None) -> dict[str, Repository]:
     repos: dict[str, Repository] = {}
-    for query in discoveryQueries(today):
-        try:
-            params = urllib.parse.urlencode({'q': query, 'sort': 'stars', 'order': 'desc', 'per_page': 100})
-            payload = api('https://api.github.com/search/repositories?' + params, token)
-            results = payload.get('items')
-            if not isinstance(results, list):
-                raise ValueError('Search response has no repository list.')
-            for result in results:
-                repo = validateRepository(result)
-                if not repo.get('fork') and not repo.get('archived'):
-                    repos[repo['full_name'].lower()] = repo
-        except (OSError, ValueError, KeyError) as error:
-            warnings.append(f'Search {query}: {error}')
-        time.sleep(2.1)
+    primary: list[SearchReport] = []
+    for index, query in enumerate(discoveryQueries(today)[:18]):
+        sort = 'stars' if (today.toordinal() + index) % 2 == 0 else 'updated'
+        primary.append(searchPage(query, sort, 1, token, repos, warnings))
+    extra = [searchPage(query, sort, page, token, repos, warnings)
+             for query, sort, page in extraSearchPages(today, primary)]
+    if reports is not None:
+        reports.extend(primary + extra)
     return repos
 
 
 def refreshTracked(projects: list[Project], repos: dict[str, Repository],
-                   token: Optional[str], warnings: list[str]) -> list[Project]:
+                   token: Optional[str], warnings: list[str],
+                   history: Optional[History] = None) -> list[Project]:
     retained = []
     for project in projects:
         name = project['full_name']
@@ -171,6 +219,7 @@ def refreshTracked(projects: list[Project], repos: dict[str, Repository],
             fallback = project.copy()
             fallback.update(delta_1d=None, delta_7d=None, discovery_score=0)
             fallback['platforms_zh'] = extractPlatforms(project)
+            fallback.update(observationMetadata(name, history or {}, False))
             retained.append(fallback)
             warnings.append(f'Refresh {name}: {error}; retained previous data without a new snapshot.')
         time.sleep(.12)
@@ -267,8 +316,7 @@ def buildProject(repo: Repository, history: History, today: dt.date) -> Project:
     age = max(1, (today - dt.date.fromisoformat(created[:10])).days)
     category = classify(repo)
     score = (weekly or 0)*2 + (daily or 0)*3 + min(stars, 2500)/(age+12)*3
-    score += 90 if category != '其他开源' else 0
-    return {
+    project: Project = {
         'full_name': name, 'html_url': repo['html_url'],
         'description': repo.get('description') or '', 'stargazers_count': stars,
         'delta_1d': daily, 'delta_7d': weekly, 'language': repo.get('language'),
@@ -276,6 +324,9 @@ def buildProject(repo: Repository, history: History, today: dt.date) -> Project:
         'pushed_at': repo.get('pushed_at'), 'category_zh': category,
         'discovery_score': round(score, 1), 'platforms_zh': extractPlatforms(repo),
     }
+    metadata: ObservationFields = observationMetadata(name, history, True)
+    project.update(metadata)
+    return project
 
 
 LABELS = [
@@ -365,20 +416,29 @@ def assess(readme: str) -> str:
     return '⚪ 安装方式未确认'
 
 
-def cacheIsFresh(project: Project, cached: Summary, today: dt.date) -> bool:
+def summaryEvidenceDate(project: Project, cached: Summary, today: dt.date) -> Optional[dt.date]:
     if cached.get('mode') != SUMMARY_MODE:
-        return False
+        return None
     if cached.get('source_description') != (project.get('description') or ''):
-        return False
+        return None
     checkedAt = cached.get('checked_at')
     if not isinstance(checkedAt, str):
-        return False
+        return None
     try:
-        age = (today - dt.date.fromisoformat(checkedAt)).days
+        checked = dt.date.fromisoformat(checkedAt)
     except ValueError:
+        return None
+    return checked if checked <= today and str(checked) == checkedAt else None
+
+
+def cacheIsFresh(project: Project, cached: Summary, today: dt.date) -> bool:
+    checked = summaryEvidenceDate(project, cached, today)
+    if checked is None:
         return False
+    if cached.get('refresh_failed') is True and cached.get('last_attempt_at') == str(today):
+        return True
     lifetime = 14 if cached.get('readme_checked') is True else 1
-    return 0 <= age < lifetime
+    return (today - checked).days < lifetime
 
 
 def buildSummary(project: Project, readme: str, today: dt.date, checked: bool) -> Summary:
@@ -386,20 +446,29 @@ def buildSummary(project: Project, readme: str, today: dt.date, checked: bool) -
             'source_description': project.get('description') or '',
             'zh': makeBrief(project, readme),
             'difficulty': assess(readme) if checked else '⚪ 安装方式未确认',
-            'readme_checked': checked}
+            'readme_checked': checked, 'last_attempt_at': str(today), 'refresh_failed': False}
+
+
+def failedSummary(project: Project, cached: Summary, today: dt.date) -> Summary:
+    reusable = cached.get('readme_checked') is True and summaryEvidenceDate(project, cached, today) is not None
+    summary = cached.copy() if reusable else buildSummary(project, '', today, False)
+    summary.update(last_attempt_at=str(today), refresh_failed=True)
+    return summary
 
 
 def summaryQueueKey(cached: Summary, today: dt.date) -> tuple[int, dt.date]:
-    checkedAt = cached.get('checked_at')
-    checked = dt.date.min
-    if isinstance(checkedAt, str):
+    dates = [dt.date.min]
+    for field in ['checked_at', 'last_attempt_at']:
+        raw = cached.get(field)
+        if not isinstance(raw, str):
+            continue
         try:
-            checked = dt.date.fromisoformat(checkedAt)
+            date = dt.date.fromisoformat(raw)
         except ValueError:
-            checked = dt.date.min
-    if checked > today:
-        checked = dt.date.min
-    return (0 if cached.get('mode') != SUMMARY_MODE else 1, checked)
+            continue
+        if date <= today:
+            dates.append(date)
+    return (0 if cached.get('mode') != SUMMARY_MODE else 1, max(dates))
 
 
 def enrichProjects(items: list[Project], summaries: dict[str, Summary], today: dt.date,
@@ -418,7 +487,7 @@ def enrichProjects(items: list[Project], summaries: dict[str, Summary], today: d
             raw = base64.b64decode(content).decode('utf-8', 'replace')[:16000]
             summaries[name] = buildSummary(project, raw, today, True)
         except (OSError, ValueError, KeyError) as error:
-            summaries[name] = buildSummary(project, '', today, False)
+            summaries[name] = failedSummary(project, summaries.get(name, {}), today)
             warnings.append(f'README {name}: {error}')
         time.sleep(.13)
 
@@ -428,10 +497,13 @@ def attachSummaries(items: list[Project], summaries: dict[str, Summary],
     today = today or dt.datetime.now(dt.timezone.utc).date()
     for project in items:
         cached = summaries.get(project['full_name'], {})
-        summary = cached if cacheIsFresh(project, cached, today) else buildSummary(project, '', today, False)
+        checked = summaryEvidenceDate(project, cached, today) if cached.get('readme_checked') is True else None
+        summary = cached if checked is not None else buildSummary(project, '', today, False)
         project['summary_zh'] = summary.get('zh')
         project['difficulty_zh'] = summary.get('difficulty', '⚪ 安装方式未确认')
         project['readme_checked'] = summary.get('readme_checked', False)
+        project['readme_checked_at'] = str(checked) if checked is not None else None
+        project['readme_stale'] = checked is not None and (today - checked).days >= 14
 
 
 def validatePreservation(original: History, updated: History, today: dt.date) -> None:
@@ -462,14 +534,11 @@ def saveSnapshots(dataDir: pathlib.Path, history: History, summaries: dict[str, 
             temporary.unlink(missing_ok=True)
 
 
-def main() -> None:
-    today = dt.datetime.now(dt.timezone.utc).date()
-    previous, history, summaries = loadState(DATA_DIR)
-    original = {name: series.copy() for name, series in history.items()}
-    warnings: list[str] = []
-    token = os.getenv('GH_API_TOKEN')
-    repos = discover(today, token, warnings)
-    retained = refreshTracked(previous, repos, token, warnings)
+def collectProjects(previous: list[Project], history: History, summaries: dict[str, Summary],
+                    today: dt.date, token: Optional[str], warnings: list[str],
+                    reports: list[SearchReport]) -> list[Project]:
+    repos = discover(today, token, warnings, reports)
+    retained = refreshTracked(previous, repos, token, warnings, history)
     if not repos:
         raise RuntimeError('No repositories retrieved; keeping existing data.')
     canonicalNames = {name.lower(): name for name in history}
@@ -481,12 +550,23 @@ def main() -> None:
     items.extend(retained)
     attachSummaries(items, summaries, today)
     items.sort(key=lambda project: project['discovery_score'], reverse=True)
+    return items
+
+
+def main() -> None:
+    today = dt.datetime.now(dt.timezone.utc).date()
+    previous, history, summaries = loadState(DATA_DIR)
+    original = {name: series.copy() for name, series in history.items()}
+    warnings: list[str] = []
+    reports: list[SearchReport] = []
+    items = collectProjects(previous, history, summaries, today, os.getenv('GH_API_TOKEN'), warnings, reports)
     validatePreservation(original, history, today)
     generatedAt = dt.datetime.now(dt.timezone.utc)
     if generatedAt.date() != today:
         raise RuntimeError('Collection crossed UTC midnight; keeping existing data. Run again.')
-    document = {'generated_at': generatedAt.isoformat(),
-                'count': len(items), 'projects': items, 'warnings': warnings}
+    stats = collectionStats(items, history, {project['full_name'].lower() for project in previous}, reports)
+    document = {'rules_version': 'v3.3', 'generated_at': generatedAt.isoformat(), 'count': len(items), 'projects': items,
+                'warnings': warnings, 'collection_stats': stats, 'search_reports': reports}
     saveSnapshots(DATA_DIR, history, summaries, document)
     print('Collected', len(items), 'repos; free README cache', len(summaries),
           'warnings', len(warnings))
