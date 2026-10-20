@@ -1,0 +1,52 @@
+{
+  "frozen_at": "2026-10-20T15:59:29.625380+00:00",
+  "implementation_not_yet_executed": true,
+  "sample_count": 40,
+  "readme_available": 37,
+  "metadata_available": 37,
+  "actual_scenes": {
+    "范围外": 8,
+    "电视桌面": 5,
+    "文件转换": 5,
+    "文件查找": 4,
+    "隐私保护": 6,
+    "下载媒体": 6,
+    "笔记效率": 6
+  },
+  "forms": {
+    "collection": 2,
+    "desktop_app": 11,
+    "mobile_app": 3,
+    "unknown": 3,
+    "cli": 9,
+    "self_hosted": 4,
+    "web_app": 4,
+    "framework": 3,
+    "library": 1
+  },
+  "primary_languages": {
+    "zh": 2,
+    "en": 34,
+    "unknown": 3,
+    "bilingual": 1
+  },
+  "additional_chinese": 5,
+  "age": {
+    "before_2023": 32,
+    "new_since_2023": 5,
+    "unknown": 3
+  },
+  "files": {
+    "sampling.json": "b1e0533f1205583fb7c8498bb55210a65c5af57bf6c87e22ab70f0dc2f9de92c",
+    "inputs.json": "cfbfe4d6a5a3b625471523c86e73ad8bef327aa2951ed744e759a1ef6601cfe7",
+    "labels.json": "d6f9dede3d84701db6fdbac2a593c95290b0ba431af78682eeba0ec7d129069b"
+  },
+  "limitations": [
+    "Only 40 holdout sampling positions; not the full 120 dataset.",
+    "3 missing official source positions retained, not replaced.",
+    "Cross-stratum age/language/form targets unmet; report actual distribution, not representative of GitHub.",
+    "No installation tests, no human readers.",
+    "Default README plus repository metadata is the primary executable input; supplementary Chinese/install/license documents support independent labels.",
+    "Prerequisite labels cover explicit items only, never imply complete absence of additional requirements."
+  ]
+}

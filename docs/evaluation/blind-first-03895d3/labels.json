@@ -1,0 +1,2274 @@
+[
+  {
+    "full_name": "hehonghui/awesome-english-ebooks",
+    "sample_stratum": "电视桌面",
+    "actual_scene": "范围外",
+    "source_available": true,
+    "purpose": {
+      "value": "英语外刊下载集合",
+      "source": {
+        "url": "https://raw.githubusercontent.com/hehonghui/awesome-english-ebooks/master/README.md",
+        "line_start": 1,
+        "line_end": 1,
+        "quote": "# 经济学人、纽约客等英语外刊杂志下载",
+        "sha256": "2563c560bbbd4c3530cc98c5ce7884fecb95a20a5084226ab399766b7a73ba31",
+        "checked_at": "2026-10-20T15:53:25.550632+00:00"
+      }
+    },
+    "form": "collection",
+    "platforms": {
+      "value": [],
+      "source": null
+    },
+    "official_entry": {
+      "value": "follow official README entry; no asset-level or installation verification",
+      "source": {
+        "url": "https://raw.githubusercontent.com/hehonghui/awesome-english-ebooks/master/README.md",
+        "line_start": 12,
+        "line_end": 17,
+        "quote": "## 二、内容分类\n\n* [经济学人 - 周刊, 点击这里下载最新一期](01_economist/te_2026.10.17) , 每周五十一点更新\n* [纽约客 - 周刊, 点击这里下载最新一期](02_new_yorker/2026.10.19) , 每周六上午更新\n* [The Atlantic - 月刊](04_atlantic), 每月2号更新\n* [Wired - 月刊](05_wired), 每月2号更新",
+        "sha256": "2563c560bbbd4c3530cc98c5ce7884fecb95a20a5084226ab399766b7a73ba31",
+        "checked_at": "2026-10-20T15:53:25.550632+00:00"
+      }
+    },
+    "prerequisites": {
+      "value": "阅读mobi需Kindle设备或阅读App；不得把推荐阅读器平台归给本集合",
+      "source": {
+        "url": "https://raw.githubusercontent.com/hehonghui/awesome-english-ebooks/master/README.md",
+        "line_start": 25,
+        "line_end": 29,
+        "quote": "-------------------------------------\n## 三、其他阅读器\n\n1. epub 格式的电子书可以安装 [多看阅读](https://www.duokan.com/product) ,  通过 `wifi传书功能` 通过浏览器将电子书传入到阅读器中, 然后就可以进行阅读;\n2. mobi 格式的电子书需要使用 `kindle设备` 或者在电脑、手机上安装 [kindle 阅读app](https://www.amazon.cn/kindle-dbs/fd/kcp/ref=sv_kinc_0)",
+        "sha256": "2563c560bbbd4c3530cc98c5ce7884fecb95a20a5084226ab399766b7a73ba31",
+        "checked_at": "2026-10-20T15:53:25.550632+00:00"
+      },
+      "complete": false
+    },
+    "license_review": "source files captured where available; no inferred SPDX variant",
+    "checked_by": "independent Codex reviewer; not a human user test",
+    "created_at": "2022-06-28T02:45:44Z",
+    "canonical_full_name": "hehonghui/awesome-english-ebooks",
+    "source_metadata_status": 200,
+    "default_readme_language": "zh",
+    "has_additional_official_chinese_readme": false
+  },
+  {
+    "full_name": "TranslucentTB/TranslucentTB",
+    "sample_stratum": "电视桌面",
+    "actual_scene": "电视桌面",
+    "source_available": true,
+    "purpose": {
+      "value": "调整Windows任务栏透明度",
+      "source": {
+        "url": "https://raw.githubusercontent.com/TranslucentTB/TranslucentTB/HEAD/README.md",
+        "line_start": 10,
+        "line_end": 10,
+        "quote": "A lightweight (uses a few MB of RAM and almost no CPU) utility that makes the Windows taskbar translucent/transparent on Windows 10 and Windows 11.",
+        "sha256": "13745f873964972c6359e1ba03ba1785148cffe2612d72a16c6faa1ee4edda20",
+        "checked_at": "2026-10-20T15:53:26.810185+00:00"
+      }
+    },
+    "form": "desktop_app",
+    "platforms": {
+      "value": [
+        "Windows"
+      ],
+      "source": {
+        "url": "https://raw.githubusercontent.com/TranslucentTB/TranslucentTB/HEAD/README.md",
+        "line_start": 10,
+        "line_end": 10,
+        "quote": "A lightweight (uses a few MB of RAM and almost no CPU) utility that makes the Windows taskbar translucent/transparent on Windows 10 and Windows 11.",
+        "sha256": "13745f873964972c6359e1ba03ba1785148cffe2612d72a16c6faa1ee4edda20",
+        "checked_at": "2026-10-20T15:53:26.810185+00:00"
+      }
+    },
+    "official_entry": {
+      "value": "follow official README entry; no asset-level or installation verification",
+      "source": {
+        "url": "https://raw.githubusercontent.com/TranslucentTB/TranslucentTB/HEAD/README.md",
+        "line_start": 38,
+        "line_end": 46,
+        "quote": "## Download\n\n[<img src=\"https://get.microsoft.com/images/en-us%20dark.svg\" alt=\"Get it from Microsoft\" height=\"104\">](https://apps.microsoft.com/store/detail/9PF4KZ2VN4W9)\n\nYou can download the program for free from the [Microsoft Store](https://www.microsoft.com/store/apps/9PF4KZ2VN4W9) and take advantage of its features like background auto-updates.\n\nAlternatively, you can download `TranslucentTB.appinstaller` [via the releases tab](https://github.com/TranslucentTB/TranslucentTB/releases) and open it to install the app.\n\nA portable version of the app is also available [on GitHub releases](https://github.com/TranslucentTB/TranslucentTB/releases) as `TranslucentTB.zip`, but this version only works on Windows 11.",
+        "sha256": "13745f873964972c6359e1ba03ba1785148cffe2612d72a16c6faa1ee4edda20",
+        "checked_at": "2026-10-20T15:53:26.810185+00:00"
+      }
+    },
+    "prerequisites": {
+      "value": "便携版仅Windows11；安装器面向Windows10/11",
+      "source": {
+        "url": "https://raw.githubusercontent.com/TranslucentTB/TranslucentTB/HEAD/README.md",
+        "line_start": 42,
+        "line_end": 46,
+        "quote": "You can download the program for free from the [Microsoft Store](https://www.microsoft.com/store/apps/9PF4KZ2VN4W9) and take advantage of its features like background auto-updates.\n\nAlternatively, you can download `TranslucentTB.appinstaller` [via the releases tab](https://github.com/TranslucentTB/TranslucentTB/releases) and open it to install the app.\n\nA portable version of the app is also available [on GitHub releases](https://github.com/TranslucentTB/TranslucentTB/releases) as `TranslucentTB.zip`, but this version only works on Windows 11.",
+        "sha256": "13745f873964972c6359e1ba03ba1785148cffe2612d72a16c6faa1ee4edda20",
+        "checked_at": "2026-10-20T15:53:26.810185+00:00"
+      },
+      "complete": false
+    },
+    "license_review": "source files captured where available; no inferred SPDX variant",
+    "checked_by": "independent Codex reviewer; not a human user test",
+    "created_at": "2017-01-10T00:53:17Z",
+    "canonical_full_name": "TranslucentTB/TranslucentTB",
+    "source_metadata_status": 200,
+    "default_readme_language": "en",
+    "has_additional_official_chinese_readme": false
+  },
+  {
+    "full_name": "zacharee/InstallWithOptions",
+    "sample_stratum": "电视桌面",
+    "actual_scene": "电视桌面",
+    "source_available": true,
+    "purpose": {
+      "value": "通过Shizuku进行高级Android应用安装",
+      "source": {
+        "url": "https://raw.githubusercontent.com/zacharee/InstallWithOptions/HEAD/README.md",
+        "line_start": 2,
+        "line_end": 6,
+        "quote": "An app with a simple purpose: more advanced app installs without needing to use ADB.\n\nInstall with Options uses Shizuku to run with shell permissions, allowing you to install test-only apps, bypass Android 14's target SDK limit, downgrade certain packages, and more, all without leaving your phone (at least on Android 11 and later).\n\nIt also supports installing split APKs or batch-installing multiple separate apps.",
+        "sha256": "56a4effdb24f140c6498f359b744d003eb962865606e453e3e1097ff037e690a",
+        "checked_at": "2026-10-20T15:53:19.231537+00:00"
+      }
+    },
+    "form": "mobile_app",
+    "platforms": {
+      "value": [
+        "Android"
+      ],
+      "source": {
+        "url": "https://raw.githubusercontent.com/zacharee/InstallWithOptions/HEAD/README.md",
+        "line_start": 4,
+        "line_end": 4,
+        "quote": "Install with Options uses Shizuku to run with shell permissions, allowing you to install test-only apps, bypass Android 14's target SDK limit, downgrade certain packages, and more, all without leaving your phone (at least on Android 11 and later).",
+        "sha256": "56a4effdb24f140c6498f359b744d003eb962865606e453e3e1097ff037e690a",
+        "checked_at": "2026-10-20T15:53:19.231537+00:00"
+      }
+    },
+    "official_entry": {
+      "value": "follow official README entry; no asset-level or installation verification",
+      "source": {
+        "url": "https://raw.githubusercontent.com/zacharee/InstallWithOptions/HEAD/README.md",
+        "line_start": 8,
+        "line_end": 13,
+        "quote": "## Downloads\n### GitHub\n[![GitHub Release](https://img.shields.io/github/v/release/zacharee/InstallWithOptions?style=for-the-badge&logo=github&label=Install%20with%20Options&color=orange)](https://github.com/zacharee/InstallWithOptions/releases)\n\n### IzzyOnDroid\n[![Install with Options](https://img.shields.io/endpoint?url=https%3A%2F%2Fapt.izzysoft.de%2Ffdroid%2Fapi%2Fv1%2Fshield%2Fdev.zwander.installwithoptions&style=for-the-badge&logo=f-droid&label=Install%20with%20Options)](https://apt.izzysoft.de/fdroid/index/apk/dev.zwander.installwithoptions/)",
+        "sha256": "56a4effdb24f140c6498f359b744d003eb962865606e453e3e1097ff037e690a",
+        "checked_at": "2026-10-20T15:53:19.231537+00:00"
+      }
+    },
+    "prerequisites": {
+      "value": "依赖Shizuku；Mediatek设备不适用Shizuku13.6.0，需按官方处理",
+      "source": {
+        "url": "https://raw.githubusercontent.com/zacharee/InstallWithOptions/HEAD/README.md",
+        "line_start": 15,
+        "line_end": 18,
+        "quote": "## Shizuku\nInstall with Options uses Shizuku to gain elevated permissions needed to install apps. It should be compatible with the original Shizuku and any forks using different package names or hiding themselves.\n\nNote that on Mediatek devices, version 13.6.0 of Shizuku does not work. The fix has been merged in the Shizuku repo, but it's been almost a year since 13.6.0 was released. If you have a Mediatek device, either downgrade to Shizuku 13.5.4, or use a fork (e.g., [thedjchi's Shizuku](https://github.com/thedjchi/Shizuku)).",
+        "sha256": "56a4effdb24f140c6498f359b744d003eb962865606e453e3e1097ff037e690a",
+        "checked_at": "2026-10-20T15:53:19.231537+00:00"
+      },
+      "complete": false
+    },
+    "license_review": "source files captured where available; no inferred SPDX variant",
+    "checked_by": "independent Codex reviewer; not a human user test",
+    "created_at": "2024-01-14T03:25:36Z",
+    "canonical_full_name": "zacharee/InstallWithOptions",
+    "source_metadata_status": 200,
+    "default_readme_language": "en",
+    "has_additional_official_chinese_readme": false
+  },
+  {
+    "full_name": "Cateners/tiny_computer",
+    "sample_stratum": "电视桌面",
+    "actual_scene": "电视桌面",
+    "source_available": true,
+    "purpose": {
+      "value": "在Android手机平板中运行Linux桌面软件",
+      "source": {
+        "url": "https://raw.githubusercontent.com/Cateners/tiny_computer/HEAD/README.md",
+        "line_start": 8,
+        "line_end": 8,
+        "quote": "### Install Tiny Container and instantly get a Linux computer* — run PC software right on your phone or tablet!",
+        "sha256": "20a97fe5fb33438e9d1f0f56d91803fcdd20134cdbe8f0e28a04fbe72a19150f",
+        "checked_at": "2026-10-20T15:53:27.918315+00:00"
+      }
+    },
+    "form": "mobile_app",
+    "platforms": {
+      "value": [
+        "Android"
+      ],
+      "source": {
+        "url": "https://raw.githubusercontent.com/Cateners/tiny_computer/HEAD/README.md",
+        "line_start": 32,
+        "line_end": 32,
+        "quote": "    - Add .desktop files or even arbitrary commands as shortcuts to your Android launcher!",
+        "sha256": "20a97fe5fb33438e9d1f0f56d91803fcdd20134cdbe8f0e28a04fbe72a19150f",
+        "checked_at": "2026-10-20T15:53:27.918315+00:00"
+      }
+    },
+    "official_entry": {
+      "value": "follow official README entry; no asset-level or installation verification",
+      "source": {
+        "url": "https://raw.githubusercontent.com/Cateners/tiny_computer/HEAD/README.md",
+        "line_start": 51,
+        "line_end": 59,
+        "quote": "## Download\n\nAPKs are available on the [releases](https://github.com/Cateners/tiny_container/releases) page.\n\n## Build\n\nAfter cloning the repository, download the prebuilt library jniLibs.zip from the releases page and extract it to app/src/main/jniLibs/arm64-v8a. Then you can open and build the project normally in Android Studio.  \nFor automatic container installation on first launch, rename your container to rootfs.tar.zst and place it in app/src/main/assets.  \nFor container information, including how to make your own containers and some pre-built containers I've already prepared, check out [this](https://github.com/tiny-computer/images) repository.",
+        "sha256": "20a97fe5fb33438e9d1f0f56d91803fcdd20134cdbe8f0e28a04fbe72a19150f",
+        "checked_at": "2026-10-20T15:53:27.918315+00:00"
+      }
+    },
+    "prerequisites": {
+      "value": "不支持chroot、Docker/systemd、Mali GPU加速等，不能宣传完整桌面兼容",
+      "source": {
+        "url": "https://raw.githubusercontent.com/Cateners/tiny_computer/HEAD/README.md",
+        "line_start": 43,
+        "line_end": 49,
+        "quote": "What I won't do: \n- Support chroot containers. For the first three years of this project, people occasionally asked me to support it, usually citing \"better performance\".  \n  While that's true in theory, no one has ever provided actual benchmark data showing under what scenarios proot's slowness becomes a performance bottleneck. Since I have no experience developing apps that use root (and managing root seems like a huge hassle), I won't be supporting chroot.  \n  In short, if you really need it, use Termux! If you need automated setup, try Kali Nethunter or similar.\n- Support Mali GPU acceleration; Wayland; Docker, systemd; GNOME; some specific distro; camera, serial port, etc... (^-^*)  \n  No wish-listing please! If the community comes up with solutions, I may add them in.  \n  As for other distros, you can actually check out the [images repo](https://github.com/tiny-computer/images) and give it a try yourself.",
+        "sha256": "20a97fe5fb33438e9d1f0f56d91803fcdd20134cdbe8f0e28a04fbe72a19150f",
+        "checked_at": "2026-10-20T15:53:27.918315+00:00"
+      },
+      "complete": false
+    },
+    "license_review": "source files captured where available; no inferred SPDX variant",
+    "checked_by": "independent Codex reviewer; not a human user test",
+    "created_at": "2023-08-29T15:06:27Z",
+    "canonical_full_name": "Cateners/tiny_container",
+    "source_metadata_status": 200,
+    "default_readme_language": "en",
+    "has_additional_official_chinese_readme": true
+  },
+  {
+    "full_name": "valinet/ExplorerPatcher",
+    "sample_stratum": "电视桌面",
+    "actual_scene": "电视桌面",
+    "source_available": true,
+    "purpose": {
+      "value": "调整Windows任务栏和开始菜单工作环境",
+      "source": {
+        "url": "https://raw.githubusercontent.com/valinet/ExplorerPatcher/HEAD/README.md",
+        "line_start": 3,
+        "line_end": 13,
+        "quote": "This project aims to enhance the working environment on Windows.\n\n## How to?\n\n1. Download the latest setup program from the [Releases page](https://github.com/valinet/ExplorerPatcher/releases/latest).\n   * Choose `ep_setup.exe` if your device uses an Intel or AMD processor, or `ep_setup_arm64.exe` if your device uses a Snapdragon processor.\n2. Run the installer. It will automatically prompt for elevation, after which it will close `explorer.exe` and install the necessary files. When done, you will see the desktop again and the Windows 10 taskbar.\n3. Right-click the taskbar and choose \"Properties\".\n4. To change the taskbar style, go to the \"Taskbar\" section and look for \"Taskbar style\".\n5. To use the Windows 10 Start menu, go to the \"Start menu\" section and change the Start menu style to Windows 10.\n6. To use the Windows 10 Alt+Tab, go to the \"Window switcher\" section and change the \"Window switcher (Alt+Tab) style\" to Windows 10.",
+        "sha256": "a9efbaab97cf943410dee82c122f5eb4d2003e505c0a7c130194df573e22267e",
+        "checked_at": "2026-10-20T15:53:21.878767+00:00"
+      }
+    },
+    "form": "desktop_app",
+    "platforms": {
+      "value": [
+        "Windows"
+      ],
+      "source": {
+        "url": "https://raw.githubusercontent.com/valinet/ExplorerPatcher/HEAD/README.md",
+        "line_start": 3,
+        "line_end": 3,
+        "quote": "This project aims to enhance the working environment on Windows.",
+        "sha256": "a9efbaab97cf943410dee82c122f5eb4d2003e505c0a7c130194df573e22267e",
+        "checked_at": "2026-10-20T15:53:21.878767+00:00"
+      }
+    },
+    "official_entry": {
+      "value": "follow official README entry; no asset-level or installation verification",
+      "source": {
+        "url": "https://raw.githubusercontent.com/valinet/ExplorerPatcher/HEAD/README.md",
+        "line_start": 5,
+        "line_end": 18,
+        "quote": "## How to?\n\n1. Download the latest setup program from the [Releases page](https://github.com/valinet/ExplorerPatcher/releases/latest).\n   * Choose `ep_setup.exe` if your device uses an Intel or AMD processor, or `ep_setup_arm64.exe` if your device uses a Snapdragon processor.\n2. Run the installer. It will automatically prompt for elevation, after which it will close `explorer.exe` and install the necessary files. When done, you will see the desktop again and the Windows 10 taskbar.\n3. Right-click the taskbar and choose \"Properties\".\n4. To change the taskbar style, go to the \"Taskbar\" section and look for \"Taskbar style\".\n5. To use the Windows 10 Start menu, go to the \"Start menu\" section and change the Start menu style to Windows 10.\n6. To use the Windows 10 Alt+Tab, go to the \"Window switcher\" section and change the \"Window switcher (Alt+Tab) style\" to Windows 10.\n7. Feel free to check other configuration options.\n\nThat's it!\n\n**Note:** Some features may be unavailable on some Windows versions.",
+        "sha256": "a9efbaab97cf943410dee82c122f5eb4d2003e505c0a7c130194df573e22267e",
+        "checked_at": "2026-10-20T15:53:21.878767+00:00"
+      }
+    },
+    "prerequisites": {
+      "value": "安装器需要提升权限；部分功能依Windows版本不可用",
+      "source": {
+        "url": "https://raw.githubusercontent.com/valinet/ExplorerPatcher/HEAD/README.md",
+        "line_start": 7,
+        "line_end": 18,
+        "quote": "1. Download the latest setup program from the [Releases page](https://github.com/valinet/ExplorerPatcher/releases/latest).\n   * Choose `ep_setup.exe` if your device uses an Intel or AMD processor, or `ep_setup_arm64.exe` if your device uses a Snapdragon processor.\n2. Run the installer. It will automatically prompt for elevation, after which it will close `explorer.exe` and install the necessary files. When done, you will see the desktop again and the Windows 10 taskbar.\n3. Right-click the taskbar and choose \"Properties\".\n4. To change the taskbar style, go to the \"Taskbar\" section and look for \"Taskbar style\".\n5. To use the Windows 10 Start menu, go to the \"Start menu\" section and change the Start menu style to Windows 10.\n6. To use the Windows 10 Alt+Tab, go to the \"Window switcher\" section and change the \"Window switcher (Alt+Tab) style\" to Windows 10.\n7. Feel free to check other configuration options.\n\nThat's it!\n\n**Note:** Some features may be unavailable on some Windows versions.",
+        "sha256": "a9efbaab97cf943410dee82c122f5eb4d2003e505c0a7c130194df573e22267e",
+        "checked_at": "2026-10-20T15:53:21.878767+00:00"
+      },
+      "complete": false
+    },
+    "license_review": "source files captured where available; no inferred SPDX variant",
+    "checked_by": "independent Codex reviewer; not a human user test",
+    "created_at": "2021-08-09T14:17:24Z",
+    "canonical_full_name": "valinet/ExplorerPatcher",
+    "source_metadata_status": 200,
+    "default_readme_language": "en",
+    "has_additional_official_chinese_readme": false
+  },
+  {
+    "full_name": "WinCaffeine/Caffeine",
+    "sample_stratum": "电视桌面",
+    "actual_scene": "电视桌面",
+    "source_available": false,
+    "purpose": {
+      "value": null,
+      "source": null
+    },
+    "form": "unknown",
+    "platforms": {
+      "value": [],
+      "source": null
+    },
+    "official_entry": {
+      "value": null,
+      "source": null
+    },
+    "prerequisites": {
+      "value": null,
+      "source": null,
+      "complete": false
+    },
+    "license_review": "source files captured where available; no inferred SPDX variant",
+    "checked_by": "independent Codex reviewer; not a human user test",
+    "created_at": null,
+    "canonical_full_name": null,
+    "source_metadata_status": 404,
+    "default_readme_language": "unknown",
+    "has_additional_official_chinese_readme": false
+  },
+  {
+    "full_name": "jgm/pandoc",
+    "sample_stratum": "文件转换",
+    "actual_scene": "文件转换",
+    "source_available": true,
+    "purpose": {
+      "value": "标记文档格式转换库与命令行工具",
+      "source": {
+        "url": "https://raw.githubusercontent.com/jgm/pandoc/HEAD/README.md",
+        "line_start": 21,
+        "line_end": 25,
+        "quote": "## The universal markup converter\n\nPandoc is a [Haskell](https://haskell.org) library for converting from\none markup format to another, and a command-line tool that uses this\nlibrary.",
+        "sha256": "4375d3060e00abfa1ec0013bfef122f1e678ad40013a7a18e4e4214d4f0c427d",
+        "checked_at": "2026-10-20T15:53:27.604513+00:00"
+      }
+    },
+    "form": "cli",
+    "platforms": {
+      "value": [],
+      "source": null
+    },
+    "official_entry": {
+      "value": "follow official README entry; no asset-level or installation verification",
+      "source": {
+        "url": "https://raw.githubusercontent.com/jgm/pandoc/HEAD/README.md",
+        "line_start": 280,
+        "line_end": 282,
+        "quote": "## Installing\n\nHere’s [how to install pandoc](INSTALL.md).",
+        "sha256": "4375d3060e00abfa1ec0013bfef122f1e678ad40013a7a18e4e4214d4f0c427d",
+        "checked_at": "2026-10-20T15:53:27.604513+00:00"
+      }
+    },
+    "prerequisites": {
+      "value": "PDF输出要通过LaTeX/Groff/HTML等引擎；不保证保留全部格式",
+      "source": {
+        "url": "https://raw.githubusercontent.com/jgm/pandoc/HEAD/README.md",
+        "line_start": 254,
+        "line_end": 278,
+        "quote": "Pandoc can also produce PDF output via LaTeX, Groff ms, or HTML.\n\nPandoc’s enhanced version of Markdown includes syntax for tables,\ndefinition lists, metadata blocks, footnotes, citations, math, and much\nmore. See the User’s Manual below under [Pandoc’s\nMarkdown](https://pandoc.org/MANUAL.html#pandocs-markdown).\n\nPandoc has a modular design: it consists of a set of readers, which\nparse text in a given format and produce a native representation of the\ndocument (an *abstract syntax tree* or AST), and a set of writers, which\nconvert this native representation into a target format. Thus, adding an\ninput or output format requires only adding a reader or writer. Users\ncan also run custom pandoc filters to modify the intermediate AST (see\nthe documentation for [filters](https://pandoc.org/filters.html) and\n[Lua filters](https://pandoc.org/lua-filters.html)).\n\nBecause pandoc’s intermediate representation of a document is less\nexpressive than many of the formats it converts between, one should not\nexpect perfect conversions between every format and every other. Pandoc\nattempts to preserve the structural elements of a document, but not\nformatting details such as margin size. And some document elements, such\nas complex tables, may not fit into pandoc’s simple document model.\nWhile conversions from pandoc’s Markdown to all formats aspire to be\nperfect, conversions from formats more expressive than pandoc’s Markdown\ncan be expected to be lossy.",
+        "sha256": "4375d3060e00abfa1ec0013bfef122f1e678ad40013a7a18e4e4214d4f0c427d",
+        "checked_at": "2026-10-20T15:53:27.604513+00:00"
+      },
+      "complete": false
+    },
+    "license_review": "source files captured where available; no inferred SPDX variant",
+    "checked_by": "independent Codex reviewer; not a human user test",
+    "created_at": "2010-03-20T20:34:23Z",
+    "canonical_full_name": "jgm/pandoc",
+    "source_metadata_status": 200,
+    "default_readme_language": "en",
+    "has_additional_official_chinese_readme": false
+  },
+  {
+    "full_name": "h2non/imaginary",
+    "sample_stratum": "文件转换",
+    "actual_scene": "文件转换",
+    "source_available": true,
+    "purpose": {
+      "value": "以HTTP服务处理并转换图片",
+      "source": {
+        "url": "https://raw.githubusercontent.com/h2non/imaginary/HEAD/README.md",
+        "line_start": 3,
+        "line_end": 11,
+        "quote": "**[Fast](#benchmarks) HTTP [microservice](http://microservices.io/patterns/microservices.html)** written in Go **for high-level image processing** backed by [bimg](https://github.com/h2non/bimg) and [libvips](https://github.com/jcupitt/libvips). `imaginary` can be used as private or public HTTP service for massive image processing with first-class support for [Docker](#docker) & [Fly.io](#flyio).\nIt's almost dependency-free and only uses [`net/http`](http://golang.org/pkg/net/http/) native package without additional abstractions for better [performance](#performance).\n\nSupports multiple [image operations](#supported-image-operations) exposed as a simple [HTTP API](#http-api),\nwith additional optional features such as **API token authorization**, **URL signature protection**, **HTTP traffic throttle** strategy and **CORS support** for web clients.\n\n`imaginary` **can read** images **from HTTP POST payloads**, **server local path** or **remote HTTP servers**, supporting **JPEG**, **PNG**, **WEBP**, **HEIF**, and optionally **TIFF**, **PDF**, **GIF** and **SVG** formats if `libvips@8.3+` is compiled with proper library bindings.\n\n`imaginary` is able to output images as JPEG, PNG and WEBP formats, including transparent conversion across them.",
+        "sha256": "bf7e9688871e4a5ba04ac37f573ac62dfed03c289547bda1da1bb4f972f0d2fc",
+        "checked_at": "2026-10-20T15:53:21.528109+00:00"
+      }
+    },
+    "form": "self_hosted",
+    "platforms": {
+      "value": [
+        "macOS",
+        "Linux"
+      ],
+      "source": {
+        "url": "https://raw.githubusercontent.com/h2non/imaginary/HEAD/README.md",
+        "line_start": 91,
+        "line_end": 98,
+        "quote": "### libvips\n\nRun the following script as `sudo` (supports OSX, Debian/Ubuntu, Redhat, Fedora, Amazon Linux):\n```bash\ncurl -s https://raw.githubusercontent.com/h2non/bimg/master/preinstall.sh | sudo bash -\n```\n\nThe [install script](https://github.com/h2non/bimg/blob/master/preinstall.sh) requires `curl` and `pkg-config`",
+        "sha256": "bf7e9688871e4a5ba04ac37f573ac62dfed03c289547bda1da1bb4f972f0d2fc",
+        "checked_at": "2026-10-20T15:53:21.528109+00:00"
+      }
+    },
+    "official_entry": {
+      "value": "follow official README entry; no asset-level or installation verification",
+      "source": {
+        "url": "https://raw.githubusercontent.com/h2non/imaginary/HEAD/README.md",
+        "line_start": 80,
+        "line_end": 105,
+        "quote": "## Installation\n\n```bash\ngo get -u github.com/h2non/imaginary\n```\n\nAlso, be sure you have the latest version of `bimg`:\n```bash\ngo get -u github.com/h2non/bimg\n```\n\n### libvips\n\nRun the following script as `sudo` (supports OSX, Debian/Ubuntu, Redhat, Fedora, Amazon Linux):\n```bash\ncurl -s https://raw.githubusercontent.com/h2non/bimg/master/preinstall.sh | sudo bash -\n```\n\nThe [install script](https://github.com/h2non/bimg/blob/master/preinstall.sh) requires `curl` and `pkg-config`\n\n### Docker\n\nSee [Dockerfile](https://github.com/h2non/imaginary/blob/master/Dockerfile) for image details.\n\nFetch the image (comes with latest stable Go and `libvips` versions)\n```",
+        "sha256": "bf7e9688871e4a5ba04ac37f573ac62dfed03c289547bda1da1bb4f972f0d2fc",
+        "checked_at": "2026-10-20T15:53:21.528109+00:00"
+      }
+    },
+    "prerequisites": {
+      "value": "自行运行服务；本地安装需Go/bimg/libvips，脚本需curl/pkg-config",
+      "source": {
+        "url": "https://raw.githubusercontent.com/h2non/imaginary/HEAD/README.md",
+        "line_start": 80,
+        "line_end": 105,
+        "quote": "## Installation\n\n```bash\ngo get -u github.com/h2non/imaginary\n```\n\nAlso, be sure you have the latest version of `bimg`:\n```bash\ngo get -u github.com/h2non/bimg\n```\n\n### libvips\n\nRun the following script as `sudo` (supports OSX, Debian/Ubuntu, Redhat, Fedora, Amazon Linux):\n```bash\ncurl -s https://raw.githubusercontent.com/h2non/bimg/master/preinstall.sh | sudo bash -\n```\n\nThe [install script](https://github.com/h2non/bimg/blob/master/preinstall.sh) requires `curl` and `pkg-config`\n\n### Docker\n\nSee [Dockerfile](https://github.com/h2non/imaginary/blob/master/Dockerfile) for image details.\n\nFetch the image (comes with latest stable Go and `libvips` versions)\n```",
+        "sha256": "bf7e9688871e4a5ba04ac37f573ac62dfed03c289547bda1da1bb4f972f0d2fc",
+        "checked_at": "2026-10-20T15:53:21.528109+00:00"
+      },
+      "complete": false
+    },
+    "license_review": "source files captured where available; no inferred SPDX variant",
+    "checked_by": "independent Codex reviewer; not a human user test",
+    "created_at": "2015-03-04T18:51:40Z",
+    "canonical_full_name": "h2non/imaginary",
+    "source_metadata_status": 200,
+    "default_readme_language": "en",
+    "has_additional_official_chinese_readme": false
+  },
+  {
+    "full_name": "PDFMathTranslate/PDFMathTranslate",
+    "sample_stratum": "文件转换",
+    "actual_scene": "文件转换",
+    "source_available": true,
+    "purpose": {
+      "value": "翻译科学PDF并保留版式",
+      "source": {
+        "url": "https://raw.githubusercontent.com/PDFMathTranslate/PDFMathTranslate/HEAD/README.md",
+        "line_start": 53,
+        "line_end": 57,
+        "quote": "Scientific PDF document translation preserving layouts.\n\n- 📊 Preserve formulas, charts, table of contents, and annotations.\n- 🌐 Support [multiple languages](#usage), and diverse [translation services](#usage).\n- 🤖 Provides [commandline tool](#usage), [interactive user interface](#install), and [Docker](#install)",
+        "sha256": "a59fc6c0e5860a4b5713d79e3babce036d90df2dddc06eef91c548c278e652fb",
+        "checked_at": "2026-10-20T15:53:23.298677+00:00"
+      }
+    },
+    "form": "web_app",
+    "platforms": {
+      "value": [],
+      "source": null
+    },
+    "official_entry": {
+      "value": "follow official README entry; no asset-level or installation verification",
+      "source": {
+        "url": "https://raw.githubusercontent.com/PDFMathTranslate/PDFMathTranslate/HEAD/README.md",
+        "line_start": 85,
+        "line_end": 90,
+        "quote": "You can try our application out using either of the following demos:\n\n- [Public free service](https://pdf2zh.com/) online without installation _(recommended)_.\n- [Immersive Translate - BabelDOC](https://app.immersivetranslate.com/babel-doc/) Free usage quota is available; please refer to the FAQ section on the page for details. _(recommended)_\n- [Demo hosted on HuggingFace](https://huggingface.co/spaces/reycn/PDFMathTranslate-Docker)\n- [Demo hosted on ModelScope](https://www.modelscope.cn/studios/AI-ModelScope/PDFMathTranslate) without installation.",
+        "sha256": "a59fc6c0e5860a4b5713d79e3babce036d90df2dddc06eef91c548c278e652fb",
+        "checked_at": "2026-10-20T15:53:23.298677+00:00"
+      }
+    },
+    "prerequisites": {
+      "value": "本地Python方式需3.11至3.12；不同运行路径分别判断",
+      "source": {
+        "url": "https://raw.githubusercontent.com/PDFMathTranslate/PDFMathTranslate/HEAD/README.md",
+        "line_start": 99,
+        "line_end": 107,
+        "quote": "  <summary>3.2.1 Python: Install using uv</summary>\n\n1. Python installed (3.11 <= version <= 3.12)\n\n2. Install our package:\n\n   ```bash\n   pip install uv\n   uv tool install --python 3.12 pdf2zh",
+        "sha256": "a59fc6c0e5860a4b5713d79e3babce036d90df2dddc06eef91c548c278e652fb",
+        "checked_at": "2026-10-20T15:53:23.298677+00:00"
+      },
+      "complete": false
+    },
+    "license_review": "source files captured where available; no inferred SPDX variant",
+    "checked_by": "independent Codex reviewer; not a human user test",
+    "created_at": "2024-09-06T06:56:03Z",
+    "canonical_full_name": "PDFMathTranslate/PDFMathTranslate",
+    "source_metadata_status": 200,
+    "default_readme_language": "en",
+    "has_additional_official_chinese_readme": true
+  },
+  {
+    "full_name": "squoosh/squoosh",
+    "sample_stratum": "文件转换",
+    "actual_scene": "文件转换",
+    "source_available": false,
+    "purpose": {
+      "value": null,
+      "source": null
+    },
+    "form": "unknown",
+    "platforms": {
+      "value": [],
+      "source": null
+    },
+    "official_entry": {
+      "value": null,
+      "source": null
+    },
+    "prerequisites": {
+      "value": null,
+      "source": null,
+      "complete": false
+    },
+    "license_review": "source files captured where available; no inferred SPDX variant",
+    "checked_by": "independent Codex reviewer; not a human user test",
+    "created_at": null,
+    "canonical_full_name": null,
+    "source_metadata_status": 404,
+    "default_readme_language": "unknown",
+    "has_additional_official_chinese_readme": false
+  },
+  {
+    "full_name": "ocrmypdf/OCRmyPDF",
+    "sample_stratum": "文件转换",
+    "actual_scene": "文件转换",
+    "source_available": true,
+    "purpose": {
+      "value": "给扫描PDF添加可搜索复制的OCR文字层",
+      "source": {
+        "url": "https://raw.githubusercontent.com/ocrmypdf/OCRmyPDF/HEAD/README.md",
+        "line_start": 14,
+        "line_end": 14,
+        "quote": "OCRmyPDF adds an OCR text layer to scanned PDF files, allowing them to be searched or copy-pasted.",
+        "sha256": "b10f4270559ee2963754c1593dc25eabee971c7c1aedb597e23425cd17c9aca0",
+        "checked_at": "2026-10-20T15:53:26.843406+00:00"
+      }
+    },
+    "form": "cli",
+    "platforms": {
+      "value": [
+        "Linux",
+        "Windows",
+        "macOS",
+        "FreeBSD"
+      ],
+      "source": {
+        "url": "https://raw.githubusercontent.com/ocrmypdf/OCRmyPDF/HEAD/README.md",
+        "line_start": 63,
+        "line_end": 76,
+        "quote": "## Installation\n\nLinux, Windows, macOS and FreeBSD are supported. Docker images are also available, for both x64 and ARM.\n\n| Operating system              | Install command               |\n| ----------------------------- | ------------------------------|\n| Debian, Ubuntu                | ``apt install ocrmypdf``      |\n| Windows Subsystem for Linux   | ``apt install ocrmypdf``      |\n| Fedora                        | ``dnf install ocrmypdf``      |\n| macOS (Homebrew)              | ``brew install ocrmypdf``     |\n| macOS (MacPorts)              | ``port install ocrmypdf``     |\n| macOS (nix)                   | ``nix-env -i ocrmypdf``       |\n| LinuxBrew                     | ``brew install ocrmypdf``     |\n| FreeBSD                       | ``pkg install py-ocrmypdf``   |",
+        "sha256": "b10f4270559ee2963754c1593dc25eabee971c7c1aedb597e23425cd17c9aca0",
+        "checked_at": "2026-10-20T15:53:26.843406+00:00"
+      }
+    },
+    "official_entry": {
+      "value": "follow official README entry; no asset-level or installation verification",
+      "source": {
+        "url": "https://raw.githubusercontent.com/ocrmypdf/OCRmyPDF/HEAD/README.md",
+        "line_start": 63,
+        "line_end": 80,
+        "quote": "## Installation\n\nLinux, Windows, macOS and FreeBSD are supported. Docker images are also available, for both x64 and ARM.\n\n| Operating system              | Install command               |\n| ----------------------------- | ------------------------------|\n| Debian, Ubuntu                | ``apt install ocrmypdf``      |\n| Windows Subsystem for Linux   | ``apt install ocrmypdf``      |\n| Fedora                        | ``dnf install ocrmypdf``      |\n| macOS (Homebrew)              | ``brew install ocrmypdf``     |\n| macOS (MacPorts)              | ``port install ocrmypdf``     |\n| macOS (nix)                   | ``nix-env -i ocrmypdf``       |\n| LinuxBrew                     | ``brew install ocrmypdf``     |\n| FreeBSD                       | ``pkg install py-ocrmypdf``   |\n| OpenBSD                       | ``pkg_add ocrmypdf``          |\n| Ubuntu Snap                   | ``snap install ocrmypdf``     |\n\nFor everyone else, [see our documentation](https://ocrmypdf.readthedocs.io/en/latest/installation.html) for installation steps.",
+        "sha256": "b10f4270559ee2963754c1593dc25eabee971c7c1aedb597e23425cd17c9aca0",
+        "checked_at": "2026-10-20T15:53:26.843406+00:00"
+      }
+    },
+    "prerequisites": {
+      "value": "Windows所列apt方式为WSL，不等于Windows原生安装器",
+      "source": {
+        "url": "https://raw.githubusercontent.com/ocrmypdf/OCRmyPDF/HEAD/README.md",
+        "line_start": 67,
+        "line_end": 76,
+        "quote": "| Operating system              | Install command               |\n| ----------------------------- | ------------------------------|\n| Debian, Ubuntu                | ``apt install ocrmypdf``      |\n| Windows Subsystem for Linux   | ``apt install ocrmypdf``      |\n| Fedora                        | ``dnf install ocrmypdf``      |\n| macOS (Homebrew)              | ``brew install ocrmypdf``     |\n| macOS (MacPorts)              | ``port install ocrmypdf``     |\n| macOS (nix)                   | ``nix-env -i ocrmypdf``       |\n| LinuxBrew                     | ``brew install ocrmypdf``     |\n| FreeBSD                       | ``pkg install py-ocrmypdf``   |",
+        "sha256": "b10f4270559ee2963754c1593dc25eabee971c7c1aedb597e23425cd17c9aca0",
+        "checked_at": "2026-10-20T15:53:26.843406+00:00"
+      },
+      "complete": false
+    },
+    "license_review": "source files captured where available; no inferred SPDX variant",
+    "checked_by": "independent Codex reviewer; not a human user test",
+    "created_at": "2013-12-20T08:26:28Z",
+    "canonical_full_name": "ocrmypdf/OCRmyPDF",
+    "source_metadata_status": 200,
+    "default_readme_language": "en",
+    "has_additional_official_chinese_readme": false
+  },
+  {
+    "full_name": "kaitai-io/kaitai_struct",
+    "sample_stratum": "文件转换",
+    "actual_scene": "范围外",
+    "source_available": true,
+    "purpose": {
+      "value": "描述二进制结构并生成解析器源码",
+      "source": {
+        "url": "https://raw.githubusercontent.com/kaitai-io/kaitai_struct/HEAD/README.md",
+        "line_start": 10,
+        "line_end": 22,
+        "quote": "## What is Kaitai Struct?\n\nKaitai Struct (KS) is a declarative language used to describe various\nbinary data structures, laid out in files or in memory: i.e. binary\nfile formats, network stream packet formats, etc.\n\nThe main idea is that a particular format is described in Kaitai\nStruct language (`.ksy` file) only once and then can be compiled with\n`kaitai-struct-compiler` (or `ksc` for short) into source files in one\nof the supported programming languages. These modules will include\ngenerated code for a parser that can read the described data structure\nfrom a file or stream and provide access to it in a nice,\neasy-to-comprehend API.",
+        "sha256": "e01327380ffa5ae91313fd89d335622517d92a3df444280ad5f7b518a6437b62",
+        "checked_at": "2026-10-20T15:53:31.553838+00:00"
+      }
+    },
+    "form": "framework",
+    "platforms": {
+      "value": [],
+      "source": null
+    },
+    "official_entry": {
+      "value": "follow official README entry; no asset-level or installation verification",
+      "source": {
+        "url": "https://raw.githubusercontent.com/kaitai-io/kaitai_struct/HEAD/README.md",
+        "line_start": 40,
+        "line_end": 59,
+        "quote": "## Using KS in your project\n\nTypically, using formats described in KS in your project involves the\nfollowing steps:\n\n* Describe the format — i.e. create a `.ksy` file\n* Use a visualizer to debug the format and ensure that it parses data\n  properly (official visualizers are [Web IDE](https://ide.kaitai.io/)\n  and the console visualizer\n  [ksv](https://github.com/kaitai-io/kaitai_struct_visualizer))\n* Compile the `.ksy` file into a target language source file and include\n  that file in your project\n* Add the KS runtime library for your particular language to your\n  project (don't worry, it's small and it's there mostly to ensure\n  readability of generated code)\n* Use the generated class(es) to parse your binary file or stream and\n  access its components\n\nTo see an example, a list of supported languages, download instructions\nand licensing information, visit https://kaitai.io/.",
+        "sha256": "e01327380ffa5ae91313fd89d335622517d92a3df444280ad5f7b518a6437b62",
+        "checked_at": "2026-10-20T15:53:31.553838+00:00"
+      }
+    },
+    "prerequisites": {
+      "value": "需描述.ksy、编译至目标语言并加入对应运行库",
+      "source": {
+        "url": "https://raw.githubusercontent.com/kaitai-io/kaitai_struct/HEAD/README.md",
+        "line_start": 40,
+        "line_end": 56,
+        "quote": "## Using KS in your project\n\nTypically, using formats described in KS in your project involves the\nfollowing steps:\n\n* Describe the format — i.e. create a `.ksy` file\n* Use a visualizer to debug the format and ensure that it parses data\n  properly (official visualizers are [Web IDE](https://ide.kaitai.io/)\n  and the console visualizer\n  [ksv](https://github.com/kaitai-io/kaitai_struct_visualizer))\n* Compile the `.ksy` file into a target language source file and include\n  that file in your project\n* Add the KS runtime library for your particular language to your\n  project (don't worry, it's small and it's there mostly to ensure\n  readability of generated code)\n* Use the generated class(es) to parse your binary file or stream and\n  access its components",
+        "sha256": "e01327380ffa5ae91313fd89d335622517d92a3df444280ad5f7b518a6437b62",
+        "checked_at": "2026-10-20T15:53:31.553838+00:00"
+      },
+      "complete": false
+    },
+    "license_review": "source files captured where available; no inferred SPDX variant",
+    "checked_by": "independent Codex reviewer; not a human user test",
+    "created_at": "2016-02-20T15:17:00Z",
+    "canonical_full_name": "kaitai-io/kaitai_struct",
+    "source_metadata_status": 200,
+    "default_readme_language": "en",
+    "has_additional_official_chinese_readme": false
+  },
+  {
+    "full_name": "bootandy/dust",
+    "sample_stratum": "文件查找",
+    "actual_scene": "文件查找",
+    "source_available": true,
+    "purpose": {
+      "value": "查看哪些目录占用磁盘空间",
+      "source": {
+        "url": "https://raw.githubusercontent.com/bootandy/dust/HEAD/README.md",
+        "line_start": 6,
+        "line_end": 10,
+        "quote": "du + rust = dust. Like du but more intuitive.\n\n# Why\n\nBecause I want an easy way to see where my disk is being used.",
+        "sha256": "b84fccb8bb0e3263e8acd2166672fbafb5c2c31e0494327d710fd3b68b3628de",
+        "checked_at": "2026-10-20T15:53:30.382060+00:00"
+      }
+    },
+    "form": "cli",
+    "platforms": {
+      "value": [
+        "Linux",
+        "macOS",
+        "Windows"
+      ],
+      "source": {
+        "url": "https://raw.githubusercontent.com/bootandy/dust/HEAD/README.md",
+        "line_start": 32,
+        "line_end": 36,
+        "quote": "## Install\n\n### Quick Install (Linux, macOS, Windows) \n```bash\ncurl -sSfL https://raw.githubusercontent.com/bootandy/dust/refs/heads/master/install.sh | sh",
+        "sha256": "b84fccb8bb0e3263e8acd2166672fbafb5c2c31e0494327d710fd3b68b3628de",
+        "checked_at": "2026-10-20T15:53:30.382060+00:00"
+      }
+    },
+    "official_entry": {
+      "value": "follow official README entry; no asset-level or installation verification",
+      "source": {
+        "url": "https://raw.githubusercontent.com/bootandy/dust/HEAD/README.md",
+        "line_start": 32,
+        "line_end": 61,
+        "quote": "## Install\n\n### Quick Install (Linux, macOS, Windows) \n```bash\ncurl -sSfL https://raw.githubusercontent.com/bootandy/dust/refs/heads/master/install.sh | sh\n```\n\n### Cargo <a href=\"https://repology.org/project/du-dust/versions\"><img src=\"https://repology.org/badge/vertical-allrepos/du-dust.svg\" alt=\"Packaging status\" align=\"right\"></a>\n\n#### Cargo\n\n- `cargo install du-dust`\n\n#### 🍺 Homebrew (Mac OS)\n\n- `brew install dust`\n\n#### 🍺 Homebrew (Linux)\n\n- `brew install dust`\n\n#### DNF (Fedora Linux)\n\n- `sudo dnf install du-dust`\n\n#### [Snap](https://ubuntu.com/core/services/guide/snaps-intro) Ubuntu and [supported systems](https://snapcraft.io/docs/installing-snapd)\n\n- `snap install dust`\n\nNote: `dust` installed through `snap` can only access files stored in the `/home` directory. See danie-dejager/dust-snap#2 for more information.",
+        "sha256": "b84fccb8bb0e3263e8acd2166672fbafb5c2c31e0494327d710fd3b68b3628de",
+        "checked_at": "2026-10-20T15:53:30.382060+00:00"
+      }
+    },
+    "prerequisites": {
+      "value": "snap版只能访问/home中的文件",
+      "source": {
+        "url": "https://raw.githubusercontent.com/bootandy/dust/HEAD/README.md",
+        "line_start": 57,
+        "line_end": 61,
+        "quote": "#### [Snap](https://ubuntu.com/core/services/guide/snaps-intro) Ubuntu and [supported systems](https://snapcraft.io/docs/installing-snapd)\n\n- `snap install dust`\n\nNote: `dust` installed through `snap` can only access files stored in the `/home` directory. See danie-dejager/dust-snap#2 for more information.",
+        "sha256": "b84fccb8bb0e3263e8acd2166672fbafb5c2c31e0494327d710fd3b68b3628de",
+        "checked_at": "2026-10-20T15:53:30.382060+00:00"
+      },
+      "complete": false
+    },
+    "license_review": "source files captured where available; no inferred SPDX variant",
+    "checked_by": "independent Codex reviewer; not a human user test",
+    "created_at": "2018-03-16T19:49:52Z",
+    "canonical_full_name": "bootandy/dust",
+    "source_metadata_status": 200,
+    "default_readme_language": "en",
+    "has_additional_official_chinese_readme": false
+  },
+  {
+    "full_name": "sharkdp/fd",
+    "sample_stratum": "文件查找",
+    "actual_scene": "文件查找",
+    "source_available": true,
+    "purpose": {
+      "value": "在文件系统中查找条目",
+      "source": {
+        "url": "https://raw.githubusercontent.com/sharkdp/fd/HEAD/README.md",
+        "line_start": 8,
+        "line_end": 10,
+        "quote": "`fd` is a program to find entries in your filesystem.\nIt is a simple, fast and user-friendly alternative to [`find`](https://www.gnu.org/software/findutils/).\nWhile it does not aim to support all of `find`'s powerful functionality, it provides sensible",
+        "sha256": "9c4547aa703c8bf329c862b30053cf138024fb9265dc23541604e9b056dd5811",
+        "checked_at": "2026-10-20T15:53:32.346039+00:00"
+      }
+    },
+    "form": "cli",
+    "platforms": {
+      "value": [
+        "macOS",
+        "Linux",
+        "Windows"
+      ],
+      "source": {
+        "url": "https://raw.githubusercontent.com/sharkdp/fd/HEAD/README.md",
+        "line_start": 275,
+        "line_end": 276,
+        "quote": "This is usually located in `~/.config/fd/ignore` in macOS or Linux, and `%APPDATA%\\fd\\ignore` in\nWindows.",
+        "sha256": "9c4547aa703c8bf329c862b30053cf138024fb9265dc23541604e9b056dd5811",
+        "checked_at": "2026-10-20T15:53:32.346039+00:00"
+      }
+    },
+    "official_entry": {
+      "value": "follow official README entry; no asset-level or installation verification",
+      "source": {
+        "url": "https://raw.githubusercontent.com/sharkdp/fd/HEAD/README.md",
+        "line_start": 538,
+        "line_end": 555,
+        "quote": "## Installation\n\n[![Packaging status](https://repology.org/badge/vertical-allrepos/fd-find.svg)](https://repology.org/project/fd-find/versions)\n\n### On Ubuntu\n*... and other Debian-based Linux distributions.*\n\nIf you run Ubuntu 19.04 (Disco Dingo) or newer, you can install the\n[officially maintained package](https://packages.ubuntu.com/fd-find):\n```\napt install fd-find\n```\nNote that the binary is called `fdfind` as the binary name `fd` is already used by another package.\nIt is recommended that after installation, you add a link to `fd` by executing command\n`ln -s $(which fdfind) ~/.local/bin/fd`, in order to use `fd` in the same way as in this documentation.\nMake sure that `$HOME/.local/bin` is in your `$PATH`.\n\nIf you use an older version of Ubuntu, you can download the latest `.deb` package from the",
+        "sha256": "9c4547aa703c8bf329c862b30053cf138024fb9265dc23541604e9b056dd5811",
+        "checked_at": "2026-10-20T15:53:32.346039+00:00"
+      }
+    },
+    "prerequisites": {
+      "value": null,
+      "source": null,
+      "complete": false
+    },
+    "license_review": "source files captured where available; no inferred SPDX variant",
+    "checked_by": "independent Codex reviewer; not a human user test",
+    "created_at": "2017-05-09T21:27:10Z",
+    "canonical_full_name": "sharkdp/fd",
+    "source_metadata_status": 200,
+    "default_readme_language": "en",
+    "has_additional_official_chinese_readme": false
+  },
+  {
+    "full_name": "dalance/procs",
+    "sample_stratum": "文件查找",
+    "actual_scene": "范围外",
+    "source_available": true,
+    "purpose": {
+      "value": "在终端查看与搜索进程信息",
+      "source": {
+        "url": "https://raw.githubusercontent.com/dalance/procs/HEAD/README.md",
+        "line_start": 3,
+        "line_end": 3,
+        "quote": "**procs** is a replacement for `ps` written in [Rust](https://www.rust-lang.org/).",
+        "sha256": "cee945d818ca1ed79e122ed393628d0a601a2bd1fb70657ebd75dba7da775802",
+        "checked_at": "2026-10-20T15:53:30.752582+00:00"
+      }
+    },
+    "form": "cli",
+    "platforms": {
+      "value": [
+        "Linux",
+        "Windows",
+        "macOS",
+        "FreeBSD"
+      ],
+      "source": {
+        "url": "https://raw.githubusercontent.com/dalance/procs/HEAD/README.md",
+        "line_start": 34,
+        "line_end": 41,
+        "quote": "## Platform\n\n- Linux is supported.\n- macOS is experimentally supported.\n    - macOS version is checked only in the GitHub Actions environment.\n    - The issues caused by real-machine are welcome.\n- Windows is supported.\n- FreeBSD is experimentally supported.",
+        "sha256": "cee945d818ca1ed79e122ed393628d0a601a2bd1fb70657ebd75dba7da775802",
+        "checked_at": "2026-10-20T15:53:30.752582+00:00"
+      }
+    },
+    "official_entry": {
+      "value": "follow official README entry; no asset-level or installation verification",
+      "source": {
+        "url": "https://raw.githubusercontent.com/dalance/procs/HEAD/README.md",
+        "line_start": 43,
+        "line_end": 47,
+        "quote": "## Installation\n\n### Download binary\n\nDownload from [release page](https://github.com/dalance/procs/releases/latest), and extract to the directory in PATH.",
+        "sha256": "cee945d818ca1ed79e122ed393628d0a601a2bd1fb70657ebd75dba7da775802",
+        "checked_at": "2026-10-20T15:53:30.752582+00:00"
+      }
+    },
+    "prerequisites": {
+      "value": "macOS与FreeBSD是实验支持；需解压至PATH",
+      "source": {
+        "url": "https://raw.githubusercontent.com/dalance/procs/HEAD/README.md",
+        "line_start": 34,
+        "line_end": 47,
+        "quote": "## Platform\n\n- Linux is supported.\n- macOS is experimentally supported.\n    - macOS version is checked only in the GitHub Actions environment.\n    - The issues caused by real-machine are welcome.\n- Windows is supported.\n- FreeBSD is experimentally supported.\n\n## Installation\n\n### Download binary\n\nDownload from [release page](https://github.com/dalance/procs/releases/latest), and extract to the directory in PATH.",
+        "sha256": "cee945d818ca1ed79e122ed393628d0a601a2bd1fb70657ebd75dba7da775802",
+        "checked_at": "2026-10-20T15:53:30.752582+00:00"
+      },
+      "complete": false
+    },
+    "license_review": "source files captured where available; no inferred SPDX variant",
+    "checked_by": "independent Codex reviewer; not a human user test",
+    "created_at": "2019-01-28T12:19:23Z",
+    "canonical_full_name": "dalance/procs",
+    "source_metadata_status": 200,
+    "default_readme_language": "en",
+    "has_additional_official_chinese_readme": false
+  },
+  {
+    "full_name": "BurntSushi/ripgrep",
+    "sample_stratum": "文件查找",
+    "actual_scene": "文件查找",
+    "source_available": true,
+    "purpose": {
+      "value": "递归按正则表达式搜索目录中文件内容",
+      "source": {
+        "url": "https://raw.githubusercontent.com/BurntSushi/ripgrep/HEAD/README.md",
+        "line_start": 3,
+        "line_end": 8,
+        "quote": "ripgrep is a line-oriented search tool that recursively searches the current\ndirectory for a regex pattern. By default, ripgrep will respect gitignore rules\nand automatically skip hidden files/directories and binary files. (To disable\nall automatic filtering by default, use `rg -uuu`.) ripgrep has first class\nsupport on Windows, macOS and Linux, with binary downloads available for [every\nrelease](https://github.com/BurntSushi/ripgrep/releases). ripgrep is similar to",
+        "sha256": "945622d974f65e4e141ef9726c948c2640eebd222c5b101afb6445728283921e",
+        "checked_at": "2026-10-20T15:53:34.946006+00:00"
+      }
+    },
+    "form": "cli",
+    "platforms": {
+      "value": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "source": {
+        "url": "https://raw.githubusercontent.com/BurntSushi/ripgrep/HEAD/README.md",
+        "line_start": 7,
+        "line_end": 8,
+        "quote": "support on Windows, macOS and Linux, with binary downloads available for [every\nrelease](https://github.com/BurntSushi/ripgrep/releases). ripgrep is similar to",
+        "sha256": "945622d974f65e4e141ef9726c948c2640eebd222c5b101afb6445728283921e",
+        "checked_at": "2026-10-20T15:53:34.946006+00:00"
+      }
+    },
+    "official_entry": {
+      "value": "follow official README entry; no asset-level or installation verification",
+      "source": {
+        "url": "https://raw.githubusercontent.com/BurntSushi/ripgrep/HEAD/README.md",
+        "line_start": 233,
+        "line_end": 240,
+        "quote": "### Installation\n\nThe binary name for ripgrep is `rg`.\n\n**[Archives of precompiled binaries for ripgrep are available for Windows,\nmacOS and Linux.](https://github.com/BurntSushi/ripgrep/releases)** Linux and\nWindows binaries are static executables. Users of platforms not explicitly\nmentioned below are advised to download one of these archives.",
+        "sha256": "945622d974f65e4e141ef9726c948c2640eebd222c5b101afb6445728283921e",
+        "checked_at": "2026-10-20T15:53:34.946006+00:00"
+      }
+    },
+    "prerequisites": {
+      "value": "默认跳过隐藏文件和二进制文件并尊重gitignore",
+      "source": {
+        "url": "https://raw.githubusercontent.com/BurntSushi/ripgrep/HEAD/README.md",
+        "line_start": 3,
+        "line_end": 6,
+        "quote": "ripgrep is a line-oriented search tool that recursively searches the current\ndirectory for a regex pattern. By default, ripgrep will respect gitignore rules\nand automatically skip hidden files/directories and binary files. (To disable\nall automatic filtering by default, use `rg -uuu`.) ripgrep has first class",
+        "sha256": "945622d974f65e4e141ef9726c948c2640eebd222c5b101afb6445728283921e",
+        "checked_at": "2026-10-20T15:53:34.946006+00:00"
+      },
+      "complete": false
+    },
+    "license_review": "source files captured where available; no inferred SPDX variant",
+    "checked_by": "independent Codex reviewer; not a human user test",
+    "created_at": "2016-03-11T02:02:33Z",
+    "canonical_full_name": "BurntSushi/ripgrep",
+    "source_metadata_status": 200,
+    "default_readme_language": "en",
+    "has_additional_official_chinese_readme": false
+  },
+  {
+    "full_name": "srwi/EverythingToolbar",
+    "sample_stratum": "文件查找",
+    "actual_scene": "文件查找",
+    "source_available": true,
+    "purpose": {
+      "value": "将Everything文件搜索整合进Windows任务栏",
+      "source": {
+        "url": "https://raw.githubusercontent.com/srwi/EverythingToolbar/HEAD/README.md",
+        "line_start": 10,
+        "line_end": 10,
+        "quote": "Instant file search integration for the Windows taskbar powered by [Everything](https://www.voidtools.com/).",
+        "sha256": "e5af38352ab3767876c42767c16ef5e389fd2f5c1d26907a25523550493cf35a",
+        "checked_at": "2026-10-20T15:53:32.031731+00:00"
+      }
+    },
+    "form": "desktop_app",
+    "platforms": {
+      "value": [
+        "Windows"
+      ],
+      "source": {
+        "url": "https://raw.githubusercontent.com/srwi/EverythingToolbar/HEAD/README.md",
+        "line_start": 44,
+        "line_end": 44,
+        "quote": "EverythingToolbar works seamlessly on Windows 10 and Windows 11. On Windows 11 the taskbar search box embeds into the taskbar out of the box, and for full deskband support it integrates with tools like [ExplorerPatcher](https://github.com/valinet/ExplorerPatcher) and [StartAllBack](https://www.startallback.com/).",
+        "sha256": "e5af38352ab3767876c42767c16ef5e389fd2f5c1d26907a25523550493cf35a",
+        "checked_at": "2026-10-20T15:53:32.031731+00:00"
+      }
+    },
+    "official_entry": {
+      "value": "follow official README entry; no asset-level or installation verification",
+      "source": {
+        "url": "https://raw.githubusercontent.com/srwi/EverythingToolbar/HEAD/README.md",
+        "line_start": 73,
+        "line_end": 84,
+        "quote": "## 📦 Installation\n\n### Prerequisites\n- Windows 10 or Windows 11\n- [.NET Desktop Runtime 8.0](https://dotnet.microsoft.com/en-us/download/dotnet/8.0) or later\n- [Everything](https://www.voidtools.com) ≥ 1.4.1 installed and running\n  > **Note:** The Lite version of Everything is not supported\n\n### Install EverythingToolbar\nChoose one of the following installation methods:\n\n- **Installer**: Download from [GitHub Releases](https://github.com/srwi/EverythingToolbar/releases)",
+        "sha256": "e5af38352ab3767876c42767c16ef5e389fd2f5c1d26907a25523550493cf35a",
+        "checked_at": "2026-10-20T15:53:32.031731+00:00"
+      }
+    },
+    "prerequisites": {
+      "value": "Windows10/11、.NET桌面运行时8+，Everything1.4.1+已运行",
+      "source": {
+        "url": "https://raw.githubusercontent.com/srwi/EverythingToolbar/HEAD/README.md",
+        "line_start": 73,
+        "line_end": 78,
+        "quote": "## 📦 Installation\n\n### Prerequisites\n- Windows 10 or Windows 11\n- [.NET Desktop Runtime 8.0](https://dotnet.microsoft.com/en-us/download/dotnet/8.0) or later\n- [Everything](https://www.voidtools.com) ≥ 1.4.1 installed and running",
+        "sha256": "e5af38352ab3767876c42767c16ef5e389fd2f5c1d26907a25523550493cf35a",
+        "checked_at": "2026-10-20T15:53:32.031731+00:00"
+      },
+      "complete": false
+    },
+    "license_review": "source files captured where available; no inferred SPDX variant",
+    "checked_by": "independent Codex reviewer; not a human user test",
+    "created_at": "2020-09-13T17:20:21Z",
+    "canonical_full_name": "srwi/EverythingToolbar",
+    "source_metadata_status": 200,
+    "default_readme_language": "en",
+    "has_additional_official_chinese_readme": true
+  },
+  {
+    "full_name": "wangyu-/Udp2raw-tunnel",
+    "sample_stratum": "文件查找",
+    "actual_scene": "隐私保护",
+    "source_available": true,
+    "purpose": {
+      "value": "把UDP流量封装为加密FakeTCP/UDP/ICMP隧道",
+      "source": {
+        "url": "https://raw.githubusercontent.com/wangyu-/Udp2raw-tunnel/HEAD/README.md",
+        "line_start": 4,
+        "line_end": 6,
+        "quote": "A Tunnel which turns UDP Traffic into Encrypted FakeTCP/UDP/ICMP Traffic by using Raw Socket, helps you Bypass UDP FireWalls(or Unstable UDP Environment).\n\nWhen used alone,udp2raw tunnels only UDP traffic. Nevertheless,if you used udp2raw + any UDP-based VPN together,you can tunnel any traffic(include TCP/UDP/ICMP),currently OpenVPN/L2TP/ShadowVPN and [tinyfecVPN](https://github.com/wangyu-/tinyfecVPN) are confirmed to be supported.",
+        "sha256": "1be9bbc87d2bb8139b5b7424f3765dd9659e018576366c5f7b60acad1a01d1f9",
+        "checked_at": "2026-10-20T15:53:32.758287+00:00"
+      }
+    },
+    "form": "cli",
+    "platforms": {
+      "value": [
+        "Linux"
+      ],
+      "source": {
+        "url": "https://raw.githubusercontent.com/wangyu-/Udp2raw-tunnel/HEAD/README.md",
+        "line_start": 21,
+        "line_end": 23,
+        "quote": "Linux host (including desktop Linux,Android phone/tablet,OpenWRT router,or Raspberry PI) with root account or cap_net_raw capability.\n\nFor Windows and MacOS users, use the udp2raw in [this repo](https://github.com/wangyu-/udp2raw-multiplatform).",
+        "sha256": "1be9bbc87d2bb8139b5b7424f3765dd9659e018576366c5f7b60acad1a01d1f9",
+        "checked_at": "2026-10-20T15:53:32.758287+00:00"
+      }
+    },
+    "official_entry": {
+      "value": "follow official README entry; no asset-level or installation verification",
+      "source": {
+        "url": "https://raw.githubusercontent.com/wangyu-/Udp2raw-tunnel/HEAD/README.md",
+        "line_start": 61,
+        "line_end": 62,
+        "quote": "### Installing\nDownload binary release from https://github.com/wangyu-/udp2raw-tunnel/releases",
+        "sha256": "1be9bbc87d2bb8139b5b7424f3765dd9659e018576366c5f7b60acad1a01d1f9",
+        "checked_at": "2026-10-20T15:53:32.758287+00:00"
+      }
+    },
+    "prerequisites": {
+      "value": "本仓库需Linux及root或cap_net_raw；Windows/macOS需另一个仓库",
+      "source": {
+        "url": "https://raw.githubusercontent.com/wangyu-/Udp2raw-tunnel/HEAD/README.md",
+        "line_start": 21,
+        "line_end": 23,
+        "quote": "Linux host (including desktop Linux,Android phone/tablet,OpenWRT router,or Raspberry PI) with root account or cap_net_raw capability.\n\nFor Windows and MacOS users, use the udp2raw in [this repo](https://github.com/wangyu-/udp2raw-multiplatform).",
+        "sha256": "1be9bbc87d2bb8139b5b7424f3765dd9659e018576366c5f7b60acad1a01d1f9",
+        "checked_at": "2026-10-20T15:53:32.758287+00:00"
+      },
+      "complete": false
+    },
+    "license_review": "source files captured where available; no inferred SPDX variant",
+    "checked_by": "independent Codex reviewer; not a human user test",
+    "created_at": "2017-08-04T04:15:38Z",
+    "canonical_full_name": "wangyu-/udp2raw",
+    "source_metadata_status": 200,
+    "default_readme_language": "en",
+    "has_additional_official_chinese_readme": false
+  },
+  {
+    "full_name": "jely2002/youtube-dl-gui",
+    "sample_stratum": "下载媒体",
+    "actual_scene": "下载媒体",
+    "source_available": true,
+    "purpose": {
+      "value": "图形界面下载网站视频音频字幕等",
+      "source": {
+        "url": "https://raw.githubusercontent.com/jely2002/youtube-dl-gui/HEAD/README.md",
+        "line_start": 6,
+        "line_end": 7,
+        "quote": "Open Video Downloader is a simple, cross-platform desktop application that lets you download videos, audio, subtitles and metadata from hundreds of supported websites, not just YouTube.  \nIt provides an easy-to-use interface around [yt-dlp](https://github.com/yt-dlp/yt-dlp) so you don’t have to touch the command line.",
+        "sha256": "951509ede14234b34e0dfeb687e2820011d00024101fd22c9cb0bad69c9c3ec7",
+        "checked_at": "2026-10-20T15:53:33.869371+00:00"
+      }
+    },
+    "form": "desktop_app",
+    "platforms": {
+      "value": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "source": {
+        "url": "https://raw.githubusercontent.com/jely2002/youtube-dl-gui/HEAD/README.md",
+        "line_start": 12,
+        "line_end": 12,
+        "quote": "- **Cross-platform:** works on Windows, macOS and Linux.",
+        "sha256": "951509ede14234b34e0dfeb687e2820011d00024101fd22c9cb0bad69c9c3ec7",
+        "checked_at": "2026-10-20T15:53:33.869371+00:00"
+      }
+    },
+    "official_entry": {
+      "value": "follow official README entry; no asset-level or installation verification",
+      "source": {
+        "url": "https://raw.githubusercontent.com/jely2002/youtube-dl-gui/HEAD/README.md",
+        "line_start": 24,
+        "line_end": 29,
+        "quote": "## Download\n\nThe latest versions for **Windows**, **macOS** and **Linux** are available on the  \n[GitHub Releases page](https://github.com/jely2002/youtube-dl-gui/releases).\n\nDownload the installer or archive for your platform and follow the normal installation steps.  ",
+        "sha256": "951509ede14234b34e0dfeb687e2820011d00024101fd22c9cb0bad69c9c3ec7",
+        "checked_at": "2026-10-20T15:53:33.869371+00:00"
+      }
+    },
+    "prerequisites": {
+      "value": "选对应平台安装文件；高级前提未在本次断言中穷尽",
+      "source": {
+        "url": "https://raw.githubusercontent.com/jely2002/youtube-dl-gui/HEAD/README.md",
+        "line_start": 24,
+        "line_end": 29,
+        "quote": "## Download\n\nThe latest versions for **Windows**, **macOS** and **Linux** are available on the  \n[GitHub Releases page](https://github.com/jely2002/youtube-dl-gui/releases).\n\nDownload the installer or archive for your platform and follow the normal installation steps.  ",
+        "sha256": "951509ede14234b34e0dfeb687e2820011d00024101fd22c9cb0bad69c9c3ec7",
+        "checked_at": "2026-10-20T15:53:33.869371+00:00"
+      },
+      "complete": false
+    },
+    "license_review": "source files captured where available; no inferred SPDX variant",
+    "checked_by": "independent Codex reviewer; not a human user test",
+    "created_at": "2020-04-02T01:27:59Z",
+    "canonical_full_name": "jely2002/youtube-dl-gui",
+    "source_metadata_status": 200,
+    "default_readme_language": "en",
+    "has_additional_official_chinese_readme": false
+  },
+  {
+    "full_name": "imputnet/cobalt",
+    "sample_stratum": "下载媒体",
+    "actual_scene": "下载媒体",
+    "source_available": true,
+    "purpose": {
+      "value": "通过链接下载公开媒体内容",
+      "source": {
+        "url": "https://raw.githubusercontent.com/imputnet/cobalt/HEAD/README.md",
+        "line_start": 28,
+        "line_end": 30,
+        "quote": "cobalt is a media downloader that doesn't piss you off. it's friendly, efficient, and doesn't have ads, trackers, paywalls or other nonsense.\n\npaste the link, get the file, move on. that simple, just how it should be.",
+        "sha256": "c9a8b5059c77ebe27a502c45970442a1522f770ee9a6b2c27ed15b847da352e8",
+        "checked_at": "2026-10-20T15:53:33.597403+00:00"
+      }
+    },
+    "form": "web_app",
+    "platforms": {
+      "value": [],
+      "source": null
+    },
+    "official_entry": {
+      "value": null,
+      "source": null
+    },
+    "prerequisites": {
+      "value": "仅免费且公开可访问的内容；不支持付费墙内容",
+      "source": {
+        "url": "https://raw.githubusercontent.com/imputnet/cobalt/HEAD/README.md",
+        "line_start": 45,
+        "line_end": 51,
+        "quote": "cobalt is a tool that makes downloading public content easier. it takes **zero liability**.\nthe end user is responsible for what they download, how they use and distribute that content.\ncobalt never caches any content, it [works like a fancy proxy](/api/src/stream/).\n\ncobalt is in no way a piracy tool and cannot be used as such.\nit can only download free & publicly accessible content.\nsame content can be downloaded via dev tools of any modern web browser.",
+        "sha256": "c9a8b5059c77ebe27a502c45970442a1522f770ee9a6b2c27ed15b847da352e8",
+        "checked_at": "2026-10-20T15:53:33.597403+00:00"
+      },
+      "complete": false
+    },
+    "license_review": "source files captured where available; no inferred SPDX variant",
+    "checked_by": "independent Codex reviewer; not a human user test",
+    "created_at": "2022-07-08T18:12:55Z",
+    "canonical_full_name": "imputnet/cobalt",
+    "source_metadata_status": 200,
+    "default_readme_language": "en",
+    "has_additional_official_chinese_readme": false
+  },
+  {
+    "full_name": "agalwood/Motrix",
+    "sample_stratum": "下载媒体",
+    "actual_scene": "下载媒体",
+    "source_available": true,
+    "purpose": {
+      "value": "桌面下载HTTP/FTP/BT/磁力链接",
+      "source": {
+        "url": "https://raw.githubusercontent.com/agalwood/Motrix/HEAD/README.md",
+        "line_start": 13,
+        "line_end": 19,
+        "quote": "Motrix is a clean, full-featured desktop download manager for HTTP, FTP, BitTorrent, magnet links, and more.\n\n**Motrix Turbo** is Motrix v2, rebuilt from the ground up with Electron, React, and TypeScript while keeping the clean, straightforward experience of v1. The download core is independent of the UI. Browser extensions and command-line tools communicate with the app over **MDXP** (Motrix Download eXchange Protocol), an open protocol built on JSON-RPC 2.0, while plugins run in isolated sandboxes.\n\nThe same core powers two ways to run Motrix:\n\n- **Desktop app:** Runs on macOS, Windows, and Linux",
+        "sha256": "a61e98829a46763ac85beda514ce34e0be3bd7e1bf6fbc07078163ae5dba7bf1",
+        "checked_at": "2026-10-20T15:53:34.801342+00:00"
+      }
+    },
+    "form": "desktop_app",
+    "platforms": {
+      "value": [
+        "macOS",
+        "Windows",
+        "Linux"
+      ],
+      "source": {
+        "url": "https://raw.githubusercontent.com/agalwood/Motrix/HEAD/README.md",
+        "line_start": 19,
+        "line_end": 19,
+        "quote": "- **Desktop app:** Runs on macOS, Windows, and Linux",
+        "sha256": "a61e98829a46763ac85beda514ce34e0be3bd7e1bf6fbc07078163ae5dba7bf1",
+        "checked_at": "2026-10-20T15:53:34.801342+00:00"
+      }
+    },
+    "official_entry": {
+      "value": "follow official README entry; no asset-level or installation verification",
+      "source": {
+        "url": "https://raw.githubusercontent.com/agalwood/Motrix/HEAD/README.md",
+        "line_start": 24,
+        "line_end": 32,
+        "quote": "Motrix Turbo v2 is currently in beta. After its remaining release gates pass,\ndownload [v2.0.0-beta.51 from GitHub Releases](https://github.com/agalwood/Motrix/releases/tag/v2.0.0-beta.51)\nand read the [full release notes](./docs/release-notes/2.0.0-beta.51.md) before\ninstalling it.\n\nBack up your existing Motrix data and downloads before testing. The desktop\nMigration Assistant imports selected v1 tasks as paused records and preserves\nthe original files. Resuming downloads requires a separate explicit action.\nThis beta bundles aria2 1.37.0-motrix.18, enabling Windows in-place BT",
+        "sha256": "a61e98829a46763ac85beda514ce34e0be3bd7e1bf6fbc07078163ae5dba7bf1",
+        "checked_at": "2026-10-20T15:53:34.801342+00:00"
+      }
+    },
+    "prerequisites": {
+      "value": "所列v2为Beta；测试前备份现有数据/下载，恢复需显式操作",
+      "source": {
+        "url": "https://raw.githubusercontent.com/agalwood/Motrix/HEAD/README.md",
+        "line_start": 24,
+        "line_end": 32,
+        "quote": "Motrix Turbo v2 is currently in beta. After its remaining release gates pass,\ndownload [v2.0.0-beta.51 from GitHub Releases](https://github.com/agalwood/Motrix/releases/tag/v2.0.0-beta.51)\nand read the [full release notes](./docs/release-notes/2.0.0-beta.51.md) before\ninstalling it.\n\nBack up your existing Motrix data and downloads before testing. The desktop\nMigration Assistant imports selected v1 tasks as paused records and preserves\nthe original files. Resuming downloads requires a separate explicit action.\nThis beta bundles aria2 1.37.0-motrix.18, enabling Windows in-place BT",
+        "sha256": "a61e98829a46763ac85beda514ce34e0be3bd7e1bf6fbc07078163ae5dba7bf1",
+        "checked_at": "2026-10-20T15:53:34.801342+00:00"
+      },
+      "complete": false
+    },
+    "license_review": "source files captured where available; no inferred SPDX variant",
+    "checked_by": "independent Codex reviewer; not a human user test",
+    "created_at": "2018-12-18T11:45:05Z",
+    "canonical_full_name": "agalwood/Motrix",
+    "source_metadata_status": 200,
+    "default_readme_language": "en",
+    "has_additional_official_chinese_readme": true
+  },
+  {
+    "full_name": "yt-dlp/yt-dlp",
+    "sample_stratum": "下载媒体",
+    "actual_scene": "下载媒体",
+    "source_available": true,
+    "purpose": {
+      "value": "命令行从网站下载音视频",
+      "source": {
+        "url": "https://raw.githubusercontent.com/yt-dlp/yt-dlp/HEAD/README.md",
+        "line_start": 16,
+        "line_end": 16,
+        "quote": "yt-dlp is a feature-rich command-line audio/video downloader with support for [thousands of sites](supportedsites.md). The project is a fork of [youtube-dl](https://github.com/ytdl-org/youtube-dl) based on the now inactive [youtube-dlc](https://github.com/blackjack4494/yt-dlc).",
+        "sha256": "357f718a94c879bfcc7d647a8ea2d192d5abeee6a784c74d5bff2f4e518e00ee",
+        "checked_at": "2026-10-20T15:53:37.609976+00:00"
+      }
+    },
+    "form": "cli",
+    "platforms": {
+      "value": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "source": {
+        "url": "https://raw.githubusercontent.com/yt-dlp/yt-dlp/HEAD/README.md",
+        "line_start": 97,
+        "line_end": 109,
+        "quote": "[yt-dlp](https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp)|Platform-independent [zipimport](https://docs.python.org/3/library/zipimport.html) binary. Needs Python (recommended for **Linux/BSD**)\n[yt-dlp.exe](https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp.exe)|Windows (Win8+) standalone x64 binary (recommended for **Windows**)\n[yt-dlp_macos](https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp_macos)|Universal MacOS (10.15+) standalone executable (recommended for **MacOS**)\n\n#### Alternatives\n\nFile|Description\n:---|:---\n[yt-dlp_linux](https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp_linux)|Linux (glibc 2.17+) standalone x86_64 binary\n[yt-dlp_linux.zip](https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp_linux.zip)|Unpackaged Linux (glibc 2.17+) x86_64 executable (no auto-update)\n[yt-dlp_linux_aarch64](https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp_linux_aarch64)|Linux (glibc 2.17+) standalone aarch64 binary\n[yt-dlp_linux_aarch64.zip](https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp_linux_aarch64.zip)|Unpackaged Linux (glibc 2.17+) aarch64 executable (no auto-update)\n[yt-dlp_linux_armv7l.zip](https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp_linux_armv7l.zip)|Unpackaged Linux (glibc 2.31+) armv7l executable (no auto-update)",
+        "sha256": "357f718a94c879bfcc7d647a8ea2d192d5abeee6a784c74d5bff2f4e518e00ee",
+        "checked_at": "2026-10-20T15:53:37.609976+00:00"
+      }
+    },
+    "official_entry": {
+      "value": "follow official README entry; no asset-level or installation verification",
+      "source": {
+        "url": "https://raw.githubusercontent.com/yt-dlp/yt-dlp/HEAD/README.md",
+        "line_start": 85,
+        "line_end": 109,
+        "quote": "<!-- MANPAGE: END EXCLUDED SECTION -->\n\nYou can install yt-dlp using [the binaries](#release-files), [pip](https://pypi.org/project/yt-dlp) or one using a third-party package manager. See [the wiki](https://github.com/yt-dlp/yt-dlp/wiki/Installation) for detailed instructions\n\n\n<!-- MANPAGE: BEGIN EXCLUDED SECTION -->\n## RELEASE FILES\n\n#### Recommended\n\nFile|Description\n:---|:---\n[yt-dlp](https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp)|Platform-independent [zipimport](https://docs.python.org/3/library/zipimport.html) binary. Needs Python (recommended for **Linux/BSD**)\n[yt-dlp.exe](https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp.exe)|Windows (Win8+) standalone x64 binary (recommended for **Windows**)\n[yt-dlp_macos](https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp_macos)|Universal MacOS (10.15+) standalone executable (recommended for **MacOS**)\n\n#### Alternatives\n\nFile|Description\n:---|:---\n[yt-dlp_linux](https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp_linux)|Linux (glibc 2.17+) standalone x86_64 binary\n[yt-dlp_linux.zip](https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp_linux.zip)|Unpackaged Linux (glibc 2.17+) x86_64 executable (no auto-update)\n[yt-dlp_linux_aarch64](https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp_linux_aarch64)|Linux (glibc 2.17+) standalone aarch64 binary\n[yt-dlp_linux_aarch64.zip](https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp_linux_aarch64.zip)|Unpackaged Linux (glibc 2.17+) aarch64 executable (no auto-update)\n[yt-dlp_linux_armv7l.zip](https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp_linux_armv7l.zip)|Unpackaged Linux (glibc 2.31+) armv7l executable (no auto-update)",
+        "sha256": "357f718a94c879bfcc7d647a8ea2d192d5abeee6a784c74d5bff2f4e518e00ee",
+        "checked_at": "2026-10-20T15:53:37.609976+00:00"
+      }
+    },
+    "prerequisites": {
+      "value": "不同文件有Python/系统版本/架构要求，不当作通用GUI安装器",
+      "source": {
+        "url": "https://raw.githubusercontent.com/yt-dlp/yt-dlp/HEAD/README.md",
+        "line_start": 97,
+        "line_end": 109,
+        "quote": "[yt-dlp](https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp)|Platform-independent [zipimport](https://docs.python.org/3/library/zipimport.html) binary. Needs Python (recommended for **Linux/BSD**)\n[yt-dlp.exe](https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp.exe)|Windows (Win8+) standalone x64 binary (recommended for **Windows**)\n[yt-dlp_macos](https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp_macos)|Universal MacOS (10.15+) standalone executable (recommended for **MacOS**)\n\n#### Alternatives\n\nFile|Description\n:---|:---\n[yt-dlp_linux](https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp_linux)|Linux (glibc 2.17+) standalone x86_64 binary\n[yt-dlp_linux.zip](https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp_linux.zip)|Unpackaged Linux (glibc 2.17+) x86_64 executable (no auto-update)\n[yt-dlp_linux_aarch64](https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp_linux_aarch64)|Linux (glibc 2.17+) standalone aarch64 binary\n[yt-dlp_linux_aarch64.zip](https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp_linux_aarch64.zip)|Unpackaged Linux (glibc 2.17+) aarch64 executable (no auto-update)\n[yt-dlp_linux_armv7l.zip](https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp_linux_armv7l.zip)|Unpackaged Linux (glibc 2.31+) armv7l executable (no auto-update)",
+        "sha256": "357f718a94c879bfcc7d647a8ea2d192d5abeee6a784c74d5bff2f4e518e00ee",
+        "checked_at": "2026-10-20T15:53:37.609976+00:00"
+      },
+      "complete": false
+    },
+    "license_review": "source files captured where available; no inferred SPDX variant",
+    "checked_by": "independent Codex reviewer; not a human user test",
+    "created_at": "2020-10-26T04:22:55Z",
+    "canonical_full_name": "yt-dlp/yt-dlp",
+    "source_metadata_status": 200,
+    "default_readme_language": "en",
+    "has_additional_official_chinese_readme": false
+  },
+  {
+    "full_name": "nilaoda/N_m3u8DL-RE",
+    "sample_stratum": "下载媒体",
+    "actual_scene": "下载媒体",
+    "source_available": true,
+    "purpose": {
+      "value": "命令行下载DASH/HLS/MSS点播与直播流",
+      "source": {
+        "url": "https://raw.githubusercontent.com/nilaoda/N_m3u8DL-RE/HEAD/README.md",
+        "line_start": 5,
+        "line_end": 5,
+        "quote": "跨平台的DASH/HLS/MSS下载工具。支持点播、直播(DASH/HLS)。",
+        "sha256": "8b226c649cb3510581a3ce851235d74ce07728a46fcc1ce16193c676f3185033",
+        "checked_at": "2026-10-20T15:53:37.182573+00:00"
+      }
+    },
+    "form": "cli",
+    "platforms": {
+      "value": [
+        "Linux",
+        "macOS",
+        "Windows"
+      ],
+      "source": {
+        "url": "https://raw.githubusercontent.com/nilaoda/N_m3u8DL-RE/HEAD/README.md",
+        "line_start": 53,
+        "line_end": 54,
+        "quote": "- Linux / macOS：`~/.config/N_m3u8DL-RE/config.conf`；若设置了绝对路径的 `XDG_CONFIG_HOME`，则使用 `$XDG_CONFIG_HOME/N_m3u8DL-RE/config.conf`。\n- Windows：`%APPDATA%\\N_m3u8DL-RE\\config.conf`。",
+        "sha256": "8b226c649cb3510581a3ce851235d74ce07728a46fcc1ce16193c676f3185033",
+        "checked_at": "2026-10-20T15:53:37.182573+00:00"
+      }
+    },
+    "official_entry": {
+      "value": "follow official README entry; no asset-level or installation verification",
+      "source": {
+        "url": "https://raw.githubusercontent.com/nilaoda/N_m3u8DL-RE/HEAD/README.md",
+        "line_start": 7,
+        "line_end": 15,
+        "quote": "[![img](https://img.shields.io/github/stars/nilaoda/N_m3u8DL-RE?label=%E7%82%B9%E8%B5%9E)](https://github.com/nilaoda/N_m3u8DL-RE)  [![img](https://img.shields.io/github/last-commit/nilaoda/N_m3u8DL-RE?label=%E6%9C%80%E8%BF%91%E6%8F%90%E4%BA%A4)](https://github.com/nilaoda/N_m3u8DL-RE)  [![img](https://img.shields.io/github/release/nilaoda/N_m3u8DL-RE?label=%E6%9C%80%E6%96%B0%E7%89%88%E6%9C%AC)](https://github.com/nilaoda/N_m3u8DL-RE/releases)  [![img](https://img.shields.io/github/license/nilaoda/N_m3u8DL-RE?label=%E8%AE%B8%E5%8F%AF%E8%AF%81)](https://github.com/nilaoda/N_m3u8DL-RE)   [![img](https://img.shields.io/github/downloads/nilaoda/N_m3u8DL-RE/total?label=%E4%B8%8B%E8%BD%BD%E9%87%8F)](https://github.com/nilaoda/N_m3u8DL-RE/releases)\n\n遇到 BUG 请首先确认软件是否为最新版本（如果是 Release 版本，建议到 [Actions](https://github.com/nilaoda/N_m3u8DL-RE/actions) 页面下载最新自动构建版本后查看问题是否已经被修复），如果确认版本最新且问题依旧存在，可以到 [Issues](https://github.com/nilaoda/N_m3u8DL-RE/issues) 中查找是否有人遇到过相关问题，没有的话再进行询问。\n\n---\n\n版本较低的Windows系统自带的终端可能不支持本程序，替代方案：在 [cmder](https://github.com/cmderdev/cmder) 中运行。\n\nArch Linux 可以从 AUR 获取：[n-m3u8dl-re-bin](https://aur.archlinux.org/packages/n-m3u8dl-re-bin)、[n-m3u8dl-re-git](https://aur.archlinux.org/packages/n-m3u8dl-re-git)",
+        "sha256": "8b226c649cb3510581a3ce851235d74ce07728a46fcc1ce16193c676f3185033",
+        "checked_at": "2026-10-20T15:53:37.182573+00:00"
+      }
+    },
+    "prerequisites": {
+      "value": "老Windows终端可能不支持；官方指向Actions开发构建不等于稳定发行版",
+      "source": {
+        "url": "https://raw.githubusercontent.com/nilaoda/N_m3u8DL-RE/HEAD/README.md",
+        "line_start": 9,
+        "line_end": 13,
+        "quote": "遇到 BUG 请首先确认软件是否为最新版本（如果是 Release 版本，建议到 [Actions](https://github.com/nilaoda/N_m3u8DL-RE/actions) 页面下载最新自动构建版本后查看问题是否已经被修复），如果确认版本最新且问题依旧存在，可以到 [Issues](https://github.com/nilaoda/N_m3u8DL-RE/issues) 中查找是否有人遇到过相关问题，没有的话再进行询问。\n\n---\n\n版本较低的Windows系统自带的终端可能不支持本程序，替代方案：在 [cmder](https://github.com/cmderdev/cmder) 中运行。",
+        "sha256": "8b226c649cb3510581a3ce851235d74ce07728a46fcc1ce16193c676f3185033",
+        "checked_at": "2026-10-20T15:53:37.182573+00:00"
+      },
+      "complete": false
+    },
+    "license_review": "source files captured where available; no inferred SPDX variant",
+    "checked_by": "independent Codex reviewer; not a human user test",
+    "created_at": "2022-05-25T12:28:40Z",
+    "canonical_full_name": "nilaoda/N_m3u8DL-RE",
+    "source_metadata_status": 200,
+    "default_readme_language": "zh",
+    "has_additional_official_chinese_readme": false
+  },
+  {
+    "full_name": "subhra74/xdm",
+    "sample_stratum": "下载媒体",
+    "actual_scene": "下载媒体",
+    "source_available": true,
+    "purpose": {
+      "value": "多连接下载、续传与保存流媒体视频",
+      "source": {
+        "url": "https://raw.githubusercontent.com/subhra74/xdm/HEAD/README.md",
+        "line_start": 34,
+        "line_end": 36,
+        "quote": "**Xtreme Download Manager (XDM)** speeds up downloads by splitting them across multiple connections, saves videos\nfrom streaming sites, and picks up broken downloads exactly where they left off. A companion browser extension hands\ndownloads and detected videos straight to the app, so you never have to copy a link by hand.",
+        "sha256": "1ae35f0e570127845ac8fd1db0e7e8288e14dba2e77380e5f6573246f405aa2a",
+        "checked_at": "2026-10-20T15:53:37.808463+00:00"
+      }
+    },
+    "form": "desktop_app",
+    "platforms": {
+      "value": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "source": {
+        "url": "https://raw.githubusercontent.com/subhra74/xdm/HEAD/README.md",
+        "line_start": 68,
+        "line_end": 68,
+        "quote": "| 🖥️ **Cross-platform** | Native-feeling app on Windows, macOS and Linux, with light and dark themes. |",
+        "sha256": "1ae35f0e570127845ac8fd1db0e7e8288e14dba2e77380e5f6573246f405aa2a",
+        "checked_at": "2026-10-20T15:53:37.808463+00:00"
+      }
+    },
+    "official_entry": {
+      "value": null,
+      "source": null
+    },
+    "prerequisites": {
+      "value": "浏览器自动接管使用配套扩展和运行中的桌面应用；当前重建中",
+      "source": {
+        "url": "https://raw.githubusercontent.com/subhra74/xdm/HEAD/README.md",
+        "line_start": 72,
+        "line_end": 79,
+        "quote": "XDM works with Chrome, Firefox, Edge, Opera, Vivaldi, Brave and other Chromium- and Firefox-based browsers.\n\n| Browser | Extension |\n|---|---|\n| <img src=\"https://img.shields.io/badge/Chrome-4285F4?style=flat-square&logo=googlechrome&logoColor=white\" alt=\"Chrome\"/> | Awaiting review |\n| <img src=\"https://img.shields.io/badge/Firefox-FF7139?style=flat-square&logo=firefoxbrowser&logoColor=white\" alt=\"Firefox\"/> | Awaiting review |\n\nThe extension forwards downloads and detected media to the running app over a local-only connection",
+        "sha256": "1ae35f0e570127845ac8fd1db0e7e8288e14dba2e77380e5f6573246f405aa2a",
+        "checked_at": "2026-10-20T15:53:37.808463+00:00"
+      },
+      "complete": false
+    },
+    "license_review": "source files captured where available; no inferred SPDX variant",
+    "checked_by": "independent Codex reviewer; not a human user test",
+    "created_at": "2018-02-25T13:09:15Z",
+    "canonical_full_name": "subhra74/xdm",
+    "source_metadata_status": 200,
+    "default_readme_language": "en",
+    "has_additional_official_chinese_readme": false
+  },
+  {
+    "full_name": "standardnotes/app",
+    "sample_stratum": "隐私保护",
+    "actual_scene": "笔记效率",
+    "source_available": true,
+    "purpose": {
+      "value": "端到端加密笔记应用",
+      "source": {
+        "url": "https://raw.githubusercontent.com/standardnotes/app/HEAD/README.md",
+        "line_start": 3,
+        "line_end": 3,
+        "quote": "Standard Notes is an end-to-end encrypted note-taking app for digitalists and professionals. Capture your notes, files, and life’s work all in one secure place.",
+        "sha256": "35a6bbc30b55fc38ee598047a783949e01c069fa96822cf5a6eb28567a9df480",
+        "checked_at": "2026-10-20T15:53:36.764474+00:00"
+      }
+    },
+    "form": "web_app",
+    "platforms": {
+      "value": [
+        "macOS",
+        "Windows",
+        "Linux"
+      ],
+      "source": {
+        "url": "https://raw.githubusercontent.com/standardnotes/app/HEAD/README.md",
+        "line_start": 18,
+        "line_end": 26,
+        "quote": "1. Launch the web app at [app.standardnotes.com](https://app.standardnotes.com).\n2. Click Register to create your private notes account.\n3. Download Standard Notes on your devices.\n\t- [Mac](https://standardnotes.com/download)\n\t- [Windows](https://standardnotes.com/download)\n\t- [Linux](https://standardnotes.com/download)\n\t- [iOS](https://itunes.apple.com/us/app/standard-notes/id1285392450?mt=8)\n\t- [Android](https://play.google.com/store/apps/details?id=com.standardnotes)\n4. You're all set. Standard Notes comes out of the box with end-to-end encrypted sync on all your devices.",
+        "sha256": "35a6bbc30b55fc38ee598047a783949e01c069fa96822cf5a6eb28567a9df480",
+        "checked_at": "2026-10-20T15:53:36.764474+00:00"
+      }
+    },
+    "official_entry": {
+      "value": "follow official README entry; no asset-level or installation verification",
+      "source": {
+        "url": "https://raw.githubusercontent.com/standardnotes/app/HEAD/README.md",
+        "line_start": 18,
+        "line_end": 26,
+        "quote": "1. Launch the web app at [app.standardnotes.com](https://app.standardnotes.com).\n2. Click Register to create your private notes account.\n3. Download Standard Notes on your devices.\n\t- [Mac](https://standardnotes.com/download)\n\t- [Windows](https://standardnotes.com/download)\n\t- [Linux](https://standardnotes.com/download)\n\t- [iOS](https://itunes.apple.com/us/app/standard-notes/id1285392450?mt=8)\n\t- [Android](https://play.google.com/store/apps/details?id=com.standardnotes)\n4. You're all set. Standard Notes comes out of the box with end-to-end encrypted sync on all your devices.",
+        "sha256": "35a6bbc30b55fc38ee598047a783949e01c069fa96822cf5a6eb28567a9df480",
+        "checked_at": "2026-10-20T15:53:36.764474+00:00"
+      }
+    },
+    "prerequisites": {
+      "value": "所列入门路径要求注册笔记账户",
+      "source": {
+        "url": "https://raw.githubusercontent.com/standardnotes/app/HEAD/README.md",
+        "line_start": 18,
+        "line_end": 26,
+        "quote": "1. Launch the web app at [app.standardnotes.com](https://app.standardnotes.com).\n2. Click Register to create your private notes account.\n3. Download Standard Notes on your devices.\n\t- [Mac](https://standardnotes.com/download)\n\t- [Windows](https://standardnotes.com/download)\n\t- [Linux](https://standardnotes.com/download)\n\t- [iOS](https://itunes.apple.com/us/app/standard-notes/id1285392450?mt=8)\n\t- [Android](https://play.google.com/store/apps/details?id=com.standardnotes)\n4. You're all set. Standard Notes comes out of the box with end-to-end encrypted sync on all your devices.",
+        "sha256": "35a6bbc30b55fc38ee598047a783949e01c069fa96822cf5a6eb28567a9df480",
+        "checked_at": "2026-10-20T15:53:36.764474+00:00"
+      },
+      "complete": false
+    },
+    "license_review": "source files captured where available; no inferred SPDX variant",
+    "checked_by": "independent Codex reviewer; not a human user test",
+    "created_at": "2016-12-05T23:31:33Z",
+    "canonical_full_name": "standardnotes/app",
+    "source_metadata_status": 200,
+    "default_readme_language": "en",
+    "has_additional_official_chinese_readme": false
+  },
+  {
+    "full_name": "sebastian/lvm2",
+    "sample_stratum": "隐私保护",
+    "actual_scene": "隐私保护",
+    "source_available": false,
+    "purpose": {
+      "value": null,
+      "source": null
+    },
+    "form": "unknown",
+    "platforms": {
+      "value": [],
+      "source": null
+    },
+    "official_entry": {
+      "value": null,
+      "source": null
+    },
+    "prerequisites": {
+      "value": null,
+      "source": null,
+      "complete": false
+    },
+    "license_review": "source files captured where available; no inferred SPDX variant",
+    "checked_by": "independent Codex reviewer; not a human user test",
+    "created_at": null,
+    "canonical_full_name": null,
+    "source_metadata_status": null,
+    "default_readme_language": "unknown",
+    "has_additional_official_chinese_readme": false
+  },
+  {
+    "full_name": "ente-io/ente",
+    "sample_stratum": "隐私保护",
+    "actual_scene": "隐私保护",
+    "source_available": true,
+    "purpose": {
+      "value": "端到端加密的照片保存、验证器和文档保管产品集合",
+      "source": {
+        "url": "https://raw.githubusercontent.com/ente-io/ente/HEAD/README.md",
+        "line_start": 5,
+        "line_end": 13,
+        "quote": "Fully open source end-to-end encrypted photos, authenticators and more.\n\n</div>\n\n# Ente\n\nEnte is a service that provides a fully open source, end-to-end encrypted platform for you to store your data in the cloud without needing to trust the service provider. On top of this platform, we have built three apps so far: Ente Photos (an alternative to Apple and Google Photos), Ente Locker (a safe space for your most important documents and credentials), and Ente Auth (a 2FA alternative to the deprecated Authy).\n\nThis monorepo contains all our source code - the client apps (iOS / Android / F-Droid / Web / Linux / macOS / Windows) for both the products (and more planned future ones!), and the server that powers them.",
+        "sha256": "d2af70e256ff732ddc002cd3f6937fa8deb1bb9f46fd130d4f5bb418b7a608fc",
+        "checked_at": "2026-10-20T15:53:38.683206+00:00"
+      }
+    },
+    "form": "mobile_app",
+    "platforms": {
+      "value": [
+        "iOS",
+        "Android",
+        "Linux",
+        "macOS",
+        "Windows",
+        "Web"
+      ],
+      "source": {
+        "url": "https://raw.githubusercontent.com/ente-io/ente/HEAD/README.md",
+        "line_start": 11,
+        "line_end": 13,
+        "quote": "Ente is a service that provides a fully open source, end-to-end encrypted platform for you to store your data in the cloud without needing to trust the service provider. On top of this platform, we have built three apps so far: Ente Photos (an alternative to Apple and Google Photos), Ente Locker (a safe space for your most important documents and credentials), and Ente Auth (a 2FA alternative to the deprecated Authy).\n\nThis monorepo contains all our source code - the client apps (iOS / Android / F-Droid / Web / Linux / macOS / Windows) for both the products (and more planned future ones!), and the server that powers them.",
+        "sha256": "d2af70e256ff732ddc002cd3f6937fa8deb1bb9f46fd130d4f5bb418b7a608fc",
+        "checked_at": "2026-10-20T15:53:38.683206+00:00"
+      }
+    },
+    "official_entry": {
+      "value": "follow official README entry; no asset-level or installation verification",
+      "source": {
+        "url": "https://raw.githubusercontent.com/ente-io/ente/HEAD/README.md",
+        "line_start": 33,
+        "line_end": 38,
+        "quote": "[<img height=\"40\" src=\".github/assets/app-store-badge.svg\">](https://apps.apple.com/app/id1542026904)\n[<img height=\"40\" src=\".github/assets/play-store-badge.png\">](https://play.google.com/store/apps/details?id=io.ente.photos)\n[<img height=\"40\" src=\".github/assets/f-droid-badge.png\">](https://f-droid.org/packages/io.ente.photos.fdroid/)\n[<img height=\"40\" src=\".github/assets/obtainium-badge.png\">](https://apps.obtainium.imranr.dev/redirect?r=obtainium://app/%7B%22id%22%3A%22io.ente.photos.independent%22%2C%22url%22%3A%22https%3A%2F%2Fgithub.com%2Fente%2Fente%22%2C%22author%22%3A%22ente%22%2C%22name%22%3A%22Ente%20Photos%22%2C%22preferredApkIndex%22%3A0%2C%22additionalSettings%22%3A%22%7B%5C%22includePrereleases%5C%22%3Afalse%2C%5C%22fallbackToOlderReleases%5C%22%3Atrue%2C%5C%22filterReleaseTitlesByRegEx%5C%22%3A%5C%22%5C%22%2C%5C%22filterReleaseNotesByRegEx%5C%22%3A%5C%22%5C%22%2C%5C%22verifyLatestTag%5C%22%3Afalse%2C%5C%22dontSortReleasesList%5C%22%3Atrue%2C%5C%22useLatestAssetDateAsReleaseDate%5C%22%3Afalse%2C%5C%22releaseTitleAsVersion%5C%22%3Afalse%2C%5C%22trackOnly%5C%22%3Afalse%2C%5C%22versionExtractionRegEx%5C%22%3A%5C%22%5C%22%2C%5C%22matchGroupToUse%5C%22%3A%5C%22%5C%22%2C%5C%22versionDetection%5C%22%3Atrue%2C%5C%22releaseDateAsVersion%5C%22%3Afalse%2C%5C%22useVersionCodeAsOSVersion%5C%22%3Afalse%2C%5C%22apkFilterRegEx%5C%22%3A%5C%22ente-photos*%5C%22%2C%5C%22invertAPKFilter%5C%22%3Afalse%2C%5C%22autoApkFilterByArch%5C%22%3Atrue%2C%5C%22appName%5C%22%3A%5C%22%5C%22%2C%5C%22shizukuPretendToBeGooglePlay%5C%22%3Afalse%2C%5C%22allowInsecure%5C%22%3Afalse%2C%5C%22exemptFromBackgroundUpdates%5C%22%3Afalse%2C%5C%22skipUpdateNotifications%5C%22%3Afalse%2C%5C%22about%5C%22%3A%5C%22%5C%22%7D%22%2C%22overrideSource%22%3Anull%7D)\n[<img height=\"40\" src=\".github/assets/desktop-badge.png\">](https://ente.com/download/desktop)\n[<img height=\"40\" src=\".github/assets/web-badge.svg\">](https://photos.ente.com)",
+        "sha256": "d2af70e256ff732ddc002cd3f6937fa8deb1bb9f46fd130d4f5bb418b7a608fc",
+        "checked_at": "2026-10-20T15:53:38.683206+00:00"
+      }
+    },
+    "prerequisites": {
+      "value": "Photos付费服务含10GB免费额度；Auth免费；不能将两者费用相互混用",
+      "source": {
+        "url": "https://raw.githubusercontent.com/ente-io/ente/HEAD/README.md",
+        "line_start": 25,
+        "line_end": 27,
+        "quote": "Our flagship product. 3x data replication. Face detection. Semantic search. Private sharing. Collaborative albums. Family plans. Easy import, easier export. Background uploads. The list goes on. And of course, all of this, while being fully end-to-end encrypted across platforms.\n\nEnte Photos is a paid service, but we offer 10GB of free storage. You can also clone this repository and choose to self-host.",
+        "sha256": "d2af70e256ff732ddc002cd3f6937fa8deb1bb9f46fd130d4f5bb418b7a608fc",
+        "checked_at": "2026-10-20T15:53:38.683206+00:00"
+      },
+      "complete": false
+    },
+    "license_review": "source files captured where available; no inferred SPDX variant",
+    "checked_by": "independent Codex reviewer; not a human user test",
+    "created_at": "2022-11-01T06:10:25Z",
+    "canonical_full_name": "ente/ente",
+    "source_metadata_status": 200,
+    "default_readme_language": "en",
+    "has_additional_official_chinese_readme": false
+  },
+  {
+    "full_name": "bitwarden/clients",
+    "sample_stratum": "隐私保护",
+    "actual_scene": "隐私保护",
+    "source_available": true,
+    "purpose": {
+      "value": null,
+      "source": {
+        "url": "https://raw.githubusercontent.com/bitwarden/clients/HEAD/README.md",
+        "line_start": 13,
+        "line_end": 17,
+        "quote": "# Bitwarden Client Applications\n\nThis repository houses all Bitwarden client applications except the mobile applications ([iOS](https://github.com/bitwarden/ios) | [android](https://github.com/bitwarden/android)).\n\nPlease refer to the [Clients section](https://contributing.bitwarden.com/getting-started/clients/) of the [Contributing Documentation](https://contributing.bitwarden.com/) for build instructions, recommended tooling, code style tips, and lots of other great information to get you started.",
+        "sha256": "c5ea2d6804adf6756a7960464af86cfcbcbf4e0218377a86797dcd9cf1fa6db8",
+        "checked_at": "2026-10-20T15:53:41.262311+00:00"
+      }
+    },
+    "form": "collection",
+    "platforms": {
+      "value": [],
+      "source": null
+    },
+    "official_entry": {
+      "value": "follow official README entry; no asset-level or installation verification",
+      "source": {
+        "url": "https://raw.githubusercontent.com/bitwarden/clients/HEAD/README.md",
+        "line_start": 17,
+        "line_end": 17,
+        "quote": "Please refer to the [Clients section](https://contributing.bitwarden.com/getting-started/clients/) of the [Contributing Documentation](https://contributing.bitwarden.com/) for build instructions, recommended tooling, code style tips, and lots of other great information to get you started.",
+        "sha256": "c5ea2d6804adf6756a7960464af86cfcbcbf4e0218377a86797dcd9cf1fa6db8",
+        "checked_at": "2026-10-20T15:53:41.262311+00:00"
+      }
+    },
+    "prerequisites": {
+      "value": "该仓库不含移动端；所列入口是开发构建文档而非终端用户安装器",
+      "source": {
+        "url": "https://raw.githubusercontent.com/bitwarden/clients/HEAD/README.md",
+        "line_start": 15,
+        "line_end": 17,
+        "quote": "This repository houses all Bitwarden client applications except the mobile applications ([iOS](https://github.com/bitwarden/ios) | [android](https://github.com/bitwarden/android)).\n\nPlease refer to the [Clients section](https://contributing.bitwarden.com/getting-started/clients/) of the [Contributing Documentation](https://contributing.bitwarden.com/) for build instructions, recommended tooling, code style tips, and lots of other great information to get you started.",
+        "sha256": "c5ea2d6804adf6756a7960464af86cfcbcbf4e0218377a86797dcd9cf1fa6db8",
+        "checked_at": "2026-10-20T15:53:41.262311+00:00"
+      },
+      "complete": false
+    },
+    "license_review": "source files captured where available; no inferred SPDX variant",
+    "checked_by": "independent Codex reviewer; not a human user test",
+    "created_at": "2016-03-09T23:14:01Z",
+    "canonical_full_name": "bitwarden/clients",
+    "source_metadata_status": 200,
+    "default_readme_language": "en",
+    "has_additional_official_chinese_readme": false
+  },
+  {
+    "full_name": "2dust/v2rayN",
+    "sample_stratum": "隐私保护",
+    "actual_scene": "隐私保护",
+    "source_available": true,
+    "purpose": {
+      "value": "支持Xray/sing-box等核心的桌面GUI客户端",
+      "source": {
+        "url": "https://raw.githubusercontent.com/2dust/v2rayN/HEAD/README.md",
+        "line_start": 3,
+        "line_end": 3,
+        "quote": "### A GUI client for Windows, Linux and macOS. Support [Xray](https://github.com/XTLS/Xray-core) and [sing-box](https://github.com/SagerNet/sing-box) and [others](https://github.com/2dust/v2rayN/wiki/List-of-supported-cores)",
+        "sha256": "2376917589f395da4282a134b1139b0082646c82cb4ef40eaa8b2a6034d5180d",
+        "checked_at": "2026-10-20T15:53:39.168439+00:00"
+      }
+    },
+    "form": "desktop_app",
+    "platforms": {
+      "value": [
+        "Windows",
+        "Linux",
+        "macOS"
+      ],
+      "source": {
+        "url": "https://raw.githubusercontent.com/2dust/v2rayN/HEAD/README.md",
+        "line_start": 3,
+        "line_end": 3,
+        "quote": "### A GUI client for Windows, Linux and macOS. Support [Xray](https://github.com/XTLS/Xray-core) and [sing-box](https://github.com/SagerNet/sing-box) and [others](https://github.com/2dust/v2rayN/wiki/List-of-supported-cores)",
+        "sha256": "2376917589f395da4282a134b1139b0082646c82cb4ef40eaa8b2a6034d5180d",
+        "checked_at": "2026-10-20T15:53:39.168439+00:00"
+      }
+    },
+    "official_entry": {
+      "value": "follow official README entry; no asset-level or installation verification",
+      "source": {
+        "url": "https://raw.githubusercontent.com/2dust/v2rayN/HEAD/README.md",
+        "line_start": 18,
+        "line_end": 24,
+        "quote": "## Download / 下载\n\nDownload the latest release here:\n\n在这里下载最新版本：\n\n[https://github.com/2dust/v2rayN/releases](https://github.com/2dust/v2rayN/releases)",
+        "sha256": "2376917589f395da4282a134b1139b0082646c82cb4ef40eaa8b2a6034d5180d",
+        "checked_at": "2026-10-20T15:53:39.168439+00:00"
+      }
+    },
+    "prerequisites": {
+      "value": "使用与配置需按Wiki核对；不能因桌面GUI推定无配置可直接使用",
+      "source": {
+        "url": "https://raw.githubusercontent.com/2dust/v2rayN/HEAD/README.md",
+        "line_start": 35,
+        "line_end": 39,
+        "quote": "## Documentation / 使用文档\n\nRead the Wiki for usage guides and configuration details.\n\n请阅读 Wiki 获取使用说明和配置教程。",
+        "sha256": "2376917589f395da4282a134b1139b0082646c82cb4ef40eaa8b2a6034d5180d",
+        "checked_at": "2026-10-20T15:53:39.168439+00:00"
+      },
+      "complete": false
+    },
+    "license_review": "source files captured where available; no inferred SPDX variant",
+    "checked_by": "independent Codex reviewer; not a human user test",
+    "created_at": "2019-07-30T03:47:24Z",
+    "canonical_full_name": "2dust/v2rayN",
+    "source_metadata_status": 200,
+    "default_readme_language": "bilingual",
+    "has_additional_official_chinese_readme": false
+  },
+  {
+    "full_name": "AdguardTeam/AdGuardHome",
+    "sample_stratum": "隐私保护",
+    "actual_scene": "隐私保护",
+    "source_available": true,
+    "purpose": {
+      "value": "自行部署DNS服务屏蔽广告和跟踪域名",
+      "source": {
+        "url": "https://raw.githubusercontent.com/AdguardTeam/AdGuardHome/HEAD/README.md",
+        "line_start": 42,
+        "line_end": 44,
+        "quote": "AdGuard Home is a network-wide software for blocking ads and tracking. After you set it up, it'll cover ALL your home devices, and you don't need any client-side software for that.\n\nIt operates as a DNS server that re-routes tracking domains to a “black hole”, thus preventing your devices from connecting to those servers. It's based on software we use for our public [AdGuard DNS] servers, and both share a lot of code.",
+        "sha256": "380a60a15069611a45a97f770c1441de8db71446cdb85f17bdd8c56df3dcb10a",
+        "checked_at": "2026-10-20T15:53:41.656677+00:00"
+      }
+    },
+    "form": "self_hosted",
+    "platforms": {
+      "value": [
+        "Linux",
+        "macOS",
+        "FreeBSD",
+        "OpenBSD"
+      ],
+      "source": {
+        "url": "https://raw.githubusercontent.com/AdguardTeam/AdGuardHome/HEAD/README.md",
+        "line_start": 72,
+        "line_end": 72,
+        "quote": "### <a href=\"#automated-install-linux-and-mac\" id=\"automated-install-linux-and-mac\" name=\"automated-install-linux-and-mac\">Automated install (Linux/Unix/MacOS/FreeBSD/OpenBSD)</a>",
+        "sha256": "380a60a15069611a45a97f770c1441de8db71446cdb85f17bdd8c56df3dcb10a",
+        "checked_at": "2026-10-20T15:53:41.656677+00:00"
+      }
+    },
+    "official_entry": {
+      "value": "follow official README entry; no asset-level or installation verification",
+      "source": {
+        "url": "https://raw.githubusercontent.com/AdguardTeam/AdGuardHome/HEAD/README.md",
+        "line_start": 72,
+        "line_end": 105,
+        "quote": "### <a href=\"#automated-install-linux-and-mac\" id=\"automated-install-linux-and-mac\" name=\"automated-install-linux-and-mac\">Automated install (Linux/Unix/MacOS/FreeBSD/OpenBSD)</a>\n\nTo install with `curl` run the following command:\n\n```sh\ncurl -s -S -L https://raw.githubusercontent.com/AdguardTeam/AdGuardHome/master/scripts/install.sh | sh -s -- -v\n```\n\nTo install with `wget` run the following command:\n\n```sh\nwget --no-verbose -O - https://raw.githubusercontent.com/AdguardTeam/AdGuardHome/master/scripts/install.sh | sh -s -- -v\n```\n\nTo install with `fetch` run the following command:\n\n```sh\nfetch -o - https://raw.githubusercontent.com/AdguardTeam/AdGuardHome/master/scripts/install.sh | sh -s -- -v\n```\n\nThe script also accepts some options:\n\n- `-c <channel>` to use specified channel;\n- `-r` to reinstall AdGuard Home;\n- `-u` to uninstall AdGuard Home;\n- `-v` for verbose output.\n\nNote that options `-r` and `-u` are mutually exclusive.\n\n### <a href=\"#alternative-methods\" id=\"alternative-methods\" name=\"alternative-methods\">Alternative methods</a>\n\n#### <a href=\"#manual-installation\" id=\"manual-installation\" name=\"manual-installation\">Manual installation</a>\n\nPlease read the **[Getting Started][wiki-start]** article on our Wiki to learn how to install AdGuard Home manually, and how to configure your devices to use it.",
+        "sha256": "380a60a15069611a45a97f770c1441de8db71446cdb85f17bdd8c56df3dcb10a",
+        "checked_at": "2026-10-20T15:53:41.656677+00:00"
+      }
+    },
+    "prerequisites": {
+      "value": "需设置服务并配置设备使用此DNS；依据DNS域名工作",
+      "source": {
+        "url": "https://raw.githubusercontent.com/AdguardTeam/AdGuardHome/HEAD/README.md",
+        "line_start": 42,
+        "line_end": 44,
+        "quote": "AdGuard Home is a network-wide software for blocking ads and tracking. After you set it up, it'll cover ALL your home devices, and you don't need any client-side software for that.\n\nIt operates as a DNS server that re-routes tracking domains to a “black hole”, thus preventing your devices from connecting to those servers. It's based on software we use for our public [AdGuard DNS] servers, and both share a lot of code.",
+        "sha256": "380a60a15069611a45a97f770c1441de8db71446cdb85f17bdd8c56df3dcb10a",
+        "checked_at": "2026-10-20T15:53:41.656677+00:00"
+      },
+      "complete": false
+    },
+    "license_review": "source files captured where available; no inferred SPDX variant",
+    "checked_by": "independent Codex reviewer; not a human user test",
+    "created_at": "2016-07-06T10:31:47Z",
+    "canonical_full_name": "AdguardTeam/AdGuardHome",
+    "source_metadata_status": 200,
+    "default_readme_language": "en",
+    "has_additional_official_chinese_readme": false
+  },
+  {
+    "full_name": "usememos/memos",
+    "sample_stratum": "笔记效率",
+    "actual_scene": "笔记效率",
+    "source_available": true,
+    "purpose": {
+      "value": "自托管个人时间线式笔记",
+      "source": {
+        "url": "https://raw.githubusercontent.com/usememos/memos/HEAD/README.md",
+        "line_start": 12,
+        "line_end": 12,
+        "quote": "Memos is an open-source, self-hosted note-taking app that brings your everyday thoughts together in a personal timeline. Your data stays yours, and you choose what to keep private or share.",
+        "sha256": "441f879a482850273554612eb656bc10d25e85d565bb8b34fc1d4349cae56811",
+        "checked_at": "2026-10-20T15:53:41.217177+00:00"
+      }
+    },
+    "form": "self_hosted",
+    "platforms": {
+      "value": [],
+      "source": null
+    },
+    "official_entry": {
+      "value": "follow official README entry; no asset-level or installation verification",
+      "source": {
+        "url": "https://raw.githubusercontent.com/usememos/memos/HEAD/README.md",
+        "line_start": 34,
+        "line_end": 46,
+        "quote": "## Quick start\n\nWith Docker installed, run:\n\n```bash\ndocker run -d \\\n  --name memos \\\n  -p 5230:5230 \\\n  -v ~/.memos:/var/opt/memos \\\n  neosmemo/memos:stable\n```\n\nOpen http://localhost:5230 and create the first account. Everything Memos keeps is in `~/.memos`, so back up that one folder.",
+        "sha256": "441f879a482850273554612eb656bc10d25e85d565bb8b34fc1d4349cae56811",
+        "checked_at": "2026-10-20T15:53:41.217177+00:00"
+      }
+    },
+    "prerequisites": {
+      "value": "Docker运行并创建首个账户，需备份持久化目录",
+      "source": {
+        "url": "https://raw.githubusercontent.com/usememos/memos/HEAD/README.md",
+        "line_start": 34,
+        "line_end": 46,
+        "quote": "## Quick start\n\nWith Docker installed, run:\n\n```bash\ndocker run -d \\\n  --name memos \\\n  -p 5230:5230 \\\n  -v ~/.memos:/var/opt/memos \\\n  neosmemo/memos:stable\n```\n\nOpen http://localhost:5230 and create the first account. Everything Memos keeps is in `~/.memos`, so back up that one folder.",
+        "sha256": "441f879a482850273554612eb656bc10d25e85d565bb8b34fc1d4349cae56811",
+        "checked_at": "2026-10-20T15:53:41.217177+00:00"
+      },
+      "complete": false
+    },
+    "license_review": "source files captured where available; no inferred SPDX variant",
+    "checked_by": "independent Codex reviewer; not a human user test",
+    "created_at": "2021-12-08T15:30:18Z",
+    "canonical_full_name": "usememos/memos",
+    "source_metadata_status": 200,
+    "default_readme_language": "en",
+    "has_additional_official_chinese_readme": false
+  },
+  {
+    "full_name": "johannesjo/super-productivity",
+    "sample_stratum": "笔记效率",
+    "actual_scene": "笔记效率",
+    "source_available": true,
+    "purpose": {
+      "value": "任务清单、时间分配与计时管理",
+      "source": {
+        "url": "https://raw.githubusercontent.com/johannesjo/super-productivity/HEAD/README.md",
+        "line_start": 5,
+        "line_end": 5,
+        "quote": "    An advanced todo list app with timeboxing & time tracking capabilities that supports importing tasks from your calendar, Jira, GitHub and others",
+        "sha256": "f15b319ab8de76ca8e9ce5d1b72cc2334e0cab1cb3515da7048f0ba6e8f9ad1e",
+        "checked_at": "2026-10-20T15:53:47.437650+00:00"
+      }
+    },
+    "form": "web_app",
+    "platforms": {
+      "value": [
+        "Linux",
+        "macOS",
+        "Windows",
+        "Android",
+        "iOS",
+        "Web"
+      ],
+      "source": {
+        "url": "https://raw.githubusercontent.com/johannesjo/super-productivity/HEAD/README.md",
+        "line_start": 97,
+        "line_end": 97,
+        "quote": "- Runs on **Linux**, **macOS**, **Windows**, **Android**, **iOS** and in the **browser**.",
+        "sha256": "f15b319ab8de76ca8e9ce5d1b72cc2334e0cab1cb3515da7048f0ba6e8f9ad1e",
+        "checked_at": "2026-10-20T15:53:47.437650+00:00"
+      }
+    },
+    "official_entry": {
+      "value": "follow official README entry; no asset-level or installation verification",
+      "source": {
+        "url": "https://raw.githubusercontent.com/johannesjo/super-productivity/HEAD/README.md",
+        "line_start": 10,
+        "line_end": 10,
+        "quote": "  :globe_with_meridians: <a href=\"https://app.super-productivity.com\">Open Web App</a> or :computer: <a href=\"https://github.com/super-productivity/super-productivity/wiki/2.01-Downloads-and-Install\">Download</a>",
+        "sha256": "f15b319ab8de76ca8e9ce5d1b72cc2334e0cab1cb3515da7048f0ba6e8f9ad1e",
+        "checked_at": "2026-10-20T15:53:47.437650+00:00"
+      }
+    },
+    "prerequisites": {
+      "value": null,
+      "source": null,
+      "complete": false
+    },
+    "license_review": "source files captured where available; no inferred SPDX variant",
+    "checked_by": "independent Codex reviewer; not a human user test",
+    "created_at": "2017-01-06T22:30:58Z",
+    "canonical_full_name": "super-productivity/super-productivity",
+    "source_metadata_status": 200,
+    "default_readme_language": "en",
+    "has_additional_official_chinese_readme": false
+  },
+  {
+    "full_name": "MrXujiang/next-admin",
+    "sample_stratum": "笔记效率",
+    "actual_scene": "范围外",
+    "source_available": true,
+    "purpose": {
+      "value": "面向企业应用的React界面脚手架",
+      "source": {
+        "url": "https://raw.githubusercontent.com/MrXujiang/next-admin/HEAD/README.md",
+        "line_start": 15,
+        "line_end": 15,
+        "quote": "An out-of-box UI solution for enterprise applications as a React boilerplate.",
+        "sha256": "97a6a21bbb3b145c672a2063d6f57d70ec891b17b58fe9d57654296ddf39de4d",
+        "checked_at": "2026-10-20T15:53:40.408244+00:00"
+      }
+    },
+    "form": "framework",
+    "platforms": {
+      "value": [],
+      "source": null
+    },
+    "official_entry": {
+      "value": "follow official README entry; no asset-level or installation verification",
+      "source": {
+        "url": "https://raw.githubusercontent.com/MrXujiang/next-admin/HEAD/README.md",
+        "line_start": 56,
+        "line_end": 65,
+        "quote": "### Install\n\n```shell\n$ git clone git@github.com:MrXujiang/next-admin.git\n```\n\nInstall dependencies:\n\n```shell\n$ cd next-admin && pnpm install",
+        "sha256": "97a6a21bbb3b145c672a2063d6f57d70ec891b17b58fe9d57654296ddf39de4d",
+        "checked_at": "2026-10-20T15:53:40.408244+00:00"
+      }
+    },
+    "prerequisites": {
+      "value": "开发脚手架路径需克隆源码并pnpm安装依赖",
+      "source": {
+        "url": "https://raw.githubusercontent.com/MrXujiang/next-admin/HEAD/README.md",
+        "line_start": 56,
+        "line_end": 65,
+        "quote": "### Install\n\n```shell\n$ git clone git@github.com:MrXujiang/next-admin.git\n```\n\nInstall dependencies:\n\n```shell\n$ cd next-admin && pnpm install",
+        "sha256": "97a6a21bbb3b145c672a2063d6f57d70ec891b17b58fe9d57654296ddf39de4d",
+        "checked_at": "2026-10-20T15:53:40.408244+00:00"
+      },
+      "complete": false
+    },
+    "license_review": "source files captured where available; no inferred SPDX variant",
+    "checked_by": "independent Codex reviewer; not a human user test",
+    "created_at": "2024-03-20T13:04:52Z",
+    "canonical_full_name": "MrXujiang/next-admin",
+    "source_metadata_status": 200,
+    "default_readme_language": "en",
+    "has_additional_official_chinese_readme": true
+  },
+  {
+    "full_name": "anyproto/anytype-ts",
+    "sample_stratum": "笔记效率",
+    "actual_scene": "笔记效率",
+    "source_available": true,
+    "purpose": {
+      "value": "本地优先的个人知识库与信息组织应用",
+      "source": {
+        "url": "https://raw.githubusercontent.com/anyproto/anytype-ts/HEAD/README.md",
+        "line_start": 3,
+        "line_end": 10,
+        "quote": "> **Local‑first, peer‑to‑peer & end‑to‑end‑encrypted knowledge OS for macOS, Windows & Linux.**\n\n[![Latest release](https://img.shields.io/github/v/release/anyproto/anytype-ts?label=Download)](https://github.com/anyproto/anytype-ts/releases)\n[![Build Status](https://github.com/anyproto/anytype-ts/actions/workflows/build.yml/badge.svg?branch=main&event=release)](https://github.com/anyproto/anytype-ts/actions/workflows/build.yml)\n[![Crowdin](https://badges.crowdin.net/anytype-desktop/localized.svg)](https://crowdin.com/project/anytype-desktop)\n[![License](https://img.shields.io/badge/license-ASAL-1.0-blue.svg)](LICENSE.md)\n\nAnytype is a **personal knowledge base**—your digital brain—that lets you gather, connect and remix all kinds of information. Create pages, tasks, wikis, journals—even entire apps—and *define your own data model* while your data stays **offline‑first, private and encrypted** across devices.",
+        "sha256": "47d0d6e087c3334551809d8290604f3346b16703ed3f733e08b4f9dee0fa2064",
+        "checked_at": "2026-10-20T15:53:43.612510+00:00"
+      }
+    },
+    "form": "desktop_app",
+    "platforms": {
+      "value": [
+        "macOS",
+        "Windows",
+        "Linux"
+      ],
+      "source": {
+        "url": "https://raw.githubusercontent.com/anyproto/anytype-ts/HEAD/README.md",
+        "line_start": 3,
+        "line_end": 3,
+        "quote": "> **Local‑first, peer‑to‑peer & end‑to‑end‑encrypted knowledge OS for macOS, Windows & Linux.**",
+        "sha256": "47d0d6e087c3334551809d8290604f3346b16703ed3f733e08b4f9dee0fa2064",
+        "checked_at": "2026-10-20T15:53:43.612510+00:00"
+      }
+    },
+    "official_entry": {
+      "value": "follow official README entry; no asset-level or installation verification",
+      "source": {
+        "url": "https://raw.githubusercontent.com/anyproto/anytype-ts/HEAD/README.md",
+        "line_start": 38,
+        "line_end": 38,
+        "quote": "Just want to try it? Grab the latest installer from the [releases page](https://github.com/anyproto/anytype-ts/releases) or head to **[download.anytype.io](https://download.anytype.io)** and log in with your *Any‑ID*.",
+        "sha256": "47d0d6e087c3334551809d8290604f3346b16703ed3f733e08b4f9dee0fa2064",
+        "checked_at": "2026-10-20T15:53:43.612510+00:00"
+      }
+    },
+    "prerequisites": {
+      "value": "下载安装路径需Any-ID；ARM源码构建的依赖不得泛化为安装器要求",
+      "source": {
+        "url": "https://raw.githubusercontent.com/anyproto/anytype-ts/HEAD/README.md",
+        "line_start": 38,
+        "line_end": 44,
+        "quote": "Just want to try it? Grab the latest installer from the [releases page](https://github.com/anyproto/anytype-ts/releases) or head to **[download.anytype.io](https://download.anytype.io)** and log in with your *Any‑ID*.\n\n## 🏗 Building from Source\n\nOn ARM systems, node package `keytar` needs to be rebuilt during installation, so make sure that your system has a C++ compiler, Python3 and Python package `setuptools`. E.g. on Debian/Ubuntu: `sudo apt install python3-setuptools`. Alternatively, on any system, create a Python virtual environment (venv) and inside the venv: `pip install setuptools`. Then build from source inside the venv.\n\n**Linux** also needs the protobuf compiler **with** the well-known `.proto` files (used to generate the gRPC bindings in step 5):",
+        "sha256": "47d0d6e087c3334551809d8290604f3346b16703ed3f733e08b4f9dee0fa2064",
+        "checked_at": "2026-10-20T15:53:43.612510+00:00"
+      },
+      "complete": false
+    },
+    "license_review": "source files captured where available; no inferred SPDX variant",
+    "checked_by": "independent Codex reviewer; not a human user test",
+    "created_at": "2023-05-22T10:39:33Z",
+    "canonical_full_name": "anyproto/anytype-ts",
+    "source_metadata_status": 200,
+    "default_readme_language": "en",
+    "has_additional_official_chinese_readme": false
+  },
+  {
+    "full_name": "AppFlowy-IO/AppFlowy",
+    "sample_stratum": "笔记效率",
+    "actual_scene": "笔记效率",
+    "source_available": true,
+    "purpose": {
+      "value": "控制自己数据的AI工作空间",
+      "source": {
+        "url": "https://raw.githubusercontent.com/AppFlowy-IO/AppFlowy/HEAD/README.md",
+        "line_start": 9,
+        "line_end": 9,
+        "quote": "AppFlowy is the AI workspace where you achieve more without losing control of your data",
+        "sha256": "f59d3e49037d392f36d7ea13d25485c5d54317f9aee7c61c4c2a47f067aa996d",
+        "checked_at": "2026-10-20T15:53:44.126348+00:00"
+      }
+    },
+    "form": "desktop_app",
+    "platforms": {
+      "value": [
+        "macOS",
+        "Windows",
+        "Linux",
+        "iOS",
+        "Android"
+      ],
+      "source": {
+        "url": "https://raw.githubusercontent.com/AppFlowy-IO/AppFlowy/HEAD/README.md",
+        "line_start": 42,
+        "line_end": 50,
+        "quote": "## User Installation\n\n- [Download AppFlowy Desktop (macOS, Windows, and Linux)](https://github.com/AppFlowy-IO/AppFlowy/releases)\n- Other\n  channels: [FlatHub](https://flathub.org/apps/io.appflowy.AppFlowy), [Snapcraft](https://snapcraft.io/appflowy), [Sourceforge](https://sourceforge.net/projects/appflowy/)\n- Available on\n    - [App Store](https://apps.apple.com/app/appflowy/id6457261352): iPhone\n    - [Play Store](https://play.google.com/store/apps/details?id=io.appflowy.appflowy): Android 10 or above; ARMv7 is\n      not supported",
+        "sha256": "f59d3e49037d392f36d7ea13d25485c5d54317f9aee7c61c4c2a47f067aa996d",
+        "checked_at": "2026-10-20T15:53:44.126348+00:00"
+      }
+    },
+    "official_entry": {
+      "value": "follow official README entry; no asset-level or installation verification",
+      "source": {
+        "url": "https://raw.githubusercontent.com/AppFlowy-IO/AppFlowy/HEAD/README.md",
+        "line_start": 42,
+        "line_end": 52,
+        "quote": "## User Installation\n\n- [Download AppFlowy Desktop (macOS, Windows, and Linux)](https://github.com/AppFlowy-IO/AppFlowy/releases)\n- Other\n  channels: [FlatHub](https://flathub.org/apps/io.appflowy.AppFlowy), [Snapcraft](https://snapcraft.io/appflowy), [Sourceforge](https://sourceforge.net/projects/appflowy/)\n- Available on\n    - [App Store](https://apps.apple.com/app/appflowy/id6457261352): iPhone\n    - [Play Store](https://play.google.com/store/apps/details?id=io.appflowy.appflowy): Android 10 or above; ARMv7 is\n      not supported\n- [Self-hosting AppFlowy](https://appflowy.com/docs/Step-by-step-Self-Hosting-Guide---From-Zero-to-Production)\n- [Source](https://docs.appflowy.io/docs/documentation/appflowy/from-source)",
+        "sha256": "f59d3e49037d392f36d7ea13d25485c5d54317f9aee7c61c4c2a47f067aa996d",
+        "checked_at": "2026-10-20T15:53:44.126348+00:00"
+      }
+    },
+    "prerequisites": {
+      "value": "移动Android版要求Android10+且不支持ARMv7；桌面详细前提未核对",
+      "source": {
+        "url": "https://raw.githubusercontent.com/AppFlowy-IO/AppFlowy/HEAD/README.md",
+        "line_start": 47,
+        "line_end": 50,
+        "quote": "- Available on\n    - [App Store](https://apps.apple.com/app/appflowy/id6457261352): iPhone\n    - [Play Store](https://play.google.com/store/apps/details?id=io.appflowy.appflowy): Android 10 or above; ARMv7 is\n      not supported",
+        "sha256": "f59d3e49037d392f36d7ea13d25485c5d54317f9aee7c61c4c2a47f067aa996d",
+        "checked_at": "2026-10-20T15:53:44.126348+00:00"
+      },
+      "complete": false
+    },
+    "license_review": "source files captured where available; no inferred SPDX variant",
+    "checked_by": "independent Codex reviewer; not a human user test",
+    "created_at": "2021-06-16T12:56:48Z",
+    "canonical_full_name": "AppFlowy-IO/AppFlowy",
+    "source_metadata_status": 200,
+    "default_readme_language": "en",
+    "has_additional_official_chinese_readme": false
+  },
+  {
+    "full_name": "siyuan-note/siyuan",
+    "sample_stratum": "笔记效率",
+    "actual_scene": "笔记效率",
+    "source_available": true,
+    "purpose": {
+      "value": "隐私优先、块引用与Markdown的个人知识管理",
+      "source": {
+        "url": "https://raw.githubusercontent.com/siyuan-note/siyuan/HEAD/README.md",
+        "line_start": 68,
+        "line_end": 69,
+        "quote": "SiYuan is a privacy-first personal knowledge management system, supporting fine-grained block-level reference and Markdown\nWYSIWYG.",
+        "sha256": "2e8149ff44c748a100517401455618b6569858eec3d8c6a24ffe96f5da2721cd",
+        "checked_at": "2026-10-20T15:53:46.114358+00:00"
+      }
+    },
+    "form": "desktop_app",
+    "platforms": {
+      "value": [],
+      "source": null
+    },
+    "official_entry": {
+      "value": "follow official README entry; no asset-level or installation verification",
+      "source": {
+        "url": "https://raw.githubusercontent.com/siyuan-note/siyuan/HEAD/README.md",
+        "line_start": 136,
+        "line_end": 155,
+        "quote": "## 🚀 Download Setup\n\nIt is recommended to give priority to installing through the application market on desktop and mobile, so that you can upgrade the version with one click in the future.\n\n### App Market\n\nMobile:\n\n- [App Store](https://apps.apple.com/us/app/siyuan/id1583226508)\n- [Google Play](https://play.google.com/store/apps/details?id=org.b3log.siyuan)\n- [F-Droid](https://f-droid.org/packages/org.b3log.siyuan)\n\nDesktop:\n\n- [Microsoft Store](https://apps.microsoft.com/detail/9p7hpmxp73k4)\n\n### Installation Package\n\n- [B3log](https://b3log.org/siyuan/en/download.html)\n- [GitHub](https://github.com/siyuan-note/siyuan/releases)",
+        "sha256": "2e8149ff44c748a100517401455618b6569858eec3d8c6a24ffe96f5da2721cd",
+        "checked_at": "2026-10-20T15:53:46.114358+00:00"
+      }
+    },
+    "prerequisites": {
+      "value": "部分功能付费，不能把大部分功能免费扩张为全功能免费",
+      "source": {
+        "url": "https://raw.githubusercontent.com/siyuan-note/siyuan/HEAD/README.md",
+        "line_start": 79,
+        "line_end": 113,
+        "quote": "Most features are free, even for commercial use.\n\n- Content block\n  - Block-level reference and two-way links\n  - Custom attributes\n  - SQL query embed\n  - Protocol `siyuan://`\n- Editor\n  - Block-style\n  - Markdown WYSIWYG\n  - List outline\n  - Block zoom-in\n  - Million-word large document editing\n  - Mathematical formulas, charts, flowcharts, Gantt charts, timing charts, staves, etc.\n  - Web clipping\n  - PDF Annotation link\n- Export\n  - Block ref and embed\n  - Standard Markdown with assets\n  - PDF, Word and HTML\n  - Copy to WeChat MP, Zhihu and Yuque\n- Database\n  - Table view\n- Flashcard spaced repetition\n- AI writing and Q/A chat via OpenAI API\n- Tesseract OCR \n- Multi-tab, drag and drop to split screen\n- Template snippet\n- JavaScript/CSS snippet\n- Android/iOS/HarmonyOS App\n- Docker deployment\n- [API](https://github.com/siyuan-note/siyuan/blob/master/docs/API.md)\n- Community marketplace\n\nSome features are only available to paid members, for more details please refer to [Pricing](https://b3log.org/siyuan/en/pricing.html).",
+        "sha256": "2e8149ff44c748a100517401455618b6569858eec3d8c6a24ffe96f5da2721cd",
+        "checked_at": "2026-10-20T15:53:46.114358+00:00"
+      },
+      "complete": false
+    },
+    "license_review": "source files captured where available; no inferred SPDX variant",
+    "checked_by": "independent Codex reviewer; not a human user test",
+    "created_at": "2020-08-30T09:21:35Z",
+    "canonical_full_name": "siyuan-note/siyuan",
+    "source_metadata_status": 200,
+    "default_readme_language": "en",
+    "has_additional_official_chinese_readme": false
+  },
+  {
+    "full_name": "huggingface/transformers",
+    "sample_stratum": "范围外",
+    "actual_scene": "范围外",
+    "source_available": true,
+    "purpose": {
+      "value": "用于推理训练的机器学习模型定义框架",
+      "source": {
+        "url": "https://raw.githubusercontent.com/huggingface/transformers/HEAD/README.md",
+        "line_start": 70,
+        "line_end": 75,
+        "quote": "Transformers acts as the model-definition framework for state-of-the-art machine learning with text, computer\nvision, audio, video, and multimodal models, for both inference and training.\n\nIt centralizes the model definition so that this definition is agreed upon across the ecosystem. `transformers` is the\npivot across frameworks: if a model definition is supported, it will be compatible with the majority of training\nframeworks (Axolotl, Unsloth, DeepSpeed, FSDP, PyTorch-Lightning, ...), inference engines (vLLM, SGLang, TGI, ...),",
+        "sha256": "2a177841823df1ce1ad7ec068f07809eeb39d8db336ecab0fec259ddaf488ecb",
+        "checked_at": "2026-10-20T15:53:46.986990+00:00"
+      }
+    },
+    "form": "framework",
+    "platforms": {
+      "value": [],
+      "source": null
+    },
+    "official_entry": {
+      "value": "follow official README entry; no asset-level or installation verification",
+      "source": {
+        "url": "https://raw.githubusercontent.com/huggingface/transformers/HEAD/README.md",
+        "line_start": 85,
+        "line_end": 107,
+        "quote": "## Installation\n\nTransformers works with Python 3.10+, and [PyTorch](https://pytorch.org/get-started/locally/) 2.6+.\n\nCreate and activate a virtual environment with [venv](https://docs.python.org/3/library/venv.html) or [uv](https://docs.astral.sh/uv/), a fast Rust-based Python package and project manager.\n\n```py\n# venv\npython -m venv .my-env\nsource .my-env/bin/activate\n# uv\nuv venv .my-env\nsource .my-env/bin/activate\n```\n\nInstall Transformers in your virtual environment.\n\n```py\n# pip\npip install \"transformers[torch]\"\n\n# uv\nuv pip install \"transformers[torch]\"",
+        "sha256": "2a177841823df1ce1ad7ec068f07809eeb39d8db336ecab0fec259ddaf488ecb",
+        "checked_at": "2026-10-20T15:53:46.986990+00:00"
+      }
+    },
+    "prerequisites": {
+      "value": "需Python虚拟环境与模型下载，不能当作直接可用聊天GUI",
+      "source": {
+        "url": "https://raw.githubusercontent.com/huggingface/transformers/HEAD/README.md",
+        "line_start": 85,
+        "line_end": 107,
+        "quote": "## Installation\n\nTransformers works with Python 3.10+, and [PyTorch](https://pytorch.org/get-started/locally/) 2.6+.\n\nCreate and activate a virtual environment with [venv](https://docs.python.org/3/library/venv.html) or [uv](https://docs.astral.sh/uv/), a fast Rust-based Python package and project manager.\n\n```py\n# venv\npython -m venv .my-env\nsource .my-env/bin/activate\n# uv\nuv venv .my-env\nsource .my-env/bin/activate\n```\n\nInstall Transformers in your virtual environment.\n\n```py\n# pip\npip install \"transformers[torch]\"\n\n# uv\nuv pip install \"transformers[torch]\"",
+        "sha256": "2a177841823df1ce1ad7ec068f07809eeb39d8db336ecab0fec259ddaf488ecb",
+        "checked_at": "2026-10-20T15:53:46.986990+00:00"
+      },
+      "complete": false
+    },
+    "license_review": "source files captured where available; no inferred SPDX variant",
+    "checked_by": "independent Codex reviewer; not a human user test",
+    "created_at": "2018-10-29T13:56:00Z",
+    "canonical_full_name": "huggingface/transformers",
+    "source_metadata_status": 200,
+    "default_readme_language": "en",
+    "has_additional_official_chinese_readme": false
+  },
+  {
+    "full_name": "home-assistant/core",
+    "sample_stratum": "范围外",
+    "actual_scene": "范围外",
+    "source_available": true,
+    "purpose": {
+      "value": "本地控制优先的家庭自动化服务",
+      "source": {
+        "url": "https://raw.githubusercontent.com/home-assistant/core/HEAD/README.rst",
+        "line_start": 4,
+        "line_end": 8,
+        "quote": "Open source home automation that puts local control and privacy first. Powered by a worldwide community of tinkerers and DIY enthusiasts. Perfect to run on a Raspberry Pi or a local server.\n\nCheck out `home-assistant.io <https://home-assistant.io>`__ for `a\ndemo <https://demo.home-assistant.io>`__, `installation instructions <https://home-assistant.io/getting-started/>`__,\n`tutorials <https://home-assistant.io/getting-started/automation/>`__ and `documentation <https://home-assistant.io/docs/>`__.",
+        "sha256": "7cd3c381536b6d26371f921d730242c6162fc3fa840bf8e9418409f8b482e7cb",
+        "checked_at": "2026-10-20T15:54:00.073619+00:00"
+      }
+    },
+    "form": "self_hosted",
+    "platforms": {
+      "value": [
+        "Raspberry Pi",
+        "local server"
+      ],
+      "source": {
+        "url": "https://raw.githubusercontent.com/home-assistant/core/HEAD/README.rst",
+        "line_start": 4,
+        "line_end": 4,
+        "quote": "Open source home automation that puts local control and privacy first. Powered by a worldwide community of tinkerers and DIY enthusiasts. Perfect to run on a Raspberry Pi or a local server.",
+        "sha256": "7cd3c381536b6d26371f921d730242c6162fc3fa840bf8e9418409f8b482e7cb",
+        "checked_at": "2026-10-20T15:54:00.073619+00:00"
+      }
+    },
+    "official_entry": {
+      "value": "follow official README entry; no asset-level or installation verification",
+      "source": {
+        "url": "https://raw.githubusercontent.com/home-assistant/core/HEAD/README.rst",
+        "line_start": 6,
+        "line_end": 8,
+        "quote": "Check out `home-assistant.io <https://home-assistant.io>`__ for `a\ndemo <https://demo.home-assistant.io>`__, `installation instructions <https://home-assistant.io/getting-started/>`__,\n`tutorials <https://home-assistant.io/getting-started/automation/>`__ and `documentation <https://home-assistant.io/docs/>`__.",
+        "sha256": "7cd3c381536b6d26371f921d730242c6162fc3fa840bf8e9418409f8b482e7cb",
+        "checked_at": "2026-10-20T15:54:00.073619+00:00"
+      }
+    },
+    "prerequisites": {
+      "value": "需要树莓派或本地服务器；详细安装环境需跟进入门文档",
+      "source": {
+        "url": "https://raw.githubusercontent.com/home-assistant/core/HEAD/README.rst",
+        "line_start": 4,
+        "line_end": 8,
+        "quote": "Open source home automation that puts local control and privacy first. Powered by a worldwide community of tinkerers and DIY enthusiasts. Perfect to run on a Raspberry Pi or a local server.\n\nCheck out `home-assistant.io <https://home-assistant.io>`__ for `a\ndemo <https://demo.home-assistant.io>`__, `installation instructions <https://home-assistant.io/getting-started/>`__,\n`tutorials <https://home-assistant.io/getting-started/automation/>`__ and `documentation <https://home-assistant.io/docs/>`__.",
+        "sha256": "7cd3c381536b6d26371f921d730242c6162fc3fa840bf8e9418409f8b482e7cb",
+        "checked_at": "2026-10-20T15:54:00.073619+00:00"
+      },
+      "complete": false
+    },
+    "license_review": "source files captured where available; no inferred SPDX variant",
+    "checked_by": "independent Codex reviewer; not a human user test",
+    "created_at": "2013-09-17T07:29:48Z",
+    "canonical_full_name": "home-assistant/core",
+    "source_metadata_status": 200,
+    "default_readme_language": "en",
+    "has_additional_official_chinese_readme": false
+  },
+  {
+    "full_name": "FreeCAD/FreeCAD",
+    "sample_stratum": "范围外",
+    "actual_scene": "范围外",
+    "source_available": true,
+    "purpose": {
+      "value": "参数化三维建模与工程设计",
+      "source": {
+        "url": "https://raw.githubusercontent.com/FreeCAD/FreeCAD/HEAD/README.md",
+        "line_start": 20,
+        "line_end": 30,
+        "quote": "* **Freedom to build what you want**  FreeCAD is an open-source parametric 3D\nmodeler for designing real-life objects of any size. Parametric modeling lets\nyou modify a design by changing parameters in its model history.\n\n* **Create 3D from 2D and back** FreeCAD lets you sketch geometry-constrained\n2D shapes and use them as a base to build other objects. It also provides tools\nto adjust dimensions and create high-quality production drawings from 3D models.\n\n* **Designed for your needs** FreeCAD is designed to fit a wide range of uses\nincluding product design, mechanical engineering and architecture,\nwhether you are a hobbyist, programmer, experienced CAD user, student or teacher.",
+        "sha256": "2de839c26b7343be697550809a5834ea1177edbd1490dd0dec302ec9b8b42372",
+        "checked_at": "2026-10-20T15:53:45.084281+00:00"
+      }
+    },
+    "form": "desktop_app",
+    "platforms": {
+      "value": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "source": {
+        "url": "https://raw.githubusercontent.com/FreeCAD/FreeCAD/HEAD/README.md",
+        "line_start": 32,
+        "line_end": 32,
+        "quote": "* **Cross platform** FreeCAD runs on Windows, macOS and Linux operating systems.",
+        "sha256": "2de839c26b7343be697550809a5834ea1177edbd1490dd0dec302ec9b8b42372",
+        "checked_at": "2026-10-20T15:53:45.084281+00:00"
+      }
+    },
+    "official_entry": {
+      "value": "follow official README entry; no asset-level or installation verification",
+      "source": {
+        "url": "https://raw.githubusercontent.com/FreeCAD/FreeCAD/HEAD/README.md",
+        "line_start": 41,
+        "line_end": 52,
+        "quote": "Installing\n----------\n\nPrecompiled packages for stable releases are available for Windows, macOS and Linux on the\n[latest releases page](https://github.com/FreeCAD/FreeCAD/releases/latest).\n\nOn most Linux distributions, FreeCAD is also directly installable from the \nsoftware center application.\n\nFor weekly development releases visit the [releases page](https://github.com/FreeCAD/FreeCAD/releases/).\n\nOther options are described on the [wiki Download page](https://wiki.freecad.org/Download).",
+        "sha256": "2de839c26b7343be697550809a5834ea1177edbd1490dd0dec302ec9b8b42372",
+        "checked_at": "2026-10-20T15:53:45.084281+00:00"
+      }
+    },
+    "prerequisites": {
+      "value": "稳定预编译包与每周开发版分别提供，不混淆渠道",
+      "source": {
+        "url": "https://raw.githubusercontent.com/FreeCAD/FreeCAD/HEAD/README.md",
+        "line_start": 41,
+        "line_end": 52,
+        "quote": "Installing\n----------\n\nPrecompiled packages for stable releases are available for Windows, macOS and Linux on the\n[latest releases page](https://github.com/FreeCAD/FreeCAD/releases/latest).\n\nOn most Linux distributions, FreeCAD is also directly installable from the \nsoftware center application.\n\nFor weekly development releases visit the [releases page](https://github.com/FreeCAD/FreeCAD/releases/).\n\nOther options are described on the [wiki Download page](https://wiki.freecad.org/Download).",
+        "sha256": "2de839c26b7343be697550809a5834ea1177edbd1490dd0dec302ec9b8b42372",
+        "checked_at": "2026-10-20T15:53:45.084281+00:00"
+      },
+      "complete": false
+    },
+    "license_review": "source files captured where available; no inferred SPDX variant",
+    "checked_by": "independent Codex reviewer; not a human user test",
+    "created_at": "2012-09-09T08:25:02Z",
+    "canonical_full_name": "FreeCAD/FreeCAD",
+    "source_metadata_status": 200,
+    "default_readme_language": "en",
+    "has_additional_official_chinese_readme": false
+  },
+  {
+    "full_name": "pytorch/pytorch",
+    "sample_stratum": "范围外",
+    "actual_scene": "范围外",
+    "source_available": true,
+    "purpose": {
+      "value": "Python张量计算与自动微分神经网络库",
+      "source": {
+        "url": "https://raw.githubusercontent.com/pytorch/pytorch/HEAD/README.md",
+        "line_start": 9,
+        "line_end": 13,
+        "quote": "PyTorch is a Python package that provides two high-level features:\n- Tensor computation (like NumPy) with strong GPU acceleration\n- Deep neural networks built on a tape-based autograd system\n\nYou can reuse your favorite Python packages such as NumPy, SciPy, and Cython to extend PyTorch when needed.",
+        "sha256": "c839137f1d406e0ba4f641222471a5cbfabb2141b39491f7267f57cf5e2107b9",
+        "checked_at": "2026-10-20T15:53:49.636221+00:00"
+      }
+    },
+    "form": "library",
+    "platforms": {
+      "value": [],
+      "source": null
+    },
+    "official_entry": {
+      "value": "follow official README entry; no asset-level or installation verification",
+      "source": {
+        "url": "https://raw.githubusercontent.com/pytorch/pytorch/HEAD/README.md",
+        "line_start": 148,
+        "line_end": 151,
+        "quote": "## Installation\n\n### Binaries\nCommands to install binaries via Conda or pip wheels are on our website: [https://pytorch.org/get-started/locally/](https://pytorch.org/get-started/locally/)",
+        "sha256": "c839137f1d406e0ba4f641222471a5cbfabb2141b39491f7267f57cf5e2107b9",
+        "checked_at": "2026-10-20T15:53:49.636221+00:00"
+      }
+    },
+    "prerequisites": {
+      "value": "二进制安装按官网；源码编译依赖和GPU工具链不能充当所有用户必需条件",
+      "source": {
+        "url": "https://raw.githubusercontent.com/pytorch/pytorch/HEAD/README.md",
+        "line_start": 163,
+        "line_end": 170,
+        "quote": "#### Prerequisites\nIf you are installing from source, you will need:\n- Python 3.10 or later\n- A compiler that fully supports C++20, such as clang or gcc (gcc 11.3.0 or newer is required, on Linux)\n- Visual Studio or Visual Studio Build Tool (Windows only)\n- At least 10 GB of free disk space\n- 30-60 minutes for the initial build (subsequent rebuilds are much faster)\n",
+        "sha256": "c839137f1d406e0ba4f641222471a5cbfabb2141b39491f7267f57cf5e2107b9",
+        "checked_at": "2026-10-20T15:53:49.636221+00:00"
+      },
+      "complete": false
+    },
+    "license_review": "source files captured where available; no inferred SPDX variant",
+    "checked_by": "independent Codex reviewer; not a human user test",
+    "created_at": "2016-08-13T05:26:41Z",
+    "canonical_full_name": "pytorch/pytorch",
+    "source_metadata_status": 200,
+    "default_readme_language": "en",
+    "has_additional_official_chinese_readme": false
+  }
+]

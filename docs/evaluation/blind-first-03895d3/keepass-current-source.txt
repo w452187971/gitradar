@@ -1,0 +1,159 @@
+Download – KeePassXC
+Download
+Blog
+Screenshots
+Docs / FAQ
+The Team
+KeePassXC
+Download
+Blog
+Screenshots
+Docs / FAQ
+The Team
+Download
+macOS
+Windows
+Linux
+Source Code
+Browser Extension
+KeePassXC for macOS 12+ (
+Apple Silicon
+)
+Keep your passwords safe on the computer you trust. No clouds. No 3rd parties.
+Download for macOS
+Version 2.7.12 –
+Older Releases
+PGP Signature
+–
+SHA-256 Digest
+–
+Verifying Signatures
+See more options
+KeePassXC for Apple Silicon Macs
+Download
+PGP Signature
+SHA-256 Digest
+KeePassXC for Intel Macs
+Download
+PGP Signature
+SHA-256 Digest
+Homebrew Cask
+brew install --cask keepassxc
+MacPorts for macOS 11 and below
+Visit Site
+KeePassXC for Windows
+10 / 11
+Keep your passwords safe on the computer you trust. No clouds. No 3rd parties.
+Download for Windows
+Version 2.7.12 –
+Older Releases
+Requires
+MSVC Redistributable
+PGP Signature
+–
+SHA-256 Digest
+–
+Verifying Signatures
+See more options
+Microsoft Store
+Install
+Installer (64-bit, Windows 10 / 11)
+Download
+PGP Signature
+SHA-256 Digest
+Portable ZIP (64-bit, Windows 10 / 11)
+Download
+PGP Signature
+SHA-256 Digest
+Legacy Installer (64-bit, Windows 7 / 8 / 8.1)
+Download
+PGP Signature
+SHA-256 Digest
+Legacy 32-bit Downloads
+Download
+Note: 32-bit Windows is no longer supported after version 2.6.6.
+Windows Package Manager
+winget install -e --id KeePassXCTeam.KeePassXC
+Chocolatey
+choco install keepassxc
+KeePassXC for Linux Desktops
+Keep your passwords safe on the computer you trust. No clouds. No 3rd parties.
+Flatpak Package - Recommended
+The most reliable way to run KeePassXC with automatic updates
+Visit us on flathub.org
+flatpak remote-add --user --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+flatpak install --user flathub org.keepassxc.KeePassXC
+Other Official Packages
+AppImage – Version 2.7.12
+Download
+PGP Signature
+SHA-256 Digest
+Verifying Signatures
+Snap Package
+sudo snap install keepassxc
+Ubuntu PPA
+sudo add-apt-repository ppa:phoerious/keepassxc
+sudo apt update
+sudo apt install keepassxc
+Other Linux Distributions
+Ubuntu / Debian (distribution package)
+sudo apt install keepassxc
+Fedora
+sudo dnf install keepassxc
+Alpine Linux
+doas apk add keepassxc
+Arch Linux
+sudo pacman -S keepassxc
+OpenSUSE
+sudo zypper install keepassxc
+Gentoo
+sudo emerge app-admin/keepassxc
+RHEL 8 / CentOS Stream
+Enable EPEL repository
+sudo dnf install keepassxc
+KeePassXC Source Code
+Keep your passwords safe on the computer you trust. No clouds. No 3rd parties.
+Download Source Code
+Version 2.7.12 –
+Older Releases
+PGP Signature
+–
+SHA-256 Digest
+–
+Verifying Signatures
+KeePassXC Browser Extension
+Autofill passwords from your local KeePassXC install.
+Install
+Install
+Install
+Source Code
+Your download has started!
+Download again.
+Next Step
+Get the browser extension
+Once you have KeePassXC set up on your computer, get the KeePassXC browser extension to automatically fill in your online passwords in the browser.
+Install
+Install
+Install
+Love it?
+Donate
+If you would like to support development and help cover expenses that the team encounter providing you this free software,
+                            check our donations page for easy ways to give.
+Donate
+Get Experimental Builds
+We offer snapshot builds of the most recent development branch for you to test out.
+                            These builds contain the newest features, but are cutting-edge and have bugs. Use at your own risk!
+Download Snapshots
+KeePassXC
+Password Manager
+KeePassXC is released under the GPLv3.
+© 2016 – 2026 KeePassXC Team
+Donate
+Blog
+Security Audits
+Privacy
+Contact
+Legal Info / Impressum
+GitHub
+Bluesky
+Mastodon

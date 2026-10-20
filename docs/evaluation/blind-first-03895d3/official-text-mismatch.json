@@ -1,0 +1,13 @@
+{
+  "project": "keepassxreboot/keepassxc",
+  "before_eligible": true,
+  "after_eligible": false,
+  "after_reasons": [
+    "changed_evidence:requirements_1",
+    "changed_evidence:path",
+    "context_changed:requirements_1",
+    "context_changed:path",
+    "not_published"
+  ],
+  "observed_difference": "visibleSourceText adds newline boundaries around inline HTML tags unlike seed text extraction"
+}

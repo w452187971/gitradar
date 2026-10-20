@@ -1,0 +1,15 @@
+{
+  "checks": {
+    "rest404_recommendation_revoked": true,
+    "rest404_static_path_disabled": true,
+    "recovery_clears_404": true,
+    "historical_day_unchanged": true,
+    "new_requirement_requires_review": true,
+    "separate_documents_not_mixed": true,
+    "all_paths_checked": true,
+    "critical_partial_node_not_success": true,
+    "rollback_cannot_overwrite_new_history": true,
+    "prior_input_not_mutated": true
+  },
+  "all_passed": true
+}

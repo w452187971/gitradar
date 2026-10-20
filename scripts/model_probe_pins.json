@@ -1,0 +1,23 @@
+{
+  "runtime": {
+    "project": "ggml-org/llama.cpp",
+    "tag": "b11756",
+    "source": "https://github.com/ggml-org/llama.cpp/releases/tag/b11756",
+    "url": "https://github.com/ggml-org/llama.cpp/releases/download/b11756/llama-b11756-bin-ubuntu-x64.tar.gz",
+    "sha256": "9def57d9e9b0149979a9ceba40896a4e2bf88c94734069a5567d2f487ceab551",
+    "size": 22240705,
+    "checksum_provenance": "GitHub official release asset digest from authenticated read-only REST metadata, 2026-10-21",
+    "license": "MIT"
+  },
+  "model": {
+    "project": "Qwen/Qwen3-1.7B-GGUF",
+    "revision": "90862c4b9d2787eaed51d12237eafdfe7c5f6077",
+    "filename": "Qwen3-1.7B-Q8_0.gguf",
+    "source": "https://huggingface.co/Qwen/Qwen3-1.7B-GGUF/tree/90862c4b9d2787eaed51d12237eafdfe7c5f6077",
+    "url": "https://huggingface.co/Qwen/Qwen3-1.7B-GGUF/resolve/90862c4b9d2787eaed51d12237eafdfe7c5f6077/Qwen3-1.7B-Q8_0.gguf",
+    "sha256": "061b54daade076b5d3362dac252678d17da8c68f07560be70818cace6590cb1a",
+    "size": 1834426016,
+    "checksum_provenance": "Hugging Face official model API siblings.lfs.sha256 at pinned revision, 2026-10-21",
+    "license": "Apache-2.0"
+  }
+}

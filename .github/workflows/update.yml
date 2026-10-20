@@ -8,6 +8,10 @@ on:
         description: 'Only probe batch access; do not collect, commit or publish'
         type: boolean
         default: false
+      model_probe_only:
+        description: 'Only run isolated public CPU model probe; no collection, commit or publish'
+        type: boolean
+        default: false
 permissions:
   contents: write
 concurrency:
@@ -16,10 +20,17 @@ concurrency:
 jobs:
   collect:
     runs-on: ubuntu-latest
+    timeout-minutes: ${{ inputs.model_probe_only == true && 17 || 360 }}
     steps:
+      - name: Reject conflicting diagnostic modes
+        if: ${{ inputs.probe_only == true && inputs.model_probe_only == true }}
+        run: |
+          echo 'probe_only and model_probe_only are mutually exclusive'
+          exit 1
       - uses: actions/checkout@v4
         with:
           ref: ${{ github.ref_name }}
+          persist-credentials: ${{ inputs.model_probe_only != true }}
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
@@ -27,35 +38,50 @@ jobs:
         with:
           node-version: '22'
       - name: Test collector
-        if: ${{ inputs.probe_only != true }}
+        if: ${{ inputs.probe_only != true && inputs.model_probe_only != true }}
         run: python -m unittest discover -s tests
       - name: Test frontend
-        if: ${{ inputs.probe_only != true }}
+        if: ${{ inputs.probe_only != true && inputs.model_probe_only != true }}
         run: node --test tests/*.test.cjs
       - name: Collect and validate isolated batch
         id: collect
-        if: ${{ inputs.probe_only != true }}
+        if: ${{ inputs.probe_only != true && inputs.model_probe_only != true }}
         env:
           GH_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python collect.py --output-dir .v4-output
       - name: Probe built-in token batch access
-        if: ${{ inputs.probe_only == true }}
+        if: ${{ inputs.probe_only == true && inputs.model_probe_only != true }}
         env:
           GH_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python scripts/probe_github.py
       - name: Save probe evidence
-        if: ${{ always() && inputs.probe_only == true }}
+        if: ${{ always() && inputs.probe_only == true && inputs.model_probe_only != true }}
         uses: actions/upload-artifact@v4
         with:
           name: gitradar-batch-probe
           path: probe-report.json
           if-no-files-found: error
+      - name: Probe free open weight model on public CPU runner
+        if: ${{ inputs.model_probe_only == true && inputs.probe_only != true }}
+        run: bash scripts/model_probe.sh
+      - name: Preserve model probe report and small text only
+        if: ${{ always() && inputs.model_probe_only == true && inputs.probe_only != true }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: gitradar-model-probe-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            .model-probe/report.json
+            .model-probe/case-*.txt
+            .model-probe/server.log
+          include-hidden-files: true
+          if-no-files-found: error
+          retention-days: 7
       - name: Promote verified batch
-        if: ${{ inputs.probe_only != true }}
+        if: ${{ inputs.probe_only != true && inputs.model_probe_only != true }}
         run: python collect.py --output-dir .v4-output --promote-only --publish-to .
       - name: Commit verified snapshots and pages
         id: commit
-        if: ${{ inputs.probe_only != true }}
+        if: ${{ inputs.probe_only != true && inputs.model_probe_only != true }}
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
@@ -65,7 +91,7 @@ jobs:
             git push origin "HEAD:${GITHUB_REF_NAME}"
           fi
       - name: Preserve complete failed batch and diagnostics
-        if: ${{ failure() && inputs.probe_only != true }}
+        if: ${{ failure() && inputs.probe_only != true && inputs.model_probe_only != true }}
         uses: actions/upload-artifact@v4
         with:
           name: gitradar-v4-failed-${{ github.run_id }}-${{ github.run_attempt }}

@@ -8,6 +8,7 @@ from urllib.parse import quote, unquote, urlencode, urlsplit
 from .models import EvidenceBundle, EvidenceRef, RepositoryRef
 
 MAX_SOURCE_BYTES = 1024 * 1024
+SOURCE_TEXT_NORMALIZATION = 'seed_v1'
 
 
 @dataclass
@@ -87,22 +88,28 @@ class VisibleTextParser(HTMLParser):
     def __init__(self) -> None:
         super().__init__(convert_charrefs=True)
         self.parts: list[str] = []
-        self.hidden: list[str] = []
+        self.skip = 0
 
-    def handle_starttag(self, tag: str, attrs: list[tuple[str, str]]) -> None:
-        if tag in ('script', 'style', 'noscript', 'template'):
-            self.hidden.append(tag)
+    def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        if tag in ('script', 'style'):
+            self.skip += 1
+        if tag in ('p', 'h1', 'h2', 'h3', 'li', 'tr', 'div'):
+            self.parts.append('\n')
 
     def handle_endtag(self, tag: str) -> None:
-        if self.hidden and self.hidden[-1] == tag:
-            self.hidden.pop()
+        if tag in ('script', 'style'):
+            self.skip -= 1
 
     def handle_data(self, data: str) -> None:
-        if not self.hidden and data.strip():
-            self.parts.append(data.strip())
+        if not self.skip:
+            self.parts.append(data)
 
 
-def visibleSourceText(body: object, contentType: str) -> str:
+def visibleSourceText(body: object, contentType: str,
+                      normalization: str = SOURCE_TEXT_NORMALIZATION) -> str:
+    # 已审核片段和上下文哈希绑定 seed_v1，规则变更必须显式换版并重新审核。
+    if normalization != 'seed_v1':
+        raise ValueError('Unsupported official source text normalization.')
     if isinstance(body, bytes):
         body = body.decode('utf-8')
     if not isinstance(body, str):
@@ -113,5 +120,5 @@ def visibleSourceText(body: object, contentType: str) -> str:
         parser = VisibleTextParser()
         parser.feed(body)
         parser.close()
-        return '\n'.join(parser.parts)
+        return '\n'.join(line.strip() for line in ''.join(parser.parts).splitlines() if line.strip())
     return body

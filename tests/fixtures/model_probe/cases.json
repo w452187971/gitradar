@@ -1,0 +1,167 @@
+{
+  "version": 1,
+  "provenance": "Selected public official text from archived blind-first-03895d3 inputs after first scoring; now development regression, never blind. No labels imported.",
+  "cases": [
+    {
+      "full_name": "TranslucentTB/TranslucentTB",
+      "kind": "desktop",
+      "checked_at": "2026-10-20T15:53:26.810185+00:00",
+      "refs": [
+        {
+          "ref_id": "r1",
+          "url": "https://raw.githubusercontent.com/TranslucentTB/TranslucentTB/HEAD/README.md",
+          "line_start": 10,
+          "line_end": 10,
+          "source_quote": "A lightweight (uses a few MB of RAM and almost no CPU) utility that makes the Windows taskbar translucent/transparent on Windows 10 and Windows 11.",
+          "sha256": "23d1b94389784a7b0b55aba3d46a7ed603532a29ca58a66ae89cef540fdcd582"
+        },
+        {
+          "ref_id": "r2",
+          "url": "https://raw.githubusercontent.com/TranslucentTB/TranslucentTB/HEAD/README.md",
+          "line_start": 38,
+          "line_end": 46,
+          "source_quote": "## Download\n\n[<img src=\"https://get.microsoft.com/images/en-us%20dark.svg\" alt=\"Get it from Microsoft\" height=\"104\">](https://apps.microsoft.com/store/detail/9PF4KZ2VN4W9)\n\nYou can download the program for free from the [Microsoft Store](https://www.microsoft.com/store/apps/9PF4KZ2VN4W9) and take advantage of its features like background auto-updates.\n\nAlternatively, you can download `TranslucentTB.appinstaller` [via the releases tab](https://github.com/TranslucentTB/TranslucentTB/releases) and open it to install the app.\n\nA portable version of the app is also available [on GitHub releases](https://github.com/TranslucentTB/TranslucentTB/releases) as `TranslucentTB.zip`, but this version only works on Windows 11.",
+          "sha256": "bafa47418ced5de992532cb3593da336115632e3bf178a50975390b0358a70b3"
+        },
+        {
+          "ref_id": "r3",
+          "url": "https://raw.githubusercontent.com/TranslucentTB/TranslucentTB/HEAD/README.md",
+          "line_start": 89,
+          "line_end": 89,
+          "source_quote": "This program is free (as in speech) software under the GPLv3. Please see [the license file](LICENSE.md) for more.",
+          "sha256": "db51231ace5083b35fe8f053ad8d90fb341d3aa6aace140e0387c3ff607199a7"
+        }
+      ],
+      "controls": []
+    },
+    {
+      "full_name": "AdguardTeam/AdGuardHome",
+      "kind": "self_hosted",
+      "checked_at": "2026-10-20T15:53:41.656677+00:00",
+      "refs": [
+        {
+          "ref_id": "r1",
+          "url": "https://raw.githubusercontent.com/AdguardTeam/AdGuardHome/HEAD/README.md",
+          "line_start": 10,
+          "line_end": 10,
+          "source_quote": "  Free and open source, powerful network-wide ads & trackers blocking DNS server.",
+          "sha256": "fc582d361b0792ffb8d00ea104325d516ef4584615e64c9864585d2f4bc7f0ba"
+        },
+        {
+          "ref_id": "r2",
+          "url": "https://raw.githubusercontent.com/AdguardTeam/AdGuardHome/HEAD/README.md",
+          "line_start": 42,
+          "line_end": 44,
+          "source_quote": "AdGuard Home is a network-wide software for blocking ads and tracking. After you set it up, it'll cover ALL your home devices, and you don't need any client-side software for that.\n\nIt operates as a DNS server that re-routes tracking domains to a “black hole”, thus preventing your devices from connecting to those servers. It's based on software we use for our public [AdGuard DNS] servers, and both share a lot of code.",
+          "sha256": "6d91652f40b5fc60d8335988e02ccf19afd7d1593de038d69b9fdd4f483def5c"
+        },
+        {
+          "ref_id": "r3",
+          "url": "https://raw.githubusercontent.com/AdguardTeam/AdGuardHome/HEAD/README.md",
+          "line_start": 103,
+          "line_end": 105,
+          "source_quote": "#### <a href=\"#manual-installation\" id=\"manual-installation\" name=\"manual-installation\">Manual installation</a>\n\nPlease read the **[Getting Started][wiki-start]** article on our Wiki to learn how to install AdGuard Home manually, and how to configure your devices to use it.",
+          "sha256": "1b0a483aa1d39c122032422b51a27859312b33d090240250831203f8dabeb4a7"
+        },
+        {
+          "ref_id": "r4",
+          "url": "https://raw.githubusercontent.com/AdguardTeam/AdGuardHome/HEAD/README.md",
+          "line_start": 185,
+          "line_end": 193,
+          "source_quote": "### <a href=\"#comparison-limitations\" id=\"comparison-limitations\" name=\"comparison-limitations\">Known limitations</a>\n\nHere are some examples of what cannot be blocked by a DNS-level blocker:\n\n- YouTube, Twitch ads;\n\n- Facebook, Twitter, Instagram sponsored posts.\n\nEssentially, any advertising that shares a domain with content cannot be blocked by a DNS-level blocker.",
+          "sha256": "bbb34eb1088fb06de9a236400d5578bc4f09a2b918b701b52fa23a571c94fbac"
+        }
+      ],
+      "controls": []
+    },
+    {
+      "full_name": "sharkdp/fd",
+      "kind": "cli",
+      "checked_at": "2026-10-20T15:53:32.346039+00:00",
+      "refs": [
+        {
+          "ref_id": "r1",
+          "url": "https://raw.githubusercontent.com/sharkdp/fd/HEAD/README.md",
+          "line_start": 8,
+          "line_end": 11,
+          "source_quote": "`fd` is a program to find entries in your filesystem.\nIt is a simple, fast and user-friendly alternative to [`find`](https://www.gnu.org/software/findutils/).\nWhile it does not aim to support all of `find`'s powerful functionality, it provides sensible\n(opinionated) defaults for a majority of use cases.",
+          "sha256": "7b740d74f0cbceff1d63462a72b6bd0435fb5e4e5c92169404c8572a69f1f775"
+        },
+        {
+          "ref_id": "r2",
+          "url": "https://raw.githubusercontent.com/sharkdp/fd/HEAD/README.md",
+          "line_start": 730,
+          "line_end": 732,
+          "source_quote": "### From binaries\n\nThe [release page](https://github.com/sharkdp/fd/releases) includes precompiled binaries for Linux, macOS and Windows. Statically-linked binaries are also available: look for archives with `musl` in the file name.",
+          "sha256": "147040f182faa55abecf901d7c8ada18913d1ef919625108341d4a354b29ef2e"
+        },
+        {
+          "ref_id": "r3",
+          "url": "https://raw.githubusercontent.com/sharkdp/fd/HEAD/README.md",
+          "line_start": 786,
+          "line_end": 790,
+          "source_quote": "## License\n\n`fd` is distributed under the terms of both the MIT License and the Apache License 2.0.\n\nSee the [LICENSE-APACHE](LICENSE-APACHE) and [LICENSE-MIT](LICENSE-MIT) files for license details.",
+          "sha256": "ba5f00460b60935efaf90c93dad328759b0ba039deac2af56f789be9591e4896"
+        }
+      ],
+      "controls": []
+    },
+    {
+      "full_name": "huggingface/transformers",
+      "kind": "library",
+      "checked_at": "2026-10-20T15:53:46.986990+00:00",
+      "refs": [
+        {
+          "ref_id": "r1",
+          "url": "https://raw.githubusercontent.com/huggingface/transformers/HEAD/README.md",
+          "line_start": 70,
+          "line_end": 77,
+          "source_quote": "Transformers acts as the model-definition framework for state-of-the-art machine learning with text, computer\nvision, audio, video, and multimodal models, for both inference and training.\n\nIt centralizes the model definition so that this definition is agreed upon across the ecosystem. `transformers` is the\npivot across frameworks: if a model definition is supported, it will be compatible with the majority of training\nframeworks (Axolotl, Unsloth, DeepSpeed, FSDP, PyTorch-Lightning, ...), inference engines (vLLM, SGLang, TGI, ...),\nand adjacent modeling libraries (llama.cpp, mlx, ...) which leverage the model definition from `transformers`.\n",
+          "sha256": "8deb7cfa42b497863dfcdb681975ef44d6d3bbdaa338469e91fce716d50468b5"
+        },
+        {
+          "ref_id": "r2",
+          "url": "https://raw.githubusercontent.com/huggingface/transformers/HEAD/README.md",
+          "line_start": 85,
+          "line_end": 107,
+          "source_quote": "## Installation\n\nTransformers works with Python 3.10+, and [PyTorch](https://pytorch.org/get-started/locally/) 2.6+.\n\nCreate and activate a virtual environment with [venv](https://docs.python.org/3/library/venv.html) or [uv](https://docs.astral.sh/uv/), a fast Rust-based Python package and project manager.\n\n```py\n# venv\npython -m venv .my-env\nsource .my-env/bin/activate\n# uv\nuv venv .my-env\nsource .my-env/bin/activate\n```\n\nInstall Transformers in your virtual environment.\n\n```py\n# pip\npip install \"transformers[torch]\"\n\n# uv\nuv pip install \"transformers[torch]\"",
+          "sha256": "79fe8d5468b10b84e23a1ee1cdac33243cba583579a8e46f33ecdf52f4f68148"
+        },
+        {
+          "ref_id": "r3",
+          "url": "https://raw.githubusercontent.com/huggingface/transformers/HEAD/README.md",
+          "line_start": 244,
+          "line_end": 246,
+          "source_quote": "## When shouldn't I use Transformers?\n\n- This library is not a modular toolbox of building blocks for neural nets. The code in the model files is not refactored with additional abstractions on purpose, so that researchers can quickly iterate on each of the models without diving into additional abstractions/files.",
+          "sha256": "3b70627d51b495e917c154a1ff56bfb6499151ddb7ffdb51c693cbcc021f2120"
+        }
+      ],
+      "controls": []
+    },
+    {
+      "full_name": "hehonghui/awesome-english-ebooks",
+      "kind": "collection_other_subject",
+      "checked_at": "2026-10-20T15:53:25.550632+00:00",
+      "refs": [
+        {
+          "ref_id": "r1",
+          "url": "https://raw.githubusercontent.com/hehonghui/awesome-english-ebooks/master/README.md",
+          "line_start": 1,
+          "line_end": 6,
+          "source_quote": "# 经济学人、纽约客等英语外刊杂志下载\n---------------------\n\n## 一、优质App推荐\n\n* <img align=\"center\" src=\"https://ereader.link/images/ereader.png\" width=\"32px\" /> 英阅阅读器 - 超好用的英语阅读神器! <font color=\"#e3120b\">让您轻松读懂英文小说、外刊杂志</font>,支持点击查词、句子翻译、mdict英汉-英英词典、阅读笔记、AI学英语(语法、词汇分析)等功能,[iOS版下载](https://apps.apple.com/cn/app/ereader-%E8%8B%B1%E9%98%85%E9%98%85%E8%AF%BB%E5%99%A8/id1558805880)、[Android版下载(华为、小米等应用商店均可下载)](https://ereader.link/);",
+          "sha256": "47f58ed9b5e37657a646b25f96307fd1788745f949404a186221d4c3d01ede0f"
+        }
+      ],
+      "controls": []
+    },
+    {
+      "full_name": "squoosh/squoosh",
+      "kind": "missing_official_source",
+      "checked_at": "2026-10-20T15:53:34.476179+00:00",
+      "refs": [],
+      "controls": [
+        "all_fields_unknown"
+      ]
+    }
+  ]
+}

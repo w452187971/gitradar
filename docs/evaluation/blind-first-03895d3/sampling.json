@@ -1,0 +1,233 @@
+{
+  "seed": "gitradar-v4-first-blind-20261020",
+  "pools": {
+    "电视桌面": [
+      "TranslucentTB/TranslucentTB",
+      "valinet/ExplorerPatcher",
+      "Cateners/tiny_computer",
+      "zacharee/InstallWithOptions",
+      "xfangfang/wiliwili",
+      "hehonghui/awesome-english-ebooks",
+      "WinCaffeine/Caffeine"
+    ],
+    "文件转换": [
+      "jgm/pandoc",
+      "h2non/imaginary",
+      "kaitai-io/kaitai_struct",
+      "ocrmypdf/OCRmyPDF",
+      "BtbN/FFmpeg-Builds",
+      "squoosh/squoosh",
+      "PDFMathTranslate/PDFMathTranslate",
+      "271374667/format-factory"
+    ],
+    "文件查找": [
+      "sharkdp/fd",
+      "BurntSushi/ripgrep",
+      "cboxdoerfer/fsearch",
+      "bootandy/dust",
+      "dalance/procs",
+      "chriswalz/bit",
+      "srwi/EverythingToolbar",
+      "wangyu-/Udp2raw-tunnel"
+    ],
+    "下载媒体": [
+      "yt-dlp/yt-dlp",
+      "agalwood/Motrix",
+      "subhra74/xdm",
+      "imputnet/cobalt",
+      "nilaoda/N_m3u8DL-RE",
+      "jely2002/youtube-dl-gui",
+      "LizardByte/Sunshine",
+      "moonlight-stream/moonlight-qt"
+    ],
+    "隐私保护": [
+      "bitwarden/clients",
+      "ente-io/ente",
+      "standardnotes/app",
+      "ProtonVPN/android-app",
+      "mullvad/mullvadvpn-app",
+      "sebastian/lvm2",
+      "2dust/v2rayN",
+      "AdguardTeam/AdGuardHome"
+    ],
+    "笔记效率": [
+      "AppFlowy-IO/AppFlowy",
+      "siyuan-note/siyuan",
+      "toeverything/AFFiNE",
+      "TriliumNext/Trilium",
+      "usememos/memos",
+      "johannesjo/super-productivity",
+      "MrXujiang/next-admin",
+      "anyproto/anytype-ts"
+    ],
+    "范围外": [
+      "pytorch/pytorch",
+      "huggingface/transformers",
+      "home-assistant/core",
+      "FreeCAD/FreeCAD"
+    ]
+  },
+  "selected": [
+    {
+      "full_name": "hehonghui/awesome-english-ebooks",
+      "stratum": "电视桌面"
+    },
+    {
+      "full_name": "TranslucentTB/TranslucentTB",
+      "stratum": "电视桌面"
+    },
+    {
+      "full_name": "zacharee/InstallWithOptions",
+      "stratum": "电视桌面"
+    },
+    {
+      "full_name": "Cateners/tiny_computer",
+      "stratum": "电视桌面"
+    },
+    {
+      "full_name": "valinet/ExplorerPatcher",
+      "stratum": "电视桌面"
+    },
+    {
+      "full_name": "WinCaffeine/Caffeine",
+      "stratum": "电视桌面"
+    },
+    {
+      "full_name": "jgm/pandoc",
+      "stratum": "文件转换"
+    },
+    {
+      "full_name": "h2non/imaginary",
+      "stratum": "文件转换"
+    },
+    {
+      "full_name": "PDFMathTranslate/PDFMathTranslate",
+      "stratum": "文件转换"
+    },
+    {
+      "full_name": "squoosh/squoosh",
+      "stratum": "文件转换"
+    },
+    {
+      "full_name": "ocrmypdf/OCRmyPDF",
+      "stratum": "文件转换"
+    },
+    {
+      "full_name": "kaitai-io/kaitai_struct",
+      "stratum": "文件转换"
+    },
+    {
+      "full_name": "bootandy/dust",
+      "stratum": "文件查找"
+    },
+    {
+      "full_name": "sharkdp/fd",
+      "stratum": "文件查找"
+    },
+    {
+      "full_name": "dalance/procs",
+      "stratum": "文件查找"
+    },
+    {
+      "full_name": "BurntSushi/ripgrep",
+      "stratum": "文件查找"
+    },
+    {
+      "full_name": "srwi/EverythingToolbar",
+      "stratum": "文件查找"
+    },
+    {
+      "full_name": "wangyu-/Udp2raw-tunnel",
+      "stratum": "文件查找"
+    },
+    {
+      "full_name": "jely2002/youtube-dl-gui",
+      "stratum": "下载媒体"
+    },
+    {
+      "full_name": "imputnet/cobalt",
+      "stratum": "下载媒体"
+    },
+    {
+      "full_name": "agalwood/Motrix",
+      "stratum": "下载媒体"
+    },
+    {
+      "full_name": "yt-dlp/yt-dlp",
+      "stratum": "下载媒体"
+    },
+    {
+      "full_name": "nilaoda/N_m3u8DL-RE",
+      "stratum": "下载媒体"
+    },
+    {
+      "full_name": "subhra74/xdm",
+      "stratum": "下载媒体"
+    },
+    {
+      "full_name": "standardnotes/app",
+      "stratum": "隐私保护"
+    },
+    {
+      "full_name": "sebastian/lvm2",
+      "stratum": "隐私保护"
+    },
+    {
+      "full_name": "ente-io/ente",
+      "stratum": "隐私保护"
+    },
+    {
+      "full_name": "bitwarden/clients",
+      "stratum": "隐私保护"
+    },
+    {
+      "full_name": "2dust/v2rayN",
+      "stratum": "隐私保护"
+    },
+    {
+      "full_name": "AdguardTeam/AdGuardHome",
+      "stratum": "隐私保护"
+    },
+    {
+      "full_name": "usememos/memos",
+      "stratum": "笔记效率"
+    },
+    {
+      "full_name": "johannesjo/super-productivity",
+      "stratum": "笔记效率"
+    },
+    {
+      "full_name": "MrXujiang/next-admin",
+      "stratum": "笔记效率"
+    },
+    {
+      "full_name": "anyproto/anytype-ts",
+      "stratum": "笔记效率"
+    },
+    {
+      "full_name": "AppFlowy-IO/AppFlowy",
+      "stratum": "笔记效率"
+    },
+    {
+      "full_name": "siyuan-note/siyuan",
+      "stratum": "笔记效率"
+    },
+    {
+      "full_name": "huggingface/transformers",
+      "stratum": "范围外"
+    },
+    {
+      "full_name": "home-assistant/core",
+      "stratum": "范围外"
+    },
+    {
+      "full_name": "FreeCAD/FreeCAD",
+      "stratum": "范围外"
+    },
+    {
+      "full_name": "pytorch/pytorch",
+      "stratum": "范围外"
+    }
+  ],
+  "sampling_note": "Fixed category pools then hash-ranked selection; category candidates may prove outside category on source review; retain such cases. No replacement for missing sources. Language/form/age are measured post-selection, quota shortfalls explicit."
+}

@@ -4,3 +4,5 @@ __pycache__/
 
 .v4-output/
 .v4-preview/
+
+.model-probe/

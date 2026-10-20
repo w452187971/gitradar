@@ -62,6 +62,21 @@ test('offline or legacy dynamic data leaves readable static content', async () =
   assert.match(status.textContent, /静态/);
 });
 
+test('static page batch confirmation reads small publication state without loading the candidate pool', async () => {
+  for (const base of ['./', '../']) {
+    const requests = [];
+    const status = {textContent: ''};
+    const fetcher = async url => {
+      requests.push(url);
+      if (url !== base + 'data/site-state.json') throw Error('candidate pool must stay lazy');
+      return {ok: true, json: async () => ({batch_id: 'current', schema_version: '4.0'})};
+    };
+    await api.checkBatch(fetcher, {batch_id: 'current'}, status, base);
+    assert.match(status.textContent, /发布状态.*一致/);
+    assert.deepEqual(requests, [base + 'data/site-state.json']);
+  }
+});
+
 function browserFixture({denyRead = false, denyWrite = false, initialSaved = []} = {}) {
   const element = (dataset = {}, className = '') => ({dataset, hidden: false, value: '', textContent: '',
     listeners: {}, attributes: {}, classList: {contains: name => name === className},

@@ -1,0 +1,35 @@
+{
+  "implementation_commit": "03895d38972d617d4698edbc446d5774f3401342",
+  "node_checks": {
+    "same_batch": "静态页面与候选数据批次一致。",
+    "new_page_old_data": "动态数据未提供可确认的 V4 批次；继续显示本批静态内容。",
+    "different_batch": "页面与动态数据批次不一致，继续显示本批静态内容；请稍后重新载入。",
+    "legacy_state_new_data": "动态数据未提供可确认的 V4 批次；继续显示本批静态内容。",
+    "saved_alias_lookup": true,
+    "saved_alias_toggle": true
+  },
+  "missing_nodes_pipeline": {
+    "pool_count": 101,
+    "projects_preserved": true,
+    "history_unchanged": true,
+    "graphql_batches": 3,
+    "graphql_points": 3,
+    "identity_rest_requests": 20,
+    "fresh_count": 0
+  },
+  "official_web_source": {
+    "url": "https://keepassxc.org/download/",
+    "http_status": 200,
+    "captured_file_at": "2026-10-20T16:05:08.362662+00:00",
+    "seed_source_hash": "7aba283ab2d3f84619cf6d61a1323405aa8bfc56b83fb3c721fdad93c10e7f34",
+    "runtime_source_hash": "30769b03fa993157065e8489612a446cde9c316c631cacf1654430ce6f364ee2",
+    "seed_source_length": 3531,
+    "runtime_source_length": 3590,
+    "old_fragment_present": false
+  },
+  "recent_release_verified_momentum": {
+    "test": "RecommendationsTests.testRecentReleaseFromRealClientEvidenceCanUseMomentumSlot",
+    "status": "passed",
+    "tests_run": 1
+  }
+}

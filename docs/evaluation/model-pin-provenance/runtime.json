@@ -1,0 +1,15 @@
+{
+  "source": "https://api.github.com/repos/ggml-org/llama.cpp/releases/tags/b11756",
+  "checked_at": "2026-10-20T16:22:37.200481+00:00",
+  "tag": "b11756",
+  "published_at": "2026-10-20T13:48:11Z",
+  "assets": [
+    {
+      "id": 659461707,
+      "name": "llama-b11756-bin-ubuntu-x64.tar.gz",
+      "digest": "sha256:9def57d9e9b0149979a9ceba40896a4e2bf88c94734069a5567d2f487ceab551",
+      "size": 22240705,
+      "browser_download_url": "https://github.com/ggml-org/llama.cpp/releases/download/b11756/llama-b11756-bin-ubuntu-x64.tar.gz"
+    }
+  ]
+}
