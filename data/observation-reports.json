@@ -7408,12 +7408,2404 @@
         "status": "awaiting_independent_human_reference",
         "items": []
       }
+    },
+    {
+      "batch_id": "139a919b7fd54489b7a7ec0db93a2158",
+      "observed_at": "2026-10-20T16:49:09.942365Z",
+      "utc_date": "2026-10-20",
+      "run_kind": "workflow_dispatch",
+      "planned_run": false,
+      "fresh_count": 2560,
+      "cohort_size": 1970,
+      "cohort_fresh": 1969,
+      "pool_size": 2561,
+      "pending_candidate_count": 0,
+      "usage": {
+        "search_requests": 20,
+        "rest_requests": 81,
+        "content_requests": 60,
+        "path_requests": 20,
+        "identity_requests": 1,
+        "graphql_points": 52,
+        "graphql_batches": 52,
+        "graphql_unmeasured_requests": 0,
+        "retries": 0,
+        "not_modified": 6,
+        "rest_remaining": 4922,
+        "search_remaining": 10,
+        "graphql_remaining": 4955,
+        "reset_at": null,
+        "retry_after": null,
+        "rate_limited": false
+      },
+      "new_recommendations": [
+        {
+          "archived": false,
+          "created_at": "2020-09-01T17:37:29Z",
+          "description": "Multi functional app to find duplicates, empty folders, similar images etc.",
+          "disabled": false,
+          "full_name": "qarmin/czkawka",
+          "homepage": "",
+          "html_url": "https://github.com/qarmin/czkawka",
+          "license": {
+            "key": "other",
+            "name": "Other",
+            "node_id": "MDc6TGljZW5zZTA=",
+            "spdx_id": "NOASSERTION",
+            "url": null
+          },
+          "node_id": "MDEwOlJlcG9zaXRvcnkyOTIwNjU1Nzg=",
+          "seed": true,
+          "schema_version": "4.0",
+          "stargazers_count": 34393,
+          "discovery_origin": "seed",
+          "first_observed_at": "2026-10-20T16:05:01.116030Z",
+          "observation_started_at": "2026-10-20T16:05:01.116030Z",
+          "in_frozen_baseline": false,
+          "observation_status": "fresh",
+          "delta_1d": null,
+          "delta_7d": null,
+          "discovery_score": 3.3,
+          "observed_at": "2026-10-20T16:54:03.992872Z",
+          "status": "success",
+          "fork": false,
+          "pushed_at": "2026-09-16T17:34:11Z",
+          "language": "Fluent",
+          "topics": [
+            "duplicates",
+            "rust",
+            "cleaner",
+            "similar-images",
+            "similar-music",
+            "multiplatform",
+            "similar-videos",
+            "optimization",
+            "optimizer"
+          ],
+          "history_key": "qarmin/czkawka",
+          "first_seen_date": "2026-10-20",
+          "last_observed_date": "2026-10-20",
+          "last_observed_at": "2026-10-20T16:54:03.992872Z",
+          "content": {
+            "full_name": "qarmin/czkawka",
+            "node_id": "MDEwOlJlcG9zaXRvcnkyOTIwNjU1Nzg=",
+            "evidence_refs": [
+              {
+                "id": "intro",
+                "url": "https://raw.githubusercontent.com/qarmin/czkawka/master/README.md",
+                "section": "Core introduction",
+                "content_hash": "2ddd23b900460ca91b17c876b31a4067c9d619beb47f2a6847ccaaa9dd17a458",
+                "checked_at": "2026-10-20T15:23:17Z",
+                "status": 200,
+                "source_kind": "readme",
+                "text": "<div align=\"center\"><img src=\"https://github.com/user-attachments/assets/f5e4b290-d001-4cf4-9f52-dab65a30e441\" alt=\"krokiet_logo\" width=\"600\" /></div>\n     \n**Krokiet** ((IPA: [ˈkrɔcɛt]), \"croquette\" in Polish) new generation GUI frontend, simple, multiplatform, fast and free app to remove unnecessary files from your computer.\n\n\n<div align=\"center\"><img src=\"https://user-images.githubusercontent.com/41945903/102616149-66490400-4137-11eb-9cd6-813b2b070834.png\" alt=\"czkawka_logo\" width=\"600\" /></div>\n\n**Czkawka** (_tch•kav•ka_ (IPA: [ˈʧ̑kafka]), \"hiccup\" in Polish) older gtk4 GUI frontend, superseded by Krokiet. **Version 12.0 is the last released version** - no new binaries will be provided. New users and existing users are encouraged to switch to Krokiet.\n\n<div align=\"center\"><img src=\"https://github.com/user-attachments/assets/ed6dfeea-a984-49e8-a621-8d6ae521c760\" alt=\"cedinia_logo\" width=\"600\" /></div>\n\n**Cedinia** - Android touch friendly GUI frontend for Czkawka Core, built with Slint.\n\n## Features\n\n- **Written in memory-safe Rust** - almost 100% unsafe code free\n- **Amazingly fast** - due multithreading and efficient algorithms\n- **Free, Open Source without any ads**\n- **Multiplatform** - runs on Linux, Windows, macOS, FreeBSD, x86, ARM, RISC-V and even Android\n- **Cache support** - second and further scans should be much faster than the first one\n- **Easy to run, easy to compile** - minimal runtime and build dependencies, portable version available\n- **CLI frontend** - for easy automation\n- **GUI frontend** - uses Slint or GTK 4 frameworks\n- **Core library** - allows to reuse functionality in other apps\n- **Android app** - touch-friendly frontend for Android devices\n- **No spying** - Czkawka does not have access to the Internet, nor does it collect any user information or statistics\n- **Multilingual** - support multiple languages like Polish, English or Italian\n- **Multiple tools to use**:\n    - **Duplicates** - Finds duplicates based on file name, size or hash\n    - **Empty Folders** - Finds empty folders with the help of an advanced algorithm\n    - **Big Files** - Finds the provided number of the biggest files in given location\n    - **Empty Files** - Looks for empty files across the drive\n    - **Temporary Files** - Finds temporary files\n    - **Similar Images** - Finds images which are not exactly the same (different resolution, watermarks)\n    - **Similar Videos** - Looks for visually similar videos\n    - **Same Music** - Searches for similar music by tags or by reading content and comparing it\n    - **Invalid Symbolic Links** - Shows symbolic",
+                "source_hash": "00612ae2bbca76da9b0c3e98d4c30c93b6f39ccfd4fd854a3c403b28d3ce29d7",
+                "source_length": 14889,
+                "start_line": 1,
+                "end_line": 37
+              },
+              {
+                "id": "install",
+                "url": "https://raw.githubusercontent.com/qarmin/czkawka/master/README.md",
+                "section": "Installation / usage requirements",
+                "content_hash": "a592880a07b1c0caea1e84655745d52c3f43725e09b3e0ee04a8c331e8d4915b",
+                "checked_at": "2026-10-20T15:23:17Z",
+                "status": 200,
+                "source_kind": "readme",
+                "text": "## Usage, installation, compilation, requirements, license\n\nEach tool uses different technologies, so you can find instructions for each of them in the appropriate file:\n\n- [Krokiet GUI (Slint frontend)](krokiet/README.md)</br>\n- [Czkawka GUI (GTK frontend)](czkawka_gui/README.md)</br>\n- [Czkawka CLI](czkawka_cli/README.md)</br>\n- [Czkawka Core](czkawka_core/README.md)</br>\n- [Cedinia](cedinia/README.md)</br>\n\n## Comparison to other tools\n\nIn this comparison remember, that even if app have same features they may work different(e.g. one app may have more\noptions to choose than other).\n\n|                           |   Krokiet   |   Czkawka   | Cedinia | FSlint |     DupeGuru      |  Bleachbit  |\n|:-------------------------:|:-----------:|:-----------:|:-------:|:------:|:-----------------:|:-----------:|\n|         Language          |    Rust     |    Rust     |  Rust   | Python |   Python/Obj-C    |   Python    |\n|  Framework base language  |    Rust     |      C      |  Rust   |   C    | C/C++/Obj-C/Swift |      C      |\n|         Framework         |    Slint    |    GTK 4    |  Slint  | PyGTK2 | Qt 5 (PyQt)/Cocoa |   PyGTK3    |\n|            OS             | Lin,Mac,Win | Lin,Mac,Win | Android |  Lin   |    Lin,Mac,Win    | Lin,Mac,Win |\n|     Duplicate finder      |      ✔      |      ✔      |    ✔    |   ✔    |         ✔         |             |\n|        Empty files        |      ✔      |      ✔      |    ✔    |   ✔    |                   |             |\n|       Empty folders       |      ✔      |      ✔      |    ✔    |   ✔    |                   |             |\n|      Temporary files      |      ✔      |      ✔      |    ✔    |   ✔    |                   |      ✔      |\n|         Big files         |      ✔      |      ✔      |    ✔    |        |                   |             |\n|      Similar images       |      ✔      |      ✔      |    ✔    |        |         ✔         |             |\n|   Similar videos(audio)   |      ✔      |      ✔      |    ✔    |        |                   |             |\n|  Similar videos(frames)   |      ✔      |      ✔      |         |        |                   |             |\n|  Music duplicates(tags)   |      ✔      |      ✔    ",
+                "source_hash": "00612ae2bbca76da9b0c3e98d4c30c93b6f39ccfd4fd854a3c403b28d3ce29d7",
+                "source_length": 14889,
+                "start_line": 56,
+                "end_line": 85,
+                "path_checks": {
+                  "https://github.com/qarmin/czkawka/blob/master/krokiet/README.md": {
+                    "status": 200,
+                    "last_attempt_at": "2026-10-20T16:49:09.942365Z",
+                    "checked_at": "2026-10-20T16:49:09.942365Z"
+                  }
+                },
+                "path_required_urls": [
+                  "https://github.com/qarmin/czkawka/blob/master/krokiet/README.md"
+                ],
+                "path_status": 200,
+                "path_checked_at": "2026-10-20T16:49:09.942365Z"
+              },
+              {
+                "id": "repository",
+                "url": "https://api.github.com/repos/qarmin/czkawka",
+                "section": "Repository identity and license metadata",
+                "content_hash": "bf30eff4460582d79999a0c0693e65dc13d2cfe465b081302c6a874948c02c83",
+                "checked_at": "2026-10-20T15:23:17Z",
+                "status": 200,
+                "source_kind": "repository",
+                "text": "{\"archived\": false, \"created_at\": \"2020-09-01T17:37:29Z\", \"description\": \"Multi functional app to find duplicates, empty folders, similar images etc.\", \"disabled\": false, \"full_name\": \"qarmin/czkawka\", \"homepage\": \"\", \"html_url\": \"https://github.com/qarmin/czkawka\", \"license\": {\"key\": \"other\", \"name\": \"Other\", \"node_id\": \"MDc6TGljZW5zZTA=\", \"spdx_id\": \"NOASSERTION\", \"url\": null}, \"node_id\": \"MDEwOlJlcG9zaXRvcnkyOTIwNjU1Nzg=\"}"
+              },
+              {
+                "id": "license",
+                "url": "https://raw.githubusercontent.com/qarmin/czkawka/master/README.md",
+                "section": "Per-frontend license scope",
+                "content_hash": "26dd1fb9b5c8059e43d125e2594a048ea19e7aac14e3868f8ffda445bfb7856b",
+                "checked_at": "2026-10-20T15:23:17Z",
+                "status": 200,
+                "source_kind": "readme",
+                "text": "## License\n\nThe entire code in this repository is licensed under the [MIT](https://mit-license.org/) license.\n\nAll images and audio files are licensed under the [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) license.\n\nThe Czkawka GTK GUI and CLI applications are licensed under the [MIT](https://mit-license.org/) license, while the Krokiet and Cedinia(due Slint license requirements) are licensed under the [GPL-3.0-only](https://www.gnu.org/licenses/gpl-3.0.en.html) license.\n\n## Donations\n\nIf you are using the app, I would appreciate a donation for its further development, which can be\ndone [here](https://github.com/sponsors/qarmin).",
+                "source_hash": "00612ae2bbca76da9b0c3e98d4c30c93b6f39ccfd4fd854a3c403b28d3ce29d7",
+                "source_length": 14889,
+                "start_line": 197,
+                "end_line": 208
+              },
+              {
+                "id": "requirements_1",
+                "url": "https://raw.githubusercontent.com/qarmin/czkawka/master/krokiet/README.md",
+                "section": "Official installation / requirements",
+                "content_hash": "23f5d7b5a6db94e746cb0efa4c1fdd91c5c9b3ae0d3175aebea992d78cf8e96e",
+                "checked_at": "2026-10-20T15:26:59Z",
+                "status": 200,
+                "source_kind": "readme",
+                "text": "\n![krokiet_logo](https://github.com/user-attachments/assets/f5e4b290-d001-4cf4-9f52-dab65a30e441)\n\nKrokiet is a new Czkawka frontend written in Slint.\n\n![Krokiet](https://github.com/user-attachments/assets/720e98c3-598a-41aa-a04b-0c0c1d8a28e6)\n\nIt aims to provide a more consistent experience across all platforms (Linux, Windows, macOS) compared to the previous GTK 4 frontend.\n\n## How to install?\nPrebuilt binaries are available for Windows 10/11, Mac and Ubuntu 22.04(base)/24.04(with additional libraries) - or distros with same/newer glibc/libraries versions.\n\nYou can download them from https://github.com/qarmin/czkawka/releases/, which contains recommendations, which variant to use depending on your needs.\n\n## Requirements\n\nPrebuilt binaries have no mandatory runtime dependencies.\n\nOptional features require native libraries installed before compilation:\n\n| Feature   | Library               | Purpose                  |\n|-----------|-----------------------|--------------------------|\n| `heif`    | `libheif`             | HEIF/HEIC image support  |\n| `libraw`  | `libraw`              | RAW camera image support |\n| `libavif` | `libavif`, `libdav1d` | AVIF image support       |\n\nThe similar videos tool requires **ffmpeg** at runtime.\n\n### Linux (Ubuntu / Debian)\n\n```shell\n# Runtime: similar videos\nsudo apt install ffmpeg\n\n# Optional build + runtime: extra image formats\nsudo apt install libheif-dev libraw-dev libavif-dev libdav1d-dev\n```\n\n### macOS\n\n```shell\nbrew install ffmpeg libraw libheif libavif dav1d\n```\n\n### Windows\n\n- ffmpeg: `choco install ffmpeg` or download from [ffmpeg.org](https://ffmpeg.org/download.html#build-windows) and place `ffmpeg.exe` in your `PATH`.\n- `heif` and `libraw` features are very hard to set up on Windows and are not available in prebuild binaries(there are some unofficial builds, that enables this features)\n\n## Compilation\n\nAnother option is to compile it yourself.\n\nThe easiest way is to compile newest Krokiet, is to run\n```\ncargo install krokiet --locked\n```\n\nwhich will install, the latest and optimized version of Krokiet.\n\nCompilation with `cargo build --release` should produce a working binary, that without any additional dependencie",
+                "source_hash": "6911b8a5ea2aa24ebdc68e7a2df8a8ab80f085b60dc557a7bbc201c85ee30b61",
+                "source_length": 7516,
+                "start_line": 1,
+                "end_line": 61,
+                "path_checks": {
+                  "https://github.com/qarmin/czkawka/blob/master/krokiet/README.md": {
+                    "status": 200,
+                    "last_attempt_at": "2026-10-20T16:49:09.942365Z",
+                    "checked_at": "2026-10-20T16:49:09.942365Z"
+                  }
+                },
+                "path_required_urls": [
+                  "https://github.com/qarmin/czkawka/blob/master/krokiet/README.md"
+                ],
+                "path_status": 200,
+                "path_checked_at": "2026-10-20T16:49:09.942365Z"
+              },
+              {
+                "id": "requirements_2",
+                "url": "https://raw.githubusercontent.com/qarmin/czkawka/master/krokiet/README.md",
+                "section": "Official installation / requirements",
+                "content_hash": "20d70690ef7f618071bc9459d43cf5633e21e5589f3ee525428f4882d90969d7",
+                "checked_at": "2026-10-20T15:26:59Z",
+                "status": 200,
+                "source_kind": "readme",
+                "text": "## License\n\nThe code is licensed under the MIT license, but the entire project is licensed under GPL-3.0 due to Slint license restrictions.\n\nAll icons and images are licensed under the [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) license.\n\n## Name\n\nWhy Krokiet (eng. Croquette)?  \nBecause I like croquettes (the Polish version), the ones",
+                "source_hash": "6911b8a5ea2aa24ebdc68e7a2df8a8ab80f085b60dc557a7bbc201c85ee30b61",
+                "source_length": 7516,
+                "start_line": 126,
+                "end_line": 135,
+                "path_checks": {
+                  "https://github.com/qarmin/czkawka/blob/master/krokiet/README.md": {
+                    "status": 200,
+                    "last_attempt_at": "2026-10-20T16:49:09.942365Z",
+                    "checked_at": "2026-10-20T16:49:09.942365Z"
+                  }
+                },
+                "path_required_urls": [
+                  "https://github.com/qarmin/czkawka/blob/master/krokiet/README.md"
+                ],
+                "path_status": 200,
+                "path_checked_at": "2026-10-20T16:49:09.942365Z"
+              },
+              {
+                "id": "path",
+                "url": "https://raw.githubusercontent.com/qarmin/czkawka/master/krokiet/README.md",
+                "section": "Official entry point response (not an installer asset)",
+                "content_hash": "a2ae0de81ae09cf9689d6dbd6d43e47f6efc6eaea5080db061bc60c3980bb50f",
+                "checked_at": "2026-10-20T15:26:59Z",
+                "status": 200,
+                "source_kind": "official_site",
+                "text": "\n![krokiet_logo](https://github.com/user-attachments/assets/f5e4b290-d001-4cf4-9f52-dab65a30e441)\n\nKrokiet is a new Czkawka frontend written in Slint.\n\n![Krokiet](https://github.com/user-attachments/assets/720e98c3-598a-41aa-a04b-0c0c1d8a28e6)\n\nIt aims to provide a more consistent experience across all platforms (Linux, Windows, macOS) compared to the previous GTK 4 frontend.\n\n## How to install?\nPrebuilt binaries are available for Windows 10/11, Mac and Ubuntu 22.04(base)/24.04(with additional libraries) - or distros with same/newer glibc/libraries versions.\n\nYou can download them from https://github.com/qarmin/czkawka/releases/, which contains recommendations, which variant to use depending on your needs.\n\n## Requirements\n\nPrebuilt binaries have no mandatory runtime dependencies.\n\nOptional features require native libraries installed before compilation:\n\n| Feature   | Library               | Purpose                  |\n|-----------|-----------------------|--------------------------|\n| `heif`    | `libheif`             | HEIF/HEIC image support  |\n| `libraw`  | `libraw`              | RAW camera image support |\n| `libavif` | `libavif`, `libdav1d` | AVIF image support       |\n\nThe similar videos tool requires **ffmpeg** at runtime.\n\n### Linux (Ubuntu / Debian)\n\n```shell\n# Runtime: similar videos\nsudo apt install ffmpeg\n\n# Optional build + runtime: extra image formats\nsudo apt install libheif-dev libraw-dev libavif-dev libdav1d-dev\n```\n\n### macOS\n\n```shell\nbrew install ffmpeg libraw libheif libavif dav1d\n```\n\n### Windows\n\n- ffmpeg: `choco install ffmpeg` or download from [ffmpeg.org](https://ffmpeg.org/download.html#build-windows) and place `ffmpeg.exe` in your `PATH`.\n- `heif` and `libraw` features are very hard to set up on Windows and are not available in prebuild binaries(there are some unofficial builds, that enables this features)\n\n## Compilation\n\nAnother option is to compile it yourself.\n\nThe easiest way is to compile newest Krokiet, is to run\n```\ncargo install krokiet --locked\n```\n\nwhich will install, the latest and optimized version of Krokiet.\n\nCompilation with `cargo build --release` should produce a working binary, that without any additional dependencies should run on user os.\n\nTo enable support for extra image formats, compile with optional features:\n\n```shell\ncargo build --release --bin krokiet --features \"heif,libraw,libavif\"\n```\n\nIf you have ins",
+                "source_hash": "6911b8a5ea2aa24ebdc68e7a2df8a8ab80f085b60dc557a7bbc201c85ee30b61",
+                "source_length": 7516,
+                "start_line": 1,
+                "end_line": 69,
+                "path_checked_at": "2026-10-20T16:49:09.942365Z",
+                "path_status": 200,
+                "resolved_url": "https://raw.githubusercontent.com/qarmin/czkawka/master/krokiet/README.md",
+                "path_checks": {
+                  "https://github.com/qarmin/czkawka/blob/master/krokiet/README.md": {
+                    "status": 200,
+                    "last_attempt_at": "2026-10-20T16:49:09.942365Z",
+                    "checked_at": "2026-10-20T16:49:09.942365Z"
+                  }
+                },
+                "path_required_urls": [
+                  "https://github.com/qarmin/czkawka/blob/master/krokiet/README.md"
+                ]
+              }
+            ],
+            "official_urls": [],
+            "claims": {
+              "purpose": [
+                "intro",
+                "repository"
+              ],
+              "audience": [
+                "intro",
+                "repository"
+              ],
+              "platforms": [
+                "install",
+                "requirements_1",
+                "requirements_2",
+                "path"
+              ],
+              "form": [
+                "intro",
+                "install",
+                "requirements_1",
+                "requirements_2"
+              ],
+              "prerequisites": [
+                "install",
+                "requirements_1",
+                "requirements_2",
+                "path"
+              ],
+              "license": [
+                "license"
+              ],
+              "usage_paths": [
+                "install",
+                "requirements_1",
+                "requirements_2",
+                "path"
+              ],
+              "cost": [
+                "intro",
+                "requirements_1",
+                "requirements_2",
+                "path"
+              ]
+            },
+            "critical_unknowns": [],
+            "platforms": [
+              "Windows",
+              "macOS",
+              "Linux"
+            ],
+            "form": "desktop_app",
+            "prerequisites": [
+              "按 Krokiet 子目录说明选择该 GUI 对应的官方发行文件。",
+              "不要把 Czkawka Core 开发库或 CLI 当成同一个桌面安装包。",
+              "实际删除前需自行审阅扫描结果；本轮未执行扫描或删除。",
+              "官方预编译包支持 Windows 10/11、Mac、Ubuntu 22.04 基础版或 24.04 加库版；相似视频工具另需 ffmpeg。"
+            ],
+            "usage_paths": [
+              {
+                "url": "https://github.com/qarmin/czkawka/blob/master/krokiet/README.md",
+                "kind": "documentation",
+                "label": "官方安装与获取说明"
+              }
+            ],
+            "purpose": "用 Krokiet 图形界面扫描重复文件及其他冗余文件，帮助整理磁盘。",
+            "audience": "需要找出重复或无用文件，并愿意在清理前逐项确认的人。",
+            "license": "GPL-3.0-only",
+            "cost": "官方明确称免费、无广告；本条只选择 Krokiet 桌面图形界面。",
+            "status": "published",
+            "review_kind": "source_review",
+            "reviewed_at": "2026-10-20T15:49:39.260875+00:00",
+            "scenes": [
+              "文件查找"
+            ],
+            "primary_scene": "文件查找",
+            "recommendation_reason": "用 Krokiet 图形界面扫描重复文件及其他冗余文件，帮助整理磁盘；官方资料已说明所选平台和获取方式。",
+            "evidence_hashes": {
+              "intro": "2ddd23b900460ca91b17c876b31a4067c9d619beb47f2a6847ccaaa9dd17a458",
+              "install": "a592880a07b1c0caea1e84655745d52c3f43725e09b3e0ee04a8c331e8d4915b",
+              "repository": "bf30eff4460582d79999a0c0693e65dc13d2cfe465b081302c6a874948c02c83",
+              "license": "26dd1fb9b5c8059e43d125e2594a048ea19e7aac14e3868f8ffda445bfb7856b",
+              "requirements_1": "23f5d7b5a6db94e746cb0efa4c1fdd91c5c9b3ae0d3175aebea992d78cf8e96e",
+              "requirements_2": "20d70690ef7f618071bc9459d43cf5633e21e5589f3ee525428f4882d90969d7",
+              "path": "a2ae0de81ae09cf9689d6dbd6d43e47f6efc6eaea5080db061bc60c3980bb50f"
+            },
+            "family": "qarmin/czkawka",
+            "seed": true,
+            "limitations": [
+              "同一仓库含多个前端；本条按 family 合并，只推荐官方现在建议的 Krokiet，GTK 旧版已声明不再发布新二进制。",
+              "仅核对官方资料，未安装或实际试用，也不构成安全背书。"
+            ],
+            "tested": false,
+            "display_name": "Krokiet（Czkawka）",
+            "assertion_notes": {
+              "audience": "适用人群为基于官方用途的编辑判断；不是官方用户研究结果。",
+              "review_kind": "source_review 仅表示本轮读取并核对官方资料，不代表人工读者验收或实际试用。",
+              "revision": "根据独立审查逐项修正用途、渠道、前提、许可及证据绑定；不将资料核对称为试用。"
+            },
+            "effective_status": "published",
+            "invalidation_reasons": [],
+            "eligibility": {
+              "eligible": true,
+              "reasons": []
+            }
+          },
+          "automatically_qualified": false,
+          "growth_evidence": [],
+          "summary_zh": "【资料不足】暂无法从公开简介中可靠提取具体用途，请查看项目 README。",
+          "difficulty_zh": "⚪ 安装方式未确认",
+          "readme_checked": false,
+          "readme_checked_at": null,
+          "readme_stale": false,
+          "slot": "new",
+          "primary_scene": "文件查找",
+          "first_recommended_at": "2026-10-20T16:49:09.942365Z",
+          "first_qualified_at": "2026-10-20T16:05:01.116030Z",
+          "discovery_kind": "seed",
+          "recommendation_reason": "用 Krokiet 图形界面扫描重复文件及其他冗余文件，帮助整理磁盘；官方资料已说明所选平台和获取方式。；本站首次推荐"
+        },
+        {
+          "full_name": "rustdesk/rustdesk",
+          "html_url": "https://github.com/rustdesk/rustdesk",
+          "description": "An open-source remote desktop application designed for self-hosting, as an alternative to TeamViewer.",
+          "stargazers_count": 126428,
+          "delta_1d": null,
+          "delta_7d": null,
+          "language": "Rust",
+          "topics": [
+            "remote-control",
+            "remote-desktop",
+            "teamviewer",
+            "anydesk",
+            "vnc",
+            "rdp",
+            "rust",
+            "p2p",
+            "flutter",
+            "flutter-apps",
+            "dart",
+            "rust-lang",
+            "wayland",
+            "linux",
+            "android",
+            "flatpak",
+            "ios",
+            "macos",
+            "windows"
+          ],
+          "created_at": "2020-09-28T15:36:08Z",
+          "pushed_at": "2026-10-20T14:52:48Z",
+          "category_zh": "系统工具",
+          "discovery_score": 3.4,
+          "platforms_zh": [
+            "Windows",
+            "macOS",
+            "Linux",
+            "Android",
+            "iOS"
+          ],
+          "observation_status": "fresh",
+          "first_seen_date": "2026-10-20",
+          "last_observed_date": "2026-10-20",
+          "summary_zh": "【资料不足】暂无法从公开简介中可靠提取具体用途，请查看项目 README。",
+          "difficulty_zh": "⚪ 安装方式未确认",
+          "readme_checked": false,
+          "readme_checked_at": null,
+          "readme_stale": false,
+          "first_observed_at": "2026-10-20T13:25:12.266314+00:00",
+          "discovery_origin": "baseline",
+          "observation_started_at": "2026-10-20T16:05:01.116030Z",
+          "in_frozen_baseline": true,
+          "seed": true,
+          "node_id": "MDEwOlJlcG9zaXRvcnkyOTkzNTQyMDc=",
+          "observed_at": "2026-10-20T16:51:46.558313Z",
+          "status": "success",
+          "archived": false,
+          "fork": false,
+          "history_key": "rustdesk/rustdesk",
+          "last_observed_at": "2026-10-20T16:51:46.558313Z",
+          "schema_version": "4.0",
+          "content": {
+            "full_name": "rustdesk/rustdesk",
+            "node_id": "MDEwOlJlcG9zaXRvcnkyOTkzNTQyMDc=",
+            "evidence_refs": [
+              {
+                "id": "intro",
+                "url": "https://raw.githubusercontent.com/rustdesk/rustdesk/master/README.md",
+                "section": "Core introduction",
+                "content_hash": "ec5017fbd44cada940e01cf49a36ebc3620ce513359094e0e023044300090cdc",
+                "checked_at": "2026-10-20T15:23:22Z",
+                "status": 200,
+                "source_kind": "readme",
+                "text": "this software. Misuse, such as unauthorized access, control or invasion of privacy, is strictly against our guidelines. The authors are not responsible for any misuse of the application.\n\n\nChat with us: [Discord](https://discord.gg/nDceKgxnkV) | [Twitter](https://twitter.com/rustdesk) | [Reddit](https://www.reddit.com/r/rustdesk) | [YouTube](https://www.youtube.com/@rustdesk)\n\n[![RustDesk Server Pro](https://img.shields.io/badge/RustDesk%20Server%20Pro-Advanced%20Features-blue)](https://rustdesk.com/pricing.html)\n\nYet another remote desktop solution, written in Rust. Works out of the box with no configuration required. You have full control of your data, with no concerns about security. You can use our rendezvous/relay server, [set up your own](https://rustdesk.com/server), or [write your own rendezvous/relay server](https://github.com/rustdesk/rustdesk-server-demo).\n\n![image](https://user-images.githubusercontent.com/71636191/171661982-430285f0-2e12-4b1d-9957-4a58e375304d.png)\n\nRustDesk welcomes contribution from everyone. See [CONTRIBUTING.md](docs/CONTRIBUTING.md) for help getting started.\n\n[**FAQ**](https://github.com/rustdesk/rustdesk/wiki/FAQ)\n\n[**BINARY DOWNLOAD**](https://github.com/rustdesk/rustdesk/releases)\n\n[**NIGHTLY BUILD**](https://github.com/rustdesk/rustdesk/releases/tag/nightly)\n\n[<img src=\"https://f-droid.org/badge/get-it-on.png\"\n    alt=\"Get it on F-Droid\"\n    height=\"80\">](https://f-droid.org/en/packages/com.carriez.flutter_hbb)\n[<img src=\"https://flathub.org/api/badge?svg&locale=en\"\n    alt=\"Get it on Flathub\"\n    height=\"80\">](https://flathub.org/apps/com.rustdesk.RustDesk)\n\n## Dependencies\n\nDesktop versions use Flutter or Sciter (deprecated) for GU",
+                "source_hash": "ab807f3979b010903e7b72d42d6612935e70fcc1b8c8392a7bb7c47b979ba2b0",
+                "source_length": 9834,
+                "start_line": 13,
+                "end_line": 41
+              },
+              {
+                "id": "install",
+                "url": "https://raw.githubusercontent.com/rustdesk/rustdesk/master/README.md",
+                "section": "Installation / usage requirements",
+                "content_hash": "08318bf3dbb2ba5ad68aa04ae2719e6b8c1059c701a034f25f0b8846c89becdb",
+                "checked_at": "2026-10-20T15:23:22Z",
+                "status": 200,
+                "source_kind": "readme",
+                "text": "s: [Discord](https://discord.gg/nDceKgxnkV) | [Twitter](https://twitter.com/rustdesk) | [Reddit](https://www.reddit.com/r/rustdesk) | [YouTube](https://www.youtube.com/@rustdesk)\n\n[![RustDesk Server Pro](https://img.shields.io/badge/RustDesk%20Server%20Pro-Advanced%20Features-blue)](https://rustdesk.com/pricing.html)\n\nYet another remote desktop solution, written in Rust. Works out of the box with no configuration required. You have full control of your data, with no concerns about security. You can use our rendezvous/relay server, [set up your own](https://rustdesk.com/server), or [write your own rendezvous/relay server](https://github.com/rustdesk/rustdesk-server-demo).\n\n![image](https://user-images.githubusercontent.com/71636191/171661982-430285f0-2e12-4b1d-9957-4a58e375304d.png)\n\nRustDesk welcomes contribution from everyone. See [CONTRIBUTING.md](docs/CONTRIBUTING.md) for help getting started.\n\n[**FAQ**](https://github.com/rustdesk/rustdesk/wiki/FAQ)\n\n[**BINARY DOWNLOAD**](https://github.com/rustdesk/rustdesk/releases)\n\n[**NIGHTLY BUILD**](https://github.com/rustdesk/rustdesk/releases/tag/nightly)\n\n[<img src=\"https://f-droid.org/badge/get-it-on.png\"\n    alt=\"Get it on F-Droid\"\n    height=\"80\">](https://f-droid.org/en/packages/com.carriez.flutter_hbb)\n[<img src=\"https://flathub.org/api/badge?svg&locale=en\"\n    alt=\"Get it on Flathub\"\n    height=\"80\">](https://flathub.org/apps/com.rustdesk.RustDesk)\n\n## Dependencies\n\nDesktop versions use Flutter or Sciter (deprecated) for GUI. This tutorial is for Sciter only, since it is easier and more friendly to start. Check out our [CI](https://github.com/rustdesk/rustdesk/blob/master/.github/workflows/flutter-build.yml) for building the Flutter version.\n\nPlease download Sciter dynamic library yourself.\n\n[Windows](https://raw.githubusercontent.com/c-smile/sciter-sdk/master/bin.win/x64/sciter.dll) |\n[Linux](https://raw.githubusercontent.com/c-smile/sciter-sdk/master/bin.lnx/x64/libsciter-gtk.so) |\n[macOS](https://raw.githubusercontent.com/c-smile/sciter-sdk/master/bin.osx/libsciter.dylib)\n\n## Raw Steps to build\n\n- Prepare your Rust development env and C++ build env\n\n- Install [vcpkg](https://github.com/microsoft/vcpkg), and",
+                "source_hash": "ab807f3979b010903e7b72d42d6612935e70fcc1b8c8392a7bb7c47b979ba2b0",
+                "source_length": 9834,
+                "start_line": 16,
+                "end_line": 53
+              },
+              {
+                "id": "repository",
+                "url": "https://api.github.com/repos/rustdesk/rustdesk",
+                "section": "Repository identity and license metadata",
+                "content_hash": "3efbc0af3959f9e1c8c0fe8533f86303a0586ed9ac76924ddc1320df0b6c8c3e",
+                "checked_at": "2026-10-20T15:23:22Z",
+                "status": 200,
+                "source_kind": "repository",
+                "text": "{\"archived\": false, \"created_at\": \"2020-09-28T15:36:08Z\", \"description\": \"An open-source remote desktop application designed for self-hosting, as an alternative to TeamViewer.\", \"disabled\": false, \"full_name\": \"rustdesk/rustdesk\", \"homepage\": \"https://rustdesk.com\", \"html_url\": \"https://github.com/rustdesk/rustdesk\", \"license\": {\"key\": \"agpl-3.0\", \"name\": \"GNU Affero General Public License v3.0\", \"node_id\": \"MDc6TGljZW5zZTE=\", \"spdx_id\": \"AGPL-3.0\", \"url\": \"https://api.github.com/licenses/agpl-3.0\"}, \"node_id\": \"MDEwOlJlcG9zaXRvcnkyOTkzNTQyMDc=\"}"
+              },
+              {
+                "id": "requirements_1",
+                "url": "https://rustdesk.com/docs/en/client/",
+                "section": "Official installation / requirements",
+                "content_hash": "c64a96b029f401395b6e14569160f23d8b44b2a5fb1655ac261895163bd43456",
+                "checked_at": "2026-10-20T15:27:02Z",
+                "status": 200,
+                "source_kind": "official_site",
+                "text": "Supported Platforms\nInstallation\nWindows\nmacOS\nLinux\nDebian Derivatives\nRed Hat Derivatives\nArch Linux/Manjaro\nopenSUSE (≥ Leap 15.0)\nNix / NixOS (≥ 22.05)\nAndroid\niOS (iPhone, iPad)\nUsage\nConfiguring RustDesk\nCommand Line Parameters\nEdit this page on GitHub →\nScroll to top\nRustDesk Client\nWhat is the RustDesk Client?\nThe RustDesk Client is the application you install on devices to start or receive remote desktop sessions through RustDesk public servers or your own self-hosted RustDesk Server. Use this guide to download the correct build, install it on each platform, connect to another device, and point the client to RustDesk Server OSS or RustDesk Server Pro.\nNote\nPlatform guides: RustDesk for Linux and remote control from Android and iOS. See also the best free remote desktop software.\nSupported Platforms\nMicrosoft Windows\nmacOS\nDebian Derivatives (Ubuntu ≥ 16, Linux Mint, etc.)\nRed Hat Derivatives (CentOS, Fedora ≥ 18, Rocky Linux, etc.)\nArch Linux/Manjaro\nopenSUSE\nNixOS\nAppImage / Flatpak\nAndroid\niOS (cannot be controlled remotely)\nWeb\nInstallation\nWindows\nDownload the exe from GitHub and install.\nTo install silently call the install exe with --silent-install.\nmacOS\nDownload the dmg file from GitHub more info can be found on the macOS page.\nOpen the dmg file and drag RustDesk to Applications.\nAllow RustDesk to run.\nEnable permissions requested and follow prompts on the left hand side of RustDesk to finish setup.\nLinux\nPlease see below instructions to install for the various “flavours” of Linux (installers are on GitHub or available from a distro’s repository).Debian Derivatives\n# please ignore the wrong disk usage report\nsudo apt install -fy ./rustdesk-<version>.deb\nRed Hat Derivatives\nsudo yum localinstall ./rustdesk-<version>.rpm\nArch Linux/Manjaro\nsudo pacman -U ./rustdesk-<version>.pkg.tar.zst\nopenSUSE (≥ Leap 15.0)\nsudo zypper install --allow-unsigned-rpm ./rustdesk-<version>-suse.rpm\nNix / NixOS (≥ 22.05)\nTemporary enter a shell with rustdesk ready to run:\nnix shell nixpkgs#rustdesk\nInstall in the current user profile:\nnix profile install nixpkgs#rustdesk\nIn order to install system-wide in NixOS run nixos-rebuild switch --flake /etc/nixos after editing configuration.nix:\nenvironment.systemPackages = with pkgs; [\n...\nrustdesk\n];\nAndroid\nInstall apk from our GitHub more info can be found on the Android page.\niOS (iPhone, iPad)\nDownload the app from the App Store.\nUsage\nOnce installed (or run as a temporary executable) RustDesk will connect to the Public servers. You will see a message at the bottom saying (1) “Ready, For faster connection, please set up your own server”. In the Top left you will see your (2) ID, (3) One Time Password and on the Right a (4) box for you to connect to another computer if you know their ID.\nTo access the settings, click on the (5) Menu button [ ⋮ ] to the right of ID.\nUnder Settings you will find:\nGeneral - Service Control, Theme, Hardware Codec, Audio, Recording and Language\nSecurity - Permissions for someone taking control, Password options, ability to change your ID and Advanced Security Settings\nNetwork",
+                "source_hash": "a4f78fc0429b4cc90437d3b85afab25f0146dff8f1703d01b29370e9e2e21a6c",
+                "source_length": 6132,
+                "start_line": 136,
+                "end_line": 209,
+                "path_checks": {
+                  "https://rustdesk.com/docs/en/client/": {
+                    "status": 200,
+                    "last_attempt_at": "2026-10-20T16:49:09.942365Z",
+                    "checked_at": "2026-10-20T16:49:09.942365Z"
+                  }
+                },
+                "path_required_urls": [
+                  "https://rustdesk.com/docs/en/client/"
+                ],
+                "path_status": 200,
+                "path_checked_at": "2026-10-20T16:49:09.942365Z"
+              },
+              {
+                "id": "path",
+                "url": "https://rustdesk.com/docs/en/client/",
+                "section": "Official entry point response (not an installer asset)",
+                "content_hash": "9cd82edd840e4eb509343247323a9693382e304eb7351f7ae8a81451a4ddeebf",
+                "checked_at": "2026-10-20T15:27:02Z",
+                "status": 200,
+                "source_kind": "official_site",
+                "text": "RustDesk Client – RustDesk DocumentationSkip to content\nRustDesk Documentation\nEnglish\nEspañol\nRomână\nDeutsch\nFrançais\nItaliano\n日本語\n한국어\nPolski\nPortuguês\n简体中文\n繁體中文\nLight\nDark\nSystem\nCTRL K\nGitHub\nDiscord\nTwitter\nReddit\nCTRL K\nRustDesk Client\nMac\nAndroid\nLinux\nWindows\nMSI\nWindows Portable Elevation\nSelf-host\nRustDesk Server OSS\nInstallation\nDocker\nWindows & PM2 or NSSM\nSynology\nSynology DSM 7.2\nSynology DSM 6\nRustDesk Server Pro\nInstallation\nDocker\ninstall.sh\nWindows Install (deprecated)\nWeb Console\nLicense\n2FA\nAccess Control\nOIDC\nAzure\nSMTP\nMicrosoft 365\nAdmin Role\nConfigure Relay Servers\nLDAP\nControl Role\nAudit Logs\nStrategy\nAddress Book\nFAQ\nClient Configuration\nAdvanced Settings\nClient Deployment\nNAT Loopback issues\nDevelopment\nBuild\nLinux\nWindows\nmacOS\nFAQ for Windows\nVideo Tutorials\nRustDesk Client\nMac\nAndroid\nLinux\nWindows\nMSI\nWindows Portable Elevation\nSelf-host\nRustDesk Server OSS\nInstallation\nDocker\nWindows & PM2 or NSSM\nSynology\nSynology DSM 7.2\nSynology DSM 6\nRustDesk Server Pro\nInstallation\nDocker\ninstall.sh\nWindows Install (deprecated)\nWeb Console\nLicense\n2FA\nAccess Control\nOIDC\nAzure\nSMTP\nMicrosoft 365\nAdmin Role\nConfigure Relay Servers\nLDAP\nControl Role\nAudit Logs\nStrategy\nAddress Book\nFAQ\nClient Configuration\nAdvanced Settings\nClient Deployment\nNAT Loopback issues\nDevelopment\nBuild\nLinux\nWindows\nmacOS\nFAQ for Windows\nVideo Tutorials\nEnglish\nEnglish\nEspañol\nRomână\nDeutsch\nFrançais\nItaliano\n日本語\n한국어\nPolski\nPortuguês\n简体中文\n繁體中文\nLight\nDark\nSystem\nOn this page\nWhat is the RustDesk Client?\nSupported Platforms\nInstallation\nWindows\nmacOS\nLinux\nDebian Derivatives\nRed Hat Derivatives\nArch Linux/Manjaro\nopenSUSE (≥ Leap 15.0)\nNix / NixOS (≥ 22.05)\nAndroid\niOS (iPhone, iPad)\nUsage\nConfiguring RustDesk\nCommand Line Parameters\nEdit this page on GitHub →\nScroll to top\nRustDesk Client\nWhat is the RustDesk Client?\nThe RustDesk Client is the application you install on devices to start or receive remote desktop sessions through RustDesk public servers or your own self-hosted RustDesk Server. Use this guide to download the correct build, install it on each platform, connect to another device, and point the client to RustDesk Server OSS or RustDesk Server Pro.\nNote\nPlatform guides: RustDesk for Linux and remote control from Android and iOS. See also the best free remote desktop software.\nSupported Platforms\nMicrosoft Windows\nmacOS\nDebian Derivatives (Ubuntu ≥ 16, Lin",
+                "source_hash": "a4f78fc0429b4cc90437d3b85afab25f0146dff8f1703d01b29370e9e2e21a6c",
+                "source_length": 6132,
+                "start_line": 1,
+                "end_line": 161,
+                "path_checked_at": "2026-10-20T16:49:09.942365Z",
+                "path_status": 200,
+                "resolved_url": "https://rustdesk.com/docs/en/client/",
+                "path_checks": {
+                  "https://rustdesk.com/docs/en/client/": {
+                    "status": 200,
+                    "last_attempt_at": "2026-10-20T16:49:09.942365Z",
+                    "checked_at": "2026-10-20T16:49:09.942365Z"
+                  }
+                },
+                "path_required_urls": [
+                  "https://rustdesk.com/docs/en/client/"
+                ]
+              },
+              {
+                "id": "license_document_review",
+                "url": "https://api.github.com/repos/rustdesk/rustdesk/license",
+                "section": "Official root license document: license title and version",
+                "text": "                    GNU AFFERO GENERAL PUBLIC LICENSE\n                       Version 3, 19 November 2007\n\n Copyright (C) 2007 Free Software Foundation, Inc. <https://fsf.org/>\n Everyone is permitted to copy and distribute verbatim copies\n of this license document, but changing it is not allowed.\n\n                            Preamble\n\n  The GNU Affero General Public License is a free, copyleft license for\nsoftware and other kinds of works, specifically designed to ensure\ncooperation with the community in the case of network server software.\n\n  The licenses for most software and other practical ",
+                "status": 200,
+                "checked_at": "2026-10-20T15:47:25.800823+00:00",
+                "content_hash": "2f4f8eb60fe0cca59abfb0a1337cb85b7d794cc35bbe31e11aafbf078d007bd8",
+                "source_hash": "8486a10c4393cee1c25392769ddd3b2d6c242d6ec7928e1414efff7dfb2f07ef",
+                "source_length": 34523,
+                "start_line": 1,
+                "end_line": 14,
+                "source_kind": "repository",
+                "text_extraction": "GitHub license endpoint content decoded from base64"
+              }
+            ],
+            "official_urls": [
+              "https://rustdesk.com"
+            ],
+            "claims": {
+              "purpose": [
+                "intro",
+                "repository"
+              ],
+              "audience": [
+                "intro",
+                "repository"
+              ],
+              "platforms": [
+                "install",
+                "requirements_1",
+                "path"
+              ],
+              "form": [
+                "intro",
+                "install",
+                "requirements_1"
+              ],
+              "prerequisites": [
+                "install",
+                "requirements_1",
+                "path"
+              ],
+              "license": [
+                "license_document_review"
+              ],
+              "usage_paths": [
+                "install",
+                "requirements_1",
+                "path"
+              ],
+              "cost": [
+                "intro",
+                "requirements_1",
+                "path"
+              ]
+            },
+            "critical_unknowns": [],
+            "platforms": [
+              "Windows",
+              "macOS",
+              "Linux"
+            ],
+            "form": "desktop_app",
+            "prerequisites": [
+              "被控与控制端都要运行客户端，并使用设备 ID 和连接凭据。",
+              "默认连接公共服务器；也可自行部署，网络可达性和服务器条件会影响连接。",
+              "macOS 需要按官方提示授予必要权限；iOS 不能作为被远程控制的目标。"
+            ],
+            "usage_paths": [
+              {
+                "url": "https://rustdesk.com/docs/en/client/",
+                "kind": "documentation",
+                "label": "官方安装与获取说明"
+              }
+            ],
+            "purpose": "远程查看并控制另一台电脑，帮助异地处理桌面操作。",
+            "audience": "需要连接自己的另一台电脑或协助熟人的人。",
+            "license": "AGPL-3.0-only",
+            "cost": "官方提供公开安装入口；所核对资料未单独说明完整费用条款，不能据此承诺所有功能或服务免费。",
+            "status": "published",
+            "review_kind": "source_review",
+            "reviewed_at": "2026-10-20T15:49:39.260875+00:00",
+            "scenes": [
+              "电视桌面"
+            ],
+            "primary_scene": "电视桌面",
+            "recommendation_reason": "远程查看并控制另一台电脑，帮助异地处理桌面操作；官方资料已说明所选平台和获取方式。",
+            "evidence_hashes": {
+              "intro": "ec5017fbd44cada940e01cf49a36ebc3620ce513359094e0e023044300090cdc",
+              "install": "08318bf3dbb2ba5ad68aa04ae2719e6b8c1059c701a034f25f0b8846c89becdb",
+              "repository": "3efbc0af3959f9e1c8c0fe8533f86303a0586ed9ac76924ddc1320df0b6c8c3e",
+              "requirements_1": "c64a96b029f401395b6e14569160f23d8b44b2a5fb1655ac261895163bd43456",
+              "path": "9cd82edd840e4eb509343247323a9693382e304eb7351f7ae8a81451a4ddeebf",
+              "license_document_review": "2f4f8eb60fe0cca59abfb0a1337cb85b7d794cc35bbe31e11aafbf078d007bd8"
+            },
+            "family": "rustdesk/rustdesk",
+            "seed": true,
+            "limitations": [
+              "Pro Server 是另外的产品；本条没有把其账号、管理能力或费用一并承诺。",
+              "仅核对官方资料，未安装或实际试用，也不构成安全背书。"
+            ],
+            "tested": false,
+            "assertion_notes": {
+              "audience": "适用人群为基于官方用途的编辑判断；不是官方用户研究结果。",
+              "review_kind": "source_review 仅表示本轮读取并核对官方资料，不代表人工读者验收或实际试用。",
+              "revision": "根据独立审查逐项修正用途、渠道、前提、许可及证据绑定；不将资料核对称为试用。"
+            },
+            "license_scope_note": "核对官方根许可证文档所列版本；不从通用许可证的示范授予语句推断项目允许后续版本。第三方组件可能另有许可。",
+            "effective_status": "published",
+            "invalidation_reasons": [],
+            "eligibility": {
+              "eligible": true,
+              "reasons": []
+            }
+          },
+          "automatically_qualified": false,
+          "growth_evidence": [],
+          "slot": "new",
+          "primary_scene": "电视桌面",
+          "first_recommended_at": "2026-10-20T16:49:09.942365Z",
+          "first_qualified_at": "2026-10-20T16:05:01.116030Z",
+          "discovery_kind": "seed",
+          "recommendation_reason": "远程查看并控制另一台电脑，帮助异地处理桌面操作；官方资料已说明所选平台和获取方式。；本站首次推荐"
+        },
+        {
+          "archived": false,
+          "created_at": "2015-03-22T22:18:44Z",
+          "description": "cherrytree",
+          "disabled": false,
+          "full_name": "giuspen/cherrytree",
+          "homepage": "https://www.giuspen.net/cherrytree/",
+          "html_url": "https://github.com/giuspen/cherrytree",
+          "license": {
+            "key": "other",
+            "name": "Other",
+            "node_id": "MDc6TGljZW5zZTA=",
+            "spdx_id": "NOASSERTION",
+            "url": null
+          },
+          "node_id": "MDEwOlJlcG9zaXRvcnkzMjY5ODQ2OQ==",
+          "seed": true,
+          "schema_version": "4.0",
+          "stargazers_count": 3975,
+          "discovery_origin": "seed",
+          "first_observed_at": "2026-10-20T16:05:01.116030Z",
+          "observation_started_at": "2026-10-20T16:05:01.116030Z",
+          "in_frozen_baseline": false,
+          "observation_status": "fresh",
+          "delta_1d": null,
+          "delta_7d": null,
+          "discovery_score": 1.8,
+          "observed_at": "2026-10-20T16:54:03.992753Z",
+          "status": "success",
+          "fork": false,
+          "pushed_at": "2026-10-10T18:27:50Z",
+          "language": "C++",
+          "topics": [],
+          "history_key": "giuspen/cherrytree",
+          "first_seen_date": "2026-10-20",
+          "last_observed_date": "2026-10-20",
+          "last_observed_at": "2026-10-20T16:54:03.992753Z",
+          "content": {
+            "full_name": "giuspen/cherrytree",
+            "node_id": "MDEwOlJlcG9zaXRvcnkzMjY5ODQ2OQ==",
+            "evidence_refs": [
+              {
+                "id": "intro",
+                "url": "https://raw.githubusercontent.com/giuspen/cherrytree/master/README.md",
+                "section": "Core introduction",
+                "content_hash": "0431c288e59dca013e383b22a55b42195070a2ca2523ba8dfe10c96c1514283f",
+                "checked_at": "2026-10-20T15:23:05Z",
+                "status": 200,
+                "source_kind": "readme",
+                "text": "# CherryTree\nA hierarchical note taking application, featuring rich text and syntax highlighting, storing data in either a single file (xml or sqlite) or multiple files and directories.\nThe project home page is [giuspen.net/cherrytree](https://www.giuspen.net/cherrytree/).\n\nWritten by Giuseppe Penone (aka giuspen) and Evgenii Gurianov (aka txe).\n\n![Cherrytree main window with text](docs/cherrytree-main_window_text.png)\n\n## Features\n- Rich text (foreground color, background color, bold, italic, underline, strikethrough, small, h1, h2, h3, h4, h5, h6, subscript, superscript, monospace)\n- Syntax highlighting supporting several programming languages\n- Images handling: insertion in the text, edit (resize/rotate), save as png file\n- Latex math equations rendering\n- Embedded files handling: insertion in the text, save to disk\n- Multi-level lists handling (bulleted, numbered, to-do and switch between them, multiline with shift+enter)\n- Simple tables handling (cells with plain text), cut/copy/paste row, import/export as csv file\n- Codeboxes handling: boxes of plain text (optionally with syntax highlighting) into rich text, import/export as text file\n- Execution of the code for code nodes and codeboxes; the terminal and the command per syntax highlighting is configurable in the preferences dialog; an embedded terminal is available on linux and mac os\n- Alignment of text, images, tables and codeboxes (left/center/right/fill)\n- Hyperlinks associated to text and images (links to webpages, links to nodes/nodes + anchors, links to files, links to folders)\n- Spell check (using [gspell](https://gitlab.gnome.org/GNOME/gspell))\n- Intra application copy/paste: supported single images, single codeboxes, single tables and a compound selection of rich text, images, codeboxes and tables\n- Cross application copy/paste (tested with libreoffice and gmail): supported single images, single codeboxes, single tables and a compound selection of rich text, images, codeboxes and tables\n- Copying a list of files from the file manager and pasting in cherrytree will create a list of links to files, i",
+                "source_hash": "4c6cc4f2adfd3025df49c7545e52dfacc62f4bae4b1a764afc337cde304eb417",
+                "source_length": 5800,
+                "start_line": 1,
+                "end_line": 24
+              },
+              {
+                "id": "install",
+                "url": "https://raw.githubusercontent.com/giuspen/cherrytree/master/README.md",
+                "section": "Installation / usage requirements",
+                "content_hash": "d0e581a12019459e90158f76b20da9b43077962ff0665974cd4208fa97685e7d",
+                "checked_at": "2026-10-20T15:23:05Z",
+                "status": 200,
+                "source_kind": "readme",
+                "text": "# CherryTree\nA hierarchical note taking application, featuring rich text and syntax highlighting, storing data in either a single file (xml or sqlite) or multiple files and directories.\nThe project home page is [giuspen.net/cherrytree](https://www.giuspen.net/cherrytree/).\n\nWritt",
+                "source_hash": "4c6cc4f2adfd3025df49c7545e52dfacc62f4bae4b1a764afc337cde304eb417",
+                "source_length": 5800,
+                "start_line": 1,
+                "end_line": 5
+              },
+              {
+                "id": "repository",
+                "url": "https://api.github.com/repos/giuspen/cherrytree",
+                "section": "Repository identity and license metadata",
+                "content_hash": "2ddf1128c1009e215642d065051d463db5fb398c9dee0529c44645f27f99278e",
+                "checked_at": "2026-10-20T15:23:05Z",
+                "status": 200,
+                "source_kind": "repository",
+                "text": "{\"archived\": false, \"created_at\": \"2015-03-22T22:18:44Z\", \"description\": \"cherrytree\", \"disabled\": false, \"full_name\": \"giuspen/cherrytree\", \"homepage\": \"https://www.giuspen.net/cherrytree/\", \"html_url\": \"https://github.com/giuspen/cherrytree\", \"license\": {\"key\": \"other\", \"name\": \"Other\", \"node_id\": \"MDc6TGljZW5zZTA=\", \"spdx_id\": \"NOASSERTION\", \"url\": null}, \"node_id\": \"MDEwOlJlcG9zaXRvcnkzMjY5ODQ2OQ==\"}"
+              },
+              {
+                "id": "license",
+                "url": "https://raw.githubusercontent.com/giuspen/cherrytree/master/license.txt",
+                "section": "License scope and grant",
+                "content_hash": "6e4eaa63b385e262aae81efee8dd95ad14d9113eb21a4a5272d2f5878aca489f",
+                "checked_at": "2026-10-20T15:24:37Z",
+                "status": 200,
+                "source_kind": "readme",
+                "text": "\n   CherryTree is free software; you can redistribute it and/or modify\n   it under the terms of the GNU General Public License as published by\n   the Free Software Foundation; either version 3 of the License, or\n   (at your option) any later version.\n\n   This program is distributed in the hope that it will be useful,\n   but WITHOUT ANY WARRANTY; without even the implied warranty of\n   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n   GNU General Public License for more details.\n\n   You should have received a copy of the GNU General Public License\n   along with this program; if not, write to the Free Software\n   Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,\n   MA 02110-1301, USA.\n",
+                "source_hash": "6e4eaa63b385e262aae81efee8dd95ad14d9113eb21a4a5272d2f5878aca489f",
+                "source_length": 716,
+                "start_line": 1,
+                "end_line": 16
+              },
+              {
+                "id": "requirements_1",
+                "url": "https://www.giuspen.net/cherrytree/",
+                "section": "Official installation / requirements",
+                "content_hash": "ce46de992567ce4849ebe868e0d83df7a92770ed559beb8d761766268215e8cf",
+                "checked_at": "2026-10-20T15:24:44Z",
+                "status": 200,
+                "source_kind": "official_site",
+                "text": "stable testing source bug tracker third party\nfeatures :\nrich text (foreground color, background color, bold, italic, underline, strikethrough, small, h1, h2, h3, h4, h5, h6, subscript, superscript, monospace)\nsyntax highlighting supporting several programming languages\nimages handling: insertion in the text, edit (resize/rotate), save as png file\nlatex math equations rendering\nembedded files handling: insertion in the text, save to disk\nmulti-level lists handling (bulleted, numbered, to-do and switch between them, multiline with shift+enter)\nsimple tables handling (cells with plain text), cut/copy/paste row, import/export as csv file\ncodeboxes handling: boxes of plain text (optionally with syntax highlighting) into rich text, import/export as text file\nexecution of the code for code nodes and codeboxes; the terminal and the command per syntax highlighting is configurable in the preferen",
+                "source_hash": "47d22999fdafefee2ee3e9088afe264b8f26e11f298aa3c5ddd790f6df02a931",
+                "source_length": 9087,
+                "start_line": 11,
+                "end_line": 21,
+                "path_checks": {
+                  "https://www.giuspen.net/cherrytree/": {
+                    "status": 200,
+                    "last_attempt_at": "2026-10-20T16:49:09.942365Z",
+                    "checked_at": "2026-10-20T16:49:09.942365Z"
+                  }
+                },
+                "path_required_urls": [
+                  "https://www.giuspen.net/cherrytree/"
+                ],
+                "path_status": 200,
+                "path_checked_at": "2026-10-20T16:49:09.942365Z"
+              },
+              {
+                "id": "requirements_2",
+                "url": "https://www.giuspen.net/cherrytree/",
+                "section": "Official installation / requirements",
+                "content_hash": "7837e5b2c3d22cabab9cd7eaa530b035b6ee64f756e0fee197173e7cb80711cd",
+                "checked_at": "2026-10-20T15:24:44Z",
+                "status": 200,
+                "source_kind": "official_site",
+                "text": "Windows binaries provided by SignPath.io, certificate by SignPath Foundation– This program will not transfer any information to other networked systems unless specifically requested by the user or the person installing or operating it– Approver: Giuseppe Penone\nsha256sum *848c0478f8aa4ec2e932ed00ee6c6618f21b197bbd7fea1bafdd8456468d7d45 *cherrytree_1.7.2.tar.xz659fd0b54d5a966decb9b7a07621e1282ee744877217696c6a2f5b197443ccb9 *cherrytree_1.7.2.tar.xz.asc81048bf7b326516dace5a7078794d7bbe05ec44d5d7be9492f304b8347a4f898 *cherrytree_1.7.2.1_win64_setup.exe8d04f772e56d588c21ecf7f8e165e17a6d12de764747f687598a4bdb69f5c45c *cherrytree_1.7.2.1_win64_setup_nolatex.exed183f6a43ea51b7b2e183600e22ab4afe9afa4e042d2862c26ea38056e463272 *cherrytree_1.7.2.1_win64_portable.7ze4df340a80e96e7bd18257736549294315212a2874587249a273e237fea37e4f *cherrytree_1.7.2.1_win64_portable_nolatex.7zfa0e0fb4e6f1980e550c393705455fa60a768f78f35be71b97663784729a34e1 *CherryTree-1.7.2-x86_64.AppImage116fc2d99dfb4395fcaafdbc982f83ef82750d68aee324b366c036601d5051fb *cherrytree_1.7.2-2~Debian13_amd64.deb176cadee37218e325d8217072849a82d3acbcb2c8cdb2a83b496d45bf6e55df5 *cherrytree_1.7.2-2~Debian12_amd64.deb\nresides in applications–accessories–cherrytree\ndownload testing version:\n(v1.7.1+8, last updated August 17th, 2026) Linux AppImage: CherryTree-1.7.1+8-x86_64.AppImage (all in one file, after downloading make it executable and then run it from a terminal or just double click)\nWindows installer cherrytree_1.7.1.0+8_win64",
+                "source_hash": "47d22999fdafefee2ee3e9088afe264b8f26e11f298aa3c5ddd790f6df02a931",
+                "source_length": 9087,
+                "start_line": 58,
+                "end_line": 63,
+                "path_checks": {
+                  "https://www.giuspen.net/cherrytree/": {
+                    "status": 200,
+                    "last_attempt_at": "2026-10-20T16:49:09.942365Z",
+                    "checked_at": "2026-10-20T16:49:09.942365Z"
+                  }
+                },
+                "path_required_urls": [
+                  "https://www.giuspen.net/cherrytree/"
+                ],
+                "path_status": 200,
+                "path_checked_at": "2026-10-20T16:49:09.942365Z"
+              },
+              {
+                "id": "path",
+                "url": "https://www.giuspen.net/cherrytree/",
+                "section": "Official entry point response (not an installer asset)",
+                "content_hash": "e955ebe329e3829133580b26e4afca175e003309af946fd3c98a03d02dff9175",
+                "checked_at": "2026-10-20T15:24:44Z",
+                "status": 200,
+                "source_kind": "official_site",
+                "text": "CherryTree – giuspen\nSkip to main content\nToggle navigation\nCherryTree\nX Tile\nNemo Pyextensions\nFeedback\ndonate\nCherryTree\nA hierarchical note taking application, featuring rich text and syntax highlighting, storing data in either a single file (xml or sqlite) or multiple files and directories.Written by Giuseppe Penone (aka giuspen) and Evgenii Gurianov (aka txe).The user manual online html and downloadable ctb written by Ellie Borden (currently old and discontinued).The following languages are supported (If you want to help translating to your language write me):– Arabic (ar, Abdulrahman Karajeh)– Armenian (hy, Seda Stamboltsyan)– Bulgarian (bg, Iliya Nikolaev)– Chinese Simplified (zh_CN, Wang Yu)– Chinese Traditional (zh_TW, Emer Chen)– Croatian (hr, Filip Bakula)– Czech (cs, Pavel Fric)– Dutch (nl)– English (en, default)– Finnish (fi)– French (fr, Francis Gernet)– German (de, Mr.Update)– Greek (el, Asterios Siomos)– Hindi India (hi_IN)– Hungarian (hu, Stiener Norbert)– Italian (it, Vincenzo Reale)– Japanese (ja, Piyo)– Kazakh (kk_KZ, Viktor Polyanskiy)– Kazakh (kk_LA, Latin, Viktor Polyanskiy)– Korean (ko, Sean Lee)– Lithuanian (lt)– Persian (fa, Majid Abri)– Polish (pl, Mariusz Gasperaniec)– Portuguese (pt, Rui Santos)– Portuguese Brazil (pt_BR, Raysa Dutra)– Romanian (ro, Tudor Sprinceana)– Russian (ru, Viktor Polyanskiy)– Slovak (sk, Michal Fusatý)– Slovenian (sl, Erik Lovrič)– Spanish (es, MP, up to date)– Swedish (sv, Åke Engelbrektson)– Turkish (tr, Ferhat Aydin)– Ukrainian (uk, Giuseppe Penone)\nfeatures stable testing source bug tracker third party\nfeatures :\nrich text (foreground color, background color, bold, italic, underline, strikethrough, small, h1, h2, h3, h4, h5, h6, subscript, superscript, monospace)\nsyntax highlighting supporting several programming languages\nimages handling: insertion in the text, edit (resize/rotate), save as png file\nlatex math equations rendering\nembedded files handling: insertion in the text, save to disk\nmulti-level lists handling (bulleted, numbered, to-do and switch between them, multiline with shift+enter)\nsimple tables handling (cells with plain text), cut/copy/paste row, import/export as csv file\ncodeboxes handling: boxes of plain text (optionally with syntax highlighting) into rich text, import/export as text file\nexecution of the code for code nodes and codeboxes; the terminal and the command per syntax high",
+                "source_hash": "47d22999fdafefee2ee3e9088afe264b8f26e11f298aa3c5ddd790f6df02a931",
+                "source_length": 9087,
+                "start_line": 1,
+                "end_line": 21,
+                "path_checked_at": "2026-10-20T16:49:09.942365Z",
+                "path_status": 200,
+                "resolved_url": "https://www.giuspen.net/cherrytree/",
+                "path_checks": {
+                  "https://www.giuspen.net/cherrytree/": {
+                    "status": 200,
+                    "last_attempt_at": "2026-10-20T16:49:09.942365Z",
+                    "checked_at": "2026-10-20T16:49:09.942365Z"
+                  }
+                },
+                "path_required_urls": [
+                  "https://www.giuspen.net/cherrytree/"
+                ]
+              }
+            ],
+            "official_urls": [
+              "https://www.giuspen.net"
+            ],
+            "claims": {
+              "purpose": [
+                "intro",
+                "repository"
+              ],
+              "audience": [
+                "intro",
+                "repository"
+              ],
+              "platforms": [
+                "install",
+                "requirements_1",
+                "requirements_2",
+                "path"
+              ],
+              "form": [
+                "intro",
+                "install",
+                "requirements_1",
+                "requirements_2"
+              ],
+              "prerequisites": [
+                "install",
+                "requirements_1",
+                "requirements_2",
+                "path"
+              ],
+              "license": [
+                "license"
+              ],
+              "usage_paths": [
+                "install",
+                "requirements_1",
+                "requirements_2",
+                "path"
+              ],
+              "cost": [
+                "intro",
+                "requirements_1",
+                "requirements_2",
+                "path"
+              ]
+            },
+            "critical_unknowns": [],
+            "platforms": [
+              "Windows",
+              "Linux"
+            ],
+            "form": "desktop_app",
+            "prerequisites": [
+              "按官网的 stable 区域选择适合系统的桌面安装包。",
+              "所选条目只涵盖 Windows/Linux；其他平台的安装与兼容性不在本轮确认范围。"
+            ],
+            "usage_paths": [
+              {
+                "url": "https://www.giuspen.net/cherrytree/",
+                "kind": "download",
+                "label": "官方安装与获取说明"
+              }
+            ],
+            "purpose": "用树状层级整理富文本笔记，并在笔记中加入图片、表格和附件。",
+            "audience": "需要按主题分层归档资料，而不只写纯文本的人。",
+            "license": "GPL-3.0-or-later",
+            "cost": "官方提供公开安装入口；所核对资料未单独说明完整费用条款，不能据此承诺所有功能或服务免费。",
+            "status": "published",
+            "review_kind": "source_review",
+            "reviewed_at": "2026-10-20T15:49:39.260875+00:00",
+            "scenes": [
+              "笔记效率"
+            ],
+            "primary_scene": "笔记效率",
+            "recommendation_reason": "用树状层级整理富文本笔记，并在笔记中加入图片、表格和附件；官方资料已说明所选平台和获取方式。",
+            "evidence_hashes": {
+              "intro": "0431c288e59dca013e383b22a55b42195070a2ca2523ba8dfe10c96c1514283f",
+              "install": "d0e581a12019459e90158f76b20da9b43077962ff0665974cd4208fa97685e7d",
+              "repository": "2ddf1128c1009e215642d065051d463db5fb398c9dee0529c44645f27f99278e",
+              "license": "6e4eaa63b385e262aae81efee8dd95ad14d9113eb21a4a5272d2f5878aca489f",
+              "requirements_1": "ce46de992567ce4849ebe868e0d83df7a92770ed559beb8d761766268215e8cf",
+              "requirements_2": "7837e5b2c3d22cabab9cd7eaa530b035b6ee64f756e0fee197173e7cb80711cd",
+              "path": "e955ebe329e3829133580b26e4afca175e003309af946fd3c98a03d02dff9175"
+            },
+            "family": "giuspen/cherrytree",
+            "seed": true,
+            "limitations": [
+              "仅核对官方资料，未安装或实际试用，也不构成安全背书。"
+            ],
+            "tested": false,
+            "assertion_notes": {
+              "audience": "适用人群为基于官方用途的编辑判断；不是官方用户研究结果。",
+              "review_kind": "source_review 仅表示本轮读取并核对官方资料，不代表人工读者验收或实际试用。",
+              "revision": "根据独立审查逐项修正用途、渠道、前提、许可及证据绑定；不将资料核对称为试用。"
+            },
+            "effective_status": "published",
+            "invalidation_reasons": [],
+            "eligibility": {
+              "eligible": true,
+              "reasons": []
+            }
+          },
+          "automatically_qualified": false,
+          "growth_evidence": [],
+          "summary_zh": "【资料不足】暂无法从公开简介中可靠提取具体用途，请查看项目 README。",
+          "difficulty_zh": "⚪ 安装方式未确认",
+          "readme_checked": false,
+          "readme_checked_at": null,
+          "readme_stale": false,
+          "slot": "new",
+          "primary_scene": "笔记效率",
+          "first_recommended_at": "2026-10-20T16:49:09.942365Z",
+          "first_qualified_at": "2026-10-20T16:05:01.116030Z",
+          "discovery_kind": "seed",
+          "recommendation_reason": "用树状层级整理富文本笔记，并在笔记中加入图片、表格和附件；官方资料已说明所选平台和获取方式。；本站首次推荐"
+        },
+        {
+          "archived": false,
+          "created_at": "2015-03-26T10:46:17Z",
+          "description": "Audio Editor                                     ",
+          "disabled": false,
+          "full_name": "audacity/audacity",
+          "homepage": "https://www.audacityteam.org/manual/getting-started/",
+          "html_url": "https://github.com/audacity/audacity",
+          "license": {
+            "key": "other",
+            "name": "Other",
+            "node_id": "MDc6TGljZW5zZTA=",
+            "spdx_id": "NOASSERTION",
+            "url": null
+          },
+          "node_id": "MDEwOlJlcG9zaXRvcnkzMjkyMTczNg==",
+          "seed": true,
+          "schema_version": "4.0",
+          "stargazers_count": 18794,
+          "discovery_origin": "seed",
+          "first_observed_at": "2026-10-20T16:05:01.116030Z",
+          "observation_started_at": "2026-10-20T16:05:01.116030Z",
+          "in_frozen_baseline": false,
+          "observation_status": "fresh",
+          "delta_1d": null,
+          "delta_7d": null,
+          "discovery_score": 1.8,
+          "observed_at": "2026-10-20T16:54:03.992814Z",
+          "status": "success",
+          "fork": false,
+          "pushed_at": "2026-10-20T14:43:02Z",
+          "language": "C++",
+          "topics": [
+            "audio",
+            "editor",
+            "cross-platform",
+            "wxwidgets-applications",
+            "gplv2",
+            "qt-application",
+            "qt-qml"
+          ],
+          "history_key": "audacity/audacity",
+          "first_seen_date": "2026-10-20",
+          "last_observed_date": "2026-10-20",
+          "last_observed_at": "2026-10-20T16:54:03.992814Z",
+          "content": {
+            "full_name": "audacity/audacity",
+            "node_id": "MDEwOlJlcG9zaXRvcnkzMjkyMTczNg==",
+            "evidence_refs": [
+              {
+                "id": "intro",
+                "url": "https://raw.githubusercontent.com/audacity/audacity/master/README.md",
+                "section": "Core introduction",
+                "content_hash": "93473ace301c7df66aa0b97523459181a81838a1718dd7f4fded87672ee5a3e6",
+                "checked_at": "2026-10-20T15:23:11Z",
+                "status": 200,
+                "source_kind": "readme",
+                "text": "sts.yml)\n\n[**Audacity**](https://www.audacityteam.org) is an easy-to-use, multi-track audio editor and recorder for Windows, macOS, GNU/Linux and other operating systems. More info can be found on https://www.audacityteam.org\n\n## This repository is currently undergoing major structural change.\n\nWe're currently working on Audacity 4, which means an entirely new UI and also refactorings aplenty. As such, the `master` branch is currently not particularly friendly to new contributors. It is still possible to submit patches to Audacity 3.x; make sure you branch off `audacity3` if you choose to do so. Build instructions for 3.x can be found [here](https://github.com/audacity/audacity/blob/release-3.7.0/BUILDING.md); build instructions for Audacity 4 can be found [here](https://github.com/audacity/audacity/blob/master/BUILDING.md).\n\nYou can stay updated with our efforts on [YouTube](https://youtube.com/@audacity), [Discord](https://discord.gg/audacity) and [our blog](https://audacityteam.org/blog).\n\n## License\n\nAudacity is open source software licensed GPLv3. Most code files are GPLv2-or-la",
+                "source_hash": "c84ab5991133706a2899c20539df624ecaa124b7be9d4aff6d2b20986978d121",
+                "source_length": 1541,
+                "start_line": 3,
+                "end_line": 15
+              },
+              {
+                "id": "install",
+                "url": "https://raw.githubusercontent.com/audacity/audacity/master/README.md",
+                "section": "Installation / usage requirements",
+                "content_hash": "52b82c06ca2060dbfd01f7fafde8019251e53d5172cb24f40af6f0d6e3f51638",
+                "checked_at": "2026-10-20T15:23:11Z",
+                "status": 200,
+                "source_kind": "readme",
+                "text": "sts.yml)\n\n[**Audacity**](https://www.audacityteam.org) is an easy-to-use, multi-track audio editor and recorder for Windows, macOS, GNU/Linux and other operating systems. More info can be found on https://www.audacityteam.org\n\n## This repository is currently undergoing major structural change.\n\nWe're currently working on Audacity 4, which means an entirely new UI and also refactorings aplenty. As such, the `master` branch is currently not particularly friendly to new contributors. It is still possible to submit patches to Audacity 3.x; make sure you branch off `audacity3` if you choose to do so. Build instructions for 3.x can be found [here](https://github.com/audacity/audacity/blob/release-3.7.0/BUILDING.md); build instructions for Audacity 4 can be found [here](https://github.com/audacity/audacity/blob/master/BUILDING.md).\n\nYou can stay updated with our efforts on [YouTube](https://youtube.com/@audacity), [Discord](https://discord.gg/audacity) and [our blog](https://audacityteam.org/blog).\n\n## License\n\nAudacity is open source software licensed GPLv3. Most code files are GPLv2-or-later, with the notable exceptions being `/au3/lib-src` (which contains third party libraries), as well as VST3-related code. Documentation is licensed CC-by 3.0 unless otherwise noted. Details can be found in the [license file](LICENSE.txt).\n",
+                "source_hash": "c84ab5991133706a2899c20539df624ecaa124b7be9d4aff6d2b20986978d121",
+                "source_length": 1541,
+                "start_line": 3,
+                "end_line": 16
+              },
+              {
+                "id": "repository",
+                "url": "https://api.github.com/repos/audacity/audacity",
+                "section": "Repository identity and license metadata",
+                "content_hash": "0e07bb14d5dc21aa397660fa6c71eef315b0b5b1ec051f34dd4435adfb3036f6",
+                "checked_at": "2026-10-20T15:23:11Z",
+                "status": 200,
+                "source_kind": "repository",
+                "text": "{\"archived\": false, \"created_at\": \"2015-03-26T10:46:17Z\", \"description\": \"Audio Editor                                     \", \"disabled\": false, \"full_name\": \"audacity/audacity\", \"homepage\": \"https://www.audacityteam.org/manual/getting-started/\", \"html_url\": \"https://github.com/audacity/audacity\", \"license\": {\"key\": \"other\", \"name\": \"Other\", \"node_id\": \"MDc6TGljZW5zZTA=\", \"spdx_id\": \"NOASSERTION\", \"url\": null}, \"node_id\": \"MDEwOlJlcG9zaXRvcnkzMjkyMTczNg==\"}"
+              },
+              {
+                "id": "license",
+                "url": "https://raw.githubusercontent.com/audacity/audacity/master/LICENSE.txt",
+                "section": "License scope and grant",
+                "content_hash": "e5b691a275215f2ba62a20b048eb98c9fa7cd03f7d23aa7ddae759b43d508c79",
+                "checked_at": "2026-10-20T15:24:38Z",
+                "status": 200,
+                "source_kind": "readme",
+                "text": "Audacity is released under the GNU General Public License version 3 (GPLv3). \nIndividual source files may be available under other licenses as specified \nin those files or an accompanying file. In particular, many source files are \navailable under GPL version 2 (GPLv2) or (at your option) any later version, \nand this is the default license used where no other license is specified.\n\nDocumentation is distributed under a Creative Commons-Attribution license.\n(CC-BY 3.0)\n\nFollowing are the full license texts of the\n\t* GNU General Public License Version 2 (GPLv2), \n\t* GNU General Public License Version 3 (GPLv3), and\n\t* Creative Commons-Attribution 3.0 Unported (CC-BY 3.0)\nlicenses. \n\n###############################################################################\n\n\t\t    GNU GENERAL PUBLIC LICENSE\n\t\t       Version 2, June 1991\n\n Copyright (C) 1989, 1991 Free Software Foundation, Inc.\n 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA\n Everyone is permitted to copy and distribute verbatim copies\n of this license document, but changing it is not allowed.\n\n\t\t\t    Preamble\n\n  The licenses for most software are designed to take away your\nfreedom to share and change it.  By contrast, the GNU General Public\nLicense is intended to guarantee your freedom to share and change free\nsoftware--to make sure the software is free for all its users.  This\nGeneral Public License applies to most of the Free Software\nFoundation's software and to any other program whose authors commit to\nusin",
+                "source_hash": "1580ffb4a0c6bbb716324c645682964120eae418b9a1c51842cda140343cb139",
+                "source_length": 73540,
+                "start_line": 1,
+                "end_line": 34
+              },
+              {
+                "id": "requirements_1",
+                "url": "https://www.audacityteam.org/download/",
+                "section": "Official installation / requirements",
+                "content_hash": "0c26ee8e238246198c40336c981b3946e9711d4aa2b35ea008f0adee758696b4",
+                "checked_at": "2026-10-20T15:24:38Z",
+                "status": 200,
+                "source_kind": "official_site",
+                "text": "Download Audacity | Windows, macOS and Linux  Skip to content\nDownloadsFeaturesAudacity 4NewHelp\nTry Audacity Cloud StorageSign Up\nDownloads\nCurrent version: 4.0.1 | View changelog\nDownload for\nYour systemWindowsx86_64 and ARM64 installersDownload → Your systemmacOSUniversal, Apple Silicon and IntelDownload → Your systemLinuxx86_64 and ARM64 AppImagesDownload →\nAdditional resources\nOffline manual Download Audacity manual\nOpen    FFmpeg library FFmpeg import/export library\nOpen     Source code  Build Audacity yourself (.tar.xz)\nOpen    Older versions of Audacity Every release since 3.0.0\nBrowse\nAudacity\nCopyright ©  | Muse Group & contributors.\nlinks\nHelp\nFAQ\nContact\nBlog\nLegal\nCloud Saving\nForum\nMerch  NEW\nManual\ndownloads\nWindows\nmacOS\nLin",
+                "source_hash": "64282a2e0a907dbcd744096d8099212975b68a94f465cf5eab47449f01c57242",
+                "source_length": 1138,
+                "start_line": 1,
+                "end_line": 29,
+                "path_checks": {
+                  "https://www.audacityteam.org/download/": {
+                    "status": 200,
+                    "last_attempt_at": "2026-10-20T16:49:09.942365Z",
+                    "checked_at": "2026-10-20T16:49:09.942365Z"
+                  }
+                },
+                "path_required_urls": [
+                  "https://www.audacityteam.org/download/"
+                ],
+                "path_status": 200,
+                "path_checked_at": "2026-10-20T16:49:09.942365Z"
+              },
+              {
+                "id": "path",
+                "url": "https://www.audacityteam.org/download/",
+                "section": "Official entry point response (not an installer asset)",
+                "content_hash": "64282a2e0a907dbcd744096d8099212975b68a94f465cf5eab47449f01c57242",
+                "checked_at": "2026-10-20T15:24:38Z",
+                "status": 200,
+                "source_kind": "official_site",
+                "text": "Download Audacity | Windows, macOS and Linux  Skip to content\nDownloadsFeaturesAudacity 4NewHelp\nTry Audacity Cloud StorageSign Up\nDownloads\nCurrent version: 4.0.1 | View changelog\nDownload for\nYour systemWindowsx86_64 and ARM64 installersDownload → Your systemmacOSUniversal, Apple Silicon and IntelDownload → Your systemLinuxx86_64 and ARM64 AppImagesDownload →\nAdditional resources\nOffline manual Download Audacity manual\nOpen    FFmpeg library FFmpeg import/export library\nOpen     Source code  Build Audacity yourself (.tar.xz)\nOpen    Older versions of Audacity Every release since 3.0.0\nBrowse\nAudacity\nCopyright ©  | Muse Group & contributors.\nlinks\nHelp\nFAQ\nContact\nBlog\nLegal\nCloud Saving\nForum\nMerch  NEW\nManual\ndownloads\nWindows\nmacOS\nLinux\nMuseHub\nPlugins\nsocial\nFacebook\nX\nInstagram\nYouTube\nDiscord\nplugins\nSoap Voice Clean & Capture Bundle\nMuseFX\nSpeaker Splitter Pro\nTrinity EQ\nGraillon 3\nYour privacy matters\nWe use cookies solely for analytics with Matomo. No third-party tracking. By clicking 'Accept', you allow us to track your visits. Choose 'Reject' if you'd prefer not to be tracked.Read cookie policy\nRejectAccept",
+                "source_hash": "64282a2e0a907dbcd744096d8099212975b68a94f465cf5eab47449f01c57242",
+                "source_length": 1138,
+                "start_line": 1,
+                "end_line": 46,
+                "path_checked_at": "2026-10-20T16:49:09.942365Z",
+                "path_status": 200,
+                "resolved_url": "https://www.audacityteam.org/download/",
+                "path_checks": {
+                  "https://www.audacityteam.org/download/": {
+                    "status": 200,
+                    "last_attempt_at": "2026-10-20T16:49:09.942365Z",
+                    "checked_at": "2026-10-20T16:49:09.942365Z"
+                  }
+                },
+                "path_required_urls": [
+                  "https://www.audacityteam.org/download/"
+                ]
+              }
+            ],
+            "official_urls": [
+              "https://www.audacityteam.org"
+            ],
+            "claims": {
+              "purpose": [
+                "intro",
+                "repository"
+              ],
+              "audience": [
+                "intro",
+                "repository"
+              ],
+              "platforms": [
+                "install",
+                "requirements_1",
+                "path"
+              ],
+              "form": [
+                "intro",
+                "install",
+                "requirements_1"
+              ],
+              "prerequisites": [
+                "install",
+                "requirements_1",
+                "path"
+              ],
+              "license": [
+                "license"
+              ],
+              "usage_paths": [
+                "install",
+                "requirements_1",
+                "path"
+              ],
+              "cost": [
+                "intro",
+                "requirements_1",
+                "path"
+              ]
+            },
+            "critical_unknowns": [],
+            "platforms": [
+              "Windows",
+              "macOS",
+              "Linux"
+            ],
+            "form": "desktop_app",
+            "prerequisites": [
+              "按官方页面选择匹配系统与处理器的安装文件。",
+              "录音需要可用的音频输入设备；某些导入导出格式可能另需 FFmpeg 扩展。",
+              "本条选择本机音频编辑路径，云存储或商业插件不在核对范围。"
+            ],
+            "usage_paths": [
+              {
+                "url": "https://www.audacityteam.org/download/",
+                "kind": "download",
+                "label": "官方安装与获取说明"
+              }
+            ],
+            "purpose": "录制并剪辑多轨音频，整理播客、配音或其他声音素材。",
+            "audience": "需要在电脑上录音、剪掉多余片段或编辑多条音轨的人。",
+            "license": "GPL-3.0-only",
+            "cost": "官方提供公开安装入口；所核对资料未单独说明完整费用条款，不能据此承诺所有功能或服务免费。",
+            "status": "published",
+            "review_kind": "source_review",
+            "reviewed_at": "2026-10-20T15:49:39.260875+00:00",
+            "scenes": [
+              "影音工具"
+            ],
+            "primary_scene": "影音工具",
+            "recommendation_reason": "录制并剪辑多轨音频，整理播客、配音或其他声音素材；官方资料已说明所选平台和获取方式。",
+            "evidence_hashes": {
+              "intro": "93473ace301c7df66aa0b97523459181a81838a1718dd7f4fded87672ee5a3e6",
+              "install": "52b82c06ca2060dbfd01f7fafde8019251e53d5172cb24f40af6f0d6e3f51638",
+              "repository": "0e07bb14d5dc21aa397660fa6c71eef315b0b5b1ec051f34dd4435adfb3036f6",
+              "license": "e5b691a275215f2ba62a20b048eb98c9fa7cd03f7d23aa7ddae759b43d508c79",
+              "requirements_1": "0c26ee8e238246198c40336c981b3946e9711d4aa2b35ea008f0adee758696b4",
+              "path": "64282a2e0a907dbcd744096d8099212975b68a94f465cf5eab47449f01c57242"
+            },
+            "family": "audacity/audacity",
+            "seed": true,
+            "limitations": [
+              "仅核对官方资料，未安装或实际试用，也不构成安全背书。"
+            ],
+            "tested": false,
+            "assertion_notes": {
+              "audience": "适用人群为基于官方用途的编辑判断；不是官方用户研究结果。",
+              "review_kind": "source_review 仅表示本轮读取并核对官方资料，不代表人工读者验收或实际试用。",
+              "revision": "根据独立审查逐项修正用途、渠道、前提、许可及证据绑定；不将资料核对称为试用。"
+            },
+            "effective_status": "published",
+            "invalidation_reasons": [],
+            "eligibility": {
+              "eligible": true,
+              "reasons": []
+            }
+          },
+          "automatically_qualified": false,
+          "growth_evidence": [],
+          "summary_zh": "【资料不足】暂无法从公开简介中可靠提取具体用途，请查看项目 README。",
+          "difficulty_zh": "⚪ 安装方式未确认",
+          "readme_checked": false,
+          "readme_checked_at": null,
+          "readme_stale": false,
+          "slot": "new",
+          "primary_scene": "影音工具",
+          "first_recommended_at": "2026-10-20T16:49:09.942365Z",
+          "first_qualified_at": "2026-10-20T16:05:01.116030Z",
+          "discovery_kind": "seed",
+          "recommendation_reason": "录制并剪辑多轨音频，整理播客、配音或其他声音素材；官方资料已说明所选平台和获取方式。；本站首次推荐"
+        },
+        {
+          "archived": false,
+          "created_at": "2015-04-06T10:15:53Z",
+          "description": "File Converter is a very simple tool which allows you to convert and compress files using the context menu in windows explorer.",
+          "disabled": false,
+          "full_name": "Tichau/FileConverter",
+          "homepage": "https://file-converter.io/",
+          "html_url": "https://github.com/Tichau/FileConverter",
+          "license": {
+            "key": "gpl-3.0",
+            "name": "GNU General Public License v3.0",
+            "node_id": "MDc6TGljZW5zZTk=",
+            "spdx_id": "GPL-3.0",
+            "url": "https://api.github.com/licenses/gpl-3.0"
+          },
+          "node_id": "MDEwOlJlcG9zaXRvcnkzMzQ3NjU2Ng==",
+          "seed": true,
+          "schema_version": "4.0",
+          "stargazers_count": 15438,
+          "discovery_origin": "seed",
+          "first_observed_at": "2026-10-20T16:05:01.116030Z",
+          "observation_started_at": "2026-10-20T16:05:01.116030Z",
+          "in_frozen_baseline": false,
+          "observation_status": "fresh",
+          "delta_1d": null,
+          "delta_7d": null,
+          "discovery_score": 1.8,
+          "observed_at": "2026-10-20T16:54:03.992896Z",
+          "status": "success",
+          "fork": false,
+          "pushed_at": "2026-10-19T15:51:23Z",
+          "language": "C#",
+          "topics": [],
+          "history_key": "Tichau/FileConverter",
+          "first_seen_date": "2026-10-20",
+          "last_observed_date": "2026-10-20",
+          "last_observed_at": "2026-10-20T16:54:03.992896Z",
+          "content": {
+            "full_name": "Tichau/FileConverter",
+            "node_id": "MDEwOlJlcG9zaXRvcnkzMzQ3NjU2Ng==",
+            "evidence_refs": [
+              {
+                "id": "intro",
+                "url": "https://raw.githubusercontent.com/Tichau/FileConverter/integration/README.md",
+                "section": "Core introduction",
+                "content_hash": "bd0122fd5ab6b29cbb2c9231e136155a7e588c036ceda1db81f34b34638c5cd4",
+                "checked_at": "2026-10-20T15:23:21Z",
+                "status": 200,
+                "source_kind": "readme",
+                "text": "## Description\n\n**File Converter** is a very simple tool which allows you to convert and compress one or several file(s) using the context menu of windows explorer.\n\n![File Converter Usage](Resources/FileConverterUsage.gif)\n\nYou can download it here: [file-converter.io](https://file-converter.io/?from=readme.md).\n\nYou can find more information about what's in File converter and how to use it on the [wiki](https://github.com/Tichau/FileConverter/wiki).\n\n## Donate\n\nFile Converter is a personal open source project started in 2014. I have put hundreds of hours adding, refining and tuning File Converter with the goal of making the conversion and compression of files an easy task for everyone.\n\nYou can help me by [contributing to the project](https://github.com/Tichau/FileConverter/wiki#contribute), by [making a donation](https://www.paypal.com/donate/?cmd=_donations&business=3BDWQTYTTA3D8&item_name=File+Converter+Donations&currency_code=EUR&Z3JncnB0=) or just by [saying thanks](https://saythanks.io/to/Tichau) :).\n\n## Troubleshooting\n\nIf you encounter any problem with File Converter, you can:\n\n* See the already known problems in the [troubleshooting section of the documentation](https://github.com/Tichau/FileConverter/wiki/Troubleshooting).\n* Or report an issue on the [bug tracker](https://github.com/Tichau/FileConverter/issues).\n\n## Setup development environment\n\n### Requirements\n\nFor File Converter and its explorer extension:\n\n* Visual Studio 2022\n\nFor the installer:\n\n* [Wix 5](http://wixtoolset.org/) (will be installed by nuget)\n  * [Community Visual Studio Extension](https://marketplace.visualstudio.com/items?itemName=FireGiant.FireGiantHeatWaveDev17)\n* [Windows SDK Signing Tools for Desktop Apps](https://developer.microsoft.com/fr-fr/windows/downloads/windows-10-sdk)\n\n## Thanks\n\nThanks to all the contributors of File Converter project.\n\n### Localization\n\n* Thanks to **Khidreal** and **hugok79** for the Portuguese localization.\n* Thanks to **Marhc** for the Brazilian localization.\n* Thanks to **Chachak** for the Spanish localization.\n* Thanks to **Davide** for the I",
+                "source_hash": "961327f2ef060d434bbb10b79dec19c6d91abfbb260246a8f7b4e94fc1732d74",
+                "source_length": 5047,
+                "start_line": 3,
+                "end_line": 49
+              },
+              {
+                "id": "install",
+                "url": "https://raw.githubusercontent.com/Tichau/FileConverter/integration/README.md",
+                "section": "Installation / usage requirements",
+                "content_hash": "b1ac0f2d5f8e05c252968528209e0fb0571c8b2b2234395a153798c53f993662",
+                "checked_at": "2026-10-20T15:23:21Z",
+                "status": 200,
+                "source_kind": "readme",
+                "text": "# File Converter\n\n## Description\n\n**File Converter** is a very simple tool which allows you to convert and compress one or several file(s) using the context menu of windows explorer.\n\n![File Converter Usage](Resources/FileConverterUsage.gif)\n\nYou can download it here: [file-converter.io](https://file-converter.io/?from=readme.md).\n\nYou can find more information about what's in File converter and how to use it on the [wiki](https://github.com/Tichau/FileConverter/wiki).\n\n## Donate\n\nFile Converter",
+                "source_hash": "961327f2ef060d434bbb10b79dec19c6d91abfbb260246a8f7b4e94fc1732d74",
+                "source_length": 5047,
+                "start_line": 1,
+                "end_line": 15
+              },
+              {
+                "id": "repository",
+                "url": "https://api.github.com/repos/Tichau/FileConverter",
+                "section": "Repository identity and license metadata",
+                "content_hash": "23f0176fa413ec6ff5d3625ec38f29e00fcec29c3e905669a866912840220519",
+                "checked_at": "2026-10-20T15:23:21Z",
+                "status": 200,
+                "source_kind": "repository",
+                "text": "{\"archived\": false, \"created_at\": \"2015-04-06T10:15:53Z\", \"description\": \"File Converter is a very simple tool which allows you to convert and compress files using the context menu in windows explorer.\", \"disabled\": false, \"full_name\": \"Tichau/FileConverter\", \"homepage\": \"https://file-converter.io/\", \"html_url\": \"https://github.com/Tichau/FileConverter\", \"license\": {\"key\": \"gpl-3.0\", \"name\": \"GNU General Public License v3.0\", \"node_id\": \"MDc6TGljZW5zZTk=\", \"spdx_id\": \"GPL-3.0\", \"url\": \"https://api.github.com/licenses/gpl-3.0\"}, \"node_id\": \"MDEwOlJlcG9zaXRvcnkzMzQ3NjU2Ng==\"}"
+              },
+              {
+                "id": "requirements_1",
+                "url": "https://file-converter.io/",
+                "section": "Official installation / requirements",
+                "content_hash": "ccd281477f738a03bcbf3cb5f6dbb0e54edf903f31c67bf0b1aa254347a5f0ae",
+                "checked_at": "2026-10-20T15:24:39Z",
+                "status": 200,
+                "source_kind": "official_site",
+                "text": "File Converter - Convert & compress everything in 2 clicks!\nFile Converter\nConvert & compress everything in 2 clicks!\nView on GitHub\nDownload\nDocumentation\nDescription\nFile Converter is a very simple tool which allows you to convert and compress files using the\ncontext menu in windows explorer.\nIt is open source (GPL v3), free and without any adds or data collection so you just have to\nenjoy it!\nThe interface is designed to be as light as possible to keep the application easy to use.\nIt supports a lot of different file formats:\nSupported output formats\nCompatible input formats\nAudio\nflac, aac, ogg, mp3, wav\n3gp, 3gpp, aac, aiff, ape, avi, bik, cda, flac, flv, gif, m4v, mkv, mp4, m4a, m4b, mp3 mpg, mpeg, mov, oga, ogg, ogv, opus, rm, ts, vob, wav, webm, wma, wmv\nVideo\nwebm, mkv, mp4, ogv, avi, gif\n3gp, 3gpp, avi, bik, flv, gif, m4v, mkv, mp4, mpg, mpeg, mov, ogv, rm, ts, vob, webm, wmv\nImage\npng, jpg, ico, webp, avif\narw, avif, bmp, cr2, dds, dns, exr, heic, ico, jfif, jpg, jpeg, nef, png, psd, raf, svg, tif, tiff, tga, webp, pdf, doc*, docx*, odt*, odp*, ods*, ppt*, pptx*, xls*, xlsx*\nDocument\npdf\ndoc*, docx*, odt*, odp*, ods*, ppt*, pptx*, xls*, xlsx*, arw, bmp, cr2, dds, dns, exr, heic, ico, jfif, jpg, jpeg, nef, png, psd, raf, svg, tif, tiff, tga, webp\n* You need to have Microsoft Office installed and activated in order to convert Office documents.\nYou can heavily customize the application in order to add / remove conversion presets in the files context menus or edit\nthe existing one to change the conversion options.\nThe application is translated by community members in 11 languages:\nCodeLanguageContributors\nar-EGArabicMahmoud0Sultan\ncs-CZCzechAidyTheWeird\nde-DEGermannikotschierske\nel-GRGreekCrisBalGreece\nes-ESSpanishChachak\nfa-IRPersianMrHero118, Mehrdad32\nfr-FRFren",
+                "source_hash": "119ea0b8f141bf801eafef343e30aa31ad3bb9494f3e97c1fd1049913da09723",
+                "source_length": 3742,
+                "start_line": 1,
+                "end_line": 39,
+                "path_checks": {
+                  "https://file-converter.io/": {
+                    "status": 200,
+                    "last_attempt_at": "2026-10-20T16:49:09.942365Z",
+                    "checked_at": "2026-10-20T16:49:09.942365Z"
+                  }
+                },
+                "path_required_urls": [
+                  "https://file-converter.io/"
+                ],
+                "path_status": 200,
+                "path_checked_at": "2026-10-20T16:49:09.942365Z"
+              },
+              {
+                "id": "path",
+                "url": "https://file-converter.io/",
+                "section": "Official entry point response (not an installer asset)",
+                "content_hash": "a134144cca90b5d5d3d15701ef9da71eb334b520c3c94c619dc9d215448e7b0b",
+                "checked_at": "2026-10-20T15:24:39Z",
+                "status": 200,
+                "source_kind": "official_site",
+                "text": "File Converter - Convert & compress everything in 2 clicks!\nFile Converter\nConvert & compress everything in 2 clicks!\nView on GitHub\nDownload\nDocumentation\nDescription\nFile Converter is a very simple tool which allows you to convert and compress files using the\ncontext menu in windows explorer.\nIt is open source (GPL v3), free and without any adds or data collection so you just have to\nenjoy it!\nThe interface is designed to be as light as possible to keep the application easy to use.\nIt supports a lot of different file formats:\nSupported output formats\nCompatible input formats\nAudio\nflac, aac, ogg, mp3, wav\n3gp, 3gpp, aac, aiff, ape, avi, bik, cda, flac, flv, gif, m4v, mkv, mp4, m4a, m4b, mp3 mpg, mpeg, mov, oga, ogg, ogv, opus, rm, ts, vob, wav, webm, wma, wmv\nVideo\nwebm, mkv, mp4, ogv, avi, gif\n3gp, 3gpp, avi, bik, flv, gif, m4v, mkv, mp4, mpg, mpeg, mov, ogv, rm, ts, vob, webm, wmv\nImage\npng, jpg, ico, webp, avif\narw, avif, bmp, cr2, dds, dns, exr, heic, ico, jfif, jpg, jpeg, nef, png, psd, raf, svg, tif, tiff, tga, webp, pdf, doc*, docx*, odt*, odp*, ods*, ppt*, pptx*, xls*, xlsx*\nDocument\npdf\ndoc*, docx*, odt*, odp*, ods*, ppt*, pptx*, xls*, xlsx*, arw, bmp, cr2, dds, dns, exr, heic, ico, jfif, jpg, jpeg, nef, png, psd, raf, svg, tif, tiff, tga, webp\n* You need to have Microsoft Office installed and activated in order to convert Office documents.\nYou can heavily customize the application in order to add / remove conversion presets in the files context menus or edit\nthe existing one to change the conversion options.\nThe application is translated by community members in 11 languages:\nCodeLanguageContributors\nar-EGArabicMahmoud0Sultan\ncs-CZCzechAidyTheWeird\nde-DEGermannikotschierske\nel-GRGreekCrisBalGreece\nes-ESSpanishChachak\nfa-IRPersianMrHero118, Mehrdad32\nfr-FRFrenchAdrien Allard, Sylvain Pollet-Villard\nhe-ILHebrewAshiVered\nhi-INHindivishveshjain\nhu-HUHungarianZyvrec7, stohlferenc\nid-IDIndonesianitsmefdil\nit-ITItalianDavide\nja-JPJapanoogamiyuta\nko-KRKoreanAlanimdeo\npl-PLPolishMaerek, MrPrince419\npt-BRBrazilianMarhc\npt-PTPortugueseKhidreal, hugok79\nsr-CYRLSerbian Cyrilliccrnobog69\nsr-LATNSerbian Latincrnobog69\nsv-SESwedishrkalitta\ntr-TRTurkishMayaC0re\nud-INUrduhamzaharoon1314\nru-RURussiandragomano, iliamak\nvi-VNVietnamesevrykolakas166, thaovd\nzh-CNSimplified ChineseSnoopy1866, jie65535\nzh-TWTraditional ChineseSedimentary-Rock, jie65535, NeKoOuO, PeterDav",
+                "source_hash": "119ea0b8f141bf801eafef343e30aa31ad3bb9494f3e97c1fd1049913da09723",
+                "source_length": 3742,
+                "start_line": 1,
+                "end_line": 58,
+                "path_checked_at": "2026-10-20T16:49:09.942365Z",
+                "path_status": 200,
+                "resolved_url": "https://file-converter.io/",
+                "path_checks": {
+                  "https://file-converter.io/": {
+                    "status": 200,
+                    "last_attempt_at": "2026-10-20T16:49:09.942365Z",
+                    "checked_at": "2026-10-20T16:49:09.942365Z"
+                  }
+                },
+                "path_required_urls": [
+                  "https://file-converter.io/"
+                ]
+              },
+              {
+                "id": "license_document_review",
+                "url": "https://api.github.com/repos/Tichau/FileConverter/license",
+                "section": "Official root license document: license title and version",
+                "text": "#                    GNU GENERAL PUBLIC LICENSE\n##                     Version 3, 29 June 2007\n\n Copyright (C) 2007 Free Software Foundation, Inc. <http://fsf.org/>\n Everyone is permitted to copy and distribute verbatim copies\n of this license document, but changing it is not allowed.\n\n##                          Preamble\n\n  The GNU General Public License is a free, copyleft license for\nsoftware and other kinds of works.\n\n  The licenses for most software and other practical works are designed\nto take away your freedom to share and change the works.  By contrast,\nthe GNU General Public License ",
+                "status": 200,
+                "checked_at": "2026-10-20T15:47:24.998531+00:00",
+                "content_hash": "210cf948a98e75d197a0d39eba3aac116b112bb470bb895431398356e30f4fa4",
+                "source_hash": "04ead70876b85465850b50bde32652a6e7fc35a407fb5df9d36952fabf9c6670",
+                "source_length": 35149,
+                "start_line": 1,
+                "end_line": 15,
+                "source_kind": "repository",
+                "text_extraction": "GitHub license endpoint content decoded from base64"
+              }
+            ],
+            "official_urls": [
+              "https://file-converter.io"
+            ],
+            "claims": {
+              "purpose": [
+                "intro",
+                "repository",
+                "requirements_1"
+              ],
+              "audience": [
+                "intro",
+                "requirements_1"
+              ],
+              "platforms": [
+                "install",
+                "requirements_1",
+                "path"
+              ],
+              "form": [
+                "intro",
+                "install",
+                "requirements_1"
+              ],
+              "prerequisites": [
+                "install",
+                "requirements_1",
+                "path"
+              ],
+              "license": [
+                "license_document_review"
+              ],
+              "usage_paths": [
+                "install",
+                "requirements_1",
+                "path"
+              ],
+              "cost": [
+                "intro",
+                "requirements_1",
+                "path"
+              ]
+            },
+            "critical_unknowns": [],
+            "platforms": [
+              "Windows"
+            ],
+            "form": "desktop_app",
+            "prerequisites": [
+              "需要 Windows 文件资源管理器和官方安装程序。",
+              "转换 Office 文档必须已安装并激活 Microsoft Office；其他格式按官网输入/输出表核对。",
+              "格式表不能解释为任意两种格式都可互转。"
+            ],
+            "usage_paths": [
+              {
+                "url": "https://file-converter.io/",
+                "kind": "download",
+                "label": "官方安装与获取说明"
+              }
+            ],
+            "purpose": "在 Windows 文件右键菜单中批量转换或压缩音视频、图片和文档。",
+            "audience": "不想打开大型编辑软件，只需对文件做常用格式处理的人。",
+            "license": "GPL-3.0-only",
+            "cost": "官网明确称免费；Office 文档转换另需已激活的 Microsoft Office，其费用不包含在工具里。",
+            "status": "published",
+            "review_kind": "source_review",
+            "reviewed_at": "2026-10-20T15:49:39.260875+00:00",
+            "scenes": [
+              "文件转换"
+            ],
+            "primary_scene": "文件转换",
+            "recommendation_reason": "在 Windows 文件右键菜单中批量转换或压缩音视频、图片和文档；官方资料已说明所选平台和获取方式。",
+            "evidence_hashes": {
+              "intro": "bd0122fd5ab6b29cbb2c9231e136155a7e588c036ceda1db81f34b34638c5cd4",
+              "install": "b1ac0f2d5f8e05c252968528209e0fb0571c8b2b2234395a153798c53f993662",
+              "repository": "23f0176fa413ec6ff5d3625ec38f29e00fcec29c3e905669a866912840220519",
+              "requirements_1": "ccd281477f738a03bcbf3cb5f6dbb0e54edf903f31c67bf0b1aa254347a5f0ae",
+              "path": "a134144cca90b5d5d3d15701ef9da71eb334b520c3c94c619dc9d215448e7b0b",
+              "license_document_review": "210cf948a98e75d197a0d39eba3aac116b112bb470bb895431398356e30f4fa4"
+            },
+            "family": "tichau/fileconverter",
+            "seed": true,
+            "limitations": [
+              "没有宣称 PDF 转 Word；官网表格列出了不同类别的输入与输出，不据此编造双向转换。",
+              "仅核对官方资料，未安装或实际试用，也不构成安全背书。"
+            ],
+            "tested": false,
+            "assertion_notes": {
+              "audience": "适用人群为基于官方用途的编辑判断；不是官方用户研究结果。",
+              "review_kind": "source_review 仅表示本轮读取并核对官方资料，不代表人工读者验收或实际试用。",
+              "revision": "根据独立审查逐项修正用途、渠道、前提、许可及证据绑定；不将资料核对称为试用。"
+            },
+            "license_scope_note": "核对官方根许可证文档所列版本；不从通用许可证的示范授予语句推断项目允许后续版本。第三方组件可能另有许可。",
+            "effective_status": "published",
+            "invalidation_reasons": [],
+            "eligibility": {
+              "eligible": true,
+              "reasons": []
+            }
+          },
+          "automatically_qualified": false,
+          "growth_evidence": [],
+          "summary_zh": "【关键词提取】文件格式转换工具；具体功能请以项目 README 为准。",
+          "difficulty_zh": "⚪ 安装方式未确认",
+          "readme_checked": false,
+          "readme_checked_at": null,
+          "readme_stale": false,
+          "slot": "new",
+          "primary_scene": "文件转换",
+          "first_recommended_at": "2026-10-20T16:49:09.942365Z",
+          "first_qualified_at": "2026-10-20T16:05:01.116030Z",
+          "discovery_kind": "seed",
+          "recommendation_reason": "在 Windows 文件右键菜单中批量转换或压缩音视频、图片和文档；官方资料已说明所选平台和获取方式。；本站首次推荐"
+        },
+        {
+          "archived": false,
+          "created_at": "2022-07-30T17:19:20Z",
+          "description": "🆙 Upscayl - #1 Free and Open Source AI Image Upscaler for Linux, MacOS and Windows.",
+          "disabled": false,
+          "full_name": "upscayl/upscayl",
+          "homepage": "https://upscayl.org",
+          "html_url": "https://github.com/upscayl/upscayl",
+          "license": {
+            "key": "agpl-3.0",
+            "name": "GNU Affero General Public License v3.0",
+            "node_id": "MDc6TGljZW5zZTE=",
+            "spdx_id": "AGPL-3.0",
+            "url": "https://api.github.com/licenses/agpl-3.0"
+          },
+          "node_id": "R_kgDOHvghIw",
+          "seed": true,
+          "schema_version": "4.0",
+          "stargazers_count": 50805,
+          "discovery_origin": "seed",
+          "first_observed_at": "2026-10-20T16:05:01.116030Z",
+          "observation_started_at": "2026-10-20T16:05:01.116030Z",
+          "in_frozen_baseline": false,
+          "observation_status": "fresh",
+          "delta_1d": null,
+          "delta_7d": null,
+          "discovery_score": 4.8,
+          "observed_at": "2026-10-20T16:54:03.992884Z",
+          "status": "success",
+          "fork": false,
+          "pushed_at": "2026-10-05T19:13:12Z",
+          "language": "TypeScript",
+          "topics": [
+            "ai",
+            "esrgan",
+            "image",
+            "upscale",
+            "electron",
+            "gigapixel",
+            "gigapixel-images",
+            "image-upscaling",
+            "topaz",
+            "upscalerimage",
+            "upscayl"
+          ],
+          "history_key": "upscayl/upscayl",
+          "first_seen_date": "2026-10-20",
+          "last_observed_date": "2026-10-20",
+          "last_observed_at": "2026-10-20T16:54:03.992884Z",
+          "content": {
+            "full_name": "upscayl/upscayl",
+            "node_id": "R_kgDOHvghIw",
+            "evidence_refs": [
+              {
+                "id": "intro",
+                "url": "https://raw.githubusercontent.com/upscayl/upscayl/main/README.md",
+                "section": "Core introduction",
+                "content_hash": "b78e8e94104ab0a5c19db20d2d8f0ac695bb1a55997b28e2611f072457c8c33e",
+                "checked_at": "2026-10-20T15:23:18Z",
+                "status": 200,
+                "source_kind": "readme",
+                "text": "E1QPvJMvEPGIQGWjzwFW684et0kgGfUizI8XQjt2ZLPngj2EiKt6wpvOynrDusEUHbwf7w+GDEd5+AcnQDoF+SS0hoBLEnfBKXDT3UdlKZMArfwVXILYCOUDP8qWakohsG6RcgwgGJs19RKNAyDk10P8MMAivDASVkzW58xPTHgKrsAVBjAgceGhvhMGYUEJLsAfFUboHD/Iyg8wG+1jsdGk2UA6v0PJXqko1ACWQZQsO8BeiiJmg9PeK7hK9kDSGqf0FzC8iGFCX2GSO24xPt+cEk/vV6ftPWwavA+emC8fYYKOLhwBUDG6qxxL0ACWPHpPXSftlKMQePIIgC3vHbtelPXQf7euzMhmIs2WJcwKwbgvf4rcE7dCLZ+2nG6+d6J4J1SD6mtpyAPg+CSPyv3aFYK4DtYuGI3zFtsMFxNm+ehBP+cZsjumYTcgTuS5Am6S7NKAJricU9zFU+H4BkDfpkNkNN/C3I+uc1v4LbkoAhnSwdAuj3fnmejXP8PWI4hGPhE321OXME5h62wbADOKRt0C8SuTro752vkFJIHGdhGdv9NAbcks2gAZIR5fkAmvQ57vxRIWjsCiyLV2mW+yRBfuQ/v0rRdc55nLCQ2fw9ZfTdNzqIBLK7/ku7+ntHFsKZvUvO+p7KUXq+DXyqoO89D5fAUhOQ20b1hWf0YZPTeoGXOVt8051COAIoGbkH5wae81IP3QNF4UlBqx8Xpz/dOgh05+GFRy1Z3Qs3oM84AyFOc9C3/1rwmyyPrRiF9zy+iZejrZefEFYA57gXIXnVSZNGnOU9lCRR8fA48sDcwvxbZ249BUHaDdsASP6vc8jWoeq6Dag+/dEksHMDaL15rHn8z17PAXwV2Pkn0a1uvWHAM0HlgAfZL0iBx1zlI67k2KyoD1zGAfMveDa7uuYx7P0bSaTBA3QGp3ZNmcM3yARARq3ZqLnLEFO8coYak3RcgpeuqBJPcunVZJYCq4ScQmtcsqviorccgqfMKq2ROV7W6+DlaIwCCHOVzWvCyOHwV2OJ5nnkhZIffeX/s9vG7fobEjsvSYACJHIGxsVoAlOqRpxBbPkCv1y22HGJ2nIGEjkssLguSGphjiJUDIJhDYosS6yD+44ssLs1aAgvOAAoHbgo+aSnAC6FQvBoUQh6O8rUTVzusE0AsHvT0xe2+aBaOeJ/Bcyn8Ha+w5tOifpejwh7A187CvJ2MAGoh5qMLtFhjsATIZQF/AOYdEaLHBxhjggsTakG567woMZSPjCfLAKLx6M9FKYlwiLILwA0DiNr5k9GidfwsSIYB1MCy9nMm8BOrKD0LguUWQHwNLG07y+Mcu3ZufEHJLgBXDCCidYIWaeCsVtvsOQTnyi2Aagjf8SO7VmJCR8Qs6QfwnA5g3b+sEoALBhCGxfLhDMgI9opsnQBuUC8SGr+F7L4bvDJ6rkEyXk8LSeu8xNtOWJn2XsAlrhpCW34wiTA+O6bZMp5PkAD+S70gkw2scS/gElcFIdizTK5FK3SGYuPXzNvvlySAddQCn8RqzWQDSwfgjAEEN53m1izVGQ22ULwYP9BE4yQAMrvqBVlAppkU91+3SgCK7adoQU2mcNqAYtsJsGecAlEdCeBN9A21MHxlm2amhSUDcIqtgsDt46IpRDllwKtwD7P4e+gdasIEmRNIZldp5tiQIWrLBlAJAY0nBQU2jks3E5ofnuH09n4XmksF8Hs0Rr1Jhq3LBu9YNAB/7J7CTnIKoLAE599wHBwiCpnF30Hv688b+rMNY4IkGafPbxu3SACOMZWwpOF7EU4Y2sbPp/6f4BCuZhZPRL7rEsQ6cywWPWSGQMbuKoYemTmACvDDAk3Jd/O34K7u1u/2L1GTDdeUWptFUVQIj5mJOQZmQnRJLxTtuQIlQ1NmCUBMm2J413+p+TGGXVCu/l4nc50bOYvX6wl/s5meWqbfCNh6xWsed9sF5fAiDx/II3AuToHaR+bklyNC7QnCy1tb7ySD7Z1xF4WjNwSLZ4TwNqqymZ4tztWw3JFTXQc54Nm4h4iunf6b56kkQbyF0tARNCWDooSQi7oTqAa9g1/ruXw1/h/JQTLIQz2y/gAAAABJRU5ErkJggg==&labelColor=ede9fe&color=8e6bf6\" width=\"200px\" style=\"border-radius:50%\"/>\n</a>\n\n  </br>\n",
+                "source_hash": "4f3467e3748517bd6bf67d8c412e24a1de461e7642d2a4d83e6cd3e082ebb8d0",
+                "source_length": 12862,
+                "start_line": 34,
+                "end_line": 38
+              },
+              {
+                "id": "install",
+                "url": "https://raw.githubusercontent.com/upscayl/upscayl/main/README.md",
+                "section": "Installation / usage requirements",
+                "content_hash": "0a3e2949a6b16c89e1630280bec00c325fe014c2fc8feb6ec6605b06a30d452c",
+                "checked_at": "2026-10-20T15:23:18Z",
+                "status": 200,
+                "source_kind": "readme",
+                "text": "# 👨‍💻 Installation\n\n> [!IMPORTANT]\n> You'll need a Vulkan compatible GPU (Graphics Card) to upscale images. Many iGPUs (integrated graphics) do not work but, no harm in trying :)\n\n## 🐧 Linux\n\n  <a href=\"https://flathub.org/apps/org.upscayl.Upscayl\">\n    <img src=\"https://dl.flathub.org/assets/badges/flathub-badge-en.svg\" height=\"50px\"/>\n  </a>\n\n  <a href=\"https://appimage.github.io/Upscayl/\">\n    <img src=\"https://user-images.githubusercontent.com/25067102/191270389-9de37c0f-39a8-41f1-a659-8dd4e7b8ac28.png\" height=\"50px\"/>\n  </a>\n\n  <a href=\"https://aur.archlinux.org/packages/upscayl-bin\">\n    <img src=\"https://user-images.githubusercontent.com/25067102/191269445-87050a77-c304-4284-9ea0-699721309c59.png\" height=\"50px\"/>\n  </a>\n\n  <a href=\"https://snapcraft.io/upscayl/\">\n    <img src=\"https://snapcraft.io/static/images/badges/en/snap-store-black.svg\" height=\"50px\"/>\n  </a>\n\n  <a href=\"https://github.com/MrPenguin07/ebuilds\">\n    <img src=\"https://github.com/upscayl/upscayl/assets/25067102/322aebc5-91aa-4fc6-ac3a-d5a054449554\" height=\"50px\"/>\n  </a>\n\nUpscayl should be available on the software listings of most Linux operating systems. Your distro's Store app might also support the [Flatpak](https://flatpak.org/setup) or Snap version.\n\n### 💼 Portable Method\n\n1. Go to [releases section](https://github.com/upscayl/upscayl/releases/latest) or [our official website](https://upscayl.org/).\n2. Download the `upscayl-x.x.x-linux.AppImage` file.\n3. Right Click AppImage -> Go to Permissions tab -> Check 'allow file to execute' and then double click the file to run Upscayl.\n\n*You can also choose to install using other formats like RPM (Fedora), DEB (Debian/Ubuntu based), and ZIP (Any x86 Linux OS).*\n\n## 🍎 macOS\n(MacOS 12 and later)\n\n<a href=\"https://apps.apple.com/us/app/upscayl/id6468265473?mt=12\">\n  Link\n</a>\n\n1. Go to [releases section](https://github.com/upscayl/upscayl/releases/latest) or [our official website](https://upscayl.org/).\n2. Download the `upscayl-x.x.x-mac.dmg` file.\n3. Double click dmg, drag Upscayl icon into Applications folder.\n4. Open Finder, click 'Applications' tab in the left sidebar. Find Upscayl and right click on it. Select 'Open'.\n5. In the window that appears, press 'Open' yet again.\n\n### 🍺 Homebrew\n\n`brew install --cask upscayl`\n\n## 🐌 Windows\n(Windows 10 and later)\n\n1. Go to [releases section](https://github.com/upscayl/upscayl/releases/latest) or [our official website](https://upscayl.org/).\n2. Download the `upscayl-x.x.x-win.exe` file.\n3. Double click exe file to launch.\n4. If you get a SmartScreen warning - click 'More Info' and then 'Run Anyway' OR press 'YES' on the unverified publisher dialog.\n5. Follow the installation steps.\n6. Profit!\n\n# 👨‍🏫 Documentation - Tutorials and Guides\n\nCheck out our Documentation [here](https://docs.upscayl.org/).\n\n- [Try out even more new models!](https://github.com/upscayl/custom-models)\n- [Convert your own models](https://github.com/upscayl/upscayl/wiki/%F0%9F%96%A5%EF%B8%8F-Model-Conversion-",
+                "source_hash": "4f3467e3748517bd6bf67d8c412e24a1de461e7642d2a4d83e6cd3e082ebb8d0",
+                "source_length": 12862,
+                "start_line": 78,
+                "end_line": 147
+              },
+              {
+                "id": "repository",
+                "url": "https://api.github.com/repos/upscayl/upscayl",
+                "section": "Repository identity and license metadata",
+                "content_hash": "a7dbe14ff098e8d46f80472727b7c6c896fe2d9a9ed23338603e2e9e62e984d2",
+                "checked_at": "2026-10-20T15:23:18Z",
+                "status": 200,
+                "source_kind": "repository",
+                "text": "{\"archived\": false, \"created_at\": \"2022-07-30T17:19:20Z\", \"description\": \"🆙 Upscayl - #1 Free and Open Source AI Image Upscaler for Linux, MacOS and Windows.\", \"disabled\": false, \"full_name\": \"upscayl/upscayl\", \"homepage\": \"https://upscayl.org\", \"html_url\": \"https://github.com/upscayl/upscayl\", \"license\": {\"key\": \"agpl-3.0\", \"name\": \"GNU Affero General Public License v3.0\", \"node_id\": \"MDc6TGljZW5zZTE=\", \"spdx_id\": \"AGPL-3.0\", \"url\": \"https://api.github.com/licenses/agpl-3.0\"}, \"node_id\": \"R_kgDOHvghIw\"}"
+              },
+              {
+                "id": "path",
+                "url": "https://github.com/upscayl/upscayl/releases/latest",
+                "section": "Official entry point response (not an installer asset)",
+                "content_hash": "216b81840c07b83a23cdea44205327e781abde099eb19deba24d6cff463bd14d",
+                "checked_at": "2026-10-20T15:27:03Z",
+                "status": 200,
+                "source_kind": "official_site",
+                "text": "Releases\nv2.15.0\n2.15 New Year Update\nLatest\nLatest\nCompare\nChoose a tag to compare\nSorry, something went wrong.\nFilter\nLoading\nSorry, something went wrong.\nUh oh!\nThere was an error while loading. Please reload this page.\nNo results found\nView all tags\ngithub-actions\nreleased this\n25 Dec 13:44\n·\n52 commits\nto main\nsince this release\nv2.15.0\n4f39acf\n🎉 Upscayl v2.15 New Year Update! 🥳\nI'm a chill kinda guy\nImportant\nIf you downloaded or updated Upscayl a few hours ago, and the new 'High Fidelity' model is not working, please download v2.15.0 again for your device below. The issue has been fixed and the build has been updated again, sorry for the inconvenience.\n🚨 What's Changed\nA new updated interface for the 500th time! 💅🏻\nUpscayl now supports multiple languages! SAY WHAT!? 🤯\nIntroducing an all new model - High Fidelity! 🎉\nEnglish, Russian, Japanese, French, Spanish, Portuguese, Vietnamese, Indonesian and Chinese translations have been added 🤗 !\nAdded an all new Lens Viewer! Programming it almost made me insane (NO CLICKBAIT) 🥰\nYou can now paste and upscayl clipboard images! 📋 Thanks to @abhishek-gaonkar 🙏\nAdded a new onboarding dialog that allows you to configure Upscayl before using 👶🏻\nUpscayl now shows you stats like total images upscaled, average upscayl time, etc. in the right sidebar 😉\nRefactored the whole codebase for the 1324215041th time 😮‍💨\nUpdated the Right sidebar (More Options) drawer UI because I can 🙃\nAdded TTA Mode, it's too complicated, please brave/google/bing it 😀\nAdded System Info section in Settings Tab and Logs 👌\nUpdated AI models selection with example images and descriptions for people who love things simple 😎\nAdded 256+ character length alert for Windows users (please switch to Linux) 😇\nAdded support for JFIF format, don't know who needs it but still... 🃏\nAdded the option to disable auto-updates check. Please stop bothering me about it now 😀👍🏻\nAdded the option for Mac App Store users to email Upscayl Support directly with logs and all details pre-filled 😉\nAdded the option to help Upscayl with stats like GPU models, DAU, etc. We don't collect any personal data 😇\nAdded a short tutorial video in the onboarding screen 💁🏻‍♂️\nAdded language switcher in onboarding dialog 🈶\nFixed Error Screen for client side issues 🫥\nDid all of this hard work, just for the one reading this ☺️\n🤵 Special changes\nI won't tell 😀\n📢 Announcement from the Upscayl Of",
+                "source_hash": "2310b951f31f06db9dd2c879ad742dadbd1a85106fc15b7cfd4edeea813424d0",
+                "source_length": 6870,
+                "start_line": 107,
+                "end_line": 160,
+                "path_checked_at": "2026-10-20T16:49:09.942365Z",
+                "path_status": 200,
+                "resolved_url": "https://github.com/upscayl/upscayl/releases/tag/v2.15.0",
+                "path_checks": {
+                  "https://github.com/upscayl/upscayl/releases/latest": {
+                    "status": 200,
+                    "last_attempt_at": "2026-10-20T16:49:09.942365Z",
+                    "checked_at": "2026-10-20T16:49:09.942365Z"
+                  }
+                },
+                "path_required_urls": [
+                  "https://github.com/upscayl/upscayl/releases/latest"
+                ]
+              },
+              {
+                "id": "license_document_review",
+                "url": "https://api.github.com/repos/upscayl/upscayl/license",
+                "section": "Official root license document: license title and version",
+                "text": "                    GNU AFFERO GENERAL PUBLIC LICENSE\n                       Version 3, 19 November 2007\n\n Copyright (C) 2007 Free Software Foundation, Inc. <https://fsf.org/>\n Everyone is permitted to copy and distribute verbatim copies\n of this license document, but changing it is not allowed.\n\n                            Preamble\n\n  The GNU Affero General Public License is a free, copyleft license for\nsoftware and other kinds of works, specifically designed to ensure\ncooperation with the community in the case of network server software.\n\n  The licenses for most software and other practical ",
+                "status": 200,
+                "checked_at": "2026-10-20T15:47:24.825692+00:00",
+                "content_hash": "2f4f8eb60fe0cca59abfb0a1337cb85b7d794cc35bbe31e11aafbf078d007bd8",
+                "source_hash": "8486a10c4393cee1c25392769ddd3b2d6c242d6ec7928e1414efff7dfb2f07ef",
+                "source_length": 34523,
+                "start_line": 1,
+                "end_line": 14,
+                "source_kind": "repository",
+                "text_extraction": "GitHub license endpoint content decoded from base64"
+              }
+            ],
+            "official_urls": [
+              "https://upscayl.org"
+            ],
+            "claims": {
+              "purpose": [
+                "intro",
+                "repository"
+              ],
+              "audience": [
+                "intro",
+                "repository"
+              ],
+              "platforms": [
+                "install",
+                "path"
+              ],
+              "form": [
+                "intro",
+                "install"
+              ],
+              "prerequisites": [
+                "install",
+                "path"
+              ],
+              "license": [
+                "license_document_review"
+              ],
+              "usage_paths": [
+                "install",
+                "path"
+              ],
+              "cost": [
+                "intro",
+                "path"
+              ]
+            },
+            "critical_unknowns": [],
+            "platforms": [
+              "Windows",
+              "macOS",
+              "Linux"
+            ],
+            "form": "desktop_app",
+            "prerequisites": [
+              "需要支持 Vulkan 的 GPU；官方提醒许多集成显卡不能正常工作。",
+              "按系统选择桌面安装包；本条不包含 Upscayl Cloud 服务。",
+              "输出画面是算法估计，不能当作恢复了真实丢失细节。"
+            ],
+            "usage_paths": [
+              {
+                "url": "https://github.com/upscayl/upscayl/releases/latest",
+                "kind": "download",
+                "label": "官方发布页（自行选择安装包）"
+              }
+            ],
+            "purpose": "在电脑上用图形界面放大低分辨率图片。",
+            "audience": "想给已有照片或插图提高分辨率，并有合适显卡的人。",
+            "license": "AGPL-3.0-only",
+            "cost": "官方提供公开安装入口；所核对资料未单独说明完整费用条款，不能据此承诺所有功能或服务免费。",
+            "status": "published",
+            "review_kind": "source_review",
+            "reviewed_at": "2026-10-20T15:49:39.260875+00:00",
+            "scenes": [
+              "文件转换"
+            ],
+            "primary_scene": "文件转换",
+            "recommendation_reason": "在电脑上用图形界面放大低分辨率图片；官方资料已说明所选平台和获取方式。",
+            "evidence_hashes": {
+              "intro": "b78e8e94104ab0a5c19db20d2d8f0ac695bb1a55997b28e2611f072457c8c33e",
+              "install": "0a3e2949a6b16c89e1630280bec00c325fe014c2fc8feb6ec6605b06a30d452c",
+              "repository": "a7dbe14ff098e8d46f80472727b7c6c896fe2d9a9ed23338603e2e9e62e984d2",
+              "path": "216b81840c07b83a23cdea44205327e781abde099eb19deba24d6cff463bd14d",
+              "license_document_review": "2f4f8eb60fe0cca59abfb0a1337cb85b7d794cc35bbe31e11aafbf078d007bd8"
+            },
+            "family": "upscayl/upscayl",
+            "seed": true,
+            "limitations": [
+              "仅核对官方资料，未安装或实际试用，也不构成安全背书。"
+            ],
+            "tested": false,
+            "assertion_notes": {
+              "audience": "适用人群为基于官方用途的编辑判断；不是官方用户研究结果。",
+              "review_kind": "source_review 仅表示本轮读取并核对官方资料，不代表人工读者验收或实际试用。",
+              "revision": "根据独立审查逐项修正用途、渠道、前提、许可及证据绑定；不将资料核对称为试用。"
+            },
+            "license_scope_note": "核对官方根许可证文档所列版本；不从通用许可证的示范授予语句推断项目允许后续版本。第三方组件可能另有许可。",
+            "effective_status": "published",
+            "invalidation_reasons": [],
+            "eligibility": {
+              "eligible": true,
+              "reasons": []
+            }
+          },
+          "automatically_qualified": false,
+          "growth_evidence": [],
+          "summary_zh": "【资料不足】暂无法从公开简介中可靠提取具体用途，请查看项目 README。",
+          "difficulty_zh": "⚪ 安装方式未确认",
+          "readme_checked": false,
+          "readme_checked_at": null,
+          "readme_stale": false,
+          "slot": "new",
+          "primary_scene": "文件转换",
+          "first_recommended_at": "2026-10-20T16:49:09.942365Z",
+          "first_qualified_at": "2026-10-20T16:05:01.116030Z",
+          "discovery_kind": "seed",
+          "recommendation_reason": "在电脑上用图形界面放大低分辨率图片；官方资料已说明所选平台和获取方式。；本站首次推荐"
+        },
+        {
+          "archived": false,
+          "created_at": "2022-12-16T00:46:07Z",
+          "description": "An open-source cross-platform alternative to AirDrop",
+          "disabled": false,
+          "full_name": "localsend/localsend",
+          "homepage": "https://localsend.org",
+          "html_url": "https://github.com/localsend/localsend",
+          "license": {
+            "key": "apache-2.0",
+            "name": "Apache License 2.0",
+            "node_id": "MDc6TGljZW5zZTI=",
+            "spdx_id": "Apache-2.0",
+            "url": "https://api.github.com/licenses/apache-2.0"
+          },
+          "node_id": "R_kgDOIoAhgw",
+          "seed": true,
+          "schema_version": "4.0",
+          "stargazers_count": 95034,
+          "discovery_origin": "seed",
+          "first_observed_at": "2026-10-20T16:05:01.116030Z",
+          "observation_started_at": "2026-10-20T16:05:01.116030Z",
+          "in_frozen_baseline": false,
+          "observation_status": "fresh",
+          "delta_1d": null,
+          "delta_7d": null,
+          "discovery_score": 5.3,
+          "observed_at": "2026-10-20T16:54:03.992679Z",
+          "status": "success",
+          "fork": false,
+          "pushed_at": "2026-10-17T20:26:37Z",
+          "language": "Dart",
+          "topics": [
+            "flutter",
+            "file-sharing",
+            "dart",
+            "flutter-apps"
+          ],
+          "history_key": "localsend/localsend",
+          "first_seen_date": "2026-10-20",
+          "last_observed_date": "2026-10-20",
+          "last_observed_at": "2026-10-20T16:54:03.992679Z",
+          "content": {
+            "full_name": "localsend/localsend",
+            "node_id": "R_kgDOIoAhgw",
+            "evidence_refs": [
+              {
+                "id": "intro",
+                "url": "https://raw.githubusercontent.com/localsend/localsend/main/README.md",
+                "section": "Core introduction",
+                "content_hash": "f250a6dd112455e91877dbeb5cab43ea505a205287f3af7c66f603b2b03b5ae9",
+                "checked_at": "2026-10-20T15:22:54Z",
+                "status": 200,
+                "source_kind": "readme",
+                "text": "LocalSend is a free, open-source app that allows you to securely share files and messages with nearby devices over your local network without needing an internet connection.\n\n- [About](#about)\n- [Sponsors](#sponsors)\n- [Screenshots](#screenshots)\n- [Download](#download)\n- [How It Works](#how-it-works)\n- [Dependency Hierarchy](#dependency-hierarchy)\n- [Getting Started](#getting-started)\n- [Command Line Interface](#command-line-interface)\n- [Contributing](#contributing)\n  - [Translation](#translation)\n  - [Bug Fixes and Improvements](#bug-fixes-and-improvements)\n- [Troubleshooting](#troubleshooting)\n- [Building](#building)\n  - [Android](#android)\n  - [iOS](#ios)\n  - [macOS](#macos)\n  - [Windows](#windows)\n  - [Linux](#linux)\n\n## About\n\nLocalSend is a cross-platform app that enables secure communication between devices using a REST API and HTTPS encryption. Unlike other messaging apps that rely on external servers, LocalSend doesn't require an internet connection or third-party servers, making it a fast and reliable solution for local communication.\n\n## Sponsors\n\nThis project is tested with BrowserStack\n\nSupported by TestMu AI\n\n<a href=\"https://www.testmuai.com/?utm_medium=sponsor&utm_source=localsend\" target=\"_blank\">\n    <img src=\"https://localsend.org/img/sponsors/tesmu.svg\" style=\"vertical-align: middle;\" width=\"250\" height=\"45\" />\n</a>\n\n## Screenshots\n\n<img src=\"https://localsend.org/img/screenshot-iphone.webp\" alt=\"iPhone screenshot\" height=\"300\"/> <img src=\"https://localsend.org/img/screenshot-pc.webp\" alt=\"PC screenshot\" height=\"300\"/>\n\n## Download\n\n[![Packaging status](https://repology.org/badge/tiny-repos/localsend.svg)](https://repology.org/project/localsend/versions)\n\nIt is recommended to download the app either from an app store or from a package manager because the app does not have an auto-update.\n\n| Windows                 | macOS                   | Linux              | Android        | iOS           | Fire OS    |\n|-------------------------|-------------------------|--------------------|----------------|---------------|------------|\n| [Winget][]    ",
+                "source_hash": "eb42bdce9fab2d64797b3e42ed8b5256cfc6538e7cfbc22d6eba887495da47ed",
+                "source_length": 14763,
+                "start_line": 23,
+                "end_line": 70
+              },
+              {
+                "id": "install",
+                "url": "https://raw.githubusercontent.com/localsend/localsend/main/README.md",
+                "section": "Installation / usage requirements",
+                "content_hash": "16e68749d2087b8fee038b9f6c78dfb1faa28519c30f25e64dc7c8c74fe23495",
+                "checked_at": "2026-10-20T15:22:54Z",
+                "status": 200,
+                "source_kind": "readme",
+                "text": "## Download\n\n[![Packaging status](https://repology.org/badge/tiny-repos/localsend.svg)](https://repology.org/project/localsend/versions)\n\nIt is recommended to download the app either from an app store or from a package manager because the app does not have an auto-update.\n\n| Windows                 | macOS                   | Linux              | Android        | iOS           | Fire OS    |\n|-------------------------|-------------------------|--------------------|----------------|---------------|------------|\n| [Winget][]              | [App Store][]           | [Flathub][]        | [Play Store][] | [App Store][] | [Amazon][] |\n| [Scoop][]               | [Homebrew][]            | [Nixpkgs][]        | [F-Droid][]    |               |            |\n| [Chocolatey][]          | [DMG Installer][latest] | [Snap][]           | [APK][latest]  |               |            |\n| [EXE Installer][latest] |                         | [AUR][]            |                |               |            |\n| [Portable ZIP][latest]  |                         | [TAR][latest]      |                |               |            |\n|                         |                         | [DEB][latest]      |                |               |            |\n|                         |                         | [AppImage][latest] |                |               |            |\n\nRead more about [distribution channels][].\n\nWindows binaries are signed. Read more about the [Code signing policy][].\n\n> [!CAUTION]\n> **Unofficial MSIX preview:** you can try builds from the latest commits at [localsend.ob-buff.dev](https://localsend.ob-buff.dev/). Stability is not guaranteed and all custom code tweaks are listed on that site.\n\n[windows store]: https://www.microsoft.com/store/apps/9NCB4Z0TZ6RR\n[app store]: https://apps.apple.com/us/app/localsend/id1661733229\n[play store]: https://play.google.com/store/apps/details?id=org.localsend.localsend_app\n[f-droid]: https://f-droid.org/packages/org.localsend.localsend_app\n[amazon]: https://www.amazon.com/dp/B0BW6MP732\n[winget]: https://github.com/microsoft/winget-pkgs/tree/master/manifests/l/LocalSend/LocalSend\n[scoop]: https://scoop.sh/#/apps?s=0&d=1&o=true&q=localsend&id=fb88113be361ca32c0dcac423cb4afdeda0b0c66\n[chocolatey]: https://community.chocolatey.org/packages/localsend\n[homebrew]: https://formulae.brew.sh/cask/localsend\n[flathub]: https://flathub.org/apps/details/org.localsend.localsend_app\n[nixpkgs]: https://search.nixos.org/packages?show=localsend\n[snap]: https://snapcraft.io/localsend\n[aur]: https://aur.archlinux.org/packages/localsend-bin\n[latest]: https://github.com/localsend/localsend/releases/latest\n[distribution channels]: https://github.com/localsend/localsend/blob/main/CONTRIBUTING.md#distribution\n[code signing policy]: https://github.com/localsend/localsend/blob/main/CODE_SIGNING.md\n\n**Compatibility**\n\n| Platform | Minimum Version | Note                                                                                                                        |\n|----------|-----------------|-----------------------------------------------------------------------------------------------------------------------------|\n| Android  | 7.0             | The last version to support Android 5 and 6 is v1.17.0.                                                                     |\n| iOS      | 13.0            | The last version to support iOS 12 is v1.17.0. Sharing from other apps requires iOS 14 or later.                               |\n| macOS    | 11 Big Sur      | Use OpenCore Legacy Patcher 2.0.2 (See [#1005](https://github.com/localsend/localsend/issues/1005#issuecomment-2449899384)) |\n| Windows  | 10              | The last version to support Windows 7 is v1.15.4.   |\n| Linux    | N.A.            | Deps: Gnome: `xdg-desktop-portal` and `xdg-desktop-portal-gtk`, KDE: `xdg-desktop-portal` and `xdg-desktop-portal-kde`      |\n\n## Setup\n\nIn most cases, LocalSend should work out of the box. However, if you are having trouble sending or receiving files, you may need to configure your firewall to allow LocalSend to communicate over your local network.\n\n| Traffic Type | Protocol | Port  | Action |\n|--------------|----------|-------|--------|\n| Incoming     | TCP, UDP | 53317 | Allow  |\n| Outgoing     | TCP, UDP | Any   | Allow  |\n\nOn Linux, for example with `ufw`: `sudo ufw allow 53317`. With `firewalld`: `sudo firewall-cmd --permanent --add-port=53317/tcp`, `sudo firewall-cmd --permanent --add-port=53317/udp`, then `sudo firewall-cmd --reload`.\n\nAlso make sure to disable AP isolation on your router. It should be usually disabled by default but some routers may have it enabled (especially guest networks).\nSee [troubles",
+                "source_hash": "eb42bdce9fab2d64797b3e42ed8b5256cfc6538e7cfbc22d6eba887495da47ed",
+                "source_length": 14763,
+                "start_line": 62,
+                "end_line": 124
+              },
+              {
+                "id": "repository",
+                "url": "https://api.github.com/repos/localsend/localsend",
+                "section": "Repository identity and license metadata",
+                "content_hash": "026cbb4f56b1b117dfe6716517aaf5034077b6be4513a0082e1d6f9e32cbec34",
+                "checked_at": "2026-10-20T15:22:54Z",
+                "status": 200,
+                "source_kind": "repository",
+                "text": "{\"archived\": false, \"created_at\": \"2022-12-16T00:46:07Z\", \"description\": \"An open-source cross-platform alternative to AirDrop\", \"disabled\": false, \"full_name\": \"localsend/localsend\", \"homepage\": \"https://localsend.org\", \"html_url\": \"https://github.com/localsend/localsend\", \"license\": {\"key\": \"apache-2.0\", \"name\": \"Apache License 2.0\", \"node_id\": \"MDc6TGljZW5zZTI=\", \"spdx_id\": \"Apache-2.0\", \"url\": \"https://api.github.com/licenses/apache-2.0\"}, \"node_id\": \"R_kgDOIoAhgw\"}"
+              },
+              {
+                "id": "path",
+                "url": "https://github.com/localsend/localsend/releases/latest",
+                "section": "Official entry point response (not an installer asset)",
+                "content_hash": "b3bfef743873f57d2895326963b21acc035a4fea9a74a53b827e20a37f37d19b",
+                "checked_at": "2026-10-20T15:26:50Z",
+                "status": 200,
+                "source_kind": "official_site",
+                "text": "Releases\nv1.18.2\nv1.18.2\nLatest\nLatest\nCompare\nChoose a tag to compare\nSorry, something went wrong.\nFilter\nLoading\nSorry, something went wrong.\nUh oh!\nThere was an error while loading. Please reload this page.\nNo results found\nView all tags\ngithub-actions\nreleased this\n21 Aug 14:02\n·\n67 commits\nto refs/heads/main\nsince this release\nv1.18.2\naf0416b\nThis commit was signed with the committer’s verified signature.\nTienisto\nTien Nam Do\nGPG key ID: 3290F20DA0BB5CF3\nVerified\nLearn about vigilant mode.\nThis release fixes compatibility issues with 1.17.0 and earlier.\nNote: The Windows binaries have been updated to include a signature.\nfeat: drag and drop files into the \"Receive via link\" browser page\nfeat(desktop): allow customizing the web share pages by placing HTML files in a web folder next to the executable\nfeat(cli): add version info to the Windows executable\nfeat(linux): set actual version in the AppImage\nsecurity: do not follow HTTP redirects sent by peers\nfix: restore compatibility with 1.17.0 and earlier versions on missing multicast networks\nfix: devices running 1.17.0 and earlier could not add 1.18.0+ device as favorite\nfix: ignore proxies, fixes \"TLS info not found\" when a system proxy (e.g. Shadowrocket) is enabled\nfix: automatically restart the HTTP / multicast server when it dies or when the app resumes\nfix: drag and drop with a mix of folders and files\nfix: during transfer, add bottom padding when Advanced is open (@Chethan616)\nfix: do not crash at startup when the executable path cannot be resolved (@Shlomo116)\nfix(android): ignore unknown or invalid file modification times when reading files\ni18n: add Armenian\nContributors\nShlomo116 and Chethan616\nAssets\n22\nLoading\nUh oh!\nThere was an error while loading. Please reload this page.\n👍\n138\nlooser71, ElSamhaa, IceArms, lovelas1959, Goddess0098, gcavalcantes, NGAGe13, liuyuhengNB, ershovev, PARAZIT44, and 128 more reacted with thumbs up emoji\n😄\n13\nmaxkorsov, Dreammak1r, 92Delon, wanderingeek, ChunHuaQiuShi-speca, amijafi, dareps, C-Hidery, SDUTLiuJunXi, dusttrustrs, and 3 more reacted with laugh emoji\n🎉\n43\nbillwieboldt, psi-z, tx2x, looser71, ElSamhaa, faizul726, E0697, realgooseman, gcavalcantes, LiamTheBox, and 33 more reacted with hooray emoji\n❤️\n50\nbillwieboldt, looser71, official-jayesh, IceArms, ItzFlitz, ershovev, sandirickyroy, minus21grams, SimBacon, JustAdreamerFL, and 40 more reacted with hear",
+                "source_hash": "1381ae1accece349d0724bb8d1e1014a833125d3a4c98597d78abb8900187e88",
+                "source_length": 5162,
+                "start_line": 106,
+                "end_line": 170,
+                "path_checked_at": "2026-10-20T16:49:09.942365Z",
+                "path_status": 200,
+                "resolved_url": "https://github.com/localsend/localsend/releases/tag/v1.18.2",
+                "path_checks": {
+                  "https://github.com/localsend/localsend/releases/latest": {
+                    "status": 200,
+                    "last_attempt_at": "2026-10-20T16:49:09.942365Z",
+                    "checked_at": "2026-10-20T16:49:09.942365Z"
+                  }
+                },
+                "path_required_urls": [
+                  "https://github.com/localsend/localsend/releases/latest"
+                ]
+              }
+            ],
+            "official_urls": [
+              "https://localsend.org"
+            ],
+            "claims": {
+              "purpose": [
+                "intro",
+                "repository"
+              ],
+              "audience": [
+                "intro",
+                "repository"
+              ],
+              "platforms": [
+                "install",
+                "path"
+              ],
+              "form": [
+                "intro",
+                "install"
+              ],
+              "prerequisites": [
+                "install",
+                "path"
+              ],
+              "license": [
+                "repository"
+              ],
+              "usage_paths": [
+                "install",
+                "path"
+              ],
+              "cost": [
+                "intro",
+                "path"
+              ]
+            },
+            "critical_unknowns": [],
+            "platforms": [
+              "Windows",
+              "macOS",
+              "Linux",
+              "Android",
+              "iOS"
+            ],
+            "form": "desktop_app",
+            "prerequisites": [
+              "发送和接收设备都安装 LocalSend，并连接同一局域网。",
+              "需允许本地网络权限；防火墙和路由器 AP 隔离可能阻止发现设备。",
+              "当前版最低要求 Windows 10、macOS 11、Android 7、iOS 13；Linux 需相应桌面 portal 依赖。"
+            ],
+            "usage_paths": [
+              {
+                "url": "https://github.com/localsend/localsend/releases/latest",
+                "kind": "download",
+                "label": "官方发布页（自行选择安装包）"
+              }
+            ],
+            "purpose": "在同一局域网的手机和电脑之间发送文件、文件夹与文字，不必先上传网盘。",
+            "audience": "需要在身边设备之间传照片、文档，又不想注册传输服务的人。",
+            "license": "Apache-2.0",
+            "cost": "官方明确称免费；不需要第三方服务器。",
+            "status": "published",
+            "review_kind": "source_review",
+            "reviewed_at": "2026-10-20T15:49:39.260875+00:00",
+            "scenes": [
+              "文件传输"
+            ],
+            "primary_scene": "文件传输",
+            "recommendation_reason": "在同一局域网的手机和电脑之间发送文件、文件夹与文字，不必先上传网盘；官方资料已说明所选平台和获取方式。",
+            "evidence_hashes": {
+              "intro": "f250a6dd112455e91877dbeb5cab43ea505a205287f3af7c66f603b2b03b5ae9",
+              "install": "16e68749d2087b8fee038b9f6c78dfb1faa28519c30f25e64dc7c8c74fe23495",
+              "repository": "026cbb4f56b1b117dfe6716517aaf5034077b6be4513a0082e1d6f9e32cbec34",
+              "path": "b3bfef743873f57d2895326963b21acc035a4fea9a74a53b827e20a37f37d19b"
+            },
+            "family": "localsend/localsend",
+            "seed": true,
+            "limitations": [
+              "这是局域网传输工具，不是跨互联网网盘。",
+              "仅核对官方资料，未安装或实际试用，也不构成安全背书。"
+            ],
+            "tested": false,
+            "assertion_notes": {
+              "audience": "适用人群为基于官方用途的编辑判断；不是官方用户研究结果。",
+              "review_kind": "source_review 仅表示本轮读取并核对官方资料，不代表人工读者验收或实际试用。",
+              "revision": "根据独立审查逐项修正用途、渠道、前提、许可及证据绑定；不将资料核对称为试用。"
+            },
+            "effective_status": "published",
+            "invalidation_reasons": [],
+            "eligibility": {
+              "eligible": true,
+              "reasons": []
+            }
+          },
+          "automatically_qualified": false,
+          "growth_evidence": [],
+          "summary_zh": "【资料不足】暂无法从公开简介中可靠提取具体用途，请查看项目 README。",
+          "difficulty_zh": "⚪ 安装方式未确认",
+          "readme_checked": false,
+          "readme_checked_at": null,
+          "readme_stale": false,
+          "slot": "new",
+          "primary_scene": "文件传输",
+          "first_recommended_at": "2026-10-20T16:49:09.942365Z",
+          "first_qualified_at": "2026-10-20T16:05:01.116030Z",
+          "discovery_kind": "seed",
+          "recommendation_reason": "在同一局域网的手机和电脑之间发送文件、文件夹与文字，不必先上传网盘；官方资料已说明所选平台和获取方式。；本站首次推荐"
+        },
+        {
+          "archived": false,
+          "created_at": "2018-12-09T06:36:45Z",
+          "description": "The Free Software Media System - Server Backend & API",
+          "disabled": false,
+          "full_name": "jellyfin/jellyfin",
+          "homepage": "https://jellyfin.org",
+          "html_url": "https://github.com/jellyfin/jellyfin",
+          "license": {
+            "key": "gpl-2.0",
+            "name": "GNU General Public License v2.0",
+            "node_id": "MDc6TGljZW5zZTg=",
+            "spdx_id": "GPL-2.0",
+            "url": "https://api.github.com/licenses/gpl-2.0"
+          },
+          "node_id": "MDEwOlJlcG9zaXRvcnkxNjEwMTIwMTk=",
+          "seed": true,
+          "schema_version": "4.0",
+          "stargazers_count": 58292,
+          "discovery_origin": "seed",
+          "first_observed_at": "2026-10-20T16:05:01.116030Z",
+          "observation_started_at": "2026-10-20T16:05:01.116030Z",
+          "in_frozen_baseline": false,
+          "observation_status": "fresh",
+          "delta_1d": null,
+          "delta_7d": null,
+          "discovery_score": 2.6,
+          "observed_at": "2026-10-20T16:54:03.992786Z",
+          "status": "success",
+          "fork": false,
+          "pushed_at": "2026-10-20T14:23:59Z",
+          "language": "C#",
+          "topics": [
+            "jellyfin",
+            "csharp",
+            "dotnet",
+            "hacktoberfest"
+          ],
+          "history_key": "jellyfin/jellyfin",
+          "first_seen_date": "2026-10-20",
+          "last_observed_date": "2026-10-20",
+          "last_observed_at": "2026-10-20T16:54:03.992786Z",
+          "content": {
+            "full_name": "jellyfin/jellyfin",
+            "node_id": "MDEwOlJlcG9zaXRvcnkxNjEwMTIwMTk=",
+            "evidence_refs": [
+              {
+                "id": "intro",
+                "url": "https://raw.githubusercontent.com/jellyfin/jellyfin/master/README.md",
+                "section": "Core introduction",
+                "content_hash": "cb3e44d1a4f7f797dd4dc6d49d32c87fe2797ac0f1be65e427a5b6b2d5480243",
+                "checked_at": "2026-10-20T15:23:07Z",
+                "status": 200,
+                "source_kind": "readme",
+                "text": "yfin/commits/master.atom\"><img alt=\"Master Commits RSS Feed\" src=\"https://img.shields.io/badge/rss-commits-ffa500?logo=rss\" /></a>\n</p>\n\n---\n\nJellyfin is a Free Software Media System that puts you in control of managing and streaming your media. It is an alternative to the proprietary Emby and Plex, to provide media from a dedicated server to end-user devices via multiple apps. Jellyfin is descended from Emby's 3.5.2 release and ported to the .NET platform to enable full cross-platform support.\n\nThere are no strings attached, no premium licenses or features, and no hidden agendas: just a team that wants to build something better and work together to achieve it. We welcome anyone who is interested in joining us in our quest!\n\nFor further details, please see [our documentation page](https://jellyfin.org/docs/). To receive the latest updates, get help with Jellyfin, and join the community, please visit [one of our communication channels](https://jellyfin.org/docs/general/getting-help). For more information about the project, please see our [about page](https://jellyfin.org/docs/general/about).\n\n<strong>Want to get started?</strong><br/>\nCheck out our <a href=\"https://jellyfin.org/downloads\">downloads page</a> or our <a href=\"https://jellyfin.org/docs/general/installation/\">installation guide</a>, then see our <a href=\"https://jellyfin.org/docs/general/quick-start\">quick start guide</a>. You can also <a href=\"https://jellyfin.org/docs/general/installation/source\">build from source</a>.<br/>\n\n<strong>Something not working right?</strong><br/>\nOpen an <a href=\"https://jellyfin.org/docs/general/contributing/issues\">Issue</a> on GitHub.<br/>\n\n<strong>Want to contribute?</strong><br/>\nCheck out our <a href=\"https://jellyfin.org/contribute\">contributing choose-your-own-adventure</a> to see where you can help, then see our <a href=\"https://jellyfin.org/docs/general/contributing/\">contributing guide</a> and our <a href=\"https://jellyfin.org/docs/general/community-standards\">com",
+                "source_hash": "88a24330cd3fb606ee827a5b5cf0449230627e6a711c445d84b6452d20afb257",
+                "source_length": 13335,
+                "start_line": 19,
+                "end_line": 37
+              },
+              {
+                "id": "install",
+                "url": "https://raw.githubusercontent.com/jellyfin/jellyfin/master/README.md",
+                "section": "Installation / usage requirements",
+                "content_hash": "17c904bf60c6e3a957d14d1d453faa4a839fd1d7b6c57b7efc1aadeb62835428",
+                "checked_at": "2026-10-20T15:23:07Z",
+                "status": 200,
+                "source_kind": "readme",
+                "text": "#### Accessing the Hosted Web Client\n\nIf the Server is configured to host the Web Client, and the Server is running, the Web Client can be accessed at `http://localhost:8096` by default.\n\nAPI documentation can be viewed at `http://localhost:8096/api-docs/swagger/index.html`\n\n\n### Running from GitHub Codespaces\n\nAs Jellyfin will run on a container on a GitHub hosted server, JF needs to handle some things differently.\n\n**NOTE:** Depending on the selected configuration (if you just click 'create codespace' it will create a default configuration one) it might take 20-30 seconds to load all extensions and prepare the environment while VS Code is already open. Just give it some time and wait until you see `Downloading .NET version(s) 7.0.15~x64 ...... Done!` in the output tab.\n\n**NOTE:** If you want to access the JF instance from outside, like with a WebClient on another PC, remember to set the \"ports\" in the lower VS Code window to public.\n\n**NOTE:** When first opening the server instance with any WebUI, you will be sent to the login instead of the setup page. Refresh the login page once and you should be redirected to the Setup.\n\nThere are two configurations for you to choose from.\n#### Default - Development Jellyfin Server\nThis creates a container that has everything to run and debug the Jellyfin Media server but does not setup anything else. Each time you create a new container you have to run through the whole setup again. There is also no ffmpeg, webclient or media preloaded. Use the `.NET Launch (nowebclient)` launch config to start the server.\n\n> Keep in mind that as this has no web client you have to connect to it via an external client. This can be just another codespace container running the WebUI. vuejs does not work from the get-go as it does not support the setup steps.\n\n#### Development Jellyfin Server ffmpeg\nthis extends the default server with a default installation of ffmpeg6 though the means described here: https://jellyfin.org/docs/general/installation/linux#repository-manual\nIf you want to install a specific ffmpeg version, follow the comments embedded in the `.devcontainer/Dev - Server Ffmpeg/install.ffmpeg.sh` file.\n\nUse the `ghcs .NET Launch (n",
+                "source_hash": "88a24330cd3fb606ee827a5b5cf0449230627e6a711c445d84b6452d20afb257",
+                "source_length": 13335,
+                "start_line": 122,
+                "end_line": 149
+              },
+              {
+                "id": "repository",
+                "url": "https://api.github.com/repos/jellyfin/jellyfin",
+                "section": "Repository identity and license metadata",
+                "content_hash": "f5d6f8179b32f55798903bb63ec30324cd8ef7ba02a602fe961964e4c45543a4",
+                "checked_at": "2026-10-20T15:23:07Z",
+                "status": 200,
+                "source_kind": "repository",
+                "text": "{\"archived\": false, \"created_at\": \"2018-12-09T06:36:45Z\", \"description\": \"The Free Software Media System - Server Backend & API\", \"disabled\": false, \"full_name\": \"jellyfin/jellyfin\", \"homepage\": \"https://jellyfin.org\", \"html_url\": \"https://github.com/jellyfin/jellyfin\", \"license\": {\"key\": \"gpl-2.0\", \"name\": \"GNU General Public License v2.0\", \"node_id\": \"MDc6TGljZW5zZTg=\", \"spdx_id\": \"GPL-2.0\", \"url\": \"https://api.github.com/licenses/gpl-2.0\"}, \"node_id\": \"MDEwOlJlcG9zaXRvcnkxNjEwMTIwMTk=\"}"
+              },
+              {
+                "id": "requirements_1",
+                "url": "https://jellyfin.org/docs/general/installation/",
+                "section": "Official installation / requirements",
+                "content_hash": "4e73208f5cfa1c10cfc991fb02de8331d9072628e7fb9022060b3927bda5fb37",
+                "checked_at": "2026-10-20T15:26:57Z",
+                "status": 200,
+                "source_kind": "official_site",
+                "text": "Installation | Jellyfin\nSkip to main content\nBlogDownloadsContributeDocumentationContactForum\nIntroduction\nGetting Help\nQuick Start\nInstallation\nWindows\nmacOS\nLinux\nContainer\nAdvanced Installation\nPost-Install Setup\nAdministration\nServer Guide\nClients\nAbout Jellyfin\nCommunity Standards\nFAQ\nContributing\nStyle Guides\nTesting\nAPI Documentation\nInstallation\nInstallation\nThe Jellyfin project and its contributors offer a number of pre-built binary packages to assist in getting Jellyfin up and running quickly on multiple systems.\ncaution\nFreeBSD and its derivatives, such as TrueNAS CORE, are NOT supported by Jellyfin due to .NET officially not being compatible with these platforms.\nEven though there are builds available online for these platforms, they are unofficial and from a separate project. If you do encounter issues on these platforms, please ask for support in their respective support channels first.\nTrueNAS SCALE is based on Linux and therefore officially supported. Please install the Jellyfin app from its app repository. This app is not officially maintained by the Jellyfin team, therefore please use the TrueNAS support channels for help first.\nFor info on selecting hardware for a Jellyfin server, please refer to the Hardware Selection Guide\nWindows\nmacOS\nDebian / Ubuntu\nOther Linux Distributions\nDocker / Kubernetes / Podman\nSynology\nTrueNAS SCALE\nGeneric Linux\nBuilding from source.\nEdit this page\nPrevious\nQuick Start\nNext\nWindows\nDocumentation·Feature Requests·Contribute·S",
+                "source_hash": "3e4d251564e0008bc1f55eff688e7c66a5dc1e6f2519cc07bec7d0e31a70c93e",
+                "source_length": 1551,
+                "start_line": 1,
+                "end_line": 46,
+                "path_checks": {
+                  "https://jellyfin.org/docs/general/installation/": {
+                    "status": 200,
+                    "last_attempt_at": "2026-10-20T16:49:09.942365Z",
+                    "checked_at": "2026-10-20T16:49:09.942365Z"
+                  }
+                },
+                "path_required_urls": [
+                  "https://jellyfin.org/docs/general/installation/"
+                ],
+                "path_status": 200,
+                "path_checked_at": "2026-10-20T16:49:09.942365Z"
+              },
+              {
+                "id": "path",
+                "url": "https://jellyfin.org/docs/general/installation/",
+                "section": "Official entry point response (not an installer asset)",
+                "content_hash": "3e4d251564e0008bc1f55eff688e7c66a5dc1e6f2519cc07bec7d0e31a70c93e",
+                "checked_at": "2026-10-20T15:26:57Z",
+                "status": 200,
+                "source_kind": "official_site",
+                "text": "Installation | Jellyfin\nSkip to main content\nBlogDownloadsContributeDocumentationContactForum\nIntroduction\nGetting Help\nQuick Start\nInstallation\nWindows\nmacOS\nLinux\nContainer\nAdvanced Installation\nPost-Install Setup\nAdministration\nServer Guide\nClients\nAbout Jellyfin\nCommunity Standards\nFAQ\nContributing\nStyle Guides\nTesting\nAPI Documentation\nInstallation\nInstallation\nThe Jellyfin project and its contributors offer a number of pre-built binary packages to assist in getting Jellyfin up and running quickly on multiple systems.\ncaution\nFreeBSD and its derivatives, such as TrueNAS CORE, are NOT supported by Jellyfin due to .NET officially not being compatible with these platforms.\nEven though there are builds available online for these platforms, they are unofficial and from a separate project. If you do encounter issues on these platforms, please ask for support in their respective support channels first.\nTrueNAS SCALE is based on Linux and therefore officially supported. Please install the Jellyfin app from its app repository. This app is not officially maintained by the Jellyfin team, therefore please use the TrueNAS support channels for help first.\nFor info on selecting hardware for a Jellyfin server, please refer to the Hardware Selection Guide\nWindows\nmacOS\nDebian / Ubuntu\nOther Linux Distributions\nDocker / Kubernetes / Podman\nSynology\nTrueNAS SCALE\nGeneric Linux\nBuilding from source.\nEdit this page\nPrevious\nQuick Start\nNext\nWindows\nDocumentation·Feature Requests·Contribute·Status·Contact\nSite content is licensed CC-BY-ND-4.0",
+                "source_hash": "3e4d251564e0008bc1f55eff688e7c66a5dc1e6f2519cc07bec7d0e31a70c93e",
+                "source_length": 1551,
+                "start_line": 1,
+                "end_line": 47,
+                "path_checked_at": "2026-10-20T16:49:09.942365Z",
+                "path_status": 200,
+                "resolved_url": "https://jellyfin.org/docs/general/installation/",
+                "path_checks": {
+                  "https://jellyfin.org/docs/general/installation/": {
+                    "status": 200,
+                    "last_attempt_at": "2026-10-20T16:49:09.942365Z",
+                    "checked_at": "2026-10-20T16:49:09.942365Z"
+                  }
+                },
+                "path_required_urls": [
+                  "https://jellyfin.org/docs/general/installation/"
+                ]
+              },
+              {
+                "id": "license_document_review",
+                "url": "https://api.github.com/repos/jellyfin/jellyfin/license",
+                "section": "Official root license document: license title and version",
+                "text": "GNU GENERAL PUBLIC LICENSE\n                       Version 2, June 1991\n\n Copyright (C) 1989, 1991 Free Software Foundation, Inc.,\n 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA\n Everyone is permitted to copy and distribute verbatim copies\n of this license document, but changing it is not allowed.\n\n                            Preamble\n\n  The licenses for most software are designed to take away your\nfreedom to share and change it.  By contrast, the GNU General Public\nLicense is intended to guarantee your freedom to share and change free\nsoftware--to make sure the software is free fo",
+                "status": 200,
+                "checked_at": "2026-10-20T15:47:23.232006+00:00",
+                "content_hash": "ad7d917032a09ce238d9c35f10e4151f05e419851cdcc029f9bfdc32c750020c",
+                "source_hash": "f371b80469fb235bc500ec29e0e85b682d4a6157a158567d828ff0be544d4f1d",
+                "source_length": 18014,
+                "start_line": 1,
+                "end_line": 14,
+                "source_kind": "repository",
+                "text_extraction": "GitHub license endpoint content decoded from base64"
+              }
+            ],
+            "official_urls": [
+              "https://jellyfin.org"
+            ],
+            "claims": {
+              "purpose": [
+                "intro",
+                "repository"
+              ],
+              "audience": [
+                "intro",
+                "repository"
+              ],
+              "platforms": [
+                "install",
+                "requirements_1",
+                "path"
+              ],
+              "form": [
+                "intro",
+                "install",
+                "requirements_1"
+              ],
+              "prerequisites": [
+                "install",
+                "requirements_1",
+                "path"
+              ],
+              "license": [
+                "license_document_review"
+              ],
+              "usage_paths": [
+                "install",
+                "requirements_1",
+                "path"
+              ],
+              "cost": [
+                "intro",
+                "requirements_1",
+                "path"
+              ]
+            },
+            "critical_unknowns": [],
+            "platforms": [
+              "Windows",
+              "macOS",
+              "Linux"
+            ],
+            "form": "self_hosted",
+            "prerequisites": [
+              "需要一台安装并持续运行 Jellyfin 服务器的设备，以及自行准备的媒体文件。",
+              "首次配置媒体库与用户；浏览器客户端默认访问服务器的 8096 端口。",
+              "这属于自行部署服务，需要按系统安装文档操作；不自带影视资源。"
+            ],
+            "usage_paths": [
+              {
+                "url": "https://jellyfin.org/docs/general/installation/",
+                "kind": "documentation",
+                "label": "官方安装与获取说明"
+              }
+            ],
+            "purpose": "在自己的设备上建立媒体库，再通过浏览器或客户端播放自己的视频、音乐等内容。",
+            "audience": "已有媒体文件，愿意设置家庭媒体服务器的人。",
+            "license": "GPL-2.0-only",
+            "cost": "官方提供公开安装入口；所核对资料未单独说明完整费用条款，不能据此承诺所有功能或服务免费。",
+            "status": "published",
+            "review_kind": "source_review",
+            "reviewed_at": "2026-10-20T15:49:39.260875+00:00",
+            "scenes": [
+              "影音工具"
+            ],
+            "primary_scene": "影音工具",
+            "recommendation_reason": "在自己的设备上建立媒体库，再通过浏览器或客户端播放自己的视频、音乐等内容；官方资料已说明所选平台和获取方式。",
+            "evidence_hashes": {
+              "intro": "cb3e44d1a4f7f797dd4dc6d49d32c87fe2797ac0f1be65e427a5b6b2d5480243",
+              "install": "17c904bf60c6e3a957d14d1d453faa4a839fd1d7b6c57b7efc1aadeb62835428",
+              "repository": "f5d6f8179b32f55798903bb63ec30324cd8ef7ba02a602fe961964e4c45543a4",
+              "requirements_1": "4e73208f5cfa1c10cfc991fb02de8331d9072628e7fb9022060b3927bda5fb37",
+              "path": "3e4d251564e0008bc1f55eff688e7c66a5dc1e6f2519cc07bec7d0e31a70c93e",
+              "license_document_review": "ad7d917032a09ce238d9c35f10e4151f05e419851cdcc029f9bfdc32c750020c"
+            },
+            "family": "jellyfin/jellyfin",
+            "seed": true,
+            "limitations": [
+              "软件许可证与托管、电力、存储或网络成本分开；远程访问需要额外配置。",
+              "仅核对官方资料，未安装或实际试用，也不构成安全背书。"
+            ],
+            "tested": false,
+            "assertion_notes": {
+              "audience": "适用人群为基于官方用途的编辑判断；不是官方用户研究结果。",
+              "review_kind": "source_review 仅表示本轮读取并核对官方资料，不代表人工读者验收或实际试用。",
+              "revision": "根据独立审查逐项修正用途、渠道、前提、许可及证据绑定；不将资料核对称为试用。"
+            },
+            "license_scope_note": "核对官方根许可证文档所列版本；不从通用许可证的示范授予语句推断项目允许后续版本。第三方组件可能另有许可。",
+            "effective_status": "published",
+            "invalidation_reasons": [],
+            "eligibility": {
+              "eligible": true,
+              "reasons": []
+            }
+          },
+          "automatically_qualified": false,
+          "growth_evidence": [],
+          "summary_zh": "【资料不足】暂无法从公开简介中可靠提取具体用途，请查看项目 README。",
+          "difficulty_zh": "⚪ 安装方式未确认",
+          "readme_checked": false,
+          "readme_checked_at": null,
+          "readme_stale": false,
+          "slot": "refill",
+          "primary_scene": "影音工具",
+          "first_recommended_at": "2026-10-20T16:49:09.942365Z",
+          "first_qualified_at": "2026-10-20T16:05:01.116030Z",
+          "discovery_kind": "seed",
+          "recommendation_reason": "在自己的设备上建立媒体库，再通过浏览器或客户端播放自己的视频、音乐等内容；官方资料已说明所选平台和获取方式。；本站首次推荐"
+        }
+      ],
+      "discovery_counts": {
+        "automatic_new": 0,
+        "seed": 8,
+        "baseline_backfill": 0,
+        "manual_addition": 0,
+        "rotation": 12
+      },
+      "recommendation_count": 20,
+      "recommendation_fresh_count": 20,
+      "all_selected": [
+        {
+          "full_name": "qarmin/czkawka",
+          "node_id": "MDEwOlJlcG9zaXRvcnkyOTIwNjU1Nzg=",
+          "observation_status": "fresh",
+          "first_recommended_at": "2026-10-20T16:49:09.942365Z",
+          "discovery_kind": "seed"
+        },
+        {
+          "full_name": "rustdesk/rustdesk",
+          "node_id": "MDEwOlJlcG9zaXRvcnkyOTkzNTQyMDc=",
+          "observation_status": "fresh",
+          "first_recommended_at": "2026-10-20T16:49:09.942365Z",
+          "discovery_kind": "seed"
+        },
+        {
+          "full_name": "giuspen/cherrytree",
+          "node_id": "MDEwOlJlcG9zaXRvcnkzMjY5ODQ2OQ==",
+          "observation_status": "fresh",
+          "first_recommended_at": "2026-10-20T16:49:09.942365Z",
+          "discovery_kind": "seed"
+        },
+        {
+          "full_name": "audacity/audacity",
+          "node_id": "MDEwOlJlcG9zaXRvcnkzMjkyMTczNg==",
+          "observation_status": "fresh",
+          "first_recommended_at": "2026-10-20T16:49:09.942365Z",
+          "discovery_kind": "seed"
+        },
+        {
+          "full_name": "Tichau/FileConverter",
+          "node_id": "MDEwOlJlcG9zaXRvcnkzMzQ3NjU2Ng==",
+          "observation_status": "fresh",
+          "first_recommended_at": "2026-10-20T16:49:09.942365Z",
+          "discovery_kind": "seed"
+        },
+        {
+          "full_name": "upscayl/upscayl",
+          "node_id": "R_kgDOHvghIw",
+          "observation_status": "fresh",
+          "first_recommended_at": "2026-10-20T16:49:09.942365Z",
+          "discovery_kind": "seed"
+        },
+        {
+          "full_name": "localsend/localsend",
+          "node_id": "R_kgDOIoAhgw",
+          "observation_status": "fresh",
+          "first_recommended_at": "2026-10-20T16:49:09.942365Z",
+          "discovery_kind": "seed"
+        },
+        {
+          "full_name": "keepassxreboot/keepassxc",
+          "node_id": "MDEwOlJlcG9zaXRvcnk1MjcyOTI0Mg==",
+          "observation_status": "fresh",
+          "first_recommended_at": "2026-10-20T16:05:01.116030Z",
+          "discovery_kind": "rotation"
+        },
+        {
+          "full_name": "laurent22/joplin",
+          "node_id": "MDEwOlJlcG9zaXRvcnk3OTE2MjY4Mg==",
+          "observation_status": "fresh",
+          "first_recommended_at": "2026-10-20T16:05:01.116030Z",
+          "discovery_kind": "rotation"
+        },
+        {
+          "full_name": "flameshot-org/flameshot",
+          "node_id": "MDEwOlJlcG9zaXRvcnk5MDkwMjEzMg==",
+          "observation_status": "fresh",
+          "first_recommended_at": "2026-10-20T16:05:01.116030Z",
+          "discovery_kind": "rotation"
+        },
+        {
+          "full_name": "marktext/marktext",
+          "node_id": "MDEwOlJlcG9zaXRvcnkxMTA0NDY4NDQ=",
+          "observation_status": "fresh",
+          "first_recommended_at": "2026-10-20T16:05:01.116030Z",
+          "discovery_kind": "rotation"
+        },
+        {
+          "full_name": "sindresorhus/Gifski",
+          "node_id": "MDEwOlJlcG9zaXRvcnkxMTk4MjIzMDQ=",
+          "observation_status": "fresh",
+          "first_recommended_at": "2026-10-20T16:05:01.116030Z",
+          "discovery_kind": "rotation"
+        },
+        {
+          "full_name": "obsproject/obs-studio",
+          "node_id": "MDEwOlJlcG9zaXRvcnkxMzIzMzE1OA==",
+          "observation_status": "fresh",
+          "first_recommended_at": "2026-10-20T16:05:01.116030Z",
+          "discovery_kind": "rotation"
+        },
+        {
+          "full_name": "syncthing/syncthing",
+          "node_id": "MDEwOlJlcG9zaXRvcnkxNDcxMjg1MA==",
+          "observation_status": "fresh",
+          "first_recommended_at": "2026-10-20T16:05:01.116030Z",
+          "discovery_kind": "rotation"
+        },
+        {
+          "full_name": "cryptomator/cryptomator",
+          "node_id": "MDEwOlJlcG9zaXRvcnkxNjQ0NjA5OQ==",
+          "observation_status": "fresh",
+          "first_recommended_at": "2026-10-20T16:05:01.116030Z",
+          "discovery_kind": "rotation"
+        },
+        {
+          "full_name": "microsoft/PowerToys",
+          "node_id": "MDEwOlJlcG9zaXRvcnkxODQ0NTYyNTE=",
+          "observation_status": "fresh",
+          "first_recommended_at": "2026-10-20T16:05:01.116030Z",
+          "discovery_kind": "rotation"
+        },
+        {
+          "full_name": "lively-community/lively",
+          "node_id": "MDEwOlJlcG9zaXRvcnkyMDExODgxMjI=",
+          "observation_status": "fresh",
+          "first_recommended_at": "2026-10-20T16:05:01.116030Z",
+          "discovery_kind": "rotation"
+        },
+        {
+          "full_name": "paulpacifico/shutter-encoder",
+          "node_id": "MDEwOlJlcG9zaXRvcnkyNjIzODI5NjI=",
+          "observation_status": "fresh",
+          "first_recommended_at": "2026-10-20T16:05:01.116030Z",
+          "discovery_kind": "rotation"
+        },
+        {
+          "full_name": "pbek/QOwnNotes",
+          "node_id": "MDEwOlJlcG9zaXRvcnkyNzQzNjQ5MQ==",
+          "observation_status": "fresh",
+          "first_recommended_at": "2026-10-20T16:05:01.116030Z",
+          "discovery_kind": "rotation"
+        },
+        {
+          "full_name": "jellyfin/jellyfin",
+          "node_id": "MDEwOlJlcG9zaXRvcnkxNjEwMTIwMTk=",
+          "observation_status": "fresh",
+          "first_recommended_at": "2026-10-20T16:49:09.942365Z",
+          "discovery_kind": "seed"
+        }
+      ],
+      "automatic_new_recommendations": [],
+      "content_allocation": {
+        "planned": {
+          "recommended": 8,
+          "new": 6,
+          "review": 4,
+          "rotation": 2
+        },
+        "actual": {
+          "due": 0,
+          "recommended": 8,
+          "new": 6,
+          "review": 4,
+          "rotation": 2,
+          "refill": 0
+        },
+        "selected": [
+          "Flow-Launcher/Flow.Launcher",
+          "FreeTubeApp/FreeTube",
+          "HandBrake/HandBrake",
+          "KDE/kdenlive",
+          "WinMerge/winmerge",
+          "Zettlr/Zettlr",
+          "arsenetar/dupeguru",
+          "bleachbit/bleachbit",
+          "1bit-MONSTER/engine",
+          "Aarav2709/Morrow",
+          "Abdess/retrobios",
+          "Aeka0/Overlord",
+          "AgentBull/ankole",
+          "AhmadHassan-BTed/Turnitout-Humanizer",
+          "1jehuang/jcode",
+          "1jehuang/justrust",
+          "217heidai/adblockfilters",
+          "27medkamal/tmux-session-wizard",
+          "2dust/v2rayN",
+          "34823/tg-pane"
+        ],
+        "waiting": 2543,
+        "attempted": [
+          "Flow-Launcher/Flow.Launcher",
+          "FreeTubeApp/FreeTube",
+          "HandBrake/HandBrake",
+          "KDE/kdenlive",
+          "WinMerge/winmerge",
+          "Zettlr/Zettlr",
+          "arsenetar/dupeguru",
+          "bleachbit/bleachbit",
+          "1bit-MONSTER/engine",
+          "Aarav2709/Morrow",
+          "Abdess/retrobios",
+          "Aeka0/Overlord",
+          "AgentBull/ankole",
+          "AhmadHassan-BTed/Turnitout-Humanizer",
+          "1jehuang/jcode",
+          "1jehuang/justrust",
+          "217heidai/adblockfilters",
+          "27medkamal/tmux-session-wizard"
+        ],
+        "attempted_count": 18,
+        "requests_used": 60,
+        "successful_count": 15,
+        "partial_count": 3,
+        "failed_count": 0
+      },
+      "future_reference_set": {
+        "status": "awaiting_independent_human_reference",
+        "items": []
+      }
     }
   ],
   "schema_version": "4.0",
   "rules_version": "v3.3",
   "recommendation_version": "v4.0",
-  "batch_id": "f98d7f0f85ec4292921dfa7c9fe1a081",
-  "generated_at": "2026-10-20T16:05:01.116030Z",
-  "source_commit": "03895d38972d617d4698edbc446d5774f3401342"
+  "batch_id": "139a919b7fd54489b7a7ec0db93a2158",
+  "generated_at": "2026-10-20T16:49:09.942365Z",
+  "source_commit": "f88b0dbf5ce770866fa3457e89b3b7ac999eccc6"
 }

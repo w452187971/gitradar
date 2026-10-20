@@ -39,18 +39,18 @@
 
   async function checkBatch(fetcher, state, status, base) {
     try {
-      const response = await fetcher(base + 'data/projects.json', {cache: 'no-cache'});
+      const response = await fetcher(base + 'data/site-state.json', {cache: 'no-cache'});
       if (!response.ok) throw Error('HTTP ' + response.status);
       const data = await response.json();
       if (data.batch_id && state.batch_id && data.batch_id !== state.batch_id) {
-        status.textContent = '页面与动态数据批次不一致，继续显示本批静态内容；请稍后重新载入。';
+        status.textContent = '页面与发布状态批次不一致，继续显示本批静态内容；请稍后重新载入。';
       } else if (!data.batch_id || !state.batch_id || data.schema_version !== '4.0') {
-        status.textContent = '动态数据未提供可确认的 V4 批次；继续显示本批静态内容。';
+        status.textContent = '发布状态未提供可确认的 V4 批次；继续显示本批静态内容。';
       } else {
-        status.textContent = '静态页面与候选数据批次一致。';
+        status.textContent = '静态页面与发布状态批次一致。';
       }
     } catch (error) {
-      status.textContent = '暂时无法核对动态数据，当前静态内容仍可阅读（' + error.message + '）。';
+      status.textContent = '暂时无法核对发布状态，当前静态内容仍可阅读（' + error.message + '）。';
     }
   }
 
