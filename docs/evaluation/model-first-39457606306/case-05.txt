@@ -1,0 +1,11 @@
+{
+  "purpose": "提供英语外刊杂志下载",
+  "audience": "英语学习者、外刊杂志读者",
+  "platforms": ["iOS", "Android"],
+  "form": "下载链接",
+  "requirements": null,
+  "path": "https://ereader.link",
+  "fees": null,
+  "license": null,
+  "unknowns": ["audience", "platforms"]
+}

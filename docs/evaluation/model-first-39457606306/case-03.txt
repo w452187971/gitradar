@@ -1,0 +1,11 @@
+{
+  "purpose": "查找文件系统中的条目",
+  "audience": "用户",
+  "platforms": ["Linux", "macOS", "Windows"],
+  "form": "命令行工具",
+  "requirements": null,
+  "path": "https://github.com/sharkdp/fd/releases",
+  "fees": null,
+  "license": "MIT License 和 Apache License 2.0",
+  "unknowns": ["audience", "requirements", "fees"]
+}

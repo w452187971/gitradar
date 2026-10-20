@@ -1,0 +1,11 @@
+{
+  "purpose": "阻止网络范围内的广告和跟踪",
+  "audience": "网络用户，特别是需要全面阻断广告和跟踪的用户",
+  "platforms": ["Linux", "Windows", "macOS", "Android", "iOS"],
+  "form": "DNS服务器软件",
+  "requirements": "需要安装DNS服务器和网络配置",
+  "path": "https://wiki.adguard.com/AdGuard-Home",
+  "fees": "免费",
+  "license": "开源（GPLv3）",
+  "unknowns": ["audience", "platforms", "form", "requirements", "path", "fees", "license"]
+}

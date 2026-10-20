@@ -1,0 +1,14 @@
+{
+  "run_id": 39458715810,
+  "run_url": "https://github.com/w452187971/gitradar/actions/runs/39458715810",
+  "code_commit": "9afd4970f4d94be9701f3e3bfceedfa22725efa9",
+  "failed_test": "test_local_execution_fails_before_any_download_and_preserves_report",
+  "assertion": "downloads unexpectedly found",
+  "tests_run": 266,
+  "tests_failed": 1,
+  "tests_wall_seconds": 101.935,
+  "collector_step": "skipped",
+  "promotion_step": "skipped",
+  "commit_step": "skipped",
+  "status": "test_isolation_failure; not a content quality experiment"
+}

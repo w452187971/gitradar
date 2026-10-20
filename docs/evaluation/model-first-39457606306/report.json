@@ -1,0 +1,452 @@
+{
+  "version": 1,
+  "checked_at": "2026-10-20T16:27:38.581927+00:00",
+  "status": "failed_unverified",
+  "cases": [
+    {
+      "full_name": "TranslucentTB/TranslucentTB",
+      "kind": "desktop",
+      "status": "failed",
+      "semantic_status": "human_review_required",
+      "token_budget": {
+        "prompt_tokens": 532,
+        "reserved_output_tokens": 700,
+        "special_token_margin": 8,
+        "context": 4096,
+        "fits": true
+      },
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 120,
+        "prompt_tokens": 532,
+        "total_tokens": 652,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 532,
+        "prompt_ms": 9627.839,
+        "prompt_per_token_ms": 18.097441729323307,
+        "prompt_per_second": 55.25642877908532,
+        "predicted_n": 120,
+        "predicted_ms": 11210.673,
+        "predicted_per_token_ms": 94.20733613445378,
+        "predicted_per_second": 10.614884583646315
+      },
+      "prefill_seconds": 9.627839,
+      "generate_seconds": 11.210673,
+      "thinking_disabled": true,
+      "output": {
+        "purpose": "使Windows任务栏透明/透明",
+        "audience": "Windows 10和Windows 11用户",
+        "platforms": [
+          "Windows 10",
+          "Windows 11"
+        ],
+        "form": "桌面应用程序",
+        "requirements": null,
+        "path": "https://apps.microsoft.com/store/detail/9PF4KZ2VN4W9",
+        "fees": null,
+        "license": "GPLv3",
+        "unknowns": [
+          "audience",
+          "requirements",
+          "fees"
+        ]
+      },
+      "schema_valid": false,
+      "quotes_match": false,
+      "quoted_fields": 0,
+      "matched_fields": 0,
+      "wall_seconds": 20.903
+    },
+    {
+      "full_name": "AdguardTeam/AdGuardHome",
+      "kind": "self_hosted",
+      "status": "failed",
+      "semantic_status": "human_review_required",
+      "token_budget": {
+        "prompt_tokens": 548,
+        "reserved_output_tokens": 700,
+        "special_token_margin": 8,
+        "context": 4096,
+        "fits": true
+      },
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 145,
+        "prompt_tokens": 548,
+        "total_tokens": 693,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 548,
+        "prompt_ms": 9923.43,
+        "prompt_per_token_ms": 18.10844890510949,
+        "prompt_per_second": 55.222841295801956,
+        "predicted_n": 145,
+        "predicted_ms": 13541.743,
+        "predicted_per_token_ms": 94.03988194444445,
+        "predicted_per_second": 10.633786212011259
+      },
+      "prefill_seconds": 9.92343,
+      "generate_seconds": 13.541743,
+      "thinking_disabled": true,
+      "output": {
+        "purpose": "阻止网络范围内的广告和跟踪",
+        "audience": "网络用户，特别是需要全面阻断广告和跟踪的用户",
+        "platforms": [
+          "Linux",
+          "Windows",
+          "macOS",
+          "Android",
+          "iOS"
+        ],
+        "form": "DNS服务器软件",
+        "requirements": "需要安装DNS服务器和网络配置",
+        "path": "https://wiki.adguard.com/AdGuard-Home",
+        "fees": "免费",
+        "license": "开源（GPLv3）",
+        "unknowns": [
+          "audience",
+          "platforms",
+          "form",
+          "requirements",
+          "path",
+          "fees",
+          "license"
+        ]
+      },
+      "schema_valid": false,
+      "quotes_match": false,
+      "quoted_fields": 0,
+      "matched_fields": 0,
+      "wall_seconds": 23.571
+    },
+    {
+      "full_name": "sharkdp/fd",
+      "kind": "cli",
+      "status": "failed",
+      "semantic_status": "human_review_required",
+      "token_budget": {
+        "prompt_tokens": 455,
+        "reserved_output_tokens": 700,
+        "special_token_margin": 8,
+        "context": 4096,
+        "fits": true
+      },
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 107,
+        "prompt_tokens": 455,
+        "total_tokens": 562,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 455,
+        "prompt_ms": 8183.604,
+        "prompt_per_token_ms": 17.98594285714286,
+        "prompt_per_second": 55.59897570801324,
+        "predicted_n": 107,
+        "predicted_ms": 9698.344,
+        "predicted_per_token_ms": 91.4938113207547,
+        "predicted_per_second": 10.92970098812746
+      },
+      "prefill_seconds": 8.183604,
+      "generate_seconds": 9.698343999999999,
+      "thinking_disabled": true,
+      "output": {
+        "purpose": "查找文件系统中的条目",
+        "audience": "用户",
+        "platforms": [
+          "Linux",
+          "macOS",
+          "Windows"
+        ],
+        "form": "命令行工具",
+        "requirements": null,
+        "path": "https://github.com/sharkdp/fd/releases",
+        "fees": null,
+        "license": "MIT License 和 Apache License 2.0",
+        "unknowns": [
+          "audience",
+          "requirements",
+          "fees"
+        ]
+      },
+      "schema_valid": false,
+      "quotes_match": false,
+      "quoted_fields": 0,
+      "matched_fields": 0,
+      "wall_seconds": 17.99
+    },
+    {
+      "full_name": "huggingface/transformers",
+      "kind": "library",
+      "status": "failed",
+      "semantic_status": "human_review_required",
+      "token_budget": {
+        "prompt_tokens": 667,
+        "reserved_output_tokens": 700,
+        "special_token_margin": 8,
+        "context": 4096,
+        "fits": true
+      },
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 149,
+        "prompt_tokens": 667,
+        "total_tokens": 816,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 667,
+        "prompt_ms": 12058.395,
+        "prompt_per_token_ms": 18.078553223388308,
+        "prompt_per_second": 55.314160798348375,
+        "predicted_n": 149,
+        "predicted_ms": 14263.332,
+        "predicted_per_token_ms": 96.37386486486487,
+        "predicted_per_second": 10.376257104581173
+      },
+      "prefill_seconds": 12.058395,
+      "generate_seconds": 14.263332,
+      "thinking_disabled": true,
+      "output": {
+        "purpose": "Transformers 是一个用于构建最先进的文本、计算机视觉、音频、视频和多模态模型的模型定义框架，支持推理和训练。",
+        "audience": "研究人员、开发人员和开发者，用于模型定义和训练。",
+        "platforms": [
+          "Python 3.10+",
+          "PyTorch 2.6+"
+        ],
+        "form": "Python 包",
+        "requirements": null,
+        "path": "https://huggingface.co/huggingface/transformers",
+        "fees": null,
+        "license": null,
+        "unknowns": [
+          "audience",
+          "platforms",
+          "requirements",
+          "fees",
+          "license"
+        ]
+      },
+      "schema_valid": false,
+      "quotes_match": false,
+      "quoted_fields": 0,
+      "matched_fields": 0,
+      "wall_seconds": 26.422
+    },
+    {
+      "full_name": "hehonghui/awesome-english-ebooks",
+      "kind": "collection_other_subject",
+      "status": "failed",
+      "semantic_status": "human_review_required",
+      "token_budget": {
+        "prompt_tokens": 469,
+        "reserved_output_tokens": 700,
+        "special_token_margin": 8,
+        "context": 4096,
+        "fits": true
+      },
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 92,
+        "prompt_tokens": 469,
+        "total_tokens": 561,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 469,
+        "prompt_ms": 8384.052,
+        "prompt_per_token_ms": 17.876443496801706,
+        "prompt_per_second": 55.93953854293843,
+        "predicted_n": 92,
+        "predicted_ms": 8185.2,
+        "predicted_per_token_ms": 89.94725274725275,
+        "predicted_per_second": 11.117626936421836
+      },
+      "prefill_seconds": 8.384052,
+      "generate_seconds": 8.1852,
+      "thinking_disabled": true,
+      "output": {
+        "purpose": "提供英语外刊杂志下载",
+        "audience": "英语学习者、外刊杂志读者",
+        "platforms": [
+          "iOS",
+          "Android"
+        ],
+        "form": "下载链接",
+        "requirements": null,
+        "path": "https://ereader.link",
+        "fees": null,
+        "license": null,
+        "unknowns": [
+          "audience",
+          "platforms"
+        ]
+      },
+      "schema_valid": false,
+      "quotes_match": false,
+      "quoted_fields": 0,
+      "matched_fields": 0,
+      "wall_seconds": 16.684
+    },
+    {
+      "full_name": "squoosh/squoosh",
+      "kind": "missing_official_source",
+      "status": "failed",
+      "semantic_status": "human_review_required",
+      "unknown_control": {
+        "passed": 0,
+        "total": 8
+      },
+      "token_budget": {
+        "prompt_tokens": 238,
+        "reserved_output_tokens": 700,
+        "special_token_margin": 8,
+        "context": 4096,
+        "fits": true
+      },
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 93,
+        "prompt_tokens": 238,
+        "total_tokens": 331,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 238,
+        "prompt_ms": 4220.212,
+        "prompt_per_token_ms": 17.731983193277312,
+        "prompt_per_second": 56.39527113803761,
+        "predicted_n": 93,
+        "predicted_ms": 7913.064,
+        "predicted_per_token_ms": 86.01156521739131,
+        "predicted_per_second": 11.626343474537803
+      },
+      "prefill_seconds": 4.220212,
+      "generate_seconds": 7.913064,
+      "thinking_disabled": true,
+      "output": {
+        "purpose": "图像压缩和编辑工具",
+        "audience": "开发者和图像处理爱好者",
+        "platforms": [
+          "Linux",
+          "macOS",
+          "Windows"
+        ],
+        "form": "命令行工具",
+        "requirements": null,
+        "path": null,
+        "fees": null,
+        "license": null,
+        "unknowns": [
+          "path",
+          "fees",
+          "license",
+          "requirements"
+        ]
+      },
+      "schema_valid": false,
+      "quotes_match": false,
+      "quoted_fields": 0,
+      "matched_fields": 0,
+      "wall_seconds": 12.246
+    }
+  ],
+  "scope": "six seen development cases, not blind",
+  "runtime": {
+    "platform": "Linux-7.0.0-1017-azure-x86_64-with-glibc2.39",
+    "cpu_count": 4,
+    "runner_os": "Linux",
+    "runner_arch": "X64"
+  },
+  "limits": {
+    "cpu_threads": 4,
+    "gpu_layers": 0,
+    "context": 4096,
+    "max_tokens": 700,
+    "temperature": 0,
+    "thinking": false,
+    "whole_timeout_seconds": 900
+  },
+  "pins": {
+    "runtime": {
+      "project": "ggml-org/llama.cpp",
+      "tag": "b11756",
+      "source": "https://github.com/ggml-org/llama.cpp/releases/tag/b11756",
+      "url": "https://github.com/ggml-org/llama.cpp/releases/download/b11756/llama-b11756-bin-ubuntu-x64.tar.gz",
+      "sha256": "9def57d9e9b0149979a9ceba40896a4e2bf88c94734069a5567d2f487ceab551",
+      "size": 22240705,
+      "checksum_provenance": "GitHub official release asset digest from authenticated read-only REST metadata, 2026-10-21",
+      "license": "MIT"
+    },
+    "model": {
+      "project": "Qwen/Qwen3-1.7B-GGUF",
+      "revision": "90862c4b9d2787eaed51d12237eafdfe7c5f6077",
+      "filename": "Qwen3-1.7B-Q8_0.gguf",
+      "source": "https://huggingface.co/Qwen/Qwen3-1.7B-GGUF/tree/90862c4b9d2787eaed51d12237eafdfe7c5f6077",
+      "url": "https://huggingface.co/Qwen/Qwen3-1.7B-GGUF/resolve/90862c4b9d2787eaed51d12237eafdfe7c5f6077/Qwen3-1.7B-Q8_0.gguf",
+      "sha256": "061b54daade076b5d3362dac252678d17da8c68f07560be70818cace6590cb1a",
+      "size": 1834426016,
+      "checksum_provenance": "Hugging Face official model API siblings.lfs.sha256 at pinned revision, 2026-10-21",
+      "license": "Apache-2.0"
+    }
+  },
+  "fixture_sha256": "96978ccade1edc8841ad23d7aef2676734157c6b2826a6707d5dbcabe64917bf",
+  "git_sha": "9878366f4dd78e441e001fe27caf1d34ad51c16e",
+  "downloads": {
+    "runtime": {
+      "seconds": 0.485,
+      "bytes": 22240705,
+      "sha256": "9def57d9e9b0149979a9ceba40896a4e2bf88c94734069a5567d2f487ceab551",
+      "verified": true
+    },
+    "model": {
+      "seconds": 5.899,
+      "bytes": 1834426016,
+      "sha256": "061b54daade076b5d3362dac252678d17da8c68f07560be70818cace6590cb1a",
+      "verified": true
+    }
+  },
+  "stage": "finished",
+  "load_wall_seconds": 1.098,
+  "memory": {
+    "peak_rss_kib": 2740900,
+    "method": "/proc/server_pid/status VmHWM sampled every 100ms"
+  },
+  "total_wall_seconds": 126.068,
+  "metrics": {
+    "requested": 6,
+    "attempted": 6,
+    "json_parsed": 6,
+    "schema_valid": 0,
+    "quotes_match": 0,
+    "unknown_control_passed": 0,
+    "unknown_control_total": 8,
+    "no_source_control_attempted": true,
+    "no_source_unknown_rate": 0.0,
+    "semantic_accuracy": null,
+    "semantic_refusal_rate": null,
+    "semantic_review": "pending; exact quote matching does not prove entailment or subject identity"
+  }
+}

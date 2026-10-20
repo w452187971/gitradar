@@ -1,0 +1,11 @@
+{
+  "purpose": "Transformers 是一个用于构建最先进的文本、计算机视觉、音频、视频和多模态模型的模型定义框架，支持推理和训练。",
+  "audience": "研究人员、开发人员和开发者，用于模型定义和训练。",
+  "platforms": ["Python 3.10+", "PyTorch 2.6+"],
+  "form": "Python 包",
+  "requirements": null,
+  "path": "https://huggingface.co/huggingface/transformers",
+  "fees": null,
+  "license": null,
+  "unknowns": ["audience", "platforms", "requirements", "fees", "license"]
+}

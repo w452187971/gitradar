@@ -2,6 +2,7 @@
 import copy
 import hashlib
 import json
+import os
 from pathlib import Path
 import tempfile
 import subprocess
@@ -9,7 +10,7 @@ import sys
 from unittest.mock import patch
 import unittest
 
-from scripts.probe_local_model import FIELDS, checkOutput, downloadVerified, loadCases, parseOutput, ProbeDeadlineExceeded, requestPayload, runCase, serverCommand, timeoutHandler
+from scripts.probe_local_model import FIELDS, checkOutput, downloadVerified, loadCases, parseOutput, executeProbe, requirePublicRunner, ProbeDeadlineExceeded, requestPayload, runCase, serverCommand, timeoutHandler
 
 
 class ModelProbeTests(unittest.TestCase):
@@ -79,12 +80,46 @@ class ModelProbeTests(unittest.TestCase):
     def test_local_execution_fails_before_any_download_and_preserves_report(self):
         with tempfile.TemporaryDirectory() as directory:
             process = subprocess.run([sys.executable, 'scripts/probe_local_model.py', '--output-dir', directory],
-                                     capture_output=True, text=True)
+                                     capture_output=True, text=True, env={**os.environ, 'GITHUB_ACTIONS': 'false'})
             self.assertEqual(process.returncode, 1)
             report = json.loads((Path(directory) / 'report.json').read_text())
         self.assertEqual(report['status'], 'failed_unverified')
         self.assertNotIn('downloads', report)
         self.assertEqual(report['metrics']['attempted'], 0)
+
+    def test_non_diagnostic_linux_actions_never_downloads(self):
+        events = [
+            ('schedule', {'model_probe_only': 'true'}),
+            ('workflow_dispatch', {}),
+            ('workflow_dispatch', {'model_probe_only': 'false'}),
+            ('workflow_dispatch', {'model_probe_only': 1}),
+            ('workflow_dispatch', {'probe_only': 'true'}),
+            ('workflow_dispatch', {'model_probe_only': 'true', 'probe_only': 'true'}),
+        ]
+        for eventName, inputs in events:
+            with self.subTest(eventName=eventName, inputs=inputs), tempfile.TemporaryDirectory() as directory:
+                eventPath = Path(directory) / 'event.json'
+                eventPath.write_text(json.dumps({'repository': {'private': False}, 'inputs': inputs}))
+                environment = {'GITHUB_ACTIONS': 'true', 'GITHUB_EVENT_NAME': eventName,
+                               'GITHUB_EVENT_PATH': str(eventPath)}
+                with patch.dict(os.environ, environment), patch('scripts.probe_local_model.platform.system', return_value='Linux'):
+                    with patch('scripts.probe_local_model.platform.machine', return_value='x86_64'):
+                        with patch('scripts.probe_local_model.downloadVerified') as download:
+                            with self.assertRaisesRegex(RuntimeError, 'diagnostic'):
+                                executeProbe({'cases': []}, Path(directory))
+                            download.assert_not_called()
+
+    def test_explicit_diagnostic_event_allows_boolean_and_string_inputs(self):
+        for value in [True, 'true']:
+            with self.subTest(value=value), tempfile.TemporaryDirectory() as directory:
+                eventPath = Path(directory) / 'event.json'
+                eventPath.write_text(json.dumps({'repository': {'private': False}, 'inputs': {
+                    'model_probe_only': value, 'probe_only': 'false'}}))
+                environment = {'GITHUB_ACTIONS': 'true', 'GITHUB_EVENT_NAME': 'workflow_dispatch',
+                               'GITHUB_EVENT_PATH': str(eventPath)}
+                with patch.dict(os.environ, environment), patch('scripts.probe_local_model.platform.system', return_value='Linux'):
+                    with patch('scripts.probe_local_model.platform.machine', return_value='x86_64'):
+                        requirePublicRunner()
 
     def test_inference_limits_and_loopback_are_fixed(self):
         command = serverCommand(Path('/tmp/bin'), Path('/tmp/model'), 12345)

@@ -1,0 +1,11 @@
+{
+  "purpose": "图像压缩和编辑工具",
+  "audience": "开发者和图像处理爱好者",
+  "platforms": ["Linux", "macOS", "Windows"],
+  "form": "命令行工具",
+  "requirements": null,
+  "path": null,
+  "fees": null,
+  "license": null,
+  "unknowns": ["path", "fees", "license", "requirements"]
+}

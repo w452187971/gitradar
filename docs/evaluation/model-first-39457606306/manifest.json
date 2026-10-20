@@ -1,0 +1,17 @@
+{
+  "run_id": 39457606306,
+  "run_url": "https://github.com/w452187971/gitradar/actions/runs/39457606306",
+  "code_commit": "9878366f4dd78e441e001fe27caf1d34ad51c16e",
+  "scope": "six seen development cases, not blind",
+  "status": "failed_unverified",
+  "files": {
+    "case-01.txt": "d49be4b488e7ba2be954619f2c2085684134af4c9b7dc7261dd024df116a2a0d",
+    "case-02.txt": "0334eb708774afceff3bc77d3e92884b3931a6e32975020be2266106353ced3e",
+    "case-03.txt": "c6aec071e9576452c11c681dedfcd7e9e093611743473f943025e9462419c366",
+    "case-04.txt": "60a47e4161d83473ceabce0a8085c7dc91f293e348f23fca40edebcfea86de2c",
+    "case-05.txt": "c44fe247f30ee7c4623713cf4add240b4cd5600381b19af205456f8b39d67efd",
+    "case-06.txt": "24713c176f198650811fdcd6cbba2551edaa6e25bfcbf62c43a1970da564e37d",
+    "report.json": "24aafac4b237fb75270170601784c48ecec178d5846b7f65648ece6856b76ef5",
+    "server.log": "f0e6f6e7907019926357d42be09db432220d8516e3838131551821577fc57e18"
+  }
+}

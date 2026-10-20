@@ -1,0 +1,11 @@
+{
+  "purpose": "使Windows任务栏透明/透明",
+  "audience": "Windows 10和Windows 11用户",
+  "platforms": ["Windows 10", "Windows 11"],
+  "form": "桌面应用程序",
+  "requirements": null,
+  "path": "https://apps.microsoft.com/store/detail/9PF4KZ2VN4W9",
+  "fees": null,
+  "license": "GPLv3",
+  "unknowns": ["audience", "requirements", "fees"]
+}
