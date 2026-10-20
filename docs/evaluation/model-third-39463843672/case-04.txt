@@ -1,0 +1,34 @@
+{
+  "purpose": {
+    "value": "提供用于文本、计算机视觉、音频、视频和多模态模型的机器学习框架",
+    "ref_id": "r1"
+  },
+  "audience": {
+    "value": "研究人员和开发者",
+    "ref_id": "r1"
+  },
+  "platforms": {
+    "value": "Python 3.10+ 和 PyTorch 2.6+",
+    "ref_id": "r2"
+  },
+  "form": {
+    "value": "Python库",
+    "ref_id": "r2"
+  },
+  "requirements": {
+    "value": "Python 3.10+ 和 PyTorch 2.6+",
+    "ref_id": "r2"
+  },
+  "path": {
+    "value": "https://pytorch.org/get-started/locally/",
+    "ref_id": "r2"
+  },
+  "fees": {
+    "value": "无明确提及费用",
+    "ref_id": "r1"
+  },
+  "license": {
+    "value": "未明确提及许可",
+    "ref_id": "r1"
+  }
+}

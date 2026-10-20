@@ -1,0 +1,36 @@
+{
+  "request_url": "https://api.github.com/repos/bleachbit/bleachbit",
+  "requested_at": "2026-10-20T17:15:28.041197Z",
+  "received_at": "2026-10-20T17:15:31.068428Z",
+  "http_status": 200,
+  "headers": {
+    "Date": "Tue, 20 Oct 2026 17:15:30 GMT",
+    "Content-Type": "application/json; charset=utf-8",
+    "ETag": "\"6c2d7b138c577af598bee0f698b02a9c933d03babc0e85cb82f13894b60ed68a\"",
+    "Last-Modified": "Tue, 20 Oct 2026 16:51:38 GMT",
+    "X-RateLimit-Limit": "5000",
+    "X-RateLimit-Remaining": "4805",
+    "X-RateLimit-Reset": "1792516956",
+    "X-RateLimit-Used": "195",
+    "X-GitHub-Request-Id": "B04A:36A6D0:6EC1B:B26E8:6AD7A1B2"
+  },
+  "body": {
+    "archived": false,
+    "created_at": "2014-03-10T01:40:31Z",
+    "description": "BleachBit system cleaner for Windows and Linux",
+    "disabled": false,
+    "full_name": "bleachbit/bleachbit",
+    "homepage": "https://www.bleachbit.org",
+    "html_url": "https://github.com/bleachbit/bleachbit",
+    "license": {
+      "key": "gpl-3.0",
+      "name": "GNU General Public License v3.0",
+      "spdx_id": "GPL-3.0",
+      "url": "https://api.github.com/licenses/gpl-3.0",
+      "node_id": "MDc6TGljZW5zZTk="
+    },
+    "node_id": "MDEwOlJlcG9zaXRvcnkxNzU3ODU5Mg==",
+    "fork": false
+  },
+  "metadata_field_policy": "public product facts only"
+}

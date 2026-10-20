@@ -1,0 +1,34 @@
+{
+  "purpose": {
+    "value": "寻找文件系统中的条目",
+    "ref_id": "r1"
+  },
+  "audience": {
+    "value": "用户",
+    "ref_id": "r1"
+  },
+  "platforms": {
+    "value": "Linux, macOS, Windows",
+    "ref_id": "r2"
+  },
+  "form": {
+    "value": "命令行工具",
+    "ref_id": "r1"
+  },
+  "requirements": {
+    "value": "文件系统访问权限",
+    "ref_id": "r1"
+  },
+  "path": {
+    "value": "https://github.com/sharkdp/fd/releases",
+    "ref_id": "r2"
+  },
+  "fees": {
+    "value": "无费用",
+    "ref_id": "r2"
+  },
+  "license": {
+    "value": "MIT License 和 Apache License 2.0",
+    "ref_id": "r3"
+  }
+}

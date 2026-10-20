@@ -1,0 +1,36 @@
+{
+  "request_url": "https://api.github.com/repos/KDE/kdenlive/contents/README.md?ref=master",
+  "requested_at": "2026-10-20T17:15:25.156671Z",
+  "received_at": "2026-10-20T17:15:26.444620Z",
+  "http_status": 200,
+  "headers": {
+    "Content-Type": "application/json; charset=utf-8",
+    "Date": "Tue, 20 Oct 2026 17:15:26 GMT",
+    "ETag": "\"aafacd56d79aeb85ff57fe1cfbbfd8e6a585db6d\"",
+    "Last-Modified": "Tue, 20 Oct 2026 15:42:15 GMT",
+    "X-RateLimit-Limit": "5000",
+    "X-RateLimit-Remaining": "4807",
+    "X-RateLimit-Reset": "1792516956",
+    "X-RateLimit-Used": "193",
+    "X-GitHub-Request-Id": "2B5E:3DE60C:6C16C:AF41D:6AD7A1AD"
+  },
+  "body": {
+    "name": "README.md",
+    "path": "README.md",
+    "sha": "aafacd56d79aeb85ff57fe1cfbbfd8e6a585db6d",
+    "size": 2720,
+    "url": "https://api.github.com/repos/KDE/kdenlive/contents/README.md?ref=master",
+    "html_url": "https://github.com/KDE/kdenlive/blob/master/README.md",
+    "git_url": "https://api.github.com/repos/KDE/kdenlive/git/blobs/aafacd56d79aeb85ff57fe1cfbbfd8e6a585db6d",
+    "download_url": "https://raw.githubusercontent.com/KDE/kdenlive/master/README.md",
+    "type": "file",
+    "content": "IVtdKGRhdGEvcGljcy9rZGVubGl2ZS1sb2dvLnBuZykKCiMgS2RlbmxpdmUK\nCktkZW5saXZlIGlzIGEgcG93ZXJmdWwsIGZyZWUgYW5kIG9wZW4tc291cmNl\nIHZpZGVvIGVkaXRvciB0aGF0IGJyaW5ncyBwcm9mZXNzaW9uYWwtZ3JhZGUg\ndmlkZW8gZWRpdGluZyBjYXBhYmlsaXRpZXMgdG8gZXZlcnlvbmUuIFdoZXRo\nZXIgeW91J3JlIGNyZWF0aW5nIGEgc2ltcGxlIGZhbWlseSB2aWRlbyBvciB3\nb3JraW5nIG9uIGEgY29tcGxleCBwcm9qZWN0LCBLZGVubGl2ZSBwcm92aWRl\ncyB0aGUgdG9vbHMgeW91IG5lZWQgdG8gYnJpbmcgeW91ciB2aXNpb24gdG8g\nbGlmZS4KCkZvciBtb3JlIGluZm9ybWF0aW9uIGFib3V0IEtkZW5saXZlJ3Mg\nZmVhdHVyZXMsIHR1dG9yaWFscywgYW5kIGNvbW11bml0eSwgcGxlYXNlIHZp\nc2l0IG91ciBbb2ZmaWNpYWwgd2Vic2l0ZV0oaHR0cHM6Ly9rZGVubGl2ZS5v\ncmcpLgoKVGhlcmUgeW91IGNhbiBhbHNvIGZpbmQgZG93bmxvYWRzIGZvciBi\nb3RoIHN0YWJsZSByZWxlYXNlcyBhbmQgZXhwZXJpbWVudGFsIGRhaWx5IGJ1\naWxkcyBmb3IgS2RlbmxpdmUuCgojIyBDb250cmlidXRpbmcgdG8gS2Rlbmxp\ndmUKCktkZW5saXZlIGlzIGEgY29tbXVuaXR5LWRyaXZlbiBwcm9qZWN0LCBh\nbmQgd2Ugd2VsY29tZSBjb250cmlidXRpb25zIGZyb20gZXZlcnlvbmUhIFRo\nZXJlIGFyZSBtYW55IHdheXMgdG8gY29udHJpYnV0ZSBiZXlvbmQgY29kaW5n\nOgoKLSBIZWxwIHRyYW5zbGF0ZSBLZGVubGl2ZSBpbnRvIHlvdXIgbGFuZ3Vh\nZ2UKLSBSZXBvcnQgYW5kIHRyaWFnZSBidWdzCi0gV3JpdGUgZG9jdW1lbnRh\ndGlvbgotIENyZWF0ZSB0dXRvcmlhbHMKLSBIZWxwIG90aGVyIHVzZXJzIG9u\nIGZvcnVtcyBhbmQgYnVnIHRyYWNrZXJzCgpWaXNpdCBba2RlbmxpdmUub3Jn\nXShodHRwczovL2tkZW5saXZlLm9yZykgdG8gbGVhcm4gbW9yZSBhYm91dCBu\nb24tY29kZSBjb250cmlidXRpb25zLgoKIyMgRGV2ZWxvcGVyIEluZm9ybWF0\naW9uCgojIyMgVGVjaG5vbG9neSBTdGFjawoKS2RlbmxpdmUgaXMgd3JpdHRl\nbiBpbiBDKysgYW5kIGlzIHVzaW5nIHRoZXNlIHRlY2hub2xvZ2llcyBhbmQg\nZnJhbWV3b3JrczoKCi0gKipDb3JlIEZyYW1ld29yayoqOiBNTFQgZm9yIHZp\nZGVvIGVkaXRpbmcgZnVuY3Rpb25hbGl0eQotICoqR1VJIEZyYW1ld29yayoq\nOiBRdCBhbmQgS0RFIEZyYW1ld29ya3MgNgotICoqQWRkaXRpb25hbCBMaWJy\nYXJpZXMqKjogZnJlaTByICh2aWRlbyBlZmZlY3RzKSwgTEFEU1BBIChhdWRp\nbyBlZmZlY3RzKQoKIyMjIEdldHRpbmcgU3RhcnRlZAoKMS4gQ2hlY2sgb3V0\nIG91ciBbYnVpbGQgaW5zdHJ1Y3Rpb25zXShkZXYtZG9jcy9idWlsZC5tZCkg\ndG8gc2V0IHVwIHlvdXIgZGV2ZWxvcG1lbnQgZW52aXJvbm1lbnQKMi4gRmFt\naWxpYXJpemUgeW91cnNlbGYgd2l0aCB0aGUgW2FyY2hpdGVjdHVyZV0oZGV2\nLWRvY3MvYXJjaGl0ZWN0dXJlLm1kKSBhbmQgW2NvZGluZyBndWlkZWxpbmVz\nXShkZXYtZG9jcy9jb2RpbmcubWQpCjQuIElmIHRoZSBNTFQgbGlicmFyeSBp\ncyBuZXcgdG8geW91IGNoZWNrIG91dCBbTUxUIEludHJvZHVjdGlvbl0oZGV2\nLWRvY3MvbWx0LWludHJvLm1kKQozLiBKb2luIG91ciBNYXRyaXggY2hhbm5l\nbCBgI2tkZW5saXZlLWRldjprZGUub3JnYCBmb3IgZGV2ZWxvcGVyIGRpc2N1\nc3Npb25zIGFuZCBzdXBwb3J0CgojIyMgQ29udHJpYnV0aW5nIENvZGUKCktk\nZW5saXZlJ3MgcHJpbWFyeSBkZXZlbG9wbWVudCBoYXBwZW5zIG9uIFtLREUg\nSW52ZW50XShodHRwczovL2ludmVudC5rZGUub3JnL211bHRpbWVkaWEva2Rl\nbmxpdmUpLiBXaGlsZSB3ZSBtYWludGFpbiBhIEdpdEh1YiBtaXJyb3IsIGFs\nbCBjb2RlIGNvbnRyaWJ1dGlvbnMgc2hvdWxkIGJlIHN1Ym1pdHRlZCB0aHJv\ndWdoIEtERSdzIEdpdExhYiBpbnN0YW5jZS4gRm9yIG1vcmUgaW5mb3JtYXRp\nb24gYWJvdXQgS0RFJ3MgZGV2ZWxvcG1lbnQgaW5mcmFzdHJ1Y3R1cmUsIHZp\nc2l0IHRoZSBbS0RFIEdpdExhYiBkb2N1bWVudGF0aW9uXShodHRwczovL2Nv\nbW11bml0eS5rZGUub3JnL0luZnJhc3RydWN0dXJlL0dpdExhYikuCgojIyMg\nRmluZGluZyBUaGluZ3MgdG8gV29yayBPbgoKLSBCcm93c2Ugb3BlbiBpc3N1\nZXMgb24gW0tERSBJbnZlbnRdKGh0dHBzOi8vaW52ZW50LmtkZS5vcmcvbXVs\ndGltZWRpYS9rZGVubGl2ZS8tL2lzc3VlcyksIGZvciBleGFtcGxlIHRob3Nl\nIGxhYmVsZWQgd2l0aCBbRmlyc3QgVGFza10oaHR0cHM6Ly9pbnZlbnQua2Rl\nLm9yZy9tdWx0aW1lZGlhL2tkZW5saXZlLy0vaXNzdWVzP2xhYmVsX25hbWUl\nNUIlNUQ9Rmlyc3QlMjBUYXNrKQotIENoZWNrIHRoZSBbS0RFIEJ1ZyBUcmFj\na2VyXShodHRwczovL2J1Z3Mua2RlLm9yZykgZm9yIHJlcG9ydGVkIGlzc3Vl\ncwotIExvb2sgZm9yIGlzc3VlcyB0YWdnZWQgd2l0aCAiZ29vZCBmaXJzdCBp\nc3N1ZSIgb3IgImhlbHAgd2FudGVkIgoKTmVlZCBoZWxwIGdldHRpbmcgc3Rh\ncnRlZD8gSm9pbiBvdXIgTWF0cml4IGNoYW5uZWwgYCNrZGVubGl2ZS1kZXY6\na2RlLm9yZ2AgLSBvdXIgY29tbXVuaXR5IGlzIGZyaWVuZGx5IGFuZCBhbHdh\neXMgcmVhZHkgdG8gaGVscCBuZXcgY29udHJpYnV0b3JzIQoKUGxlYXNlIGdl\ndCBpbiB0b3VjaCB3aXRoIHVzIGJlZm9yZSB3b3JraW5nIG9uIGEgdGFzaywg\nZWl0aGVyIGJ5IGNvbW1lbnRpbmcgaW4gdGhlIGlzc3VlIG9yIHRocm91Z2gg\nb3VyIE1hdHJpeCBjaGFubmVsLgo=\n",
+    "encoding": "base64",
+    "_links": {
+      "self": "https://api.github.com/repos/KDE/kdenlive/contents/README.md?ref=master",
+      "git": "https://api.github.com/repos/KDE/kdenlive/git/blobs/aafacd56d79aeb85ff57fe1cfbbfd8e6a585db6d",
+      "html": "https://github.com/KDE/kdenlive/blob/master/README.md"
+    }
+  },
+  "metadata_field_policy": null
+}

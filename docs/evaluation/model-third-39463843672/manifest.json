@@ -1,0 +1,18 @@
+{
+  "run_id": 39463843672,
+  "run_url": "https://github.com/w452187971/gitradar/actions/runs/39463843672",
+  "source_commit": "980b7657415796f9d9c67181dac69365a22e2838",
+  "scope": "Six frozen development cases; isolated CPU diagnostic; not production or blind evaluation",
+  "archived_at": "2026-10-20T17:16:15.136434+00:00",
+  "sha256": {
+    "case-00-schema-canary.txt": "b7ccdc558e5b464862c8e832c7d59595caee17f56efadfac671f9b29dd50202c",
+    "case-01.txt": "c024644aaad3a7ffdc1f022bbdde2ff19e079d346b14570680e08b56561f7a27",
+    "case-02.txt": "5926aafbe8817d44fdab6240ca46e46c0af487f165e543b0c43ae910043e73fd",
+    "case-03.txt": "0a6ea4700bc926c5b6caf5cf64f9454c1c0fe84a326d628d752cba8d6e0076d1",
+    "case-04.txt": "c941fa951cf6814f7d0f04827caedf42d62ae48af60f1adf02698d710e1f0f3e",
+    "case-05.txt": "f345e234365c04c33f0e993283ead97682f9a5d32f00e1bd25d52e8b01234941",
+    "case-06.txt": "33437ad3220ab1604b3645ed30ae10ed680455a1e0f06a64220aacc453d443f7",
+    "report.json": "63584856d22e84f4ac67d7dc3d8de0ea005bacb8207cba2f299f8a9c73fe3772",
+    "server.log": "e8514f2943483e7625f74ce138fed724754faf65bfa58bd31dc172f19ce58b5c"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "purpose": {
+    "value": "提供英语外刊杂志的下载和阅读服务",
+    "ref_id": "r1"
+  },
+  "audience": {
+    "value": "英语学习者和英语阅读爱好者",
+    "ref_id": "r1"
+  },
+  "platforms": {
+    "value": "iOS和Android",
+    "ref_id": "r1"
+  },
+  "form": {
+    "value": "App",
+    "ref_id": "r1"
+  },
+  "requirements": {
+    "value": "需要安装App并连接互联网",
+    "ref_id": "r1"
+  },
+  "path": {
+    "value": "https://apps.apple.com/cn/app/ereader-%E8%8B%B1%E9%98%85%E9%98%85%E8%AF%BB%E5%99%A8/id1558805880",
+    "ref_id": "r1"
+  },
+  "fees": {
+    "value": "需要付费下载",
+    "ref_id": "r1"
+  },
+  "license": {
+    "value": "未提及",
+    "ref_id": "r1"
+  }
+}

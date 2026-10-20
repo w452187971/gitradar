@@ -1,0 +1,36 @@
+{
+  "request_url": "https://api.github.com/repos/KDE/kdenlive",
+  "requested_at": "2026-10-20T17:15:23.864800Z",
+  "received_at": "2026-10-20T17:15:25.152140Z",
+  "http_status": 200,
+  "headers": {
+    "Date": "Tue, 20 Oct 2026 17:15:24 GMT",
+    "Content-Type": "application/json; charset=utf-8",
+    "ETag": "\"5d09a4b0c9228584bda8cd2b1a7f3ae31e7067827ca5d81c54a48a4f49d394f6\"",
+    "Last-Modified": "Tue, 20 Oct 2026 15:42:37 GMT",
+    "X-RateLimit-Limit": "5000",
+    "X-RateLimit-Remaining": "4808",
+    "X-RateLimit-Reset": "1792516956",
+    "X-RateLimit-Used": "192",
+    "X-GitHub-Request-Id": "2B5C:2813A1:72F44:B6B9C:6AD7A1AC"
+  },
+  "body": {
+    "archived": false,
+    "created_at": "2015-09-18T13:16:08Z",
+    "description": "Free and open source video editor, based on MLT Framework and KDE Frameworks",
+    "disabled": false,
+    "full_name": "KDE/kdenlive",
+    "homepage": "https://invent.kde.org/multimedia/kdenlive",
+    "html_url": "https://github.com/KDE/kdenlive",
+    "license": {
+      "key": "gpl-3.0",
+      "name": "GNU General Public License v3.0",
+      "spdx_id": "GPL-3.0",
+      "url": "https://api.github.com/licenses/gpl-3.0",
+      "node_id": "MDc6TGljZW5zZTk="
+    },
+    "node_id": "MDEwOlJlcG9zaXRvcnk0MjcyMzI2OA==",
+    "fork": false
+  },
+  "metadata_field_policy": "public product facts only"
+}

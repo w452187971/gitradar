@@ -1,0 +1,36 @@
+{
+  "request_url": "https://api.github.com/repos/bleachbit/bleachbit/contents/README.md?ref=master",
+  "requested_at": "2026-10-20T17:15:31.072281Z",
+  "received_at": "2026-10-20T17:15:32.439690Z",
+  "http_status": 200,
+  "headers": {
+    "Content-Type": "application/json; charset=utf-8",
+    "Date": "Tue, 20 Oct 2026 17:15:32 GMT",
+    "ETag": "\"44df102c9e4b86cfbcefb3cc6930cd56282d6c54\"",
+    "Last-Modified": "Tue, 20 Oct 2026 15:50:03 GMT",
+    "X-RateLimit-Limit": "5000",
+    "X-RateLimit-Remaining": "4804",
+    "X-RateLimit-Reset": "1792516956",
+    "X-RateLimit-Used": "196",
+    "X-GitHub-Request-Id": "B058:14CE65:6F694:B24C3:6AD7A1B3"
+  },
+  "body": {
+    "name": "README.md",
+    "path": "README.md",
+    "sha": "44df102c9e4b86cfbcefb3cc6930cd56282d6c54",
+    "size": 2950,
+    "url": "https://api.github.com/repos/bleachbit/bleachbit/contents/README.md?ref=master",
+    "html_url": "https://github.com/bleachbit/bleachbit/blob/master/README.md",
+    "git_url": "https://api.github.com/repos/bleachbit/bleachbit/git/blobs/44df102c9e4b86cfbcefb3cc6930cd56282d6c54",
+    "download_url": "https://raw.githubusercontent.com/bleachbit/bleachbit/master/README.md",
+    "type": "file",
+    "content": "IyBCbGVhY2hCaXQKCkJsZWFjaEJpdCBjbGVhbnMgZmlsZXMgdG8gZnJlZSBk\naXNrIHNwYWNlIGFuZCB0byBtYWludGFpbiBwcml2YWN5LgoKIyMgUnVubmlu\nZyBmcm9tIHNvdXJjZQoKVG8gcnVuIEJsZWFjaEJpdCB3aXRob3V0IGluc3Rh\nbGxhdGlvbiwgZmlyc3QgaW5zdGFsbCB0aGUgc3lzdGVtIGRlcGVuZGVuY2ll\ncywKdGhlbiBidWlsZCB0aGUgdHJhbnNsYXRpb25zIGFuZCBydW4gaXQ6Cgpg\nYGBzaAptYWtlIGluc3RhbGwtZGVwcyAgICAgICAjIHJ1bnRpbWUgZGVwcyAo\nYXV0by1kZXRlY3RzIERlYmlhbi9GZWRvcmEvb3BlblNVU0UvQXJjaCkKbWFr\nZSAtQyBwbyBsb2NhbCAgICAgICAgIyBidWlsZCB0cmFuc2xhdGlvbnMKcHl0\naG9uMyBibGVhY2hiaXQucHkKYGBgCgpNYW55IExpbnV4IHN5c3RlbXMgaGF2\nZSB0aGUgYmFzaWMgZGVwZW5kZW5jaWVzOiB5b3UgbWF5IHNraXAgaW5zdGFs\nbGF0aW9uLApidXQgaW4gY2FzZSBvZiBhbnkgaXNzdWVzLCBwbGVhc2UgY2hl\nY2sgZm9yIG1pc3NpbmcgZGVwZW5kZW5jaWVzLgoKVGhlbiwgcmV2aWV3IHRo\nZSBwcmVmZXJlbmNlcy4KClRoZW4sIHNlbGVjdCBzb21lIG9wdGlvbnMsIGFu\nZCBjbGljayBQcmV2aWV3LiAgUmV2aWV3IHRoZSBmaWxlcywgdG9nZ2xlIG9w\ndGlvbnMgYWNjb3JkaW5nbHksIGFuZCBjbGljayBEZWxldGUuCgpGb3IgaW5m\nb3JtYXRpb24gcmVnYXJkaW5nIHRoZSBjb21tYW5kIGxpbmUgaW50ZXJmYWNl\nLCBydW46CgpgYGBzaApweXRob24zIGJsZWFjaGJpdC5weSAtLWhlbHAKYGBg\nCgpSZWFkIG1vcmUgYWJvdXQgW3J1bm5pbmcgZnJvbSBzb3VyY2VdKGh0dHBz\nOi8vZG9jcy5ibGVhY2hiaXQub3JnL2Rldi9ydW5uaW5nLWZyb20tc291cmNl\nLWNvZGUuaHRtbCkuCgojIyBMaW5rcwoKKiBbQmxlYWNoQml0IGhvbWUgcGFn\nZV0oaHR0cHM6Ly93d3cuYmxlYWNoYml0Lm9yZykKKiBbU3VwcG9ydF0oaHR0\ncHM6Ly93d3cuYmxlYWNoYml0Lm9yZy9oZWxwKQoqIFtEb2N1bWVudGF0aW9u\nXShodHRwczovL2RvY3MuYmxlYWNoYml0Lm9yZykKCiMjIExvY2FsaXphdGlv\nbgoKUmVhZCBbdHJhbnNsYXRpb24gZG9jdW1lbnRhdGlvbl0oaHR0cHM6Ly93\nd3cuYmxlYWNoYml0Lm9yZy9jb250cmlidXRlL3RyYW5zbGF0ZSkgb3IgdHJh\nbnNsYXRlIG5vdyBpbiBbV2VibGF0ZV0oaHR0cHM6Ly9ob3N0ZWQud2VibGF0\nZS5vcmcvcHJvamVjdHMvYmxlYWNoYml0LyksIGEgd2ViLWJhc2VkIHRyYW5z\nbGF0aW9uIHBsYXRmb3JtLgoKPGEgaHJlZj0iaHR0cHM6Ly9ob3N0ZWQud2Vi\nbGF0ZS5vcmcvZW5nYWdlL2JsZWFjaGJpdC8iPgogICAgICA8aW1nIHNyYz0i\naHR0cHM6Ly9ob3N0ZWQud2VibGF0ZS5vcmcvd2lkZ2V0cy9ibGVhY2hiaXQv\nLS9tdWx0aS1hdXRvLnN2ZyIgYWx0PSJUcmFuc2xhdGlvbiBzdGF0dXMiLz4K\nPC9hPgoKIyMgTGljZW5zZXMKCkJsZWFjaEJpdCBpdHNlbGYsIGluY2x1ZGlu\nZyBzb3VyY2UgY29kZSBhbmQgY2xlYW5lciBkZWZpbml0aW9ucywgaXMgbGlj\nZW5zZWQgdW5kZXIgdGhlIFtHTlUgR2VuZXJhbCBQdWJsaWMgTGljZW5zZSB2\nZXJzaW9uIDNdKENPUFlJTkcpLCBvciBhdCB5b3VyIG9wdGlvbiwgYW55IGxh\ndGVyIHZlcnNpb24uCgptYXJrb3ZpZnkgaXMgbGljZW5zZWQgdW5kZXIgdGhl\nIFtNSVQgTGljZW5zZV0oaHR0cHM6Ly9naXRodWIuY29tL2pzdmluZS9tYXJr\nb3ZpZnkvYmxvYi9tYXN0ZXIvTElDRU5TRS50eHQpLgoKIyMgRGV2ZWxvcG1l\nbnQKClRvIGRldmVsb3AsIHJ1biB0aGUgdGVzdCBzdWl0ZSwgb3IgYnVpbGQg\ncGFja2FnZXMsIGluc3RhbGwgdGhlCmV4dHJhIGJ1aWxkL3Rlc3QvbGludC9w\nYWNrYWdpbmcgdG9vbHMgdG9vOgoKYGBgc2gKbWFrZSBpbnN0YWxsLWRlcHMt\nZGV2CmBgYAoKQ29tbW9uIGNvbW1hbmRzIGluY2x1ZGU6CgpgYGBzaAptYWtl\nIHRlc3RzICAgIyBydW4gdGVzdHMKbWFrZSBsaW50ICAgICMgY2hlY2sgLnB5\nIGFuZCAuc2ggZmlsZXMgZm9yIGlzc3VlcwptYWtlIHByZXR0eSAgIyBmb3Jt\nYXQgLnB5IGFuZCAueG1sIGZpbGVzCmBgYAoKTW9yZSByZXNvdXJjZXM6Ciog\nWyFbQnVpbGQgYW5kIFRlc3RdKGh0dHBzOi8vZ2l0aHViLmNvbS9ibGVhY2hi\naXQvYmxlYWNoYml0L2FjdGlvbnMvd29ya2Zsb3dzL2J1aWxkX2FuZF90ZXN0\nLnlhbWwvYmFkZ2Uuc3ZnP2JyYW5jaD1tYXN0ZXIpXShodHRwczovL2dpdGh1\nYi5jb20vYmxlYWNoYml0L2JsZWFjaGJpdC9hY3Rpb25zL3dvcmtmbG93cy9i\ndWlsZF9hbmRfdGVzdC55YW1sKQoqIFshW1J1biB0ZXN0cyBvbiBtYWNPU10o\naHR0cHM6Ly9naXRodWIuY29tL2JsZWFjaGJpdC9ibGVhY2hiaXQvYWN0aW9u\ncy93b3JrZmxvd3MvdGVzdF9tYWNvcy55YW1sL2JhZGdlLnN2Zz9icmFuY2g9\nbWFzdGVyKV0oaHR0cHM6Ly9naXRodWIuY29tL2JsZWFjaGJpdC9ibGVhY2hi\naXQvYWN0aW9ucy93b3JrZmxvd3MvdGVzdF9tYWNvcy55YW1sKQoqIFtDbGVh\nbmVyTUwgUmVwb3NpdG9yeV0oaHR0cHM6Ly9naXRodWIuY29tL2JsZWFjaGJp\ndC9jbGVhbmVybWwpCiogW0JsZWFjaEJpdCBNaXNjZWxsYW5lb3VzIFJlcG9z\naXRvcnldKGh0dHBzOi8vZ2l0aHViLmNvbS9ibGVhY2hiaXQvYmxlYWNoYml0\nLW1pc2MpCiogW1dpbmFwcDIuaW5pIFJlcG9zaXRvcnldKGh0dHBzOi8vZ2l0\naHViLmNvbS9ibGVhY2hiaXQvd2luYXBwMi5pbmkpCgojIyMgRG9ja2VyLWJh\nc2VkIExpbnV4IGJ1aWxkcwoKVGhlIGBkb2NrZXIvYnVpbGQuc2hgIHNjcmlw\ndCBzZXRzIHVwIGEgY29udGFpbmVyLCBydW5zIGBtYWtlIHRlc3RzYCwKYW5k\nIGJ1aWxkcyBwYWNrYWdlcyBmb3IgYSBzZWxlY3RlZCBkaXN0cmlidXRpb24u\nIFVzYWdlOgoKYGBgc2gKLi9kb2NrZXIvYnVpbGQuc2ggPGRpc3Rybz4gIyBk\naXN0cm8gaXMgb25lIG9mIHtkZWJpYW4sIGZlZG9yYSwgb3BlbnN1c2V9CmBg\nYAoKQXJ0aWZhY3RzIGFyZSBjb3BpZWQgdG8gYC4vZG9ja2VyLWFydGlmYWN0\ncy88ZGlzdHJvPmAgb24gdGhlIGhvc3QuCg==\n",
+    "encoding": "base64",
+    "_links": {
+      "self": "https://api.github.com/repos/bleachbit/bleachbit/contents/README.md?ref=master",
+      "git": "https://api.github.com/repos/bleachbit/bleachbit/git/blobs/44df102c9e4b86cfbcefb3cc6930cd56282d6c54",
+      "html": "https://github.com/bleachbit/bleachbit/blob/master/README.md"
+    }
+  },
+  "metadata_field_policy": null
+}

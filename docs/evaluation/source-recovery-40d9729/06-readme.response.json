@@ -1,0 +1,36 @@
+{
+  "request_url": "https://api.github.com/repos/HandBrake/HandBrake/contents/README.markdown?ref=master",
+  "requested_at": "2026-10-20T17:15:34.813843Z",
+  "received_at": "2026-10-20T17:15:35.863476Z",
+  "http_status": 200,
+  "headers": {
+    "Content-Type": "application/json; charset=utf-8",
+    "Date": "Tue, 20 Oct 2026 17:15:35 GMT",
+    "ETag": "\"880f735211000624ee8f35959d6fcf34b4378f85\"",
+    "Last-Modified": "Tue, 20 Oct 2026 15:01:04 GMT",
+    "X-RateLimit-Limit": "5000",
+    "X-RateLimit-Remaining": "4801",
+    "X-RateLimit-Reset": "1792516956",
+    "X-RateLimit-Used": "199",
+    "X-GitHub-Request-Id": "B07C:2A18A4:72F25:B6E81:6AD7A1B7"
+  },
+  "body": {
+    "name": "README.markdown",
+    "path": "README.markdown",
+    "sha": "880f735211000624ee8f35959d6fcf34b4378f85",
+    "size": 2716,
+    "url": "https://api.github.com/repos/HandBrake/HandBrake/contents/README.markdown?ref=master",
+    "html_url": "https://github.com/HandBrake/HandBrake/blob/master/README.markdown",
+    "git_url": "https://api.github.com/repos/HandBrake/HandBrake/git/blobs/880f735211000624ee8f35959d6fcf34b4378f85",
+    "download_url": "https://raw.githubusercontent.com/HandBrake/HandBrake/master/README.markdown",
+    "type": "file",
+    "content": "IyBIYW5kQnJha2UgWyFbbWFjT1MgQnVpbGRdKGh0dHBzOi8vZ2l0aHViLmNv\nbS9IYW5kQnJha2UvSGFuZEJyYWtlL3dvcmtmbG93cy9tYWNPUyUyMGJ1aWxk\nL2JhZGdlLnN2ZyldKGh0dHBzOi8vZ2l0aHViLmNvbS9IYW5kQnJha2UvSGFu\nZEJyYWtlL2FjdGlvbnM/cXVlcnk9d29ya2Zsb3clM0ElMjJtYWNPUytidWls\nZCUyMikgWyFbV2luZG93cyBCdWlsZF0oaHR0cHM6Ly9naXRodWIuY29tL0hh\nbmRCcmFrZS9IYW5kQnJha2Uvd29ya2Zsb3dzL1dpbmRvd3MlMjBCdWlsZC9i\nYWRnZS5zdmcpXShodHRwczovL2dpdGh1Yi5jb20vSGFuZEJyYWtlL0hhbmRC\ncmFrZS9hY3Rpb25zP3F1ZXJ5PXdvcmtmbG93JTNBJTIyV2luZG93cytCdWls\nZCUyMikgWyFbTGludXggQnVpbGRdKGh0dHBzOi8vZ2l0aHViLmNvbS9IYW5k\nQnJha2UvSGFuZEJyYWtlL3dvcmtmbG93cy9MaW51eCUyMEJ1aWxkL2JhZGdl\nLnN2ZyldKGh0dHBzOi8vZ2l0aHViLmNvbS9IYW5kQnJha2UvSGFuZEJyYWtl\nL2FjdGlvbnM/cXVlcnk9d29ya2Zsb3clM0ElMjJMaW51eCtCdWlsZCUyMikK\nCgpIYW5kQnJha2UgaXMgYW4gb3Blbi1zb3VyY2UgdmlkZW8gdHJhbnNjb2Rl\nciBhdmFpbGFibGUgZm9yIExpbnV4LCBNYWMsIGFuZCBXaW5kb3dzLCBsaWNl\nbnNlZCB1bmRlciB0aGUgW0dOVSBHZW5lcmFsIFB1YmxpYyBMaWNlbnNlIChH\nUEwpIFZlcnNpb24gMl0oTElDRU5TRSkuCgpIYW5kQnJha2UgdGFrZXMgdmlk\nZW9zIHlvdSBhbHJlYWR5IGhhdmUgYW5kIG1ha2VzIG5ldyBvbmVzIHRoYXQg\nd29yayBvbiB5b3VyIG1vYmlsZSBwaG9uZSwgdGFibGV0LCBUViBtZWRpYSBw\nbGF5ZXIsIGdhbWUgY29uc29sZSwgY29tcHV0ZXIsIG9yIHdlYiBicm93c2Vy\n4oCUbmVhcmx5IGFueXRoaW5nIHRoYXQgc3VwcG9ydHMgbW9kZXJuIHZpZGVv\nIGZvcm1hdHMuCgpIYW5kQnJha2Ugd29ya3Mgd2l0aCBtb3N0IGNvbW1vbiB2\naWRlbyBmaWxlcyBhbmQgZm9ybWF0cywgaW5jbHVkaW5nIG9uZXMgY3JlYXRl\nZCBieSBjb25zdW1lciBhbmQgcHJvZmVzc2lvbmFsIHZpZGVvIGNhbWVyYXMs\nIG1vYmlsZSBkZXZpY2VzIHN1Y2ggYXMgcGhvbmVzIGFuZCB0YWJsZXRzLCBn\nYW1lIGFuZCBjb21wdXRlciBzY3JlZW4gcmVjb3JkaW5ncywgYW5kIERWRCBh\nbmQgQmx1LXJheSBkaXNjcy4gSGFuZEJyYWtlIGxldmVyYWdlcyB0b29scyBz\ndWNoIGFzIEZGbXBlZywgeDI2NCwgYW5kIHgyNjUsIFNWVC1BVjEgdG8gY3Jl\nYXRlIG5ldyBNUDQsIE1LViBvciBXZWJNIHZpZGVvIGZpbGVzIGZyb20gdGhl\nc2UgKlNvdXJjZXMqLgoKRm9yIGluZm9ybWF0aW9uIG9uIGRvd25sb2FkaW5n\nLCBidWlsZGluZy9pbnN0YWxsaW5nLCBhbmQgdXNpbmcgSGFuZEJyYWtlLCBz\nZWUgdGhlIG9mZmljaWFsIFtIYW5kQnJha2UgRG9jdW1lbnRhdGlvbl0oaHR0\ncHM6Ly9oYW5kYnJha2UuZnIvZG9jcykuCgojIyBDb21tdW5pdHkgU3VwcG9y\ndAoKRm9yIGluZm9ybWF0aW9uIG9uIEhhbmRCcmFrZSdzIGNvbW11bml0eSBz\ndXBwb3J0IGNoYW5uZWxzLCBwbGVhc2Ugc2VlIFtDb21tdW5pdHkgU3VwcG9y\ndF0oaHR0cHM6Ly9oYW5kYnJha2UuZnIvZG9jcy9lbi9sYXRlc3QvaGVscC9j\nb21tdW5pdHktc3VwcG9ydC5odG1sKS4KClBsZWFzZSBmYW1pbGlhcmlzZSB5\nb3Vyc2VsZiB3aXRoIG91ciBbY29kZSBvZiBjb25kdWN0XShodHRwczovL2dp\ndGh1Yi5jb20vSGFuZEJyYWtlL0hhbmRCcmFrZS9ibG9iL21hc3Rlci9DT0RF\nX09GX0NPTkRVQ1QubWQpLgoKIyMgQ29udHJpYnV0aW5nCgpXZSB3ZWxjb21l\nIG1vc3QgY29udHJpYnV0aW9ucy4gV2hpbGUgaXQgaXMgb3VyIGdvYWwgdG8g\nYWxsb3cgZXZlcnlvbmUgdG8gY29udHJpYnV0ZSwgY29udHJpYnV0aW9ucyBu\nb3QgbWVldGluZyB0aGUgcHJvamVjdCdzIGdvYWxzIG9yIHN0YW5kYXJkcyBt\nYXkgYmUgcmVqZWN0ZWQuCgpQbGVhc2UgcmVhZCBvdXIgW2d1aWRlIHRvIGNv\nbnRyaWJ1dGluZ10oaHR0cHM6Ly9oYW5kYnJha2UuZnIvZG9jcy9lbi9sYXRl\nc3QvY29udHJpYnV0aW5nL2NvbnRyaWJ1dGUuaHRtbCkuIFRoaXMgd2lsbCBw\ncm92aWRlIHlvdSB3aXRoIGFsbCB0aGUgaW5mb3JtYXRpb24geW91IG5lZWQg\ndG8gc3RhcnQgY29udHJpYnV0aW5nIHRvIHRoZSBwcm9qZWN0LiAKCiMjIFRy\nYW5zbGF0aW9ucwoKV2UgYXJlIG5vdyBhY2NlcHRpbmcgdHJhbnNsYXRpb25z\nIHZpYSAgW1RyYW5zaWZleF0oaHR0cHM6Ly9leHBsb3JlLnRyYW5zaWZleC5j\nb20vSGFuZEJyYWtlUHJvamVjdC8pIAoKUGxlYXNlIHJlYWQgb3VyIFtUcmFu\nc2xhdGlvbnMgR3VpZGVdKGh0dHBzOi8vZ2l0aHViLmNvbS9IYW5kQnJha2Uv\nSGFuZEJyYWtlL2Jsb2IvbWFzdGVyL1RSQU5TTEFUSU9OLm1hcmtkb3duKSBh\nbmQgZm9sbG93IHRoZSBpbnN0cnVjdGlvbnMgaWYgeW91IGFyZSBpbnRlcmVz\ndGVkIGluIGpvaW5pbmcgdGhlIHRyYW5zbGF0aW9uIGVmZm9ydC4KCgojIyBB\nZGRpdGlvbmFsIEluZm9ybWF0aW9uCgpbQXBwbGljYXRpb24gLyBQcm9qZWN0\nIEluZm9ybWF0aW9uXShodHRwczovL2dpdGh1Yi5jb20vSGFuZEJyYWtlL0hh\nbmRCcmFrZS93aWtpL0FwcGxpY2F0aW9uLUluZm9ybWF0aW9uKSAgCltBdXRo\nb3JzXShBVVRIT1JTLm1hcmtkb3duKSAgCltMaWNlbnNlXShMSUNFTlNFKSAg\nCltOZXdzXShORVdTLm1hcmtkb3duKSAgCgojIyBTcGVjaWFsIFRoYW5rcwoK\nVG8gYWxsIHRob3NlIHdobyBoYXZlIGNvbnRyaWJ1dGVkISBbVGhhbmtzXShU\nSEFOS1MubWFya2Rvd24pCg==\n",
+    "encoding": "base64",
+    "_links": {
+      "self": "https://api.github.com/repos/HandBrake/HandBrake/contents/README.markdown?ref=master",
+      "git": "https://api.github.com/repos/HandBrake/HandBrake/git/blobs/880f735211000624ee8f35959d6fcf34b4378f85",
+      "html": "https://github.com/HandBrake/HandBrake/blob/master/README.markdown"
+    }
+  },
+  "metadata_field_policy": null
+}

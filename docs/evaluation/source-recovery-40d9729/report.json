@@ -1,0 +1,887 @@
+{
+  "audit_started_from": "40d9729 production evidence + immutable seed assertions",
+  "generated_at": "2026-10-20T17:15:44.052254Z",
+  "seed_file_sha256": "9581bd8036eaf2ce780b2eed696c40d10c81298cfd566ab49b307ecdcc259a64",
+  "physical_get_limit": 25,
+  "requests": {
+    "physical_gets": 24,
+    "logical_gets": 24,
+    "fresh_audit_gets": 22,
+    "redirects": [],
+    "prior_anonymous_403_gets": 1,
+    "conservative_interrupted_gets": 1,
+    "archived_response_replays": 6
+  },
+  "authentication": "existing authorized helper; credentials remain in memory and are not archived",
+  "data_modified": false,
+  "restoration_performed": false,
+  "scope": "8 fresh metadata, 8 fresh README, 6 fresh root license documents; other project assertions not refreshed by this audit",
+  "projects": [
+    {
+      "project": "Flow-Launcher/Flow.Launcher",
+      "requested_bindings_supported": true,
+      "decision": "eligible_for_independent_binding_restore_review",
+      "unchecked_other_sources": [
+        {
+          "ref_id": "path",
+          "source_url": "https://github.com/Flow-Launcher/Flow.Launcher/releases/latest",
+          "reason": "outside this 22 GET scope"
+        }
+      ],
+      "project_eligibility_restored": false
+    },
+    {
+      "project": "FreeTubeApp/FreeTube",
+      "requested_bindings_supported": true,
+      "decision": "eligible_for_independent_binding_restore_review",
+      "unchecked_other_sources": [
+        {
+          "ref_id": "path",
+          "source_url": "https://github.com/FreeTubeApp/FreeTube/releases",
+          "reason": "outside this 22 GET scope"
+        }
+      ],
+      "project_eligibility_restored": false
+    },
+    {
+      "project": "Zettlr/Zettlr",
+      "requested_bindings_supported": true,
+      "decision": "eligible_for_independent_binding_restore_review",
+      "unchecked_other_sources": [
+        {
+          "ref_id": "path",
+          "source_url": "https://www.zettlr.com/download",
+          "reason": "outside this 22 GET scope"
+        }
+      ],
+      "project_eligibility_restored": false
+    },
+    {
+      "project": "KDE/kdenlive",
+      "requested_bindings_supported": true,
+      "decision": "eligible_for_independent_binding_restore_review",
+      "unchecked_other_sources": [
+        {
+          "ref_id": "requirements_1",
+          "source_url": "https://kdenlive.org/download/",
+          "reason": "outside this 22 GET scope"
+        },
+        {
+          "ref_id": "path",
+          "source_url": "https://kdenlive.org/download/",
+          "reason": "outside this 22 GET scope"
+        }
+      ],
+      "project_eligibility_restored": false
+    },
+    {
+      "project": "bleachbit/bleachbit",
+      "requested_bindings_supported": true,
+      "decision": "eligible_for_independent_binding_restore_review",
+      "unchecked_other_sources": [
+        {
+          "ref_id": "requirements_1",
+          "source_url": "https://www.bleachbit.org/download",
+          "reason": "outside this 22 GET scope"
+        },
+        {
+          "ref_id": "requirements_2",
+          "source_url": "https://www.bleachbit.org/download",
+          "reason": "outside this 22 GET scope"
+        },
+        {
+          "ref_id": "path",
+          "source_url": "https://www.bleachbit.org/download",
+          "reason": "outside this 22 GET scope"
+        }
+      ],
+      "project_eligibility_restored": false
+    },
+    {
+      "project": "HandBrake/HandBrake",
+      "requested_bindings_supported": true,
+      "decision": "eligible_for_independent_binding_restore_review",
+      "unchecked_other_sources": [
+        {
+          "ref_id": "license",
+          "source_url": "https://raw.githubusercontent.com/HandBrake/HandBrake/master/LICENSE",
+          "reason": "outside this 22 GET scope"
+        },
+        {
+          "ref_id": "requirements_1",
+          "source_url": "https://handbrake.fr/downloads.php",
+          "reason": "outside this 22 GET scope"
+        },
+        {
+          "ref_id": "path",
+          "source_url": "https://handbrake.fr/downloads.php",
+          "reason": "outside this 22 GET scope"
+        }
+      ],
+      "project_eligibility_restored": false
+    },
+    {
+      "project": "WinMerge/winmerge",
+      "requested_bindings_supported": true,
+      "decision": "eligible_for_independent_binding_restore_review",
+      "unchecked_other_sources": [
+        {
+          "ref_id": "requirements_1",
+          "source_url": "https://winmerge.org/downloads/",
+          "reason": "outside this 22 GET scope"
+        },
+        {
+          "ref_id": "requirements_2",
+          "source_url": "https://winmerge.org/downloads/",
+          "reason": "outside this 22 GET scope"
+        },
+        {
+          "ref_id": "path",
+          "source_url": "https://winmerge.org/downloads/",
+          "reason": "outside this 22 GET scope"
+        },
+        {
+          "ref_id": "license_grant_review",
+          "source_url": "https://raw.githubusercontent.com/WinMerge/winmerge/master/Src/Merge.cpp",
+          "reason": "outside this 22 GET scope"
+        }
+      ],
+      "project_eligibility_restored": false
+    },
+    {
+      "project": "arsenetar/dupeguru",
+      "requested_bindings_supported": true,
+      "decision": "eligible_for_independent_binding_restore_review",
+      "unchecked_other_sources": [
+        {
+          "ref_id": "requirements_1",
+          "source_url": "https://dupeguru.voltaicideas.net/",
+          "reason": "outside this 22 GET scope"
+        },
+        {
+          "ref_id": "path",
+          "source_url": "https://dupeguru.voltaicideas.net/",
+          "reason": "outside this 22 GET scope"
+        }
+      ],
+      "project_eligibility_restored": false
+    }
+  ],
+  "sources": [
+    {
+      "project": "Flow-Launcher/Flow.Launcher",
+      "purpose": "metadata",
+      "source_url": "https://api.github.com/repos/Flow-Launcher/Flow.Launcher",
+      "endpoint": "/repos/Flow-Launcher/Flow.Launcher",
+      "response_file": "01-metadata.response.json",
+      "seed_ref_ids": [
+        "repository"
+      ],
+      "checks": [
+        {
+          "ref_id": "repository",
+          "seed_span_hash": "39713a6be190926ce8da8d4ab01580ef9e38112179268654ee881c879dc8f9fd",
+          "seed_source_hash": null,
+          "binding_kind": "repository_fact_subset",
+          "matching_seed_fields": true,
+          "changed_seed_fields": [],
+          "sufficient_for_original_binding": true
+        }
+      ],
+      "http_status": 200,
+      "checked_at": "2026-10-20T17:14:23.503171Z",
+      "text_file": "01-metadata.text.txt",
+      "acquisition": "actual_saved_response_reparsed_without_another_GET",
+      "text_sha256": "4fc40d01645078aaf58e34d4cfafecf43d115411149d3ca176889ca3f9bd3c4a",
+      "identity_verified": true,
+      "sufficient_for_requested_bindings": true
+    },
+    {
+      "project": "Flow-Launcher/Flow.Launcher",
+      "purpose": "readme",
+      "source_url": "https://raw.githubusercontent.com/Flow-Launcher/Flow.Launcher/dev/README.md",
+      "endpoint": "/repos/Flow-Launcher/Flow.Launcher/contents/README.md?ref=dev",
+      "response_file": "01-readme.response.json",
+      "seed_ref_ids": [
+        "intro",
+        "install"
+      ],
+      "checks": [
+        {
+          "ref_id": "intro",
+          "seed_span_hash": "d2b1f7943d95fb4b8bc277db42d0773ae72e2526bd9c6b614b28874298ff267d",
+          "seed_source_hash": "fdfbae010fbbb93e7b333ef227ddb2050c8c96e3a4dd62619cb0f4c4997cbaa1",
+          "binding_kind": "span_and_complete_source",
+          "original_span_present": true,
+          "complete_source_hash_matches": true,
+          "sufficient_for_original_binding": true
+        },
+        {
+          "ref_id": "install",
+          "seed_span_hash": "13398f5d1ce9800813ba79c72882d040d6988df0cf1ebdaaf48b54166c081593",
+          "seed_source_hash": "fdfbae010fbbb93e7b333ef227ddb2050c8c96e3a4dd62619cb0f4c4997cbaa1",
+          "binding_kind": "span_and_complete_source",
+          "original_span_present": true,
+          "complete_source_hash_matches": true,
+          "sufficient_for_original_binding": true
+        }
+      ],
+      "http_status": 200,
+      "checked_at": "2026-10-20T17:14:24.874534Z",
+      "text_file": "01-readme.text.txt",
+      "acquisition": "actual_saved_response_reparsed_without_another_GET",
+      "text_sha256": "fdfbae010fbbb93e7b333ef227ddb2050c8c96e3a4dd62619cb0f4c4997cbaa1",
+      "identity_verified": true,
+      "sufficient_for_requested_bindings": true
+    },
+    {
+      "project": "FreeTubeApp/FreeTube",
+      "purpose": "metadata",
+      "source_url": "https://api.github.com/repos/FreeTubeApp/FreeTube",
+      "endpoint": "/repos/FreeTubeApp/FreeTube",
+      "response_file": "02-metadata.response.json",
+      "seed_ref_ids": [
+        "repository"
+      ],
+      "checks": [
+        {
+          "ref_id": "repository",
+          "seed_span_hash": "3268536d007ab9de70adbe4f447e76c2293f7e2eb2db6bf1885470046f6451e8",
+          "seed_source_hash": null,
+          "binding_kind": "repository_fact_subset",
+          "matching_seed_fields": true,
+          "changed_seed_fields": [],
+          "sufficient_for_original_binding": true
+        }
+      ],
+      "http_status": 200,
+      "checked_at": "2026-10-20T17:14:25.956755Z",
+      "text_file": "02-metadata.text.txt",
+      "acquisition": "actual_saved_response_reparsed_without_another_GET",
+      "text_sha256": "2f1965f50f93a0776e15bdaf08114fd24543752116c4dd4c98733384d7b1b936",
+      "identity_verified": true,
+      "sufficient_for_requested_bindings": true
+    },
+    {
+      "project": "FreeTubeApp/FreeTube",
+      "purpose": "readme",
+      "source_url": "https://raw.githubusercontent.com/FreeTubeApp/FreeTube/development/README.md",
+      "endpoint": "/repos/FreeTubeApp/FreeTube/contents/README.md?ref=development",
+      "response_file": "02-readme.response.json",
+      "seed_ref_ids": [
+        "intro",
+        "install",
+        "license_grant_review"
+      ],
+      "checks": [
+        {
+          "ref_id": "intro",
+          "seed_span_hash": "fdab724c95e2e9de15284ef39bf3c8c3ed8e73c48f2d40f3667193bb0e8d95ea",
+          "seed_source_hash": "9600c33cfbc6015d35b646e44654fa4ace22ad31a3aa047fb91fa4fa429a822c",
+          "binding_kind": "span_and_complete_source",
+          "original_span_present": true,
+          "complete_source_hash_matches": true,
+          "sufficient_for_original_binding": true
+        },
+        {
+          "ref_id": "install",
+          "seed_span_hash": "0e531b5ba1fd93974674376d34df1461bc99754405b0e80fcac096d73c8f8e3c",
+          "seed_source_hash": "9600c33cfbc6015d35b646e44654fa4ace22ad31a3aa047fb91fa4fa429a822c",
+          "binding_kind": "span_and_complete_source",
+          "original_span_present": true,
+          "complete_source_hash_matches": true,
+          "sufficient_for_original_binding": true
+        },
+        {
+          "ref_id": "license_grant_review",
+          "seed_span_hash": "0c844086a26818164f3eea9c790ba69b0407a3f8b8d607cb7d66d225d8fb841f",
+          "seed_source_hash": "9600c33cfbc6015d35b646e44654fa4ace22ad31a3aa047fb91fa4fa429a822c",
+          "binding_kind": "span_and_complete_source",
+          "original_span_present": true,
+          "complete_source_hash_matches": true,
+          "sufficient_for_original_binding": true
+        }
+      ],
+      "http_status": 200,
+      "checked_at": "2026-10-20T17:14:27.153818Z",
+      "text_file": "02-readme.text.txt",
+      "acquisition": "actual_saved_response_reparsed_without_another_GET",
+      "text_sha256": "9600c33cfbc6015d35b646e44654fa4ace22ad31a3aa047fb91fa4fa429a822c",
+      "identity_verified": true,
+      "sufficient_for_requested_bindings": true
+    },
+    {
+      "project": "FreeTubeApp/FreeTube",
+      "purpose": "license",
+      "source_url": "https://api.github.com/repos/FreeTubeApp/FreeTube/license",
+      "endpoint": "https://api.github.com/repos/FreeTubeApp/FreeTube/license",
+      "response_file": "02-license.response.json",
+      "seed_ref_ids": [
+        "license_document_review"
+      ],
+      "checks": [
+        {
+          "ref_id": "license_document_review",
+          "seed_span_hash": "2f4f8eb60fe0cca59abfb0a1337cb85b7d794cc35bbe31e11aafbf078d007bd8",
+          "seed_source_hash": "8486a10c4393cee1c25392769ddd3b2d6c242d6ec7928e1414efff7dfb2f07ef",
+          "binding_kind": "span_and_complete_source",
+          "original_span_present": true,
+          "complete_source_hash_matches": true,
+          "sufficient_for_original_binding": true
+        }
+      ],
+      "http_status": 200,
+      "checked_at": "2026-10-20T17:14:29.830401Z",
+      "text_file": "02-license.text.txt",
+      "acquisition": "actual_saved_response_reparsed_without_another_GET",
+      "text_sha256": "8486a10c4393cee1c25392769ddd3b2d6c242d6ec7928e1414efff7dfb2f07ef",
+      "identity_verified": true,
+      "sufficient_for_requested_bindings": true
+    },
+    {
+      "project": "Zettlr/Zettlr",
+      "purpose": "metadata",
+      "source_url": "https://api.github.com/repos/Zettlr/Zettlr",
+      "endpoint": "/repos/Zettlr/Zettlr",
+      "response_file": "03-metadata.response.json",
+      "seed_ref_ids": [
+        "repository"
+      ],
+      "checks": [
+        {
+          "ref_id": "repository",
+          "seed_span_hash": "5ef8b27fdd03fac2d028cb9247eeb374110d8769d7a3503c7e9ec6811e6db4c4",
+          "seed_source_hash": null,
+          "binding_kind": "repository_fact_subset",
+          "matching_seed_fields": true,
+          "changed_seed_fields": [],
+          "sufficient_for_original_binding": true
+        }
+      ],
+      "http_status": 200,
+      "checked_at": "2026-10-20T17:14:31.605442Z",
+      "text_file": "03-metadata.text.txt",
+      "acquisition": "actual_saved_response_reparsed_without_another_GET",
+      "text_sha256": "fd1836a2814deae6a961ee2d66f4e25223b398638a5318e73353ebbfabb7dae9",
+      "identity_verified": true,
+      "sufficient_for_requested_bindings": true
+    },
+    {
+      "project": "Zettlr/Zettlr",
+      "purpose": "readme",
+      "source_url": "https://raw.githubusercontent.com/Zettlr/Zettlr/develop/README.md",
+      "endpoint": "/repos/Zettlr/Zettlr/contents/README.md?ref=develop",
+      "response_file": "03-readme.response.json",
+      "seed_ref_ids": [
+        "intro",
+        "install"
+      ],
+      "checks": [
+        {
+          "ref_id": "intro",
+          "seed_span_hash": "f8b37d6d7f7c5512a13ac9430c9aef15012044adc3065006e74333fa27b934c5",
+          "seed_source_hash": "814dbabdab583a3ef104d2875553515b8461e068542a312f8b6a4bc0f02802e7",
+          "binding_kind": "span_and_complete_source",
+          "original_span_present": true,
+          "complete_source_hash_matches": true,
+          "sufficient_for_original_binding": true
+        },
+        {
+          "ref_id": "install",
+          "seed_span_hash": "c352322549755bffb66335189354dabc40cd5c697c9e1ce07288e0ed2b479e95",
+          "seed_source_hash": "814dbabdab583a3ef104d2875553515b8461e068542a312f8b6a4bc0f02802e7",
+          "binding_kind": "span_and_complete_source",
+          "original_span_present": true,
+          "complete_source_hash_matches": true,
+          "sufficient_for_original_binding": true
+        }
+      ],
+      "http_status": 200,
+      "checked_at": "2026-10-20T17:15:21.908151Z",
+      "text_file": "03-readme.text.txt",
+      "acquisition": "fresh_authenticated_public_GET",
+      "text_sha256": "814dbabdab583a3ef104d2875553515b8461e068542a312f8b6a4bc0f02802e7",
+      "identity_verified": true,
+      "sufficient_for_requested_bindings": true
+    },
+    {
+      "project": "Zettlr/Zettlr",
+      "purpose": "license",
+      "source_url": "https://api.github.com/repos/Zettlr/Zettlr/license",
+      "endpoint": "https://api.github.com/repos/Zettlr/Zettlr/license",
+      "response_file": "03-license.response.json",
+      "seed_ref_ids": [
+        "license_document_review"
+      ],
+      "checks": [
+        {
+          "ref_id": "license_document_review",
+          "seed_span_hash": "6c96d6c809f90ed63987ef54ac3a4d415725a7ccbc926cc1ebc549013065ea60",
+          "seed_source_hash": "ad64ffba025cc70eb2f5fa51fa17ced27e0755f1015dc2a26d64d2140cea13f1",
+          "binding_kind": "span_and_complete_source",
+          "original_span_present": true,
+          "complete_source_hash_matches": true,
+          "sufficient_for_original_binding": true
+        }
+      ],
+      "http_status": 200,
+      "checked_at": "2026-10-20T17:15:23.858686Z",
+      "text_file": "03-license.text.txt",
+      "acquisition": "fresh_authenticated_public_GET",
+      "text_sha256": "ad64ffba025cc70eb2f5fa51fa17ced27e0755f1015dc2a26d64d2140cea13f1",
+      "identity_verified": true,
+      "sufficient_for_requested_bindings": true
+    },
+    {
+      "project": "KDE/kdenlive",
+      "purpose": "metadata",
+      "source_url": "https://api.github.com/repos/KDE/kdenlive",
+      "endpoint": "/repos/KDE/kdenlive",
+      "response_file": "04-metadata.response.json",
+      "seed_ref_ids": [
+        "repository"
+      ],
+      "checks": [
+        {
+          "ref_id": "repository",
+          "seed_span_hash": "683494fe762791db5c3b46458349a028d16a7ce86c8e614f46c8beee01f61b49",
+          "seed_source_hash": null,
+          "binding_kind": "repository_fact_subset",
+          "matching_seed_fields": true,
+          "changed_seed_fields": [],
+          "sufficient_for_original_binding": true
+        }
+      ],
+      "http_status": 200,
+      "checked_at": "2026-10-20T17:15:25.152140Z",
+      "text_file": "04-metadata.text.txt",
+      "acquisition": "fresh_authenticated_public_GET",
+      "text_sha256": "082782dce0961674e8a8d27abdafe6c779e340cb1251570e7f70d5992ca2b778",
+      "identity_verified": true,
+      "sufficient_for_requested_bindings": true
+    },
+    {
+      "project": "KDE/kdenlive",
+      "purpose": "readme",
+      "source_url": "https://raw.githubusercontent.com/KDE/kdenlive/master/README.md",
+      "endpoint": "/repos/KDE/kdenlive/contents/README.md?ref=master",
+      "response_file": "04-readme.response.json",
+      "seed_ref_ids": [
+        "intro",
+        "install"
+      ],
+      "checks": [
+        {
+          "ref_id": "intro",
+          "seed_span_hash": "01c2a907c7521958de6b72a9bd7e962f5263a21ea25bc60f068f837a97e50f47",
+          "seed_source_hash": "86f55bc195dc5ff81d82f52d1c4b10a17c411e6fc43a629be0c2a74708084f36",
+          "binding_kind": "span_and_complete_source",
+          "original_span_present": true,
+          "complete_source_hash_matches": true,
+          "sufficient_for_original_binding": true
+        },
+        {
+          "ref_id": "install",
+          "seed_span_hash": "47885e18d0b4b94aae157fddfc2bce3e92d4c96bc6ad8eab2fc8a55bb5438fa9",
+          "seed_source_hash": "86f55bc195dc5ff81d82f52d1c4b10a17c411e6fc43a629be0c2a74708084f36",
+          "binding_kind": "span_and_complete_source",
+          "original_span_present": true,
+          "complete_source_hash_matches": true,
+          "sufficient_for_original_binding": true
+        }
+      ],
+      "http_status": 200,
+      "checked_at": "2026-10-20T17:15:26.444620Z",
+      "text_file": "04-readme.text.txt",
+      "acquisition": "fresh_authenticated_public_GET",
+      "text_sha256": "86f55bc195dc5ff81d82f52d1c4b10a17c411e6fc43a629be0c2a74708084f36",
+      "identity_verified": true,
+      "sufficient_for_requested_bindings": true
+    },
+    {
+      "project": "KDE/kdenlive",
+      "purpose": "license",
+      "source_url": "https://api.github.com/repos/KDE/kdenlive/license",
+      "endpoint": "https://api.github.com/repos/KDE/kdenlive/license",
+      "response_file": "04-license.response.json",
+      "seed_ref_ids": [
+        "license_document_review"
+      ],
+      "checks": [
+        {
+          "ref_id": "license_document_review",
+          "seed_span_hash": "1e9e4945aa88b812ed04cb6136a6d4f2405b1bbabdef994c7c1cc9a37dabf785",
+          "seed_source_hash": "b6a8bf63ae2c95b0aa256ee774680d7bd18f21f457da75466f7610b3b16acc4e",
+          "binding_kind": "span_and_complete_source",
+          "original_span_present": true,
+          "complete_source_hash_matches": true,
+          "sufficient_for_original_binding": true
+        }
+      ],
+      "http_status": 200,
+      "checked_at": "2026-10-20T17:15:28.038511Z",
+      "text_file": "04-license.text.txt",
+      "acquisition": "fresh_authenticated_public_GET",
+      "text_sha256": "b6a8bf63ae2c95b0aa256ee774680d7bd18f21f457da75466f7610b3b16acc4e",
+      "identity_verified": true,
+      "sufficient_for_requested_bindings": true
+    },
+    {
+      "project": "bleachbit/bleachbit",
+      "purpose": "metadata",
+      "source_url": "https://api.github.com/repos/bleachbit/bleachbit",
+      "endpoint": "/repos/bleachbit/bleachbit",
+      "response_file": "05-metadata.response.json",
+      "seed_ref_ids": [
+        "repository"
+      ],
+      "checks": [
+        {
+          "ref_id": "repository",
+          "seed_span_hash": "6f089b3987947e87a0214617167c78aef07954257ba59508f83db3efbd222d0c",
+          "seed_source_hash": null,
+          "binding_kind": "repository_fact_subset",
+          "matching_seed_fields": true,
+          "changed_seed_fields": [],
+          "sufficient_for_original_binding": true
+        }
+      ],
+      "http_status": 200,
+      "checked_at": "2026-10-20T17:15:31.068428Z",
+      "text_file": "05-metadata.text.txt",
+      "acquisition": "fresh_authenticated_public_GET",
+      "text_sha256": "697e0c321d0758f00ff3da0ba9071609ea189b1340a5f85b03962e2d145f1a5c",
+      "identity_verified": true,
+      "sufficient_for_requested_bindings": true
+    },
+    {
+      "project": "bleachbit/bleachbit",
+      "purpose": "readme",
+      "source_url": "https://raw.githubusercontent.com/bleachbit/bleachbit/master/README.md",
+      "endpoint": "/repos/bleachbit/bleachbit/contents/README.md?ref=master",
+      "response_file": "05-readme.response.json",
+      "seed_ref_ids": [
+        "intro",
+        "install"
+      ],
+      "checks": [
+        {
+          "ref_id": "intro",
+          "seed_span_hash": "9121800b00988e5aa8f38ee81043b878aae4059173d9e8b5f918abe34a151641",
+          "seed_source_hash": "a6010c9232a5aea2221a479108a4bcf5f07be78de241f40f1d4f4f362851f971",
+          "binding_kind": "span_and_complete_source",
+          "original_span_present": true,
+          "complete_source_hash_matches": true,
+          "sufficient_for_original_binding": true
+        },
+        {
+          "ref_id": "install",
+          "seed_span_hash": "ac463abfd7fc7a41c5bb52be1b8f6d22d96feb3f08e477c03e2f9979cbfaeee4",
+          "seed_source_hash": "a6010c9232a5aea2221a479108a4bcf5f07be78de241f40f1d4f4f362851f971",
+          "binding_kind": "span_and_complete_source",
+          "original_span_present": true,
+          "complete_source_hash_matches": true,
+          "sufficient_for_original_binding": true
+        }
+      ],
+      "http_status": 200,
+      "checked_at": "2026-10-20T17:15:32.439690Z",
+      "text_file": "05-readme.text.txt",
+      "acquisition": "fresh_authenticated_public_GET",
+      "text_sha256": "a6010c9232a5aea2221a479108a4bcf5f07be78de241f40f1d4f4f362851f971",
+      "identity_verified": true,
+      "sufficient_for_requested_bindings": true
+    },
+    {
+      "project": "bleachbit/bleachbit",
+      "purpose": "license",
+      "source_url": "https://api.github.com/repos/bleachbit/bleachbit/license",
+      "endpoint": "https://api.github.com/repos/bleachbit/bleachbit/license",
+      "response_file": "05-license.response.json",
+      "seed_ref_ids": [
+        "license_document_review"
+      ],
+      "checks": [
+        {
+          "ref_id": "license_document_review",
+          "seed_span_hash": "046cba2f38252b4a676071079ea6d96b414320959de506a5698c7351bf526f09",
+          "seed_source_hash": "e79e9c8a0c85d735ff98185918ec94ed7d175efc377012787aebcf3b80f0d90b",
+          "binding_kind": "span_and_complete_source",
+          "original_span_present": true,
+          "complete_source_hash_matches": true,
+          "sufficient_for_original_binding": true
+        }
+      ],
+      "http_status": 200,
+      "checked_at": "2026-10-20T17:15:33.498470Z",
+      "text_file": "05-license.text.txt",
+      "acquisition": "fresh_authenticated_public_GET",
+      "text_sha256": "e79e9c8a0c85d735ff98185918ec94ed7d175efc377012787aebcf3b80f0d90b",
+      "identity_verified": true,
+      "sufficient_for_requested_bindings": true
+    },
+    {
+      "project": "HandBrake/HandBrake",
+      "purpose": "metadata",
+      "source_url": "https://api.github.com/repos/HandBrake/HandBrake",
+      "endpoint": "/repos/HandBrake/HandBrake",
+      "response_file": "06-metadata.response.json",
+      "seed_ref_ids": [
+        "repository"
+      ],
+      "checks": [
+        {
+          "ref_id": "repository",
+          "seed_span_hash": "f4bc91c7fa23cd8ec5cd28fde2af68d9c2cd139eee1ffe85776a4d0c2a0dd20f",
+          "seed_source_hash": null,
+          "binding_kind": "repository_fact_subset",
+          "matching_seed_fields": true,
+          "changed_seed_fields": [],
+          "sufficient_for_original_binding": true
+        }
+      ],
+      "http_status": 200,
+      "checked_at": "2026-10-20T17:15:34.812076Z",
+      "text_file": "06-metadata.text.txt",
+      "acquisition": "fresh_authenticated_public_GET",
+      "text_sha256": "aff81b9e6d01e75246dc1bed95db7deffc9f87eababcf5a71273a6fee11b9fff",
+      "identity_verified": true,
+      "sufficient_for_requested_bindings": true
+    },
+    {
+      "project": "HandBrake/HandBrake",
+      "purpose": "readme",
+      "source_url": "https://raw.githubusercontent.com/HandBrake/HandBrake/master/README.markdown",
+      "endpoint": "/repos/HandBrake/HandBrake/contents/README.markdown?ref=master",
+      "response_file": "06-readme.response.json",
+      "seed_ref_ids": [
+        "intro",
+        "install"
+      ],
+      "checks": [
+        {
+          "ref_id": "intro",
+          "seed_span_hash": "7886380235e1f6c95b2081f8acdfd9807ffd050dce43816f6027b0c4a8067ca8",
+          "seed_source_hash": "741c06120ef25c8a8e27b54c8683d15e24846643bc80fe60c31012801a920cda",
+          "binding_kind": "span_and_complete_source",
+          "original_span_present": true,
+          "complete_source_hash_matches": true,
+          "sufficient_for_original_binding": true
+        },
+        {
+          "ref_id": "install",
+          "seed_span_hash": "98c8ea4d9b7228ce3bd1691aaf05a7715b688b58d725e8e0842ff56a1adbc90d",
+          "seed_source_hash": "741c06120ef25c8a8e27b54c8683d15e24846643bc80fe60c31012801a920cda",
+          "binding_kind": "span_and_complete_source",
+          "original_span_present": true,
+          "complete_source_hash_matches": true,
+          "sufficient_for_original_binding": true
+        }
+      ],
+      "http_status": 200,
+      "checked_at": "2026-10-20T17:15:35.863476Z",
+      "text_file": "06-readme.text.txt",
+      "acquisition": "fresh_authenticated_public_GET",
+      "text_sha256": "741c06120ef25c8a8e27b54c8683d15e24846643bc80fe60c31012801a920cda",
+      "identity_verified": true,
+      "sufficient_for_requested_bindings": true
+    },
+    {
+      "project": "WinMerge/winmerge",
+      "purpose": "metadata",
+      "source_url": "https://api.github.com/repos/WinMerge/winmerge",
+      "endpoint": "/repos/WinMerge/winmerge",
+      "response_file": "07-metadata.response.json",
+      "seed_ref_ids": [
+        "repository"
+      ],
+      "checks": [
+        {
+          "ref_id": "repository",
+          "seed_span_hash": "489766c1fc7253cc2c97ef59b11b6ed651d799286f20c728d60e8698e673f14c",
+          "seed_source_hash": null,
+          "binding_kind": "repository_fact_subset",
+          "matching_seed_fields": true,
+          "changed_seed_fields": [],
+          "sufficient_for_original_binding": true
+        }
+      ],
+      "http_status": 200,
+      "checked_at": "2026-10-20T17:15:37.150162Z",
+      "text_file": "07-metadata.text.txt",
+      "acquisition": "fresh_authenticated_public_GET",
+      "text_sha256": "58c7b7fe63200517b734f75ccf62c7926a76af4bcd76bedc2e0886d918305b99",
+      "identity_verified": true,
+      "sufficient_for_requested_bindings": true
+    },
+    {
+      "project": "WinMerge/winmerge",
+      "purpose": "readme",
+      "source_url": "https://raw.githubusercontent.com/WinMerge/winmerge/master/README.md",
+      "endpoint": "/repos/WinMerge/winmerge/contents/README.md?ref=master",
+      "response_file": "07-readme.response.json",
+      "seed_ref_ids": [
+        "intro",
+        "install"
+      ],
+      "checks": [
+        {
+          "ref_id": "intro",
+          "seed_span_hash": "358672569f302fbd262bea6455eb302666bcc9c6375c6212749de58f13f38fba",
+          "seed_source_hash": "78619f4ed9914981c97cb66ef0c4b4b1068a5e25fc09387f8b340eb2352ea007",
+          "binding_kind": "span_and_complete_source",
+          "original_span_present": true,
+          "complete_source_hash_matches": true,
+          "sufficient_for_original_binding": true
+        },
+        {
+          "ref_id": "install",
+          "seed_span_hash": "389267875d5e933bee49dffcbd3c82e84efc7f775c9e88d23de3ebb86c7a5e8a",
+          "seed_source_hash": "78619f4ed9914981c97cb66ef0c4b4b1068a5e25fc09387f8b340eb2352ea007",
+          "binding_kind": "span_and_complete_source",
+          "original_span_present": true,
+          "complete_source_hash_matches": true,
+          "sufficient_for_original_binding": true
+        }
+      ],
+      "http_status": 200,
+      "checked_at": "2026-10-20T17:15:38.374270Z",
+      "text_file": "07-readme.text.txt",
+      "acquisition": "fresh_authenticated_public_GET",
+      "text_sha256": "78619f4ed9914981c97cb66ef0c4b4b1068a5e25fc09387f8b340eb2352ea007",
+      "identity_verified": true,
+      "sufficient_for_requested_bindings": true
+    },
+    {
+      "project": "WinMerge/winmerge",
+      "purpose": "license",
+      "source_url": "https://api.github.com/repos/WinMerge/winmerge/license",
+      "endpoint": "https://api.github.com/repos/WinMerge/winmerge/license",
+      "response_file": "07-license.response.json",
+      "seed_ref_ids": [
+        "license_document_review"
+      ],
+      "checks": [
+        {
+          "ref_id": "license_document_review",
+          "seed_span_hash": "fd6e77c7795d1b97eda9367662c36f3771a59c535ef671d93381220523f91d98",
+          "seed_source_hash": "aef8b4222b79d0dbf6bf17cfff71c90a6a6bb8917a4162abe417b469ed22da2e",
+          "binding_kind": "span_and_complete_source",
+          "original_span_present": true,
+          "complete_source_hash_matches": true,
+          "sufficient_for_original_binding": true
+        }
+      ],
+      "http_status": 200,
+      "checked_at": "2026-10-20T17:15:40.000098Z",
+      "text_file": "07-license.text.txt",
+      "acquisition": "fresh_authenticated_public_GET",
+      "text_sha256": "aef8b4222b79d0dbf6bf17cfff71c90a6a6bb8917a4162abe417b469ed22da2e",
+      "identity_verified": true,
+      "sufficient_for_requested_bindings": true
+    },
+    {
+      "project": "arsenetar/dupeguru",
+      "purpose": "metadata",
+      "source_url": "https://api.github.com/repos/arsenetar/dupeguru",
+      "endpoint": "/repos/arsenetar/dupeguru",
+      "response_file": "08-metadata.response.json",
+      "seed_ref_ids": [
+        "repository"
+      ],
+      "checks": [
+        {
+          "ref_id": "repository",
+          "seed_span_hash": "99cc95e2c3a7aca2f23cb40fba3f5f6f169668c4a97244008ddbb8c789030513",
+          "seed_source_hash": null,
+          "binding_kind": "repository_fact_subset",
+          "matching_seed_fields": true,
+          "changed_seed_fields": [],
+          "sufficient_for_original_binding": true
+        }
+      ],
+      "http_status": 200,
+      "checked_at": "2026-10-20T17:15:41.511084Z",
+      "text_file": "08-metadata.text.txt",
+      "acquisition": "fresh_authenticated_public_GET",
+      "text_sha256": "09978c59a8ec52f0dd5a140c3205d239f1ab6635622ed3bf8c0e52ff57226b61",
+      "identity_verified": true,
+      "sufficient_for_requested_bindings": true
+    },
+    {
+      "project": "arsenetar/dupeguru",
+      "purpose": "readme",
+      "source_url": "https://raw.githubusercontent.com/arsenetar/dupeguru/master/README.md",
+      "endpoint": "/repos/arsenetar/dupeguru/contents/README.md?ref=master",
+      "response_file": "08-readme.response.json",
+      "seed_ref_ids": [
+        "intro",
+        "install"
+      ],
+      "checks": [
+        {
+          "ref_id": "intro",
+          "seed_span_hash": "0b5eff230b53c3edf717bf425cfcc99a2fb58d407f228bc712d32e1524a80bbc",
+          "seed_source_hash": "6d7f60f53b80f281dfe0b82abd346acbae4d12a2d61c2d4007f47520ca42c895",
+          "binding_kind": "span_and_complete_source",
+          "original_span_present": true,
+          "complete_source_hash_matches": true,
+          "sufficient_for_original_binding": true
+        },
+        {
+          "ref_id": "install",
+          "seed_span_hash": "e85e7b5eab8528c3a80b34ebfa8149d5054a915fbadc7a62c03cd8c9f43fdcf7",
+          "seed_source_hash": "6d7f60f53b80f281dfe0b82abd346acbae4d12a2d61c2d4007f47520ca42c895",
+          "binding_kind": "span_and_complete_source",
+          "original_span_present": true,
+          "complete_source_hash_matches": true,
+          "sufficient_for_original_binding": true
+        }
+      ],
+      "http_status": 200,
+      "checked_at": "2026-10-20T17:15:42.397539Z",
+      "text_file": "08-readme.text.txt",
+      "acquisition": "fresh_authenticated_public_GET",
+      "text_sha256": "6d7f60f53b80f281dfe0b82abd346acbae4d12a2d61c2d4007f47520ca42c895",
+      "identity_verified": true,
+      "sufficient_for_requested_bindings": true
+    },
+    {
+      "project": "arsenetar/dupeguru",
+      "purpose": "license",
+      "source_url": "https://api.github.com/repos/arsenetar/dupeguru/license",
+      "endpoint": "https://api.github.com/repos/arsenetar/dupeguru/license",
+      "response_file": "08-license.response.json",
+      "seed_ref_ids": [
+        "license_document_review"
+      ],
+      "checks": [
+        {
+          "ref_id": "license_document_review",
+          "seed_span_hash": "56634e73f40e16a31c357aa7bb580006d14ca6c8d7c900981877308faf02a546",
+          "seed_source_hash": "c61f12da7cdad526bdcbed47a4c0a603e60dbbfdaf8b66933cd088e9132c303f",
+          "binding_kind": "span_and_complete_source",
+          "original_span_present": true,
+          "complete_source_hash_matches": true,
+          "sufficient_for_original_binding": true
+        }
+      ],
+      "http_status": 200,
+      "checked_at": "2026-10-20T17:15:44.046701Z",
+      "text_file": "08-license.text.txt",
+      "acquisition": "fresh_authenticated_public_GET",
+      "text_sha256": "c61f12da7cdad526bdcbed47a4c0a603e60dbbfdaf8b66933cd088e9132c303f",
+      "identity_verified": true,
+      "sufficient_for_requested_bindings": true
+    }
+  ],
+  "target_successful_get_limit": 22,
+  "target_sources_verified": 22,
+  "technical_notes": [
+    "One initial anonymous GET returned 403 and is preserved as 00-anonymous-limit.response.json.",
+    "A Python 3.9 text-write incompatibility occurred after the first six successful authenticated responses had been archived. Those exact response files were replayed only for decoding/comparison; no duplicate GET was issued for them.",
+    "One interrupted in-flight GET was conservatively charged as consumed. Physical request count is 24 including it, below the authorized hard cap 25.",
+    "No credential values, authorization headers, authenticated permissions, or temporary clone tokens are archived. Metadata response bodies contain only the approved public product fact fields.",
+    "Restoration was not performed; independent review must verify original bindings and remaining project evidence before updating production."
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "request_url": "https://api.github.com/repos/WinMerge/winmerge",
+  "requested_at": "2026-10-20T17:15:35.867389Z",
+  "received_at": "2026-10-20T17:15:37.150162Z",
+  "http_status": 200,
+  "headers": {
+    "Date": "Tue, 20 Oct 2026 17:15:36 GMT",
+    "Content-Type": "application/json; charset=utf-8",
+    "ETag": "\"d1f3e215247c505de2913e25b0579d66a87f97a1007fa34a081589e9ac4e1371\"",
+    "Last-Modified": "Tue, 20 Oct 2026 14:10:40 GMT",
+    "X-RateLimit-Limit": "5000",
+    "X-RateLimit-Remaining": "4800",
+    "X-RateLimit-Reset": "1792516956",
+    "X-RateLimit-Used": "200",
+    "X-GitHub-Request-Id": "9D76:12208A:6ECD2:B2723:6AD7A1B8"
+  },
+  "body": {
+    "archived": false,
+    "created_at": "2014-11-11T16:38:42Z",
+    "description": "WinMerge is an Open Source differencing and merging tool for Windows. WinMerge can compare both folders and files, presenting differences in a visual text format that is easy to understand and handle.",
+    "disabled": false,
+    "full_name": "WinMerge/winmerge",
+    "homepage": "https://winmerge.org/",
+    "html_url": "https://github.com/WinMerge/winmerge",
+    "license": {
+      "key": "gpl-2.0",
+      "name": "GNU General Public License v2.0",
+      "spdx_id": "GPL-2.0",
+      "url": "https://api.github.com/licenses/gpl-2.0",
+      "node_id": "MDc6TGljZW5zZTg="
+    },
+    "node_id": "MDEwOlJlcG9zaXRvcnkyNjQ5NDAxOA==",
+    "fork": false
+  },
+  "metadata_field_policy": "public product facts only"
+}

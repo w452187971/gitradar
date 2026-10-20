@@ -1,0 +1,36 @@
+{
+  "request_url": "https://api.github.com/repos/arsenetar/dupeguru",
+  "requested_at": "2026-10-20T17:15:40.007555Z",
+  "received_at": "2026-10-20T17:15:41.511084Z",
+  "http_status": 200,
+  "headers": {
+    "Date": "Tue, 20 Oct 2026 17:15:41 GMT",
+    "Content-Type": "application/json; charset=utf-8",
+    "ETag": "\"d7b6fb0d16aa6dd7e067e315f0a3d4614dc361c6d6c597e73b6cdfcb615d8764\"",
+    "Last-Modified": "Tue, 20 Oct 2026 06:14:53 GMT",
+    "X-RateLimit-Limit": "5000",
+    "X-RateLimit-Remaining": "4797",
+    "X-RateLimit-Reset": "1792516956",
+    "X-RateLimit-Used": "203",
+    "X-GitHub-Request-Id": "9D94:1DB8C0:73536:B7301:6AD7A1BC"
+  },
+  "body": {
+    "archived": false,
+    "created_at": "2013-06-22T01:07:43Z",
+    "description": "Find duplicate files",
+    "disabled": false,
+    "full_name": "arsenetar/dupeguru",
+    "homepage": "https://dupeguru.voltaicideas.net",
+    "html_url": "https://github.com/arsenetar/dupeguru",
+    "license": {
+      "key": "gpl-3.0",
+      "name": "GNU General Public License v3.0",
+      "spdx_id": "GPL-3.0",
+      "url": "https://api.github.com/licenses/gpl-3.0",
+      "node_id": "MDc6TGljZW5zZTk="
+    },
+    "node_id": "MDEwOlJlcG9zaXRvcnkxMDg1NjM0MA==",
+    "fork": false
+  },
+  "metadata_field_policy": "public product facts only"
+}

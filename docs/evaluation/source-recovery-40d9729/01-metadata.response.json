@@ -1,0 +1,36 @@
+{
+  "request_url": "https://api.github.com/repos/Flow-Launcher/Flow.Launcher",
+  "requested_at": "2026-10-20T17:14:22.609913Z",
+  "received_at": "2026-10-20T17:14:23.503171Z",
+  "http_status": 200,
+  "headers": {
+    "Date": "Tue, 20 Oct 2026 17:14:23 GMT",
+    "Content-Type": "application/json; charset=utf-8",
+    "ETag": "\"d056398cb8088c18d151fb967c0a6cc7af2a68fe429cb4c0c9c0a194793bf758\"",
+    "Last-Modified": "Tue, 20 Oct 2026 16:48:36 GMT",
+    "X-RateLimit-Limit": "5000",
+    "X-RateLimit-Remaining": "4818",
+    "X-RateLimit-Reset": "1792516956",
+    "X-RateLimit-Used": "182",
+    "X-GitHub-Request-Id": "967A:4B289:25D05:3CC7F:6AD7A16E"
+  },
+  "body": {
+    "archived": false,
+    "created_at": "2020-04-21T08:12:15Z",
+    "description": ":mag: Quick file search & app launcher for Windows with community-made plugins",
+    "disabled": false,
+    "full_name": "Flow-Launcher/Flow.Launcher",
+    "homepage": "https://flowlauncher.com",
+    "html_url": "https://github.com/Flow-Launcher/Flow.Launcher",
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "spdx_id": "MIT",
+      "url": "https://api.github.com/licenses/mit",
+      "node_id": "MDc6TGljZW5zZTEz"
+    },
+    "node_id": "MDEwOlJlcG9zaXRvcnkyNTc1MjYyMTI=",
+    "fork": false
+  },
+  "metadata_field_policy": "public product facts only"
+}

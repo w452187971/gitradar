@@ -1,0 +1,15 @@
+{
+  "applied_at": "2026-10-20T17:22:12.987847+00:00",
+  "proposal_sha256": "41f912ae55435f712a1b8102fdd9ba023c5735b57024e20b7241e293a07d94b2",
+  "audit_report_sha256": "49051b6d779311de92b6a36215c7cbb21350b351248be862575a1e39055b370e",
+  "evidence_before_sha256": "60946d9de629efb65e54d971c289c6f46f059b5a8c1d63b71a72e41c410f1b6e",
+  "evidence_after_sha256": "d54851a891013cddbf33285374248122fc5b8b31afed8987c960676120e69c56",
+  "repaired_refs": 14,
+  "repaired_projects": 8,
+  "unchanged_files_sha256": {
+    "data/history.json": "e9739b0c943b40a9c0107ea102d98b3db1d3a97cb367da9975291df634639016",
+    "data/seed-evidence.json": "9581bd8036eaf2ce780b2eed696c40d10c81298cfd566ab49b307ecdcc259a64",
+    "data/curation.json": "f0c871b5b9e708cefb8051d47cb97f30188626a45f6e590025696e4a98204389"
+  },
+  "scope": "Only 14 reviewed erroneous bindings; no other source checks, batch metadata, paths or editorial changes"
+}

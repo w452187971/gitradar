@@ -1,0 +1,34 @@
+{
+  "purpose": {
+    "value": "使Windows任务栏半透明/透明",
+    "ref_id": "r1"
+  },
+  "audience": {
+    "value": "Windows 10和Windows 11用户",
+    "ref_id": "r1"
+  },
+  "platforms": {
+    "value": "Windows 10和Windows 11",
+    "ref_id": "r1"
+  },
+  "form": {
+    "value": "桌面应用程序",
+    "ref_id": "r1"
+  },
+  "requirements": {
+    "value": "轻量级（使用少量内存和几乎不使用CPU）",
+    "ref_id": "r1"
+  },
+  "path": {
+    "value": "https://www.microsoft.com/store/apps/9PF4KZ2VN4W9",
+    "ref_id": "r2"
+  },
+  "fees": {
+    "value": "免费",
+    "ref_id": "r2"
+  },
+  "license": {
+    "value": "GPLv3",
+    "ref_id": "r3"
+  }
+}
