@@ -3,6 +3,11 @@ on:
   schedule:
     - cron: '23 2 * * *'
   workflow_dispatch:
+    inputs:
+      probe_only:
+        description: 'Only probe batch access; do not collect, commit or publish'
+        type: boolean
+        default: false
 permissions:
   contents: write
 concurrency:
@@ -27,10 +32,24 @@ jobs:
         run: node --test tests/frontend.test.cjs
       - name: Collect data and inspect README files
         id: collect
+        if: ${{ inputs.probe_only != true }}
         env:
           GH_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python collect.py
+      - name: Probe built-in token batch access
+        if: ${{ inputs.probe_only == true }}
+        env:
+          GH_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python scripts/probe_github.py
+      - name: Save probe evidence
+        if: ${{ always() && inputs.probe_only == true }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: gitradar-batch-probe
+          path: probe-report.json
+          if-no-files-found: error
       - name: Commit snapshots
+        if: ${{ inputs.probe_only != true }}
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
