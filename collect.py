@@ -36,6 +36,7 @@ class Project(TypedDict, total=False):
     summary_zh: Optional[str]
     difficulty_zh: str
     readme_checked: bool
+    platforms_zh: list[str]
 
 
 class Repository(Project, total=False):
@@ -169,6 +170,7 @@ def refreshTracked(projects: list[Project], repos: dict[str, Repository],
         except (OSError, ValueError, KeyError) as error:
             fallback = project.copy()
             fallback.update(delta_1d=None, delta_7d=None, discovery_score=0)
+            fallback['platforms_zh'] = extractPlatforms(project)
             retained.append(fallback)
             warnings.append(f'Refresh {name}: {error}; retained previous data without a new snapshot.')
         time.sleep(.12)
@@ -196,6 +198,61 @@ def classify(repo: Repository) -> str:
     return '其他开源'
 
 
+PLATFORM_PATTERNS = [
+    ('Windows', r'windows'), ('macOS', r'macos|os[ -]?x|mac'), ('Linux', r'linux'),
+    ('Android TV', r'android[ -]+tv|google[ -]+tv'), ('Android', r'android(?![ -]+tv\b)'),
+    ('iOS', r'ios'), ('网页', r'web[ -]+apps?'), ('浏览器扩展', r'browser[ -]+extensions?'),
+]
+PLATFORM_TOPICS = {'windows': 'Windows', 'macos': 'macOS', 'osx': 'macOS', 'linux': 'Linux',
+                   'android-tv': 'Android TV', 'android': 'Android', 'ios': 'iOS',
+                   'web-app': '网页', 'browser-extension': '浏览器扩展'}
+PLATFORM_TOKEN = r'(?<![a-z0-9])(?:' + '|'.join(pattern for _, pattern in PLATFORM_PATTERNS) + r')(?![a-z0-9])'
+PLATFORM_SEPARATOR = r'\s*(?:,\s*(?:(?:and|or)\s+)?|[/&]\s*|(?:and|or)\s+)'
+PLATFORM_LIST = r'(?P<platforms>' + PLATFORM_TOKEN + r'(?:' + PLATFORM_SEPARATOR + PLATFORM_TOKEN + r')*)'
+PLATFORM_TARGET = re.compile(r'\b(?:for|on|supports?|available\s+for|compatible\s+with)\s+' + PLATFORM_LIST, re.I)
+PLATFORM_APP_TYPE = re.compile(r'^\s*(?:an?|the)\s+(?P<platforms>web[ -]+apps?|browser[ -]+extensions?)\b(?!\s+(?:examples?|source|samples?|demos?)\b)', re.I)
+PLATFORM_NON_TARGET = re.compile(r'\b(?:build(?:s|ing)?|compil(?:e|ing|ation)|source|examples?|samples?|demos?|not|no|without)\b', re.I)
+PLATFORM_UNSUPPORTED = [
+    re.compile(r'\b(?:(?:do(?:es)?\s+not|do(?:es)?n[\'’]t)\s+(?:support|(?:run|work)\s+on)|not\s+(?:run|work)\s+on|no\s+support(?:\s+for)?|not\s+(?:available|supported|compatible)\s+(?:for|on|with)|not\s+for|not)\s+' + PLATFORM_LIST, re.I),
+    re.compile(PLATFORM_LIST + r'\s+(?:(?:is|are)\s+)?(?:not\s+supported|unsupported)\b', re.I),
+    re.compile(r'\bno\s+' + PLATFORM_LIST + r'\s+support\b', re.I),
+    re.compile(r'(?:暂?不支持|不适用于)\s*' + PLATFORM_LIST, re.I),
+    re.compile(PLATFORM_LIST + r'\s*(?:暂?不支持|不可用)', re.I),
+]
+
+
+def platformMentions(text: str) -> set[str]:
+    return {name for name, pattern in PLATFORM_PATTERNS
+            if re.search(r'(?<![a-z0-9])(?:' + pattern + r')(?![a-z0-9])', text, re.I)}
+
+
+def descriptionPlatforms(description: str) -> set[str]:
+    platforms: set[str] = set()
+    for clause in re.split(r'[.!?;\n]|[—–]', description):
+        for pattern in (PLATFORM_TARGET, PLATFORM_APP_TYPE):
+            for target in pattern.finditer(clause):
+                if not PLATFORM_NON_TARGET.search(clause[:target.start()]):
+                    mentions = platformMentions(target['platforms'])
+                    if pattern is PLATFORM_TARGET:
+                        mentions.difference_update({'网页', '浏览器扩展'})
+                    platforms.update(mentions)
+    return platforms
+
+
+def unsupportedPlatforms(description: str) -> set[str]:
+    return {name for pattern in PLATFORM_UNSUPPORTED for match in pattern.finditer(description)
+            for name in platformMentions(match['platforms'])}
+
+
+def extractPlatforms(project: Project) -> list[str]:
+    description = project.get('description') or ''
+    platforms = {PLATFORM_TOPICS[topic.lower()] for topic in project.get('topics') or []
+                 if topic.lower() in PLATFORM_TOPICS}
+    platforms.update(descriptionPlatforms(description))
+    platforms.difference_update(unsupportedPlatforms(description))
+    return [name for name, _ in PLATFORM_PATTERNS if name in platforms]
+
+
 def change(series: dict[str, int], stars: int, days: int, today: dt.date) -> Optional[int]:
     baseline = series.get(str(today - dt.timedelta(days=days)))
     return stars - baseline if baseline is not None else None
@@ -217,7 +274,7 @@ def buildProject(repo: Repository, history: History, today: dt.date) -> Project:
         'delta_1d': daily, 'delta_7d': weekly, 'language': repo.get('language'),
         'topics': repo.get('topics') or [], 'created_at': created,
         'pushed_at': repo.get('pushed_at'), 'category_zh': category,
-        'discovery_score': round(score, 1),
+        'discovery_score': round(score, 1), 'platforms_zh': extractPlatforms(repo),
     }
 
 

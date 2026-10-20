@@ -246,3 +246,119 @@ test('backend evidence summaries keep their complete source prefix and text', as
   const page = await loadPage([project('KnifeLemon/Filee', {summary_zh: summary})]);
   assert.equal(page.cards()[0].querySelector('.desc').textContent, summary);
 });
+
+const searchableProjects = [
+  project('sample/summary', {summary_zh: '【用途提取】智能电视去广告工具'}),
+  project('sample/category', {category_zh: '自定义资料分类'}),
+  project('sample/install', {difficulty_zh: '🟡 可能需要命令行安装'}),
+  project('sample/platform', {platforms_zh: ['Android TV', 'macOS']})
+];
+
+for (const [query, name] of [['智能电视', 'sample/summary'], ['自定义资料', 'sample/category'],
+  ['命令行', 'sample/install'], ['ANDROID TV', 'sample/platform']]) {
+  test(`search includes published Chinese evidence and platform clues: ${query}`, async () => {
+    const page = await loadPage(searchableProjects);
+    page.get('search').value = query;
+    page.get('search').oninput();
+    assert.deepEqual(page.cards().map(card => card.querySelector('.name').textContent), [name]);
+  });
+}
+
+function manyProjects() {
+  return Array.from({length: 125}, (_, index) => project(`sample/project-${index}`, {
+    category_zh: 'AI 应用', summary_zh: '【用途提取】笔记助手',
+    difficulty_zh: '🟢 可能提供安装包（请核实）', stargazers_count: index + 1
+  }));
+}
+
+test('load more reveals sixty additional matches per click and hides when exhausted', async () => {
+  const page = await loadPage(manyProjects());
+  assert.equal(page.cards().length, 60);
+  assert.match(page.get('summary').textContent, /匹配 125 个/);
+  assert.ok(page.get('loadMore'), 'the remaining matches need a browsing entry point');
+  assert.equal(page.get('loadMore').hidden, false);
+  page.get('loadMore').onclick();
+  assert.equal(page.cards().length, 120);
+  assert.equal(page.cards()[60].querySelector('.name').textContent, 'sample/project-60');
+  assert.equal(page.get('loadMore').hidden, false);
+  page.get('loadMore').onclick();
+  assert.equal(page.cards().length, 125);
+  assert.equal(page.cards()[124].querySelector('.name').textContent, 'sample/project-124');
+  assert.equal(page.get('loadMore').hidden, true);
+  assert.equal(page.requestCount(), 1);
+});
+
+const conditionChanges = {
+  search: page => { page.get('search').value = '笔记'; page.get('search').oninput(); },
+  installation: page => { page.get('installFilter').value = 'package'; page.get('installFilter').onchange(); },
+  sort: page => { page.get('sort').value = 'stars'; page.get('sort').onchange(); },
+  tab: page => page.tab('ai')
+};
+
+for (const [condition, change] of Object.entries(conditionChanges)) {
+  test(`${condition} changes restart browsing from the first sixty matching projects`, async () => {
+    const page = await loadPage(manyProjects());
+    assert.ok(page.get('loadMore'), 'pagination must be available before changing conditions');
+    page.get('loadMore').onclick();
+    assert.equal(page.cards().length, 120);
+    change(page);
+    assert.equal(page.cards().length, 60);
+    assert.match(page.get('summary').textContent, /匹配 125 个/);
+    assert.equal(page.get('loadMore').hidden, false);
+    if (condition === 'sort') {
+      assert.equal(page.cards()[0].querySelector('.name').textContent, 'sample/project-124');
+    }
+  });
+}
+
+const installationProjects = [
+  project('sample/package', {difficulty_zh: '🟢 可能提供安装包（请核实）'}),
+  project('sample/command', {difficulty_zh: '🟡 可能需要命令行安装'}),
+  project('sample/docker', {difficulty_zh: '🟡 可能需要 Docker 配置'}),
+  project('sample/unknown', {difficulty_zh: '⚪ 安装方式未确认'}),
+  project('sample/legacy')
+];
+
+for (const [filter, names] of [['package', ['sample/package']], ['command', ['sample/command']],
+  ['docker', ['sample/docker']], ['unknown', ['sample/unknown', 'sample/legacy']]]) {
+  test(`installation filter reuses existing evidence: ${filter}`, async () => {
+    const page = await loadPage(installationProjects);
+    assert.ok(page.get('installFilter'), 'installation evidence needs a filter');
+    page.get('installFilter').value = filter;
+    page.get('installFilter').onchange();
+    assert.deepEqual(page.cards().map(card => card.querySelector('.name').textContent), names);
+    assert.equal(page.get('loadMore').hidden, true);
+  });
+}
+
+test('search, installation and the current category combine without losing any condition', async () => {
+  const page = await loadPage([
+    project('sample/target', {category_zh: 'AI 应用', platforms_zh: ['Android'],
+      difficulty_zh: '🟢 可能提供安装包（请核实）'}),
+    project('sample/wrong-category', {category_zh: '系统工具', platforms_zh: ['Android'],
+      difficulty_zh: '🟢 可能提供安装包（请核实）'}),
+    project('sample/wrong-install', {category_zh: 'AI 应用', platforms_zh: ['Android'],
+      difficulty_zh: '🟡 可能需要命令行安装'}),
+    project('sample/wrong-platform', {category_zh: 'AI 应用', platforms_zh: ['Windows'],
+      difficulty_zh: '🟢 可能提供安装包（请核实）'})
+  ]);
+  assert.ok(page.get('installFilter'), 'the installation filter must participate in combined queries');
+  page.get('search').value = 'android';
+  page.get('search').oninput();
+  page.get('installFilter').value = 'package';
+  page.get('installFilter').onchange();
+  page.tab('ai');
+  assert.deepEqual(page.cards().map(card => card.querySelector('.name').textContent), ['sample/target']);
+  assert.match(page.get('summary').textContent, /匹配 1 个/);
+});
+
+test('platform clues come only from the optional published field and support legacy data', async () => {
+  const page = await loadPage([
+    project('sample/known', {platforms_zh: ['Windows', 'macOS']}),
+    project('sample/legacy', {description: 'A Windows and Android utility'}),
+    project('sample/empty', {platforms_zh: []})
+  ]);
+  const clues = page.cards().map(card => card.querySelector('.platforms')?.textContent);
+  assert.deepEqual(clues, ['平台线索：Windows / macOS', '平台线索：平台未确认', '平台线索：平台未确认']);
+  assert.match(page.get('notice').textContent, /未实际验证/);
+});

@@ -4,16 +4,18 @@
 <style>
 :root{font-family:system-ui,-apple-system,"Microsoft YaHei",sans-serif;color:#e9eef8;background:#0a1020}*{box-sizing:border-box}body{margin:0}a{color:#9ecbff;text-decoration:none}header{background:linear-gradient(130deg,#172c57,#101b32 60%,#123f43);padding:40px max(22px,calc((100vw - 1100px)/2));border-bottom:1px solid #29415e}h1{font-size:clamp(26px,4vw,42px);margin:0 0 10px}.sub{color:#b8c8dc;line-height:1.8}.badge{color:#80e6bc;font-size:13px;letter-spacing:2px;font-weight:700}main{max-width:1100px;margin:auto;padding:24px 20px 80px}.bar{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 18px}button,input,select{border:1px solid #354963;border-radius:10px;padding:11px 15px;background:#15243b;color:#e9eef8;font-size:14px}button{cursor:pointer}button.active,button:hover{background:#245a79;border-color:#56add0}input{flex:1;min-width:190px}.meta{color:#a4b6cb;font-size:13px;line-height:1.7;margin-bottom:20px}.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:16px}.card{background:#131e31;border:1px solid #2c3c55;border-radius:16px;padding:20px;display:flex;flex-direction:column;gap:11px}.card:hover{border-color:#5a8fae}.top{display:flex;justify-content:space-between;align-items:start;gap:10px}.name{font-size:19px;font-weight:750;overflow-wrap:anywhere}.pill{font-size:12px;background:#25405b;border-radius:20px;padding:5px 9px;white-space:nowrap}.desc{color:#d3deeb;line-height:1.7;min-height:52px}.original{font-size:12px;color:#8297b2;line-height:1.5}.stats{display:flex;flex-wrap:wrap;gap:13px;color:#b5c9de;font-size:13px}.growth{color:#80e6bc}.foot{margin-top:auto;display:flex;justify-content:space-between;align-items:center;gap:8px;padding-top:10px}.empty{padding:48px 20px;text-align:center;border:1px dashed #4b5e76;border-radius:16px;color:#c6d3e4}.notice{padding:14px 16px;border:1px solid #465576;background:#18253c;border-radius:12px;margin-bottom:18px;color:#c6d7e8;line-height:1.7;font-size:13px}.small{font-size:12px;color:#8fa7c1}footer{color:#8fa7c1;margin-top:30px;line-height:1.8;font-size:13px}
 </style></head><body>
-<header><div class="badge">GITRADAR · V3.1.1 免费中文解读</div><h1>🔥 中文 GitHub 爆款雷达</h1><div class="sub">不只看大项目，更关注最近冒头的有趣开源工具。<br>全领域探索 · 中文速读 · 直接跳转原项目</div></header>
+<header><div class="badge">GITRADAR · V3.2 中文用途发现</div><h1>🔥 中文 GitHub 爆款雷达</h1><div class="sub">不只看大项目，更关注最近冒头的有趣开源工具。<br>全领域探索 · 中文速读 · 直接跳转原项目</div></header>
 <main><div class="bar" id="tabs"><button class="active" data-tab="hot">🔥 爆款候选</button><button data-tab="day">🚀 1日快照</button><button data-tab="week">📈 7日快照</button><button data-tab="new">💎 新晋黑马</button><button data-tab="tools">🛠 实用工具</button><button data-tab="ai">🤖 AI 项目</button><button data-tab="saved">⭐ 我的收藏</button></div>
-<div class="bar"><input id="search" placeholder="搜索项目名称、中文标签或英文简介"><select id="sort"><option value="score">按发现评分</option><option value="stars">按 Star 数</option><option value="day">按1日快照增量</option><option value="week">按7日快照增量</option><option value="updated">按最近更新</option></select><button id="refresh">↻ 刷新列表</button></div>
+<div class="bar"><input id="search" aria-label="搜索项目、中文用途、安装方式或平台线索" placeholder="搜索项目、中文用途或平台线索"><select id="installFilter" aria-label="按安装方式筛选"><option value="all">安装方式：全部</option><option value="package">可能提供安装包</option><option value="command">可能需要命令行</option><option value="docker">可能需要 Docker</option><option value="unknown">安装方式未确认</option></select><select id="sort" aria-label="项目排序方式"><option value="score">按发现评分</option><option value="stars">按 Star 数</option><option value="day">按1日快照增量</option><option value="week">按7日快照增量</option><option value="updated">按最近更新</option></select><button id="refresh">↻ 刷新列表</button></div>
 <div class="notice" id="notice">正在获取 GitHub 公开项目数据……</div><div class="meta" id="summary"></div><div class="grid" id="cards"></div>
-<footer>数据来自 GitHub Actions 每日采集的公开项目候选池，属于探索型榜单，<b>不是 GitHub 官方 Trending 榜</b>。1日 / 7日增量比较相隔 1 / 7 个 UTC 日期的 Star 快照，表示净变化，并非精确滚动 24 小时 / 7 天；历史不足或采集缺失时显示“待积累”，Star 减少时保留负数。中文用途提示来自公开简介与 README 的免费规则提取，不等同 AI 翻译；资料不足时保留提示，英文项目简介保留原文供核对。数据可能受到 API 限流和搜索结果上限影响。</footer></main>
+<div class="bar" style="margin-top:20px"><button id="loadMore" aria-label="再显示最多60个匹配项目" hidden>加载更多</button></div>
+<footer>数据来自 GitHub Actions 每日采集的公开项目候选池，属于探索型榜单，<b>不是 GitHub 官方 Trending 榜</b>。1日 / 7日增量比较相隔 1 / 7 个 UTC 日期的 Star 快照，表示净变化，并非精确滚动 24 小时 / 7 天；历史不足或采集缺失时显示“待积累”，Star 减少时保留负数。中文用途提示来自公开简介与 README 的免费规则提取，不等同 AI 翻译；资料不足时保留提示，英文项目简介保留原文供核对。安装方式与平台线索尚未实际验证，请以项目说明为准。数据可能受到 API 限流和搜索结果上限影响。</footer></main>
 <script>
 (() => {
 'use strict';
 const $ = id => document.getElementById(id);
 const DAY = 86400000;
+const PAGE_SIZE = 60;
 const CATEGORY_DETAILS = new Map([
   ['影音去广告', ['📺 影音 / 去广告', '电视、影音或广告处理相关工具']],
   ['影音下载', ['🎬 影音下载', '视频、音频或媒体处理工具']],
@@ -36,7 +38,7 @@ const CATEGORY_FALLBACKS = [
   [/\b(?:games?|gaming|emulator)\b/i, '游戏娱乐']
 ];
 const state = {repos: [], tab: 'hot', saved: new Set(), generatedAt: null,
-  warnings: [], storageMessage: '', loadError: ''};
+  warnings: [], storageMessage: '', loadError: '', visibleLimit: PAGE_SIZE};
 
 function readSaved() {
   try {
@@ -61,7 +63,8 @@ function updateNotice() {
     `已加载 ${state.repos.length} 个候选项目 · 最近采集：${collectedAt()}。`,
     '刷新列表只重新读取已发布的静态文件，不会触发采集。',
     '增量来自 UTC 日快照，并非精确滚动 24 小时；历史不足或采集缺失时待积累。',
-    '中文用途提示来自公开简介与 README 的免费规则提取，不等同 AI 翻译。不是全站完整榜单。'
+    '中文用途提示来自公开简介与 README 的免费规则提取，不等同 AI 翻译。不是全站完整榜单。',
+    '安装方式与平台线索来自公开资料，未实际验证，请以项目说明为准。'
   ];
   if (state.warnings.length) messages.push('采集警告：' + state.warnings.join('；'));
   if (state.storageMessage) messages.push(state.storageMessage);
@@ -103,20 +106,26 @@ function formatDelta(value) {
   return Number.isFinite(value) ? (value > 0 ? '+' : '') + value : '待积累';
 }
 
+function platformHints(repo) {
+  return Array.isArray(repo.platforms_zh) ? repo.platforms_zh
+    .filter(value => typeof value === 'string' && value.trim()).map(value => value.trim()) : [];
+}
+
 function card(repo) {
   const div = document.createElement('article');
   div.className = 'card';
-  div.innerHTML = `<div class="top"><a class="name" href="${repo.html_url}" target="_blank" rel="noopener"></a><span class="pill"></span></div><div class="desc"></div><div class="original"></div><div class="stats"><span class="stars"></span><span class="delta"></span><span class="language"></span></div><div class="foot"><span class="small"></span><button class="save"></button></div>`;
+  div.innerHTML = `<div class="top"><a class="name" href="${repo.html_url}" target="_blank" rel="noopener"></a><span class="pill"></span></div><div class="desc"></div><div class="original"></div><div class="platforms small"></div><div class="stats"><span class="stars"></span><span class="delta"></span><span class="language"></span></div><div class="foot"><span class="small"></span><button class="save"></button></div>`;
   div.querySelector('.name').textContent = repo.full_name;
   div.querySelector('.pill').textContent = category(repo)[0];
   div.querySelector('.desc').textContent = chinese(repo);
   div.querySelector('.original').textContent = (repo.difficulty_zh || '⚪ 安装方式未确认') + ' · ' +
     (repo.readme_checked ? '已检查 README' : '未检查 README') + '\n' +
     (repo.description ? '原文：' + repo.description : '项目暂无英文简介');
+  div.querySelector('.platforms').textContent = '平台线索：' + (platformHints(repo).join(' / ') || '平台未确认');
   div.querySelector('.stars').textContent = '⭐ ' + repo.stargazers_count.toLocaleString();
   div.querySelector('.delta').textContent = `📈 1日快照 ${formatDelta(repo.delta_1d)} · 7日快照 ${formatDelta(repo.delta_7d)}`;
   div.querySelector('.language').textContent = '⌨ ' + (repo.language || '未标注');
-  div.querySelector('.small').textContent = '更新 ' + new Date(repo.pushed_at).toISOString().slice(0, 10);
+  div.querySelector('.foot').querySelector('.small').textContent = '更新 ' + new Date(repo.pushed_at).toISOString().slice(0, 10);
   const button = div.querySelector('.save');
   button.textContent = state.saved.has(repo.full_name) ? '★ 已收藏' : '☆ 收藏';
   button.onclick = () => toggleSaved(repo.full_name);
@@ -124,9 +133,22 @@ function card(repo) {
 }
 
 function matchesSearch(repo, query) {
-  const text = [repo.full_name, repo.description, category(repo).join(' '),
+  const text = [repo.full_name, repo.description, repo.summary_zh, repo.category_zh,
+    repo.difficulty_zh, platformHints(repo).join(' '), category(repo).join(' '),
     (repo.topics || []).join(' ')].join(' ').toLowerCase();
   return !query || text.includes(query);
+}
+
+function installationType(repo) {
+  const difficulty = repo.difficulty_zh || '';
+  if (/Docker/i.test(difficulty)) return 'docker';
+  if (/命令行/.test(difficulty)) return 'command';
+  if (/安装包/.test(difficulty)) return 'package';
+  return 'unknown';
+}
+
+function matchesInstallation(repo, selected) {
+  return selected === 'all' || installationType(repo) === selected;
 }
 
 function matchesTab(repo) {
@@ -164,18 +186,26 @@ function emptyMessage(candidates) {
 
 function render() {
   const query = $('search').value.trim().toLowerCase();
-  const candidates = state.repos.filter(repo => matchesSearch(repo, query));
+  const installation = $('installFilter').value;
+  const candidates = state.repos.filter(repo => matchesSearch(repo, query) && matchesInstallation(repo, installation));
   const items = candidates.filter(matchesTab);
   const key = sortKey();
   items.sort((first, second) => compareRepos(first, second, key));
-  $('cards').replaceChildren(...items.slice(0, 60).map(card));
+  const visible = items.slice(0, state.visibleLimit);
+  $('cards').replaceChildren(...visible.map(card));
   if (!items.length) {
     const empty = document.createElement('div');
     empty.className = 'empty';
     empty.textContent = emptyMessage(candidates);
     $('cards').replaceChildren(empty);
   }
-  $('summary').textContent = `当前显示 ${Math.min(items.length, 60)} 个项目 · 共采集 ${state.repos.length} 个候选项目 · 采集时间 ${collectedAt()}`;
+  $('loadMore').hidden = visible.length >= items.length;
+  $('summary').textContent = `当前显示 ${visible.length} 个项目 · 匹配 ${items.length} 个 · 共采集 ${state.repos.length} 个候选项目 · 采集时间 ${collectedAt()}`;
+}
+
+function resetResults() {
+  state.visibleLimit = PAGE_SIZE;
+  render();
 }
 
 async function fetchRepos() {
@@ -187,7 +217,7 @@ async function fetchRepos() {
     state.generatedAt = data.generated_at || null;
     state.warnings = Array.isArray(data.warnings) ? data.warnings.filter(value => typeof value === 'string') : [];
     state.loadError = '';
-    render();
+    resetResults();
   } catch (error) {
     state.loadError = '列表加载失败：' + error.message + '。请稍后点击“刷新列表”重试。';
   }
@@ -199,11 +229,16 @@ document.querySelectorAll('[data-tab]').forEach(button => {
   button.onclick = () => {
     state.tab = button.dataset.tab;
     document.querySelectorAll('[data-tab]').forEach(item => item.classList.toggle('active', item === button));
-    render();
+    resetResults();
   };
 });
-$('search').oninput = render;
-$('sort').onchange = render;
+$('search').oninput = resetResults;
+$('installFilter').onchange = resetResults;
+$('sort').onchange = resetResults;
+$('loadMore').onclick = () => {
+  state.visibleLimit += PAGE_SIZE;
+  render();
+};
 $('refresh').onclick = fetchRepos;
 fetchRepos();
 })();
