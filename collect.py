@@ -16,6 +16,7 @@ from typing import Optional, TypedDict, cast
 
 DATA_DIR = pathlib.Path(__file__).parent / 'data'
 MAX_READMES = 40
+SUMMARY_MODE = 'free-v311'
 History = dict[str, dict[str, int]]
 
 
@@ -48,6 +49,7 @@ class Summary(TypedDict, total=False):
     zh: str
     difficulty: str
     readme_checked: bool
+    source_description: str
 
 
 def readJson(path: pathlib.Path, default: object) -> object:
@@ -174,12 +176,12 @@ def refreshTracked(projects: list[Project], repos: dict[str, Repository],
 
 
 RULES = [
-    ('影音去广告', r'ad.?block|adguard|android.?tv|smart.?tv|launcher|iptv|youtube|television'),
-    ('影音下载', r'download|video|media|music|player|stream|yt.dlp'),
-    ('AI 应用', r'agent|llm|chatbot|openai|rag|diffusion|mcp|ai.?tool'),
+    ('影音去广告', r'ad.?block|adguard|android.?tv|smart.?tv|google.?tv|iptv|television|(?<![a-z0-9])tv(?![a-z0-9])|电视|去广告|广告拦截'),
+    ('影音下载', r'download|video|media|music|player|stream|yt.dlp|youtube'),
+    ('AI 应用', r'(?<![a-z0-9])(?:ai|agents?|llms?|chatbots?|openai|rag|diffusion|mcp)(?![a-z0-9])'),
     ('隐私安全', r'privacy|security|vpn|firewall|password|encrypt'),
     ('效率工具', r'productivity|automation|workflow|note|office|clipboard'),
-    ('系统工具', r'desktop|windows|macos|linux|android|ios|browser|extension'),
+    ('系统工具', r'desktop|windows|macos|linux|android|ios|browser|extension|launcher'),
     ('自托管', r'self.host|homelab|docker|nas|server'),
     ('游戏娱乐', r'game|gaming|emulator'),
 ]
@@ -220,24 +222,77 @@ def buildProject(repo: Repository, history: History, today: dt.date) -> Project:
 
 
 LABELS = [
+    (r'\bfile\s+(?:format\s+)?convert(?:er|or)\b|\bconvert\s+(?:files|file formats)\b', '文件格式转换工具'),
+    (r'\bgit\b[^.!?\n]{0,100}\b(?:ai\s+)?agents?\b', '面向 AI 智能体的 Git 工具'),
     (r'android.?tv|google.?tv|smart.?tv|television', '智能电视相关工具'),
+    (r'\b(?:app(?:lication)?\s+|desktop\s+)?launcher\b', '应用启动器'),
     (r'ad.?block|adguard|remove ads|debl[o]?at', '广告处理或系统精简工具'),
     (r'video downloader|yt.dlp|download video', '视频下载工具'),
     (r'password manager|password vault', '密码管理工具'),
-    (r'screenshot|screen capture', '截图工具'),
+    (r'\b(?:screenshot|screen.capture)\s+(?:tool|app|utility)\b|\b(?:take|capture)\s+screenshots?\b', '截图工具'),
     (r'file manager|file explorer', '文件管理工具'),
     (r'notes app|note.taking', '笔记工具'),
-    (r'local llm|run llm|language model', '本地大模型相关工具'),
-    (r'git.*agent|coding agent|ai agent', 'AI 智能体开发工具'),
-    (r'calendar|schedule', '日历或日程工具'),
+    (r'\b(?:local|on[- ]device|offline)\s+(?:(?:large\s+)?language\s+models?|llms?)\b|\b(?:llms?|(?:large\s+)?language\s+models?)\b[^.!?\n]{0,60}\b(?:locally|on[- ]device|offline)\b', '本地大模型相关工具'),
+    (r'\b(?:llms?|(?:large\s+)?language\s+models?)\b', '大模型相关项目'),
+    (r'\b(?:coding|ai)\s+agents?\b', 'AI 智能体开发工具'),
+    (r'\b(?:calendars?|meetings?|appointments?)\b', '日历或日程工具'),
 ]
 
 
-def makeBrief(project: Project, readme: str) -> str:
-    text = (project.get('description') or '') + ' ' + readme[:5000]
+INTRO_HEADING = re.compile(r'^(?:overview|introduction|about(?:\s+[^#]+)?|简介|介绍|概述|项目介绍)$', re.I)
+SECONDARY_HEADING = re.compile(r'^(?:screenshots?|examples?|integrations?|demos?|截图|示例|集成)\b', re.I)
+
+
+def cleanMarkdown(text: str) -> str:
+    text = re.sub(r'!\[[^\]]*\]\([^)]*\)|<[^>]+>', ' ', text)
+    text = re.sub(r'\[([^\]]*)\]\([^)]*\)', r'\1', text)
+    text = re.sub(r'https?://\S+', ' ', text)
+    return ' '.join(text.strip(' #*`_').split())
+
+
+def readmeIntro(readme: str) -> str:
+    lines = re.sub(r'<!--.*?-->', '', readme[:12000], flags=re.S).splitlines()
+    paragraph: list[str] = []
+    fenced = False
+    titleSeen = False
+    for line in lines:
+        if re.match(r'^\s*(?:```|~~~)', line):
+            fenced = not fenced
+            continue
+        if fenced:
+            continue
+        heading = re.match(r'^\s{0,3}(#{1,6})\s+(.+?)\s*#*$', line)
+        title = cleanMarkdown(heading[2] if heading else line)
+        if SECONDARY_HEADING.fullmatch(title) or (heading and SECONDARY_HEADING.match(title)):
+            break
+        if heading:
+            if INTRO_HEADING.fullmatch(title):
+                continue
+            if len(heading[1]) != 1 or titleSeen or paragraph:
+                break
+            titleSeen = True
+            continue
+        if not title and paragraph:
+            break
+        if title and not re.fullmatch(r'[-=]+', title):
+            paragraph.append(title)
+    return ' '.join(paragraph)[:1200]
+
+
+def purposeBrief(text: str) -> Optional[str]:
+    if len(re.findall(r'[\u4e00-\u9fff]', text)) >= 4:
+        return '【项目简介】' + text[:280]
     for pattern, label in LABELS:
         if re.search(pattern, text, re.I):
             return '【关键词提取】' + label + '；具体功能请以项目 README 为准。'
+    return None
+
+
+def makeBrief(project: Project, readme: str) -> str:
+    for evidence in [cleanMarkdown(project.get('description') or ''), readmeIntro(readme)]:
+        brief = purposeBrief(evidence)
+        if brief:
+            return brief
     return '【资料不足】暂无法从公开简介中可靠提取具体用途，请查看项目 README。'
 
 
@@ -253,15 +308,50 @@ def assess(readme: str) -> str:
     return '⚪ 安装方式未确认'
 
 
+def cacheIsFresh(project: Project, cached: Summary, today: dt.date) -> bool:
+    if cached.get('mode') != SUMMARY_MODE:
+        return False
+    if cached.get('source_description') != (project.get('description') or ''):
+        return False
+    checkedAt = cached.get('checked_at')
+    if not isinstance(checkedAt, str):
+        return False
+    try:
+        age = (today - dt.date.fromisoformat(checkedAt)).days
+    except ValueError:
+        return False
+    lifetime = 14 if cached.get('readme_checked') is True else 1
+    return 0 <= age < lifetime
+
+
+def buildSummary(project: Project, readme: str, today: dt.date, checked: bool) -> Summary:
+    return {'mode': SUMMARY_MODE, 'checked_at': str(today),
+            'source_description': project.get('description') or '',
+            'zh': makeBrief(project, readme),
+            'difficulty': assess(readme) if checked else '⚪ 安装方式未确认',
+            'readme_checked': checked}
+
+
+def summaryQueueKey(cached: Summary, today: dt.date) -> tuple[int, dt.date]:
+    checkedAt = cached.get('checked_at')
+    checked = dt.date.min
+    if isinstance(checkedAt, str):
+        try:
+            checked = dt.date.fromisoformat(checkedAt)
+        except ValueError:
+            checked = dt.date.min
+    if checked > today:
+        checked = dt.date.min
+    return (0 if cached.get('mode') != SUMMARY_MODE else 1, checked)
+
+
 def enrichProjects(items: list[Project], summaries: dict[str, Summary], today: dt.date,
                    token: Optional[str], warnings: list[str]) -> None:
-    for project in items[:MAX_READMES]:
+    pending = [project for project in items
+               if not cacheIsFresh(project, summaries.get(project['full_name'], {}), today)]
+    pending.sort(key=lambda project: summaryQueueKey(summaries.get(project['full_name'], {}), today))
+    for project in pending[:MAX_READMES]:
         name = project['full_name']
-        cached = summaries.get(name, {})
-        if cached.get('mode') == 'free-v31':
-            checked = dt.date.fromisoformat(cached['checked_at'])
-            if (today - checked).days < 14:
-                continue
         try:
             payload = api('https://api.github.com/repos/' +
                           urllib.parse.quote(name, safe='/') + '/readme', token)
@@ -269,24 +359,22 @@ def enrichProjects(items: list[Project], summaries: dict[str, Summary], today: d
             if not isinstance(content, str):
                 raise ValueError('README response has no text content.')
             raw = base64.b64decode(content).decode('utf-8', 'replace')[:16000]
-            summaries[name] = {'mode': 'free-v31', 'checked_at': str(today),
-                               'zh': makeBrief(project, raw), 'difficulty': assess(raw),
-                               'readme_checked': True}
+            summaries[name] = buildSummary(project, raw, today, True)
         except (OSError, ValueError, KeyError) as error:
-            summaries[name] = {'mode': 'free-v31', 'checked_at': str(today),
-                               'zh': makeBrief(project, ''), 'difficulty': '⚪ 安装方式未确认',
-                               'readme_checked': False}
+            summaries[name] = buildSummary(project, '', today, False)
             warnings.append(f'README {name}: {error}')
         time.sleep(.13)
 
 
-def attachSummaries(items: list[Project], summaries: dict[str, Summary]) -> None:
+def attachSummaries(items: list[Project], summaries: dict[str, Summary],
+                    today: Optional[dt.date] = None) -> None:
+    today = today or dt.datetime.now(dt.timezone.utc).date()
     for project in items:
         cached = summaries.get(project['full_name'], {})
-        free = cached.get('mode') == 'free-v31'
-        project['summary_zh'] = cached.get('zh') if free else None
-        project['difficulty_zh'] = cached.get('difficulty', '⚪ 安装方式未确认') if free else '⚪ 安装方式未确认'
-        project['readme_checked'] = cached.get('readme_checked', False) if free else False
+        summary = cached if cacheIsFresh(project, cached, today) else buildSummary(project, '', today, False)
+        project['summary_zh'] = summary.get('zh')
+        project['difficulty_zh'] = summary.get('difficulty', '⚪ 安装方式未确认')
+        project['readme_checked'] = summary.get('readme_checked', False)
 
 
 def validatePreservation(original: History, updated: History, today: dt.date) -> None:
@@ -333,8 +421,8 @@ def main() -> None:
     items = [buildProject(repo, history, today) for repo in repos.values()]
     items.sort(key=lambda project: project['discovery_score'], reverse=True)
     enrichProjects(items, summaries, today, token, warnings)
-    attachSummaries(items, summaries)
     items.extend(retained)
+    attachSummaries(items, summaries, today)
     items.sort(key=lambda project: project['discovery_score'], reverse=True)
     validatePreservation(original, history, today)
     generatedAt = dt.datetime.now(dt.timezone.utc)

@@ -189,3 +189,60 @@ test('a successful favorite is persisted and can be removed from the saved view'
   assert.equal(page.cards().length, 0);
   assert.deepEqual(JSON.parse(page.stored.get('radar_saved')), []);
 });
+
+test('known backend categories control both the card label and the AI view', async () => {
+  const categories = [
+    ['影音去广告', '📺 影音 / 去广告'], ['影音下载', '🎬 影音下载'],
+    ['AI 应用', '🤖 AI 工具'], ['隐私安全', '🔐 隐私安全'],
+    ['效率工具', '⚡ 效率工具'], ['系统工具', '💻 系统工具'],
+    ['自托管', '🏠 自托管'], ['游戏娱乐', '🎮 游戏娱乐'], ['其他开源', '📦 开源项目']
+  ];
+  const rows = categories.map(([category], index) => project(`sample/category-${index}`, {
+    category_zh: category, description: 'An AI agent with a video player and app launcher'
+  }));
+  const page = await loadPage(rows);
+  assert.deepEqual(page.cards().map(card => card.querySelector('.pill').textContent),
+    categories.map(([, label]) => label));
+  page.tab('ai');
+  assert.deepEqual(page.cards().map(card => card.querySelector('.name').textContent), ['sample/category-2']);
+});
+
+for (const category of [undefined, '尚未支持的分类']) {
+  test(`fallback does not infer AI from storage or drag when category is ${category}`, async () => {
+    const page = await loadPage([
+      project('cryptomator/cryptomator', {category_zh: category,
+        description: 'Secure client-side encryption for your cloud storage, ensuring privacy.'}),
+      project('homarr-labs/homarr', {category_zh: category,
+        description: 'A dashboard with drag and drop configuration.'}),
+      project('sample/chair-model', {category_zh: category,
+        description: 'A model of a handmade chair.'})
+    ]);
+    assert.ok(page.cards().every(card => !card.querySelector('.pill').textContent.includes('AI')));
+    page.tab('ai');
+    assert.equal(page.cards().length, 0);
+  });
+}
+
+test('fallback distinguishes an ordinary app launcher from a television launcher', async () => {
+  const page = await loadPage([
+    project('storytold/craft-launcher', {description: 'The Craft App Launcher'}),
+    project('sample/tv-launcher', {description: 'An Android TV launcher with adblock support'})
+  ]);
+  assert.deepEqual(page.cards().map(card => card.querySelector('.pill').textContent),
+    ['💻 系统工具', '📺 影音 / 去广告']);
+});
+
+test('fallback still recognizes explicit AI terms with separators', async () => {
+  const page = await loadPage([
+    project('sample/assistant', {description: 'Tools for AI-agents and language models.'}),
+    project('sample/lookup', {description: 'A private RAG application.'})
+  ]);
+  page.tab('ai');
+  assert.equal(page.cards().length, 2);
+});
+
+test('backend evidence summaries keep their complete source prefix and text', async () => {
+  const summary = '【用途提取】文件格式转换工具；依据公开简介。';
+  const page = await loadPage([project('KnifeLemon/Filee', {summary_zh: summary})]);
+  assert.equal(page.cards()[0].querySelector('.desc').textContent, summary);
+});
