@@ -1,0 +1,39 @@
+name: Update GitRadar data
+
+on:
+  schedule:
+    - cron: "23 2 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Collect GitHub projects
+        env:
+          GH_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python collect.py
+
+      - name: Save collected data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add data/projects.json data/history.json
+
+          if ! git diff --cached --quiet; then
+            git commit -m "Update GitRadar project data"
+            git push
+          fi
