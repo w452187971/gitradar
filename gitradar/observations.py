@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import copy
 import datetime as dt
+from collections import Counter
 from typing import Optional, Union, cast
 
 from .models import History, Observation, ObservationBatch, ProjectRecord, Snapshot, SCHEMA_VERSION
@@ -81,6 +82,11 @@ def candidateScore(project: ProjectRecord, date: dt.date) -> float:
 
 
 def projectForObservation(projects: list[ProjectRecord], observation: Observation) -> Optional[ProjectRecord]:
+    historyKey = observation.get('history_key')
+    matched = next((project for project in projects if historyKey and
+                    project.get('history_key', project['full_name']) == historyKey), None)
+    if matched is not None:
+        return matched
     nodeId = observation.get('node_id')
     matches = [project for project in projects if nodeId and project.get('node_id') == nodeId]
     if matches:
@@ -133,6 +139,63 @@ def applyOne(projects: list[ProjectRecord], history: History, aliases: dict[str,
         aliases[oldName] = project['full_name']
 
 
+def initialRenameTarget(old: ProjectRecord, byKey: dict[str, list[Observation]],
+                        byNode: dict[str, list[ProjectRecord]]) -> Optional[ProjectRecord]:
+    observed = byKey.get(old.get('history_key') or old['full_name'], [])
+    identities = {(item.get('node_id'), item.get('full_name'), item.get('created_at')) for item in observed}
+    if old.get('node_id') or len(identities) != 1:
+        return None
+    observation = observed[0]
+    nodeId = observation.get('node_id')
+    if not nodeId or observation.get('created_at') != old.get('created_at'):
+        return None
+    if observation.get('full_name') == old['full_name']:
+        return None
+    matches = byNode.get(nodeId, [])
+    if len(matches) != 1:
+        return None
+    target = matches[0]
+    if (target['full_name'].lower() != observation['full_name'].lower()
+            or target.get('created_at') != observation.get('created_at')):
+        return None
+    confirmed = byKey.get(target.get('history_key') or target['full_name'], [])
+    if not confirmed or any(item.get('node_id') != nodeId or
+                            item.get('created_at') != observation.get('created_at') or
+                            item.get('full_name') != observation.get('full_name') for item in confirmed):
+        return None
+    return target
+
+
+def mergeInitialRename(old: ProjectRecord, target: ProjectRecord, projects: list[ProjectRecord]) -> None:
+    oldKey = old.get('history_key') or old['full_name']
+    targetKey = target.get('history_key') or target['full_name']
+    historyAliases = [*old.get('history_aliases', []), targetKey, *target.get('history_aliases', [])]
+    old.update(history_key=oldKey, node_id=target['node_id'],
+               history_aliases=list(dict.fromkeys(key for key in historyAliases if key != oldKey)))
+    for key, value in target.items():
+        if key not in old:
+            old[key] = copy.deepcopy(value)
+    projects[:] = [project for project in projects if project is not target]
+
+
+def reconcileInitialRenames(projects: list[ProjectRecord], batch: list[Observation], utcDate: str) -> None:
+    byKey: dict[str, list[Observation]] = {}
+    byNode: dict[str, list[ProjectRecord]] = {}
+    for observation in batch:
+        if successfulObservation(observation, utcDate) is None:
+            key = observation.get('history_key') or observation['full_name']
+            byKey.setdefault(key, []).append(observation)
+    for project in projects:
+        if project.get('node_id'):
+            byNode.setdefault(project['node_id'], []).append(project)
+    candidates = [(old, target) for old in projects
+                  if (target := initialRenameTarget(old, byKey, byNode)) is not None]
+    counts = Counter(target['node_id'] for _, target in candidates)
+    for old, target in candidates:
+        if counts[target['node_id']] == 1:
+            mergeInitialRename(old, target, projects)
+
+
 def applyObservations(previousSnapshot: Snapshot, observations: Union[ObservationBatch, list[Observation]],
                       utcDate: Union[str, dt.date]) -> Snapshot:
     date = str(utcDate)
@@ -142,6 +205,7 @@ def applyObservations(previousSnapshot: Snapshot, observations: Union[Observatio
     projects, history = snapshot.setdefault('projects', []), snapshot.setdefault('history', {})
     aliases = snapshot.setdefault('saved_aliases', {})
     batch = observations['observations'] if isinstance(observations, dict) else observations
+    reconcileInitialRenames(projects, batch, date)
     for project in projects:
         retainProject(project, 'deferred', 'No successful observation in this batch.')
     for observation in batch:

@@ -363,8 +363,7 @@ class GitHubClient:
             'language': language.get('name') if isinstance(language, dict) else None,
             'topics': [n['topic']['name'] for n in topicNodes if isinstance(n, dict) and
                        isinstance(n.get('topic'), dict) and isinstance(n['topic'].get('name'), str)]}
-        if ref.get('history_key'):
-            observation['history_key'] = ref['history_key']
+        observation['history_key'] = ref.get('history_key') or ref['full_name']
         return observation
 
     def failedObservation(self, ref: RepositoryRef, reason: Union[str, Exception], status: str = 'failed') -> Observation:

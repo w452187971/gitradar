@@ -159,6 +159,7 @@ class ContentRecord(ProjectFacts, total=False):
 
 
 class ProjectRecord(Observation, total=False):
+    history_aliases: list[str]
     delta_1d: Optional[int]
     delta_7d: Optional[int]
     discovery_score: float

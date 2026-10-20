@@ -69,11 +69,51 @@ def _budgetErrors(usage: dict[str, object]) -> list[str]:
             if type(usage.get(key, 0)) is not int or not 0 <= cast(int, usage.get(key, 0)) <= maximum]
 
 
+def _validHistoryAlias(project: dict[str, object], alias: str,
+                       previous: dict[str, object]) -> bool:
+    node, createdAt = project.get('node_id'), project.get('created_at')
+    key = project.get('history_key', project.get('full_name'))
+    oldProjects = _projects(previous.get('projects'))
+    originals = [old for old in oldProjects if old.get('history_key', old.get('full_name')) == key]
+    if not isinstance(node, str) or not node or not isinstance(createdAt, str) or not createdAt:
+        return False
+    if len(originals) != 1 or alias not in _mapping(previous.get('history')):
+        return False
+    original = originals[0]
+    if original.get('created_at') != createdAt or original.get('node_id') not in (None, node):
+        return False
+    for old in oldProjects:
+        priorAliases = old.get('history_aliases', [])
+        referenced = (old.get('history_key', old.get('full_name')) == alias
+                      or isinstance(priorAliases, list) and alias in priorAliases)
+        if referenced and old.get('node_id') == node and old.get('created_at') == createdAt:
+            return True
+    return False
+
+
+def _candidateKeys(previous: dict[str, object], projects: list[dict[str, object]]) -> tuple[set[str], list[str]]:
+    keys = {str(project.get('history_key', project.get('full_name'))) for project in projects}
+    primaryKeys = set(keys)
+    errors = []
+    for project in projects:
+        aliases = project.get('history_aliases', [])
+        if not isinstance(aliases, list) or any(not isinstance(alias, str) for alias in aliases):
+            errors.append('invalid_history_aliases:' + str(project.get('full_name')))
+            continue
+        for alias in aliases:
+            if (alias in primaryKeys or aliases.count(alias) != 1
+                    or not _validHistoryAlias(project, alias, previous)):
+                errors.append('invalid_history_alias:' + alias)
+            else:
+                keys.add(alias)
+    return keys, errors
+
+
 def _observationErrors(previous: dict[str, object], candidate: dict[str, object], today: str) -> list[str]:
     projects, history = _projects(candidate.get('projects')), _mapping(candidate.get('history'))
-    keys = {p.get('history_key', p.get('full_name')) for p in projects}
-    errors = ['candidate_lost:' + str(p.get('full_name')) for p in _projects(previous.get('projects'))
-              if p.get('history_key', p.get('full_name')) not in keys]
+    keys, errors = _candidateKeys(previous, projects)
+    errors.extend('candidate_lost:' + str(p.get('full_name')) for p in _projects(previous.get('projects'))
+                  if p.get('history_key', p.get('full_name')) not in keys)
     if not _validDate(today):
         return errors
     for project in projects:
