@@ -1,0 +1,19 @@
+{
+  "checked_at": "2026-10-20T15:22:06.437116+00:00",
+  "token_kind": "Actions GITHUB_TOKEN",
+  "requested": 50,
+  "returned": 50,
+  "rate_limit": {
+    "cost": 1,
+    "remaining": 4999,
+    "resetAt": "2026-10-20T16:22:05Z"
+  },
+  "headers": {
+    "X-RateLimit-Limit": "5000",
+    "X-RateLimit-Remaining": "4999",
+    "X-RateLimit-Used": "1"
+  },
+  "errors": [],
+  "estimated_batches_for_baseline": 40,
+  "run_url": "https://github.com/w452187971/gitradar/actions/runs/39447709195"
+}

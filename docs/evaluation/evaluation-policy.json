@@ -1,0 +1,51 @@
+{
+  "version": "v4-eval-1",
+  "status": "pending",
+  "groups": {
+    "development": 40,
+    "blind": 40,
+    "counterexamples": 40
+  },
+  "strata": [
+    "domain",
+    "delivery_form",
+    "source_language",
+    "repository_age"
+  ],
+  "family_isolation": true,
+  "known_regression_only": [
+    "Gathin23/cleanyourtv",
+    "Filee",
+    "DigUp"
+  ],
+  "blind_isolation": "Independent reviewer holds input and labels outside implementation checkout until code freeze and first scoring. Archive afterwards.",
+  "thresholds": {
+    "purpose_accuracy": 0.95,
+    "platform_accuracy": 0.95,
+    "path_accuracy": 0.95,
+    "minimum_assertions_per_dimension": 30,
+    "major_fabrications": 0,
+    "supported_domain_unexplained_max": 0.2
+  },
+  "reader_status": "unavailable_user_confirmed_2026-10-20",
+  "observation": {
+    "start": "first full UTC date after engineering publication",
+    "sampling_days": 14,
+    "tail_hours": 48,
+    "maximum_sampling_days": 28,
+    "reference_minimum": 20,
+    "reference_discovery_48h": 0.8,
+    "automatic_new_recommendations_minimum": 10,
+    "automatic_new_scenes_minimum": 3,
+    "scheduled_success_days_minimum": 13,
+    "fixed_cohort_coverage": 0.95
+  },
+  "automatic_new_excludes": [
+    "frozen_baseline",
+    "seed",
+    "manual_import",
+    "manual_curation",
+    "old_pool_enrichment",
+    "rotation"
+  ]
+}
