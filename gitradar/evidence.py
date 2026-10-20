@@ -5,10 +5,12 @@ import copy
 import hashlib
 import json
 from urllib.parse import unquote, urlsplit
+from typing import Callable
 
-from gitradar.content import Record, _record, _records, _strings, isOfficialUrl, pathClaimRefs
+from gitradar.content import Record, _record, _records, _strings, isOfficialUrl, pathClaimRefs, hasSourceContext
 from gitradar.github_client import BudgetExceeded, GitHubClient
 from gitradar.models import Budget
+from gitradar.sources import isRepositoryMetadataUrl
 
 
 def sourceLocation(url: object, kind: object) -> str:
@@ -18,12 +20,12 @@ def sourceLocation(url: object, kind: object) -> str:
     if host == 'raw.githubusercontent.com' and len(parts) >= 4:
         return 'github:' + '/'.join(parts[:2] + parts[3:])
     if host == 'github.com' and len(parts) >= 2:
-        if kind == 'repository':
+        if kind == 'repository' and isRepositoryMetadataUrl(url):
             return 'github:' + '/'.join(parts[:2])
         if len(parts) >= 5 and parts[2] == 'blob':
             return 'github:' + '/'.join(parts[:2] + parts[4:])
     if host == 'api.github.com' and parts[:1] == ['repos'] and len(parts) >= 3:
-        if kind == 'repository':
+        if kind == 'repository' and isRepositoryMetadataUrl(url):
             return 'github:' + '/'.join(parts[1:3])
         if len(parts) > 4 and parts[3] == 'contents':
             return 'github:' + '/'.join(parts[1:3] + parts[4:])
@@ -38,7 +40,7 @@ def _matchingSource(ref: Record, sources: list[Record]) -> Record:
     exact = next((source for source in matches if source.get('id') == ref.get('id')), None)
     if exact is not None:
         return exact
-    if kind == 'readme':
+    if hasSourceContext(ref):
         matches.sort(key=lambda item: len(str(item.get('text', ''))), reverse=True)
     return matches[0] if matches else {}
 
@@ -47,7 +49,7 @@ def _unchanged(ref: Record, source: Record) -> bool:
     old, new = str(ref.get('text', '')), str(source.get('text', ''))
     if not old:
         return False
-    if ref.get('source_kind') == 'readme':
+    if hasSourceContext(ref) and ref.get('source_kind') != 'release':
         return old in new
     try:
         before, after = json.loads(old), json.loads(new)
@@ -61,7 +63,7 @@ def _refreshRef(ref: Record, source: Record) -> Record:
     result = copy.deepcopy(ref)
     sourceHash = source.get('source_hash') or source.get('content_hash')
     result.update(checked_at=source.get('checked_at'), status=source.get('status', 200), source_hash=sourceHash)
-    if ref.get('source_kind') in ('readme', 'official_site', 'official_document', 'release') and ref.get('source_hash'):
+    if hasSourceContext(ref) and ref.get('source_hash'):
         if ref.get('context_changed') or ref.get('source_hash') != sourceHash:
             result.update(context_changed=True, previous_source_hash=ref.get('previous_source_hash') or ref['source_hash'])
     if not _unchanged(ref, source):
@@ -135,7 +137,7 @@ def _aggregatePathChecks(ref: Record, checks: Record) -> None:
 
 
 def _checkProjectPaths(project: Record, bundle: Record, client: GitHubClient,
-                       budget: Budget, asOf: str, result: Record) -> bool:
+                       budget: Budget, asOf: str, result: Record, clock: Callable[[], str] | None = None) -> bool:
     name, content = str(project.get('full_name', '')), _record(project.get('content'))
     _initializePaths(bundle, content)
     checked: set[str] = set()
@@ -147,7 +149,8 @@ def _checkProjectPaths(project: Record, bundle: Record, client: GitHubClient,
         try:
             response = client.exchange('HEAD', url, None, budget, 'path', {'User-Agent': 'GitRadar-V4-link-check'})
             ids = pathClaimRefs(content, path, _records(bundle.get('refs')))
-            _recordPathResult(bundle, ids, url, response.status, asOf)
+            checkedAt = clock() if clock is not None else asOf
+            _recordPathResult(bundle, ids, url, response.status, checkedAt)
         except BudgetExceeded:
             return False
         except (OSError, ValueError):
@@ -156,13 +159,13 @@ def _checkProjectPaths(project: Record, bundle: Record, client: GitHubClient,
 
 
 def refreshPaths(projects: list[Record], evidence: Record, client: GitHubClient,
-                 budget: Budget, asOf: str) -> Record:
+                 budget: Budget, asOf: str, clock: Callable[[], str] | None = None) -> Record:
     result = copy.deepcopy(evidence)
     bundles = _record(result.get('projects'))
     for project in projects[:20]:
         name = str(project.get('full_name', ''))
         bundle = _record(bundles.get(name))
-        complete = _checkProjectPaths(project, bundle, client, budget, asOf, result)
+        complete = _checkProjectPaths(project, bundle, client, budget, asOf, result, clock)
         bundles[name] = bundle
         if not complete:
             break

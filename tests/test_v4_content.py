@@ -229,3 +229,14 @@ class ContextAndMultiplePathTests(unittest.TestCase):
         self.assertFalse(resolveContent(facts, curation, NOW)['eligibility']['eligible'])
         ref['path_checks'][second['url']] = {'status': 200, 'checked_at': NOW}
         self.assertTrue(resolveContent(facts, curation, NOW)['eligibility']['eligible'])
+
+class RepositoryDocumentContextTests(unittest.TestCase):
+    def test_license_document_legacy_kind_cannot_hide_context_change(self):
+        facts, editorial = sampleContent()
+        ref = next(ref for ref in facts['evidence_refs'] if ref['id'] == 'license')
+        ref.update(source_kind='repository', url='https://api.github.com/repos/demo/search/license',
+                   context_changed=True, source_hash='changed-license-context')
+        content = resolveContent(facts, editorial, NOW)
+        self.assertEqual(content['effective_status'], 'review_required')
+        self.assertIn('context_changed:license', content['invalidation_reasons'])
+        self.assertFalse(content['eligibility']['eligible'])

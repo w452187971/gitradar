@@ -247,7 +247,8 @@ def scheduleContent(projects: list[Record], evidence: Record, previousFeed: Reco
                       'waiting': max(0, len(projects) - len(selected))}
 
 
-def refreshContent(snapshot: Record, client: GitHubClient, budget: Budget, asOf: str, offline: bool) -> None:
+def refreshContent(snapshot: Record, client: GitHubClient, budget: Budget, asOf: str, offline: bool,
+                   clock: Callable[[], str] | None = None) -> None:
     evidence = _record(snapshot.get('evidence'))
     bundles = _record(evidence.get('projects'))
     projects = _records(snapshot.get('projects'))
@@ -262,7 +263,7 @@ def refreshContent(snapshot: Record, client: GitHubClient, budget: Budget, asOf:
             name = str(project['full_name'])
             previous = _record(bundles.get(name))
             fetched = client.readProjectEvidence(_refs([project])[0], previous, budget)
-            bundles[name] = {**mergeEvidence(previous, fetched), 'last_attempt_at': asOf}
+            bundles[name] = {**mergeEvidence(previous, fetched), 'last_attempt_at': _completionCutoff(asOf, clock)}
             attempted.append(name)
     statuses = [str(_record(bundles.get(name)).get('status', 'failed')) for name in attempted]
     allocation.update(attempted=attempted, attempted_count=len(attempted),
@@ -271,7 +272,7 @@ def refreshContent(snapshot: Record, client: GitHubClient, budget: Budget, asOf:
                       failed_count=sum(status not in ('success', 'partial') for status in statuses),
                       waiting=len(projects)-len(attempted))
     snapshot.update(evidence={**evidence, 'projects': bundles}, content_allocation=allocation)
-    resolveProjects(snapshot, asOf)
+    resolveProjects(snapshot, _completionCutoff(asOf, clock))
 
 
 def resolveProjects(snapshot: Record, asOf: str) -> None:
@@ -310,13 +311,37 @@ def _metadata(asOf: str, sourceCommit: str) -> Record:
             'batch_id': uuid.uuid4().hex, 'generated_at': asOf, 'source_commit': sourceCommit}
 
 
-def _recommend(snapshot: Record, asOf: str, client: GitHubClient, budget: Budget, offline: bool) -> None:
+def _utcInstant(value: str) -> str:
+    instant = dt.datetime.fromisoformat(value.replace('Z', '+00:00'))
+    if instant.tzinfo is None:
+        raise ValueError('Collection clock must include a timezone.')
+    return instant.astimezone(dt.timezone.utc).isoformat().replace('+00:00', 'Z')
+
+
+def _completionCutoff(startedAt: str, clock: Callable[[], str] | None) -> str:
+    completed = _utcInstant(clock() if clock is not None else startedAt)
+    start = dt.datetime.fromisoformat(startedAt.replace('Z', '+00:00'))
+    finish = dt.datetime.fromisoformat(completed.replace('Z', '+00:00'))
+    if start.tzinfo is None or finish.tzinfo is None:
+        raise ValueError('Collection clock must include a timezone.')
+    if finish < start:
+        raise RuntimeError('Collection completion clock moved backwards.')
+    if finish.astimezone(dt.timezone.utc).date() != start.astimezone(dt.timezone.utc).date():
+        raise RuntimeError('Collection crossed UTC midnight; publication blocked.')
+    return completed
+
+
+def _recommend(snapshot: Record, asOf: str, client: GitHubClient, budget: Budget, offline: bool,
+               clock: Callable[[], str] | None = None) -> str:
+    cutoff = _completionCutoff(asOf, clock)
+    if clock is not None:
+        resolveProjects(snapshot, cutoff)
     projects = _records(snapshot.get('projects'))
     attachGrowth(projects, _record(snapshot.get('history')), asOf)
     previous = _record(snapshot.get('recommendations'))
     active = [p for p in projects if not p.get('archived') and not p.get('fork') and
               p.get('observation_status') != 'identity_conflict']
-    feed = selectRecommendations(active, previous, asOf)
+    feed = selectRecommendations(active, previous, cutoff)
     if not offline:
         targets = _records(feed.get('recommendations'))
         selectedNames = {p['full_name'] for p in targets}
@@ -325,12 +350,14 @@ def _recommend(snapshot: Record, asOf: str, client: GitHubClient, budget: Budget
         recoverable.sort(key=lambda p: str(p.get('last_path_attempt_at', '')))
         targets = (targets + recoverable)[:20]
         for project in targets:
-            project['last_path_attempt_at'] = asOf
-        snapshot['evidence'] = refreshPaths(targets,
-                                           _record(snapshot.get('evidence')), client, budget, asOf)
-        resolveProjects(snapshot, asOf)
-        feed = selectRecommendations(active, previous, asOf)
+            project['last_path_attempt_at'] = cutoff
+        snapshot['evidence'] = refreshPaths(targets, _record(snapshot.get('evidence')),
+                                           client, budget, cutoff, clock=clock)
+        cutoff = _completionCutoff(asOf, clock)
+        resolveProjects(snapshot, cutoff)
+        feed = selectRecommendations(active, previous, cutoff)
     snapshot['recommendations'] = feed
+    return cutoff
 
 
 def _observationReport(previous: Record, snapshot: Record, asOf: str, runKind: str) -> None:
@@ -367,12 +394,13 @@ def _observationReport(previous: Record, snapshot: Record, asOf: str, runKind: s
 
 
 def _prepare(previous: Record, client: GitHubClient, budget: Budget, asOf: str,
-             offline: bool, metadata: Record, runKind: str) -> Record:
+             offline: bool, metadata: Record, runKind: str, clock: Callable[[], str] | None = None) -> Record:
     import collect
     discovered, reports = ([], []) if offline else discover(client, budget, asOf)
     snapshot = observe(previous, repositoryPool(previous, discovered, asOf), client, budget, asOf, offline)
-    refreshContent(snapshot, client, budget, asOf, offline)
-    _recommend(snapshot, asOf, client, budget, offline)
+    refreshContent(snapshot, client, budget, asOf, offline, clock)
+    completed = _recommend(snapshot, asOf, client, budget, offline, clock)
+    metadata['generated_at'] = completed
     projects = _records(snapshot.get('projects'))
     collect.attachSummaries(projects, _record(snapshot.get('summaries')), dt.date.fromisoformat(asOf[:10]))
     stats = collect.collectionStats(projects, snapshot['history'],
@@ -383,7 +411,7 @@ def _prepare(previous: Record, client: GitHubClient, budget: Budget, asOf: str,
                     warnings=_strings(snapshot.get('observation_errors')))
     for key in ('evidence', 'recommendations', 'pending_candidates'):
         _record(snapshot.get(key)).update(metadata)
-    _observationReport(previous, snapshot, asOf, 'offline_preview' if offline else runKind)
+    _observationReport(previous, snapshot, completed, 'offline_preview' if offline else runKind)
     _record(snapshot.get('observation_reports')).update(metadata)
     return snapshot
 
@@ -410,11 +438,12 @@ def run(root: Path, outputDirectory: Path, client: GitHubClient | None = None,
     output.mkdir(parents=True, exist_ok=True)
     try:
         previous = loadSnapshot(root)
-        instant = asOf or utcNow()
+        instant = _utcInstant(asOf or utcNow())
         source = sourceCommit or subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=root, text=True).strip()
         metadata = _metadata(instant, source)
-        snapshot = _prepare(previous, client or GitHubClient(), Budget(), instant, offline, metadata, runKind)
-        if asOf is None and utcNow()[:10] != instant[:10]:
+        clock = utcNow if asOf is None and not offline else None
+        snapshot = _prepare(previous, client or GitHubClient(), Budget(), instant, offline, metadata, runKind, clock)
+        if clock is not None and utcNow()[:10] != instant[:10]:
             raise RuntimeError('Collection crossed UTC midnight; publication blocked.')
         _writeData(snapshot, output)
         manifest = cast(Record, buildSite(snapshot, output))

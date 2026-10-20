@@ -382,3 +382,76 @@ class ClientTests(unittest.TestCase):
             [{'full_name': 'a/tool', 'node_id': 'R1'}, {'full_name': 'b/tool', 'node_id': 'R2'}], Budget())
         self.assertEqual([o['status'] for o in batch['observations']], ['not_found', 'failed'])
         self.assertNotIn('http_status', batch['observations'][1])
+
+    def repositorySource(self):
+        import json
+        from pathlib import Path
+        from gitradar.sources import SourceRequest
+        old = json.loads((Path(__file__).resolve().parents[1]/'data/seed-evidence.json').read_text())['projects']['HandBrake/HandBrake']
+        original = next(ref for ref in old['refs'] if ref['source_kind'] == 'repository')
+        payload = json.loads(original['text'])
+        payload.update(stargazers_count=99999, permissions={'push': False}, temp_clone_token='fixture-never-persist')
+        client = self.client([HttpResponse(200, {'ETag': 'metadata-v1'}, payload)])
+        source = SourceRequest(original['url'], original['url'], 'repository', old_refs=[original])
+        self.metadataCache = {}
+        fetched = client.readEvidenceSource(source, old, Budget(), self.metadataCache)
+        return old, original, payload, fetched
+
+    def test_requested_source_url_does_not_rewrite_repository_html_url_fact(self):
+        import json
+        from gitradar.evidence import mergeEvidence
+        old, original, payload, fetched = self.repositorySource()
+        metadata = next(ref for ref in fetched if ref['section'] == 'metadata')
+        self.assertEqual(metadata['url'], original['url'])
+        self.assertEqual(json.loads(metadata['text'])['html_url'], payload['html_url'])
+        merged = mergeEvidence(old, {'refs': fetched})
+        actual = next(ref for ref in merged['refs'] if ref['id'] == original['id'])
+        self.assertEqual(actual['content_hash'], original['content_hash'])
+
+    def test_repository_evidence_serializes_only_public_product_fact_fields(self):
+        import json
+        _, _, _, fetched = self.repositorySource()
+        metadata = next(ref for ref in fetched if ref['section'] == 'metadata')
+        body = json.loads(metadata['text'])
+        self.assertNotIn('temp_clone_token', body)
+        self.assertNotIn('permissions', body)
+        self.assertNotIn('stargazers_count', body)
+        self.assertNotIn('fixture-never-persist', metadata['text'])
+        self.assertIn('license', body)
+
+    def test_repository_etag_cache_does_not_persist_unneeded_authenticated_fields(self):
+        _, original, _, _ = self.repositorySource()
+        cached = self.metadataCache[original['url']]['body']
+        self.assertNotIn('temp_clone_token', cached)
+        self.assertNotIn('permissions', cached)
+
+    def test_repository_identity_failure_still_filters_the_returned_etag_cache(self):
+        previous = {'full_name': 'a/tool', 'node_id': 'R1', 'refs': [{
+            'id': 'metadata', 'source_kind': 'repository',
+            'url': 'https://api.github.com/repos/a/tool', 'text': '{}'}]}
+        payload = {'node_id': 'REPLACEMENT_NODE', 'full_name': 'a/tool',
+                   'permissions': {'push': False}, 'temp_clone_token': 'synthetic-never-persist',
+                   'stargazers_count': 99999}
+        client = self.client([HttpResponse(200, {'ETag': 'different-identity'}, payload)])
+        result = client.readProjectEvidence(previous, previous, Budget(content_requests=1))
+        self.assertTrue(any('identity changed' in error for error in result['errors']))
+        cached = result['cache']['https://api.github.com/repos/a/tool']['body']
+        self.assertEqual(cached, {'node_id': 'REPLACEMENT_NODE', 'full_name': 'a/tool'})
+        self.assertNotIn('synthetic-never-persist', str(result))
+
+    def test_repository_kind_license_endpoint_is_fetched_as_the_bound_document(self):
+        import base64
+        previous = {'full_name': 'a/tool', 'node_id': 'R1', 'refs': [{
+            'id': 'license_document_review', 'source_kind': 'repository',
+            'url': 'https://api.github.com/repos/a/tool/license', 'text': 'License title.',
+            'content_hash': 'reviewed-span', 'checked_at': '2026-10-01T00:00:00Z'}]}
+        payload = {'encoding': 'base64', 'content': base64.b64encode(b'License title.\nThe full grant.').decode(),
+                   'sha': 'license-sha', 'node_id': 'CONTENT_BLOB_ID',
+                   'html_url': 'https://github.com/a/tool/blob/main/LICENSE'}
+        client = self.client([HttpResponse(200, {}, payload)])
+        fetched = client.readProjectEvidence(previous, previous, Budget(content_requests=1))
+        self.assertEqual(self.calls[0][1], 'https://api.github.com/repos/a/tool/license')
+        document = next(ref for ref in fetched['refs'] if ref.get('text') == 'License title.\nThe full grant.')
+        self.assertEqual(document['source_kind'], 'repository')
+        self.assertEqual(document['url'], previous['refs'][0]['url'])
+        self.assertEqual(document['checked_at'], NOW)

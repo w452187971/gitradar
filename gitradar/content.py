@@ -8,6 +8,8 @@ from collections.abc import Mapping
 from typing import Union
 from urllib.parse import urlsplit
 
+from gitradar.sources import isRepositoryMetadataUrl
+
 Json = Union[None, bool, int, float, str, list['Json'], dict[str, 'Json']]
 Record = dict[str, Json]
 FACT_FIELDS = ('purpose', 'audience', 'platforms', 'form', 'prerequisites', 'license', 'cost', 'usage_paths')
@@ -194,13 +196,19 @@ def _evidenceProblems(content: Record, asOf: dt.datetime, reviewed: bool) -> lis
     return list(dict.fromkeys(reasons))
 
 
+def hasSourceContext(ref: Record) -> bool:
+    kind = ref.get('source_kind')
+    return (kind in ('readme', 'official_site', 'official_document', 'release') or
+            (kind == 'repository' and bool(ref.get('url')) and not isRepositoryMetadataUrl(ref['url'])))
+
+
 def _contextProblems(content: Record, refs: dict[str, Record]) -> list[str]:
     expected = _record(content.get('evidence_context_hashes'))
     bound = {refId for ids in _record(content.get('claims')).values() for refId in _strings(ids)}
     reasons: list[str] = []
     for refId in bound:
         ref = refs.get(refId, {})
-        if ref.get('source_kind') not in ('readme', 'official_site', 'official_document', 'release'):
+        if not hasSourceContext(ref):
             continue
         current, reviewed = ref.get('source_hash'), expected.get(refId)
         if (ref.get('context_changed') and (not reviewed or current != reviewed)) or (reviewed and current != reviewed):

@@ -14,10 +14,13 @@ import urllib.request
 from dataclasses import asdict, dataclass
 from typing import Callable, Optional, Union, cast
 
-from .sources import (MAX_SOURCE_BYTES, SourceRequest, boundSourceRequests, visibleSourceText)
+from .sources import (MAX_SOURCE_BYTES, SourceRequest, boundSourceRequests, visibleSourceText,
+                      isRepositoryMetadataUrl)
 from .models import Budget, EvidenceBundle, EvidenceRef, Observation, ObservationBatch, RepositoryRef, Usage
 
 API_ROOT = 'https://api.github.com'
+REPOSITORY_FACT_FIELDS = ('archived', 'created_at', 'description', 'disabled', 'full_name',
+                          'homepage', 'html_url', 'license', 'node_id', 'fork')
 NODE_FIELDS = ('id nameWithOwner stargazerCount createdAt isArchived isFork url description pushedAt '
                'primaryLanguage { name } repositoryTopics(first: 20) { nodes { topic { name } } }')
 
@@ -413,13 +416,21 @@ class GitHubClient:
         payload = self.requestRest(source.endpoint, budget, 'content', cache, ref.get('node_id'))
         if not isinstance(payload, dict):
             raise ValueError('Official evidence response must be an object.')
-        if source.kind == 'repository' and ref.get('node_id') != payload.get('node_id'):
-            raise ValueError('Evidence repository identity changed.')
-        payload = dict(payload, html_url=source.url if source.old_refs else payload.get('html_url') or source.url)
+        metadataSource = source.kind == 'repository' and isRepositoryMetadataUrl(source.url)
+        if metadataSource:
+            payload = self.repositoryFacts(payload)
+            key = source.endpoint if source.endpoint.startswith('https://') else API_ROOT + source.endpoint
+            entry = cache.get(key)
+            if isinstance(entry, dict):
+                entry['body'] = payload
+            if ref.get('node_id') != payload.get('node_id'):
+                raise ValueError('Evidence repository identity changed.')
         kind = 'readme' if payload.get('encoding') == 'base64' else source.kind
         refs = self.evidenceRefs(payload, kind, ref)
         for evidence in refs:
             evidence['source_kind'] = source.kind
+            if source.old_refs or not payload.get('html_url'):
+                evidence['url'] = source.url
         return refs
 
     def webEvidence(self, text: str, source: SourceRequest, ref: RepositoryRef) -> list[EvidenceRef]:
@@ -476,8 +487,11 @@ class GitHubClient:
             evidence['published_at'] = published
         return evidence
 
+    def repositoryFacts(self, payload: dict[str, object]) -> dict[str, object]:
+        return {key: payload[key] for key in REPOSITORY_FACT_FIELDS if key in payload}
+
     def repositoryEvidence(self, payload: dict[str, object], ref: RepositoryRef) -> list[EvidenceRef]:
-        raw = json.dumps(payload, ensure_ascii=False, sort_keys=True)
+        raw = json.dumps(self.repositoryFacts(payload), ensure_ascii=False, sort_keys=True)
         refs = [self.makeEvidenceRef(raw, 'repository', 'metadata', payload, ref)]
         description = payload.get('description')
         if isinstance(description, str) and description:

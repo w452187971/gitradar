@@ -64,6 +64,20 @@ class PipelineTests(unittest.TestCase):
             self.assertEqual(report['runs'][0]['fresh_count'], 0)
             self.assertEqual(report['runs'][0]['run_kind'], 'offline_preview')
 
+    def test_explicit_offset_uses_the_actual_utc_day_for_replay(self):
+        instants = [('2026-10-21T01:00:00+08:00', '2026-10-20T17:00:00Z'),
+                    ('2026-10-19T23:00:00-02:00', '2026-10-20T01:00:00Z')]
+        for supplied, utc in instants:
+            with self.subTest(asOf=supplied), tempfile.TemporaryDirectory() as source, tempfile.TemporaryDirectory() as output:
+                root = self.makeState(Path(source))
+                result = pipeline.run(root, Path(output), offline=True, asOf=supplied, sourceCommit='utc-fixture')
+                self.assertTrue(result['allowed'], result)
+                document = json.loads((Path(output) / 'data/projects.json').read_text())
+                report = json.loads((Path(output) / 'data/observation-reports.json').read_text())
+                self.assertEqual(document['generated_at'], utc)
+                self.assertEqual(report['runs'][0]['utc_date'], '2026-10-20')
+                self.assertEqual(report['runs'][0]['observed_at'], utc)
+
     def test_failed_validation_never_changes_formal_artifacts(self):
         with tempfile.TemporaryDirectory() as source, tempfile.TemporaryDirectory() as output:
             root = self.makeState(Path(source))
@@ -267,6 +281,95 @@ class PipelineTests(unittest.TestCase):
             queue = json.loads((root / 'data/pending-candidates.json').read_text())
             self.assertEqual(queue['projects'], [])
             self.assertEqual(queue['batch_id'], json.loads((root / 'data/projects.json').read_text())['batch_id'])
+
+    def advancingSourceRun(self, sourceTime='2026-10-20T15:05:00Z', explicit=False,
+                           start='2026-10-20T15:00:00Z', finish='2026-10-20T15:06:00Z'):
+        from test_v4_content import sampleContent
+        facts, editorial = sampleContent()
+        state = {'now': start}
+        class AdvancingClient(FailedClient):
+            def readProjectEvidence(self, ref, previous, budget):
+                state['now'] = sourceTime if sourceTime[:4] != '2050' else '2026-10-20T15:05:00Z'
+                fetched = copy.deepcopy(previous)
+                for evidence in fetched['refs']:
+                    evidence.update(checked_at=sourceTime, status=200)
+                fetched.update(status='success', errors=[])
+                return fetched
+            def exchange(self, *args):
+                state['now'] = finish
+                return HttpResponse(200, {}, None)
+        with tempfile.TemporaryDirectory() as source, tempfile.TemporaryDirectory() as output:
+            root = Path(source)
+            (root/'data').mkdir()
+            project = {'full_name': 'demo/search', 'node_id': 'N', 'created_at': '2020-01-01T00:00:00Z',
+                       'html_url': 'https://github.com/demo/search', 'stargazers_count': 10}
+            bundle = {'full_name': 'demo/search', 'node_id': 'N', 'refs': facts['evidence_refs'],
+                      'facts': {key: {'value': editorial[key], 'ref_ids': [key], 'complete': True}
+                                for key in facts['claims']}}
+            pipeline.writeJson(root/'data/projects.json', {'projects': [project]})
+            pipeline.writeJson(root/'data/history.json', {'demo/search': {'2026-10-19': 10}})
+            pipeline.writeJson(root/'data/evidence.json', {'projects': {'demo/search': bundle}})
+            pipeline.writeJson(root/'data/curation.json', {'projects': {'demo/search': editorial}})
+            with patch.object(pipeline, 'utcNow', side_effect=lambda: state['now']):
+                report = pipeline.run(root, Path(output), client=AdvancingClient(),
+                                      asOf=start if explicit else None, sourceCommit='clock-fixture')
+            self.assertTrue(report['allowed'], report)
+            document = json.loads((Path(output)/'data/projects.json').read_text())
+            evidence = json.loads((Path(output)/'data/evidence.json').read_text())
+            feed = json.loads((Path(output)/'data/recommendations.json').read_text())
+            return document, evidence, feed
+
+    def test_live_generation_cutoff_includes_successful_checks_completed_during_collection(self):
+        document, evidence, feed = self.advancingSourceRun()
+        self.assertEqual(document['generated_at'], '2026-10-20T15:06:00Z')
+        self.assertEqual(feed['selected_count'], 1)
+        self.assertEqual(document['projects'][0]['content']['effective_status'], 'published')
+        refs = evidence['projects']['demo/search']['refs']
+        self.assertTrue(all(ref['checked_at'] == '2026-10-20T15:05:00Z' for ref in refs))
+        checked = next(ref for ref in refs if ref['id'] == 'usage_paths')
+        self.assertEqual(checked['path_checked_at'], '2026-10-20T15:06:00Z')
+
+    def test_explicit_replay_cutoff_remains_fixed_and_future_checks_do_not_pass(self):
+        document, _, feed = self.advancingSourceRun(explicit=True)
+        self.assertEqual(document['generated_at'], '2026-10-20T15:00:00Z')
+        self.assertEqual(feed['selected_count'], 0)
+
+    def test_live_cutoff_does_not_accept_arbitrary_future_source_timestamp(self):
+        document, _, feed = self.advancingSourceRun(sourceTime='2050-01-01T00:00:00Z')
+        self.assertEqual(document['generated_at'], '2026-10-20T15:06:00Z')
+        self.assertEqual(feed['selected_count'], 0)
+        self.assertIn('stale_evidence:purpose', document['projects'][0]['content']['invalidation_reasons'])
+
+    def test_advancing_live_collection_cannot_publish_across_utc_midnight(self):
+        with self.assertRaisesRegex(RuntimeError, 'UTC midnight'):
+            self.advancingSourceRun(start='2026-10-20T23:59:00Z', sourceTime='2026-10-21T00:00:30Z',
+                                    finish='2026-10-21T00:01:00Z')
+
+    def test_refresh_content_resolves_against_its_real_completion_cutoff(self):
+        from test_v4_content import sampleContent
+        facts, editorial = sampleContent()
+        complete = '2026-10-20T15:05:00Z'
+        class CompleteClient(FailedClient):
+            def readProjectEvidence(self, ref, previous, budget):
+                fetched = copy.deepcopy(previous)
+                for item in fetched['refs']:
+                    item['checked_at'] = complete
+                return fetched
+        snapshot = {'projects': [{'full_name': 'demo/search', 'node_id': 'N'}],
+                    'evidence': {'projects': {'demo/search': {'full_name': 'demo/search', 'node_id': 'N',
+                                'refs': facts['evidence_refs'], 'facts': {field: {'value': editorial[field],
+                                'ref_ids': [field]} for field in facts['claims']}}}},
+                    'curation': {'projects': {'demo/search': editorial}}}
+        pipeline.refreshContent(snapshot, CompleteClient(), pipeline.Budget(), AS_OF, False, clock=lambda: complete)
+        self.assertEqual(snapshot['projects'][0]['content']['effective_status'], 'published')
+
+    def test_offline_default_cutoff_is_frozen_after_its_initial_clock_read(self):
+        with tempfile.TemporaryDirectory() as source, tempfile.TemporaryDirectory() as output:
+            root = self.makeState(Path(source))
+            with patch.object(pipeline, 'utcNow', side_effect=[AS_OF, AssertionError('Offline clock advanced')]):
+                report = pipeline.run(root, Path(output), offline=True, sourceCommit='offline-clock')
+            self.assertTrue(report['allowed'], report)
+            self.assertEqual(json.loads((Path(output)/'data/projects.json').read_text())['generated_at'], AS_OF)
 
     def makeState(self, root):
         (root / 'data').mkdir()

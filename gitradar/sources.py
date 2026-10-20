@@ -49,12 +49,19 @@ def githubFileEndpoint(url: str, fullName: str) -> str:
     return '/repos/' + quote(fullName, safe='/') + '/contents/' + quote(path, safe='/') + '?' + urlencode({'ref': revision})
 
 
+def isRepositoryMetadataUrl(url: object) -> bool:
+    parsed = urlsplit(str(url or ''))
+    parts = parsed.path.strip('/').split('/')
+    return ((parsed.hostname == 'api.github.com' and len(parts) == 3 and parts[0] == 'repos')
+            or (parsed.hostname == 'github.com' and len(parts) == 2 and all(parts)))
+
+
 def sourceRequest(old: EvidenceRef, ref: RepositoryRef, officialUrls: list[str]) -> SourceRequest:
     url, kind = old.get('url', ''), old.get('source_kind', 'readme')
     if not verifiedSourceUrl(url, ref, officialUrls):
         raise ValueError('Source origin is not a verified official origin.')
     parsed = urlsplit(url)
-    if kind == 'repository':
+    if kind == 'repository' and isRepositoryMetadataUrl(url):
         endpoint = '/repos/' + quote(ref['full_name'], safe='/')
     elif parsed.hostname == 'api.github.com':
         endpoint = url

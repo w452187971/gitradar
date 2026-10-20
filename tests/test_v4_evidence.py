@@ -145,6 +145,37 @@ class EvidenceRefreshTests(unittest.TestCase):
         self.assertIn('context_changed:intro', content['invalidation_reasons'])
         self.assertEqual(editorial, originalEditorial)
 
+    def test_unchanged_official_document_span_preserves_reviewed_hash_and_context(self):
+        text = 'License document header\nOriginal license grant.\nEnd of document.'
+        digest = hashlib.sha256(text.encode()).hexdigest()
+        self.old['refs'][0].update(source_kind='official_document', text='Original license grant.', source_hash=digest)
+        self.new['refs'][0].update(source_kind='official_document', text=text, content_hash=digest)
+        ref = mergeEvidence(self.old, self.new)['refs'][0]
+        self.assertEqual(ref['content_hash'], 'original')
+        self.assertEqual(ref['text'], 'Original license grant.')
+        self.assertFalse(ref.get('context_changed'))
+        changed = copy.deepcopy(self.new)
+        changed['refs'][0]['text'] += '\nRequires a paid account.'
+        changed['refs'][0]['content_hash'] = hashlib.sha256(changed['refs'][0]['text'].encode()).hexdigest()
+        guarded = mergeEvidence(self.old, changed)['refs'][0]
+        self.assertTrue(guarded['context_changed'])
+        self.assertEqual(guarded['content_hash'], 'original')
+
+    def test_repository_license_document_cannot_match_root_metadata(self):
+        self.old['refs'][0].update(source_kind='repository', url='https://api.github.com/repos/o/a/license',
+                                   text='License title.', source_hash=hashlib.sha256(b'License title.\nGrant.').hexdigest())
+        self.new['refs'][0].update(source_kind='repository', url='https://api.github.com/repos/o/a',
+                                   text='{"license": "MIT"}')
+        ref = mergeEvidence(self.old, self.new)['refs'][0]
+        self.assertEqual(ref['content_hash'], 'original')
+        self.assertEqual(ref['checked_at'], '2026-10-01T00:00:00Z')
+        actual = copy.deepcopy(self.new)
+        actual['refs'][0].update(url=self.old['refs'][0]['url'], text='License title.\nGrant.')
+        actual['refs'][0]['content_hash'] = hashlib.sha256(actual['refs'][0]['text'].encode()).hexdigest()
+        refreshed = mergeEvidence(self.old, actual)['refs'][0]
+        self.assertEqual(refreshed['content_hash'], 'original')
+        self.assertFalse(refreshed.get('context_changed'))
+
     def multiPathInput(self):
         paths = [{'url': 'https://official.example/first'}, {'url': 'https://official.example/second'}]
         project = {'full_name': 'o/a', 'content': {'official_urls': ['https://official.example'],
