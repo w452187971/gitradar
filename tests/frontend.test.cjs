@@ -80,7 +80,10 @@ async function loadPage(projects, options = {}) {
     getItem(key) { if (options.denyRead) throw Error('storage blocked'); return stored.get(key) ?? null; },
     setItem(key, value) { if (options.denyWrite) throw Error('quota exceeded'); stored.set(key, value); }
   };
-  const payload = {generated_at: '2020-01-03T08:00:00Z', projects, warnings: options.warnings || []};
+  const generatedAt = options.generatedAt === undefined ? '2020-01-03T08:00:00Z' : options.generatedAt;
+  const rulesVersion = options.rulesVersion === undefined ? 'v3.3' : options.rulesVersion;
+  const payload = {generated_at: generatedAt, projects, warnings: options.warnings || [],
+    collection_stats: options.collectionStats, rules_version: rulesVersion};
   const fetch = async () => {
     requestCount += 1;
     return {ok: true, json: async () => payload};
@@ -138,6 +141,7 @@ test('collection warnings remain visible when the list loads successfully', asyn
   const page = await loadPage([project('sample/one')], {warnings: ['refresh sample/stale: HTTP 503']});
   assert.equal(page.cards().length, 1);
   assert.match(page.get('notice').textContent, /sample\/stale.*HTTP 503/);
+  assert.ok(page.get('notice').className.split(' ').includes('warning'));
 });
 
 for (const tab of ['day', 'week']) {
@@ -362,3 +366,192 @@ test('platform clues come only from the optional published field and support leg
   assert.deepEqual(clues, ['平台线索：Windows / macOS', '平台线索：平台未确认', '平台线索：平台未确认']);
   assert.match(page.get('notice').textContent, /未实际验证/);
 });
+
+for (const [tab, field] of [['day', 'delta_1d'], ['week', 'delta_7d']]) {
+  test(`${tab} selects its visible default sort and respects an explicit discovery-score sort`, async () => {
+    const page = await loadPage([
+      project('sample/fast', {[field]: 100, discovery_score: 5}),
+      project('sample/negative', {[field]: -1, discovery_score: 10}),
+      project('sample/zero', {[field]: 0, discovery_score: 1}), project('sample/unknown')
+    ]);
+    page.tab(tab);
+    assert.equal(page.get('sort').value, tab);
+    assert.deepEqual(page.cards().map(card => card.querySelector('.name').textContent),
+      ['sample/fast', 'sample/zero', 'sample/negative']);
+    assert.match(page.get('viewRule').textContent, /0.*负|零.*负/);
+    page.get('sort').value = 'score'; page.get('sort').onchange();
+    assert.deepEqual(page.cards().map(card => card.querySelector('.name').textContent),
+      ['sample/negative', 'sample/fast', 'sample/zero']);
+    assert.match(page.get('viewRule').textContent, /实际排序.*发现分/);
+  });
+}
+
+test('switching to other views visibly restores discovery-score sorting', async () => {
+  const page = await loadPage([project('sample/one', {category_zh: 'AI 应用'})]);
+  page.get('sort').value = 'stars'; page.get('sort').onchange();
+  page.tab('ai');
+  assert.equal(page.get('sort').value, 'score');
+  assert.match(page.get('viewRule').textContent, /AI/);
+  assert.match(page.get('viewRule').textContent, /实际排序.*发现分/);
+  page.tab('tools');
+  assert.match(page.get('viewRule').textContent, /规则分类|规则.*识别/);
+  assert.match(page.get('viewRule').textContent, /开发者工具/);
+});
+
+test('recent projects use a frozen thirty-day window ending at the collection timestamp', async () => {
+  const page = await loadPage([
+    project('sample/recent', {created_at: '2019-12-15T00:00:00Z'}),
+    project('sample/old', {created_at: '2019-11-15T00:00:00Z'}),
+    project('sample/future', {created_at: '2021-01-01T00:00:00Z'})
+  ]);
+  page.tab('new');
+  assert.deepEqual(page.cards().map(card => card.querySelector('.name').textContent), ['sample/recent']);
+  assert.match(page.get('viewRule').textContent, /采集.*30/);
+});
+
+test('an unknown collection timestamp cannot turn the machine clock into a recent-project window', async () => {
+  const page = await loadPage([project('sample/recent', {created_at: new Date().toISOString()})],
+    {generatedAt: null});
+  page.tab('new');
+  assert.equal(page.cards().length, 0);
+  assert.match(page.get('cards').textContent, /采集时间.*未知|未知.*采集时间/);
+});
+
+test('coverage exposes retained, discovery and search limitations without claiming continuous dates', async () => {
+  const stats = {observed_since: '2020-01-01', observed_through: '2020-01-03', observed_dates: 2,
+    refreshed_count: 2, retained_count: 1, newly_discovered_count: 1, daily_coverage: 1,
+    weekly_coverage: 0, readme_checked_count: 2, readme_stale_count: 1,
+    search_attempted: 20, search_succeeded: 18, search_limited: 2, search_incomplete: 3};
+  const page = await loadPage([project('sample/one'), project('sample/two'), project('sample/three')],
+    {collectionStats: stats});
+  const text = page.get('coverage')?.textContent;
+  assert.ok(text, 'coverage needs a visible data boundary');
+  assert.match(text, /最早快照日期.*2020-01-01/);
+  assert.match(text, /记录过 2 个 UTC 日期/);
+  assert.doesNotMatch(text, /连续\s*2\s*天/);
+  assert.match(text, /1日可算 1\/3.*7日可算 0\/3/);
+  assert.match(text, /本轮刷新 2.*保留旧值 1.*新发现 1/);
+  assert.match(text, /README.*已检查 2\/3.*待复核 1/);
+  assert.match(text, /受限 2.*不完整 3/);
+});
+
+test('legacy coverage derives available snapshots and README counts but leaves tracking metadata unknown', async () => {
+  const page = await loadPage([
+    project('sample/day', {delta_1d: 0, readme_checked: true}),
+    project('sample/week', {delta_7d: -3}),
+    project('sample/stale', {readme_checked: true, readme_stale: true})
+  ]);
+  const text = page.get('coverage')?.textContent;
+  assert.ok(text, 'legacy datasets still need honest coverage');
+  assert.match(text, /1日可算 1\/3.*7日可算 1\/3/);
+  assert.match(text, /README.*已检查 2\/3.*待复核 1/);
+  assert.match(text, /最早快照日期.*未知/);
+  assert.match(text, /本轮刷新 未知.*保留旧值 未知/);
+  assert.doesNotMatch(text, /2020-01-01/);
+});
+
+test('cold-start discovery clearly separates star-and-age scoring from growth rankings', async () => {
+  const page = await loadPage([project('sample/one')]);
+  const text = page.get('viewRule')?.textContent;
+  assert.ok(text, 'the current view needs an explanation');
+  assert.match(text, /仅依据.*Star.*年龄/);
+  assert.match(text, /不是增长排名|非增长排名/);
+});
+
+test('a measured zero change remains valid evidence rather than a missing growth sample', async () => {
+  const page = await loadPage([project('sample/zero', {delta_1d: 0})]);
+  assert.ok(page.get('viewRule'));
+  assert.doesNotMatch(page.get('viewRule').textContent, /仅依据.*Star.*年龄/);
+});
+
+test('recommendation evidence displays the recorded score and actual signed changes', async () => {
+  const page = await loadPage([project('sample/declining', {
+    discovery_score: -12.5, delta_1d: -60, delta_7d: 10
+  })]);
+  const text = page.cards()[0].querySelector('.reason')?.textContent;
+  assert.ok(text, 'recommendations need inspectable evidence');
+  assert.match(text, /发现分 -12.5/);
+  assert.match(text, /1日净变化 -60/);
+  assert.match(text, /7日净变化 \+10/);
+});
+
+test('recommendation evidence with no growth samples uses collection-relative age and recorded stars', async () => {
+  const page = await loadPage([project('sample/recent', {created_at: '2019-12-25T23:00:00Z'})]);
+  const text = page.cards()[0].querySelector('.reason')?.textContent;
+  assert.ok(text);
+  assert.match(text, /创建 9 天|年龄 9 天/);
+  assert.match(text, /Star 100/);
+  assert.doesNotMatch(text, /爆火|增长领先/);
+});
+
+test('missing snapshot endpoints distinguish a retained observation from a missing baseline', async () => {
+  const page = await loadPage([
+    project('sample/retained', {observation_status: 'retained'}), project('sample/no-baseline')
+  ]);
+  const texts = page.cards().map(card => card.querySelector('.delta').textContent);
+  assert.match(texts[0], /1日快照 待积累.*本轮未更新/);
+  assert.match(texts[0], /7日快照 待积累/);
+  assert.match(texts[1], /1日快照 待积累.*缺1日基准/);
+  assert.match(texts[1], /7日快照 待积累.*缺7日基准/);
+});
+
+test('README review dates preserve old checked evidence while marking a stale result', async () => {
+  const page = await loadPage([
+    project('sample/stale', {readme_checked: true, readme_checked_at: '2020-01-01', readme_stale: true}),
+    project('sample/unknown-date', {readme_checked: true})
+  ]);
+  assert.match(page.cards()[0].querySelector('.original').textContent, /已检查 README.*2020-01-01.*待复核/);
+  assert.match(page.cards()[1].querySelector('.original').textContent, /检查日期未知/);
+});
+
+test('repository creation and code-push dates cannot replace observation metadata', async () => {
+  const page = await loadPage([
+    project('sample/observed', {first_seen_date: '2020-01-02', last_observed_date: '2020-01-03',
+      observation_status: 'fresh'}), project('sample/legacy')
+  ]);
+  const first = page.cards()[0].querySelector('.observed')?.textContent;
+  assert.ok(first);
+  assert.match(first, /首次观测.*2020-01-02.*最近观测.*2020-01-03/);
+  const legacy = page.cards()[1].querySelector('.observed')?.textContent;
+  assert.ok(legacy);
+  assert.match(legacy, /未知/);
+  assert.doesNotMatch(legacy, /2020-01-01|2020-01-02/);
+});
+
+test('missing or invalid code-push dates render as unknown without hiding the project list', async () => {
+  const page = await loadPage([
+    project('sample/null-date', {pushed_at: null}), project('sample/invalid-date', {pushed_at: 'not-a-date'})
+  ]);
+  assert.equal(page.cards().length, 2);
+  assert.deepEqual(page.cards().map(card => card.querySelector('.foot').querySelector('.small').textContent),
+    ['代码更新 未知', '代码更新 未知']);
+});
+
+test('retained observations never present old stars and age as a fresh recommendation', async () => {
+  const page = await loadPage([project('sample/retained', {observation_status: 'retained',
+    discovery_score: 0, created_at: '2020-01-02T00:00:00Z'})]);
+  const text = page.cards()[0].querySelector('.reason').textContent;
+  assert.match(text, /发现分 0/);
+  assert.match(text, /本轮未更新，保留旧值/);
+  assert.doesNotMatch(text, /近期创建|Star 100/);
+});
+
+test('coverage keeps its full-candidate-pool scope when search narrows the visible list', async () => {
+  const page = await loadPage([project('sample/one', {delta_1d: 1}), project('sample/two')]);
+  const before = page.get('coverage').textContent;
+  assert.match(before, /全候选池/);
+  page.get('search').value = 'sample/one'; page.get('search').oninput();
+  assert.equal(page.cards().length, 1);
+  assert.equal(page.get('coverage').textContent, before);
+  assert.match(page.get('coverage').textContent, /1日可算 1\/2/);
+});
+
+for (const rulesVersion of [null, 'v3.2']) {
+  test(`legacy score batches cannot be presented as the new formula: ${rulesVersion}`, async () => {
+    const page = await loadPage([project('sample/legacy-score', {discovery_score: 95})], {rulesVersion});
+    assert.match(page.get('notice').textContent, /旧评分规则.*新规则待采集发布后生效/);
+    assert.match(page.get('viewRule').textContent, /旧评分规则/);
+    assert.doesNotMatch(page.get('viewRule').textContent, /仅依据.*Star.*年龄/);
+    assert.match(page.cards()[0].querySelector('.reason').textContent, /旧规则发现分 95/);
+  });
+}

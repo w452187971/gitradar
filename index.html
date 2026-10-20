@@ -3,19 +3,44 @@
 <title>GitRadar · 中文 GitHub 爆款雷达</title>
 <style>
 :root{font-family:system-ui,-apple-system,"Microsoft YaHei",sans-serif;color:#e9eef8;background:#0a1020}*{box-sizing:border-box}body{margin:0}a{color:#9ecbff;text-decoration:none}header{background:linear-gradient(130deg,#172c57,#101b32 60%,#123f43);padding:40px max(22px,calc((100vw - 1100px)/2));border-bottom:1px solid #29415e}h1{font-size:clamp(26px,4vw,42px);margin:0 0 10px}.sub{color:#b8c8dc;line-height:1.8}.badge{color:#80e6bc;font-size:13px;letter-spacing:2px;font-weight:700}main{max-width:1100px;margin:auto;padding:24px 20px 80px}.bar{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 18px}button,input,select{border:1px solid #354963;border-radius:10px;padding:11px 15px;background:#15243b;color:#e9eef8;font-size:14px}button{cursor:pointer}button.active,button:hover{background:#245a79;border-color:#56add0}input{flex:1;min-width:190px}.meta{color:#a4b6cb;font-size:13px;line-height:1.7;margin-bottom:20px}.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:16px}.card{background:#131e31;border:1px solid #2c3c55;border-radius:16px;padding:20px;display:flex;flex-direction:column;gap:11px}.card:hover{border-color:#5a8fae}.top{display:flex;justify-content:space-between;align-items:start;gap:10px}.name{font-size:19px;font-weight:750;overflow-wrap:anywhere}.pill{font-size:12px;background:#25405b;border-radius:20px;padding:5px 9px;white-space:nowrap}.desc{color:#d3deeb;line-height:1.7;min-height:52px}.original{font-size:12px;color:#8297b2;line-height:1.5}.stats{display:flex;flex-wrap:wrap;gap:13px;color:#b5c9de;font-size:13px}.growth{color:#80e6bc}.foot{margin-top:auto;display:flex;justify-content:space-between;align-items:center;gap:8px;padding-top:10px}.empty{padding:48px 20px;text-align:center;border:1px dashed #4b5e76;border-radius:16px;color:#c6d3e4}.notice{padding:14px 16px;border:1px solid #465576;background:#18253c;border-radius:12px;margin-bottom:18px;color:#c6d7e8;line-height:1.7;font-size:13px}.small{font-size:12px;color:#8fa7c1}footer{color:#8fa7c1;margin-top:30px;line-height:1.8;font-size:13px}
+.notice.warning{border-color:#b9853a;background:#392d22}#coverage{white-space:pre-line}.rules summary{cursor:pointer;font-weight:650}.rules p{margin:10px 0}.rules code{overflow-wrap:anywhere}
 </style></head><body>
-<header><div class="badge">GITRADAR · V3.2 中文用途发现</div><h1>🔥 中文 GitHub 爆款雷达</h1><div class="sub">不只看大项目，更关注最近冒头的有趣开源工具。<br>全领域探索 · 中文速读 · 直接跳转原项目</div></header>
-<main><div class="bar" id="tabs"><button class="active" data-tab="hot">🔥 爆款候选</button><button data-tab="day">🚀 1日快照</button><button data-tab="week">📈 7日快照</button><button data-tab="new">💎 新晋黑马</button><button data-tab="tools">🛠 实用工具</button><button data-tab="ai">🤖 AI 项目</button><button data-tab="saved">⭐ 我的收藏</button></div>
+<header><div class="badge">GITRADAR · V3.3 规则透明版</div><h1>🔥 中文 GitHub 爆款雷达</h1><div class="sub">探索值得关注的开源候选，查看发现依据与观测范围。<br>全领域探索 · 中文速读 · 直接跳转原项目</div></header>
+<main><div class="bar" id="tabs"><button class="active" data-tab="hot">🔥 发现候选</button><button data-tab="day">🚀 1日快照</button><button data-tab="week">📈 7日快照</button><button data-tab="new">💎 近30天新项目</button><button data-tab="tools">🛠 按用途探索</button><button data-tab="ai">🤖 AI 项目</button><button data-tab="saved">⭐ 我的收藏</button></div>
 <div class="bar"><input id="search" aria-label="搜索项目、中文用途、安装方式或平台线索" placeholder="搜索项目、中文用途或平台线索"><select id="installFilter" aria-label="按安装方式筛选"><option value="all">安装方式：全部</option><option value="package">可能提供安装包</option><option value="command">可能需要命令行</option><option value="docker">可能需要 Docker</option><option value="unknown">安装方式未确认</option></select><select id="sort" aria-label="项目排序方式"><option value="score">按发现评分</option><option value="stars">按 Star 数</option><option value="day">按1日快照增量</option><option value="week">按7日快照增量</option><option value="updated">按最近更新</option></select><button id="refresh">↻ 刷新列表</button></div>
-<div class="notice" id="notice">正在获取 GitHub 公开项目数据……</div><div class="meta" id="summary"></div><div class="grid" id="cards"></div>
+<div class="notice" id="notice" aria-live="polite">正在读取公开项目候选数据……</div>
+<div class="meta" id="coverage"></div>
+<details class="notice rules" id="rules"><summary>发现与统计规则</summary>
+<p>发现范围：根据仓库创建时间、Star 区间、主题和代码更新时间轮换搜索，并持续追踪已经发现的项目。每轮最多 20 次搜索请求，每次最多 100 项，采用有限轮换分页，仍会漏采；搜索限流和不完整响应也会缩小覆盖范围。这是有限候选池，不是 GitHub 全站完整榜单或官方 Trending。</p>
+<p id="scoreRuleStatus"></p>
+<p>V3.3 新规则的发现分公式为 <code>3 × 1日净增 + 2 × 7日净增 + 3 × min(Star, 2500) / (仓库年龄天 + 12)</code>，仓库年龄最低按 1 天计算，主题分类不加分。未知增量对分数贡献 0，不代表零增长；没有可计算增量时，新规则发现分只依据 Star 与仓库年龄，不能作为增长排名或质量评分。旧批次分数保留原值，不在前端按新规则重算。</p>
+<p>快照与时间：1日 / 7日净变化比较相隔 1 / 7 个 UTC 日期的 Star 端点，不是精确滚动 24 小时 / 7 天。同一 UTC 日期重跑会覆盖当天记录，负变化照实保留；缺少日期基准或本轮未更新时不计算增量。最早快照日期是目前保存记录的最早日期，记录过的日期数量不表示连续采集。仓库创建、代码更新与首次观测是不同时间。</p>
+<p>更新计划：GitHub Actions 计划北京时间每天 10:23 采集，实际执行可能延迟。点击“刷新列表”只重读已发布的静态文件，不会启动采集。刷新失败的项目保留旧值，并标记本轮未更新。</p>
+<p>中文资料：每轮最多检查 40 个 README，成功结果满 14 天进入复核队列；受每轮预算限制，无法保证全量每 14 天复核。复核前可保留旧结果，并展示原检查日期及“待复核”状态。中文用途来自公开简介与 README 的免费规则提取，非 AI 翻译。安装方式和平台仅为公开资料线索，未实际验证，请核对项目说明。</p>
+</details>
+<div class="notice" id="viewRule"></div><div class="meta" id="summary"></div><div class="grid" id="cards"></div>
 <div class="bar" style="margin-top:20px"><button id="loadMore" aria-label="再显示最多60个匹配项目" hidden>加载更多</button></div>
-<footer>数据来自 GitHub Actions 每日采集的公开项目候选池，属于探索型榜单，<b>不是 GitHub 官方 Trending 榜</b>。1日 / 7日增量比较相隔 1 / 7 个 UTC 日期的 Star 快照，表示净变化，并非精确滚动 24 小时 / 7 天；历史不足或采集缺失时显示“待积累”，Star 减少时保留负数。中文用途提示来自公开简介与 README 的免费规则提取，不等同 AI 翻译；资料不足时保留提示，英文项目简介保留原文供核对。安装方式与平台线索尚未实际验证，请以项目说明为准。数据可能受到 API 限流和搜索结果上限影响。</footer></main>
+<footer>GitRadar 根据 GitHub 公开资料发现开源候选。英文简介保留原文供核对，具体用途和安装要求请以项目说明为准。</footer></main>
 <script>
 (() => {
 'use strict';
 const $ = id => document.getElementById(id);
 const DAY = 86400000;
 const PAGE_SIZE = 60;
+const RULES_VERSION = 'v3.3';
+const RULES_PENDING_MESSAGE = '此批数据仍使用旧评分规则，新规则待采集发布后生效。';
+const SORT_KEYS = {score: 'discovery_score', day: 'delta_1d', week: 'delta_7d', stars: 'stargazers_count'};
+const SORT_LABELS = {score: '发现分（启发式）', day: '1日净增量', week: '7日净增量',
+  stars: '总 Star 数', updated: '代码最近更新'};
+const VIEW_RULES = {
+  hot: '发现候选：展示当前采集候选池，未设“爆款”门槛。',
+  day: '1日快照：仅展示具有1日净变化的项目，包括 0 和负值。',
+  week: '7日快照：仅展示具有7日净变化的项目，包括 0 和负值。',
+  new: '近30天新项目：以最近采集时间向前 30 天的仓库创建时间筛选，不代表首次观测时间。',
+  tools: '按用途探索：展示规则分类已识别用途的项目，包含开发者工具，不代表已验证易用性。',
+  ai: 'AI 项目：按当前采集分类筛选人工智能相关候选。',
+  saved: '我的收藏：展示当前浏览器已收藏且仍在候选池中的项目。'
+};
 const CATEGORY_DETAILS = new Map([
   ['影音去广告', ['📺 影音 / 去广告', '电视、影音或广告处理相关工具']],
   ['影音下载', ['🎬 影音下载', '视频、音频或媒体处理工具']],
@@ -38,7 +63,7 @@ const CATEGORY_FALLBACKS = [
   [/\b(?:games?|gaming|emulator)\b/i, '游戏娱乐']
 ];
 const state = {repos: [], tab: 'hot', saved: new Set(), generatedAt: null,
-  warnings: [], storageMessage: '', loadError: '', visibleLimit: PAGE_SIZE};
+  warnings: [], storageMessage: '', loadError: '', visibleLimit: PAGE_SIZE, collectionStats: {}, rulesVersion: null};
 
 function readSaved() {
   try {
@@ -53,23 +78,71 @@ function readSaved() {
   }
 }
 
+function timestamp(value) {
+  return typeof value === 'string' && value ? Date.parse(value) : NaN;
+}
+
+function dateLabel(value) {
+  const time = timestamp(value);
+  return Number.isFinite(time) ? new Date(time).toISOString().slice(0, 10) : '未知';
+}
+
 function collectedAt() {
-  const date = new Date(state.generatedAt);
-  return state.generatedAt && !Number.isNaN(date.getTime()) ? date.toLocaleString('zh-CN') : '尚未采集';
+  const time = timestamp(state.generatedAt);
+  return Number.isFinite(time) ? new Date(time).toLocaleString('zh-CN') : '采集时间未知';
+}
+
+function statCount(name, fallback = '未知') {
+  const value = state.collectionStats[name];
+  return Number.isInteger(value) && value >= 0 ? value : fallback;
+}
+
+function updateCoverage() {
+  const total = state.repos.length;
+  const daily = state.repos.filter(repo => Number.isFinite(repo.delta_1d)).length;
+  const weekly = state.repos.filter(repo => Number.isFinite(repo.delta_7d)).length;
+  const checked = state.repos.filter(repo => repo.readme_checked === true).length;
+  const stale = state.repos.filter(repo => repo.readme_checked === true && repo.readme_stale === true).length;
+  const dates = statCount('observed_dates', null);
+  const recorded = dates === null ? '记录日期数未知' : `记录过 ${dates} 个 UTC 日期（不表示连续）`;
+  $('coverage').textContent = [
+    `全候选池 · 最早快照日期 ${dateLabel(state.collectionStats.observed_since)} · 最近快照日期 ${dateLabel(state.collectionStats.observed_through)} · ${recorded}`,
+    `1日可算 ${statCount('daily_coverage', daily)}/${total} · 7日可算 ${statCount('weekly_coverage', weekly)}/${total} · 本轮刷新 ${statCount('refreshed_count')} · 保留旧值 ${statCount('retained_count')} · 新发现 ${statCount('newly_discovered_count')}`,
+    `README 已检查 ${statCount('readme_checked_count', checked)}/${total} · 待复核 ${statCount('readme_stale_count', stale)}`,
+    `搜索请求：尝试 ${statCount('search_attempted')} · 成功 ${statCount('search_succeeded')} · 受限 ${statCount('search_limited')} · 不完整 ${statCount('search_incomplete')}`
+  ].join('\n');
 }
 
 function updateNotice() {
   const messages = [
     `已加载 ${state.repos.length} 个候选项目 · 最近采集：${collectedAt()}。`,
-    '刷新列表只重新读取已发布的静态文件，不会触发采集。',
-    '增量来自 UTC 日快照，并非精确滚动 24 小时；历史不足或采集缺失时待积累。',
-    '中文用途提示来自公开简介与 README 的免费规则提取，不等同 AI 翻译。不是全站完整榜单。',
-    '安装方式与平台线索来自公开资料，未实际验证，请以项目说明为准。'
+    '刷新列表仅读静态文件。安装与平台线索未实际验证。'
   ];
   if (state.warnings.length) messages.push('采集警告：' + state.warnings.join('；'));
   if (state.storageMessage) messages.push(state.storageMessage);
   if (state.loadError) messages.push(state.loadError);
+  if (state.rulesVersion !== RULES_VERSION) messages.push(RULES_PENDING_MESSAGE);
+  const limited = statCount('search_limited', 0) + statCount('search_incomplete', 0) > 0;
+  $('notice').className = state.warnings.length || state.storageMessage || state.loadError || limited || state.rulesVersion !== RULES_VERSION ?
+    'notice warning' : 'notice';
   $('notice').textContent = messages.join(' ');
+}
+
+function updateViewRule() {
+  const selected = $('sort').value;
+  const messages = [VIEW_RULES[state.tab], `实际排序：${SORT_LABELS[selected] || '代码最近更新'}。`];
+  const hasGrowth = state.repos.some(repo => Number.isFinite(repo.delta_1d) || Number.isFinite(repo.delta_7d));
+  if (state.rulesVersion !== RULES_VERSION) {
+    messages.push(RULES_PENDING_MESSAGE);
+  } else if (selected === 'score' && !hasGrowth) {
+    messages.push('尚无有效1日/7日增量，当前发现分仅依据 Star 与仓库年龄，不是增长排名。');
+  }
+  if (state.tab === 'new' && !Number.isFinite(timestamp(state.generatedAt))) {
+    messages.push('采集时间未知，无法判断近30天创建范围。');
+  }
+  $('viewRule').textContent = messages.join(' ');
+  $('scoreRuleStatus').textContent = state.rulesVersion === RULES_VERSION ?
+    '此批数据使用 V3.3 评分规则。' : RULES_PENDING_MESSAGE;
 }
 
 function toggleSaved(fullName) {
@@ -111,21 +184,69 @@ function platformHints(repo) {
     .filter(value => typeof value === 'string' && value.trim()).map(value => value.trim()) : [];
 }
 
+function readmeInfo(repo) {
+  const checked = dateLabel(repo.readme_checked_at);
+  const date = checked === '未知' ? '检查日期未知' : checked;
+  const label = repo.readme_checked ? `已检查 README（${date}）` : '未检查 README';
+  return label + (repo.readme_stale ? ' · 待复核' : '');
+}
+
+function observationInfo(repo) {
+  const status = repo.observation_status === 'retained' ? '本轮保留旧值' :
+    repo.observation_status === 'fresh' ? '本轮已刷新' : '本轮状态未知';
+  return `首次观测 ${dateLabel(repo.first_seen_date)} · 最近观测 ${dateLabel(repo.last_observed_date)} · ${status}`;
+}
+
+function snapshotValue(repo, period) {
+  const value = repo[period === 1 ? 'delta_1d' : 'delta_7d'];
+  if (Number.isFinite(value)) return formatDelta(value);
+  const reason = repo.observation_status === 'retained' ? '本轮未更新' : `缺${period}日基准`;
+  return `待积累（${reason}）`;
+}
+
+function repositoryAge(repo) {
+  const end = timestamp(state.generatedAt);
+  const created = timestamp(repo.created_at);
+  if (!Number.isFinite(end) || !Number.isFinite(created) || created > end) return null;
+  const days = (timestamp(dateLabel(state.generatedAt)) - timestamp(dateLabel(repo.created_at))) / DAY;
+  return Math.max(1, days);
+}
+
+function recommendationInfo(repo) {
+  const score = Number.isFinite(repo.discovery_score) ? repo.discovery_score : '未知';
+  const label = state.rulesVersion === RULES_VERSION ? '发现分' : '旧规则发现分';
+  if (repo.observation_status === 'retained') {
+    return `${label} ${score} · 本轮未更新，保留旧值；不作为本轮新增观测的推荐依据。`;
+  }
+  const evidence = [];
+  if (Number.isFinite(repo.delta_1d)) evidence.push(`1日净变化 ${formatDelta(repo.delta_1d)}`);
+  if (Number.isFinite(repo.delta_7d)) evidence.push(`7日净变化 ${formatDelta(repo.delta_7d)}`);
+  if (!evidence.length) {
+    const age = repositoryAge(repo);
+    if (age !== null) evidence.push(`${age <= 30 ? '近期创建' : '仓库年龄'} ${age} 天`);
+    evidence.push(`Star ${repo.stargazers_count.toLocaleString()}`);
+    evidence.push('暂无可比较的增长快照');
+  }
+  return `${label} ${score}（排序用） · 推荐依据：${evidence.join('；')}`;
+}
+
 function card(repo) {
   const div = document.createElement('article');
   div.className = 'card';
-  div.innerHTML = `<div class="top"><a class="name" href="${repo.html_url}" target="_blank" rel="noopener"></a><span class="pill"></span></div><div class="desc"></div><div class="original"></div><div class="platforms small"></div><div class="stats"><span class="stars"></span><span class="delta"></span><span class="language"></span></div><div class="foot"><span class="small"></span><button class="save"></button></div>`;
+  div.innerHTML = `<div class="top"><a class="name" href="${repo.html_url}" target="_blank" rel="noopener"></a><span class="pill"></span></div><div class="desc"></div><div class="original"></div><div class="platforms small"></div><div class="stats"><span class="stars"></span><span class="delta"></span><span class="language"></span></div><div class="reason small"></div><div class="observed small"></div><div class="foot"><span class="small"></span><button class="save"></button></div>`;
   div.querySelector('.name').textContent = repo.full_name;
   div.querySelector('.pill').textContent = category(repo)[0];
   div.querySelector('.desc').textContent = chinese(repo);
   div.querySelector('.original').textContent = (repo.difficulty_zh || '⚪ 安装方式未确认') + ' · ' +
-    (repo.readme_checked ? '已检查 README' : '未检查 README') + '\n' +
+    readmeInfo(repo) + '\n' +
     (repo.description ? '原文：' + repo.description : '项目暂无英文简介');
   div.querySelector('.platforms').textContent = '平台线索：' + (platformHints(repo).join(' / ') || '平台未确认');
   div.querySelector('.stars').textContent = '⭐ ' + repo.stargazers_count.toLocaleString();
-  div.querySelector('.delta').textContent = `📈 1日快照 ${formatDelta(repo.delta_1d)} · 7日快照 ${formatDelta(repo.delta_7d)}`;
+  div.querySelector('.delta').textContent = `📈 1日快照 ${snapshotValue(repo, 1)} · 7日快照 ${snapshotValue(repo, 7)}`;
   div.querySelector('.language').textContent = '⌨ ' + (repo.language || '未标注');
-  div.querySelector('.foot').querySelector('.small').textContent = '更新 ' + new Date(repo.pushed_at).toISOString().slice(0, 10);
+  div.querySelector('.reason').textContent = recommendationInfo(repo);
+  div.querySelector('.observed').textContent = observationInfo(repo);
+  div.querySelector('.foot').querySelector('.small').textContent = '代码更新 ' + dateLabel(repo.pushed_at);
   const button = div.querySelector('.save');
   button.textContent = state.saved.has(repo.full_name) ? '★ 已收藏' : '☆ 收藏';
   button.onclick = () => toggleSaved(repo.full_name);
@@ -155,21 +276,29 @@ function matchesTab(repo) {
   if (state.tab === 'saved') return state.saved.has(repo.full_name);
   if (state.tab === 'day') return Number.isFinite(repo.delta_1d);
   if (state.tab === 'week') return Number.isFinite(repo.delta_7d);
-  if (state.tab === 'new') return new Date(repo.created_at) > Date.now() - 30 * DAY;
+  if (state.tab === 'new') {
+    const end = timestamp(state.generatedAt);
+    const created = timestamp(repo.created_at);
+    return Number.isFinite(end) && Number.isFinite(created) && created >= end - 30 * DAY && created <= end;
+  }
   if (state.tab === 'tools') return /工具|影音|安全|效率|系统|自托管|娱乐/.test(category(repo)[0]);
   if (state.tab === 'ai') return category(repo)[0].includes('AI');
   return true;
 }
 
 function sortKey() {
-  const selected = $('sort').value;
-  const keys = {day: 'delta_1d', week: 'delta_7d', stars: 'stargazers_count'};
-  if (selected === 'score') return keys[state.tab] || 'discovery_score';
-  return keys[selected] || null;
+  return SORT_KEYS[$('sort').value] || null;
 }
 
 function compareRepos(first, second, key) {
-  if (!key) return new Date(second.pushed_at) - new Date(first.pushed_at);
+  if (!key) {
+    const firstTime = timestamp(first.pushed_at);
+    const secondTime = timestamp(second.pushed_at);
+    if (!Number.isFinite(firstTime) || !Number.isFinite(secondTime)) {
+      return Number.isFinite(firstTime) ? -1 : Number.isFinite(secondTime) ? 1 : 0;
+    }
+    return secondTime - firstTime;
+  }
   const firstKnown = Number.isFinite(first[key]);
   const secondKnown = Number.isFinite(second[key]);
   if (firstKnown !== secondKnown) return firstKnown ? -1 : 1;
@@ -177,6 +306,9 @@ function compareRepos(first, second, key) {
 }
 
 function emptyMessage(candidates) {
+  if (state.tab === 'new' && !Number.isFinite(timestamp(state.generatedAt))) {
+    return '采集时间未知，无法判断近30天创建范围。请等待有效采集数据。';
+  }
   const period = state.tab === 'day' ? 1 : state.tab === 'week' ? 7 : null;
   if (period && candidates.length) {
     return `当前匹配项目的历史快照不足或本次采集数据缺失，暂无可计算的${period}日快照增量。需相隔 ${period} 个 UTC 日期的有效快照，请等待后续采集。`;
@@ -201,6 +333,7 @@ function render() {
   }
   $('loadMore').hidden = visible.length >= items.length;
   $('summary').textContent = `当前显示 ${visible.length} 个项目 · 匹配 ${items.length} 个 · 共采集 ${state.repos.length} 个候选项目 · 采集时间 ${collectedAt()}`;
+  updateViewRule();
 }
 
 function resetResults() {
@@ -216,11 +349,14 @@ async function fetchRepos() {
     state.repos = data.projects || [];
     state.generatedAt = data.generated_at || null;
     state.warnings = Array.isArray(data.warnings) ? data.warnings.filter(value => typeof value === 'string') : [];
+    state.collectionStats = data.collection_stats && typeof data.collection_stats === 'object' ? data.collection_stats : {};
+    state.rulesVersion = data.rules_version || null;
     state.loadError = '';
     resetResults();
   } catch (error) {
     state.loadError = '列表加载失败：' + error.message + '。请稍后点击“刷新列表”重试。';
   }
+  updateCoverage();
   updateNotice();
 }
 
@@ -228,6 +364,7 @@ state.saved = readSaved();
 document.querySelectorAll('[data-tab]').forEach(button => {
   button.onclick = () => {
     state.tab = button.dataset.tab;
+    $('sort').value = state.tab === 'day' || state.tab === 'week' ? state.tab : 'score';
     document.querySelectorAll('[data-tab]').forEach(item => item.classList.toggle('active', item === button));
     resetResults();
   };
