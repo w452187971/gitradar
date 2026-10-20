@@ -33,6 +33,22 @@ class EvidenceRefreshTests(unittest.TestCase):
         merged = mergeEvidence(self.old, {'refs': [], 'status': 'failed', 'errors': ['timeout']})
         self.assertEqual(merged['refs'][0]['checked_at'], '2026-10-01T00:00:00Z')
 
+    def test_failed_readme_reusing_multiple_old_sections_does_not_mix_them(self):
+        self.old['refs'].append({'id': 'install', 'source_kind': 'readme',
+                                 'text': 'A much longer installation paragraph.',
+                                 'content_hash': 'install-old', 'checked_at': '2026-10-01T00:00:00Z'})
+        fetched = {'refs': copy.deepcopy(self.old['refs']), 'status': 'partial', 'errors': ['timeout']}
+        merged = mergeEvidence(self.old, fetched)
+        self.assertEqual(merged['refs'][0]['content_hash'], 'original')
+        self.assertEqual(merged['refs'][0]['checked_at'], '2026-10-01T00:00:00Z')
+
+    def test_independent_license_file_cannot_be_refreshed_from_default_readme(self):
+        self.old['refs'][0]['url'] = 'https://raw.githubusercontent.com/o/a/main/COPYING'
+        self.new['refs'][0]['url'] = 'https://github.com/o/a/blob/main/README.md'
+        merged = mergeEvidence(self.old, self.new)
+        self.assertEqual(merged['refs'][0]['checked_at'], '2026-10-01T00:00:00Z')
+        self.assertEqual(merged['refs'][0]['content_hash'], 'original')
+
     def test_merging_does_not_mutate_editor_or_previous_evidence(self):
         original = copy.deepcopy(self.old)
         mergeEvidence(self.old, self.new)
@@ -72,6 +88,89 @@ class EvidenceRefreshTests(unittest.TestCase):
         self.assertEqual(ref['path_status'], 404)
         self.assertNotIn('path_checked_at', ref)
 
+
+    def test_bound_context_hash_change_requires_review_even_when_fragment_remains(self):
+        self.old['refs'][0]['source_hash'] = hashlib.sha256(b'Official purpose.').hexdigest()
+        originalHash = self.old['refs'][0]['content_hash']
+        self.new['refs'][0]['text'] = 'Official purpose.\nRequires a paid account and companion software.'
+        self.new['refs'][0]['content_hash'] = hashlib.sha256(self.new['refs'][0]['text'].encode()).hexdigest()
+        merged = mergeEvidence(self.old, self.new)
+        ref = next(r for r in merged['refs'] if r['id'] == 'intro')
+        self.assertTrue(ref['context_changed'])
+        self.assertEqual(ref['content_hash'], originalHash)
+        self.assertEqual(ref['source_hash'], self.new['refs'][0]['content_hash'])
+        again = mergeEvidence(merged, self.new)
+        self.assertTrue(next(r for r in again['refs'] if r['id'] == 'intro')['context_changed'])
+
+    def test_web_fragment_same_id_still_compares_full_source_hash(self):
+        self.old['refs'][0].update(source_kind='official_site', source_hash='old-full-source')
+        current = copy.deepcopy(self.old['refs'][0])
+        current.update(source_hash='new-full-source', checked_at='2026-10-20T00:00:00Z')
+        merged = mergeEvidence(self.old, {'refs': [current]})
+        self.assertTrue(merged['refs'][0]['context_changed'])
+        self.assertEqual(merged['refs'][0]['source_hash'], 'new-full-source')
+
+    def test_repository_extra_star_field_does_not_revoke_bound_metadata(self):
+        self.old['refs'][0].update(source_kind='repository', text='{"license": "MIT"}', source_hash='old')
+        self.new['refs'][0].update(source_kind='repository', text='{"license": "MIT", "stargazers_count": 150}')
+        ref = mergeEvidence(self.old, self.new)['refs'][0]
+        self.assertEqual(ref['content_hash'], 'original')
+        self.assertFalse(ref.get('context_changed'))
+
+    def test_new_release_cannot_keep_reviewed_platform_fragment(self):
+        self.old['refs'][0].update(source_kind='release', text='Windows', source_version='v1',
+                                   source_hash=hashlib.sha256(b'v1 Windows').hexdigest())
+        self.new['refs'][0].update(source_kind='release', text='Windows', source_version='v2',
+                                   content_hash=hashlib.sha256(b'v2 Windows').hexdigest())
+        ref = mergeEvidence(self.old, self.new)['refs'][0]
+        self.assertTrue(ref['context_changed'])
+
+    def test_real_seed_context_addition_withdraws_previous_qualification(self):
+        import json
+        from pathlib import Path
+        from gitradar.content import deriveFacts, resolveContent
+        root = Path(__file__).resolve().parents[1]
+        previous = json.loads((root/'data/seed-evidence.json').read_text())['projects']['localsend/localsend']
+        editorial = json.loads((root/'data/curation.json').read_text())['projects']['localsend/localsend']
+        originalEditorial = copy.deepcopy(editorial)
+        oldRefs = [ref for ref in previous['refs'] if ref['source_kind'] == 'readme']
+        text = '\n'.join(ref['text'] for ref in oldRefs) + '\nRequires a paid account to transfer files.'
+        source = {'id': 'readme:current', 'url': oldRefs[0]['url'], 'source_kind': 'readme',
+                  'text': text, 'content_hash': hashlib.sha256(text.encode()).hexdigest(),
+                  'checked_at': '2026-10-20T20:00:00Z', 'status': 200}
+        merged = mergeEvidence(previous, {'refs': [source]})
+        content = resolveContent(deriveFacts(merged), editorial, '2026-10-20T20:00:00Z')
+        self.assertEqual(content['effective_status'], 'review_required')
+        self.assertFalse(content['eligibility']['eligible'])
+        self.assertIn('context_changed:intro', content['invalidation_reasons'])
+        self.assertEqual(editorial, originalEditorial)
+
+    def multiPathInput(self):
+        paths = [{'url': 'https://official.example/first'}, {'url': 'https://official.example/second'}]
+        project = {'full_name': 'o/a', 'content': {'official_urls': ['https://official.example'],
+                   'usage_paths': paths, 'claims': {'usage_paths': ['intro']}}}
+        return project, {'projects': {'o/a': copy.deepcopy(self.old)}}
+
+    def test_second_path_404_blocks_shared_claim_instead_of_inheriting_first_success(self):
+        project, evidence = self.multiPathInput()
+        statuses = [200, 404]
+        client = GitHubClient(transport=lambda *args: HttpResponse(statuses.pop(0), {}, None))
+        result = refreshPaths([project], evidence, client, Budget(), '2026-10-20T00:00:00Z')
+        ref = result['projects']['o/a']['refs'][0]
+        self.assertEqual(client.usage.path_requests, 2)
+        self.assertEqual(ref['path_checks']['https://official.example/first']['status'], 200)
+        self.assertEqual(ref['path_checks']['https://official.example/second']['status'], 404)
+        self.assertEqual(ref['path_status'], 404)
+
+    def test_second_path_budget_deferred_does_not_inherit_first_clock(self):
+        project, evidence = self.multiPathInput()
+        evidence['projects']['o/a']['refs'][0]['path_checked_at'] = '2026-10-01T00:00:00Z'
+        client = GitHubClient(transport=lambda *args: HttpResponse(200, {}, None))
+        result = refreshPaths([project], evidence, client, Budget(path_requests=1), '2026-10-20T00:00:00Z')
+        ref = result['projects']['o/a']['refs'][0]
+        self.assertEqual(client.usage.path_requests, 1)
+        self.assertEqual(ref['path_checked_at'], '2026-10-01T00:00:00Z')
+        self.assertNotEqual(ref['path_checks']['https://official.example/second']['status'], 200)
 
 if __name__ == '__main__':
     unittest.main()

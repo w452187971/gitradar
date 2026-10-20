@@ -22,6 +22,7 @@ class Observation(RepositoryRef, total=False):
     stargazers_count: int
     status: str
     error: str
+    http_status: int
     archived: bool
     fork: bool
     html_url: str
@@ -71,6 +72,12 @@ class ObservationBatch(TypedDict):
     usage: dict[str, object]
 
 
+class PathCheck(TypedDict, total=False):
+    status: Union[str, int]
+    checked_at: str
+    last_attempt_at: str
+
+
 class EvidenceRef(TypedDict, total=False):
     id: str
     url: str
@@ -83,6 +90,12 @@ class EvidenceRef(TypedDict, total=False):
     status: Union[str, int]
     published_at: str
     source_hash: str
+    previous_source_hash: str
+    context_changed: bool
+    path_checks: dict[str, PathCheck]
+    path_required_urls: list[str]
+    path_status: Union[str, int]
+    path_checked_at: str
     source_kind: str
     text: str
 
@@ -137,6 +150,7 @@ class ContentRecord(ProjectFacts, total=False):
     effective_status: str
     invalidation_reasons: list[str]
     evidence_hashes: dict[str, str]
+    evidence_context_hashes: dict[str, str]
     eligibility: Eligibility
     identity_conflict: bool
     family: str

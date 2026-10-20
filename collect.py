@@ -96,13 +96,27 @@ def validateRepository(value: object) -> Repository:
     return cast(Repository, value)
 
 
+def loadTrackedProject(value: object, allowUnobservedPreview: bool) -> Project:
+    if allowUnobservedPreview and isinstance(value, dict) and value.get('stargazers_count') is None:
+        if value.get('last_observed_at') or value.get('observation_status') not in ('deferred', 'retained'):
+            raise ValueError('Observed repositories must have a real Star count.')
+        validateRepository({**value, 'stargazers_count': 0})
+        return cast(Project, value)
+    return cast(Project, validateRepository(value))
+
+
 def loadState(dataDir: pathlib.Path) -> tuple[list[Project], History, dict[str, Summary]]:
     document = readJson(dataDir / 'projects.json', {'projects': []})
     if not isinstance(document, dict) or not isinstance(document.get('projects'), list):
         raise ValueError('Invalid projects document; refusing to replace snapshots.')
-    projects = [cast(Project, validateRepository(p)) for p in document['projects']]
+    projects = [loadTrackedProject(p, document.get('schema_version') == '4.0' and
+                                   document.get('offline_preview') is True)
+                for p in document['projects']]
     history = validateHistory(readJson(dataDir / 'history.json', {}))
-    if any(not history.get(p['full_name']) for p in projects):
+    if any(not history.get(p.get('history_key') or p['full_name']) and
+           not (document.get('schema_version') == '4.0' and document.get('offline_preview') is True
+                and not p.get('last_observed_at') and
+                p.get('observation_status') in ('deferred', 'retained')) for p in projects):
         raise ValueError('Tracked repositories are missing history; restore it before collecting.')
     summaries = readJson(dataDir / 'summaries.json', {})
     if not isinstance(summaries, dict) or any(not isinstance(v, dict) for v in summaries.values()):
@@ -553,7 +567,7 @@ def collectProjects(previous: list[Project], history: History, summaries: dict[s
     return items
 
 
-def main() -> None:
+def legacyMain() -> None:
     today = dt.datetime.now(dt.timezone.utc).date()
     previous, history, summaries = loadState(DATA_DIR)
     original = {name: series.copy() for name, series in history.items()}
@@ -570,6 +584,11 @@ def main() -> None:
     saveSnapshots(DATA_DIR, history, summaries, document)
     print('Collected', len(items), 'repos; free README cache', len(summaries),
           'warnings', len(warnings))
+
+
+def main() -> None:
+    from gitradar.pipeline import main as runV4
+    runV4()
 
 
 if __name__ == '__main__':

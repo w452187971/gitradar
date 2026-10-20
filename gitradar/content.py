@@ -26,6 +26,14 @@ TEMPLATES = (
     (r'password manager', '保存和管理密码', '需要管理账号密码的人', '隐私保护'),
     (r'desktop application launcher', '启动桌面应用', '需要快速打开桌面应用的人', '电视桌面'),
 )
+CHINESE_TEMPLATES = (
+    (r'(?:用于)?(?:转换文件格式|文件格式转换)的?(?:工具|软件|应用)', '文件格式转换', '需要转换文件格式的人', '文件转换'),
+    (r'(?:用于)?搜索本地文件的?(?:工具|软件|应用)', '搜索本地文件', '需要在电脑里找文件的人', '文件查找'),
+    (r'(?:用于)?(?:记录和整理笔记|记笔记)的?(?:工具|软件|应用)', '记录和整理笔记', '需要整理个人笔记的人', '笔记效率'),
+    (r'(?:用于)?下载媒体内容的?(?:工具|软件|应用)', '下载媒体内容', '需要保存媒体内容的人', '下载媒体'),
+    (r'(?:密码管理器|管理密码的工具)', '保存和管理密码', '需要管理账号密码的人', '隐私保护'),
+    (r'(?:用于)?启动桌面应用的?(?:工具|软件|应用)', '启动桌面应用', '需要快速打开桌面应用的人', '电视桌面'),
+)
 
 
 def _record(value: object) -> Record:
@@ -96,6 +104,9 @@ def _template(ref: Record, projectName: str = '') -> tuple[str, str, str] | None
     if projectName:
         prefix = r'(?:' + re.escape(projectName) + r' is (?:an? |the )|an? |the )'
     firstSentence = re.split(r'[.!。\n]', text, maxsplit=1)[0].strip()
+    for pattern, purpose, audience, scene in CHINESE_TEMPLATES:
+        if re.fullmatch(r'(?:(?:这是|本项目是))?(?:一款|一个)' + pattern, firstSentence):
+            return purpose, audience, scene
     for pattern, purpose, audience, scene in TEMPLATES:
         if re.fullmatch(prefix + pattern + r'(?: for [^.!。]+)?', firstSentence, re.I):
             return purpose, audience, scene
@@ -132,7 +143,7 @@ def _copyStructuredFacts(facts: Record, structured: Record, refs: list[Record]) 
 
 
 def _deriveTemplateFacts(facts: Record, refs: list[Record]) -> None:
-    for ref in refs:
+    for ref in sorted(refs, key=lambda item: not bool(re.search(r'[\u4e00-\u9fff]', str(item.get('text', ''))))):
         result = _template(ref, str(facts.get('full_name', '')).rsplit('/', 1)[-1])
         if result:
             facts.update(purpose=result[0], audience=result[1], scenes=[result[2]], primary_scene=result[2])
@@ -148,7 +159,8 @@ def resolveContent(facts: Record, curation: Record | None = None, asOf: str | No
     content.update(editorial)
     content['evidence_refs'] = copy.deepcopy(facts.get('evidence_refs', []))
     content['official_urls'] = copy.deepcopy(facts.get('official_urls', []))
-    content['critical_unknowns'] = copy.deepcopy(facts.get('critical_unknowns', []))
+    content['critical_unknowns'] = list(dict.fromkeys(_strings(facts.get('critical_unknowns'))
+                                                    + _strings(editorial.get('critical_unknowns'))))
     automatic = not editorial and facts.get('generation_method') == 'supported_template'
     if automatic:
         content.update(status='published', review_kind='automatic_template',
@@ -175,9 +187,54 @@ def _evidenceProblems(content: Record, asOf: dt.datetime, reviewed: bool) -> lis
         for refId in ids:
             ref = refs.get(refId, {})
             reasons.extend(_checkRef(refId, field, ref, hashes, reviewed, asOf))
+    reasons.extend(_contextProblems(content, refs))
+    reasons.extend(_pathEvidenceProblems(content, refs, asOf))
     if content.get('identity_conflict'):
         reasons.append('identity_conflict')
     return list(dict.fromkeys(reasons))
+
+
+def _contextProblems(content: Record, refs: dict[str, Record]) -> list[str]:
+    expected = _record(content.get('evidence_context_hashes'))
+    bound = {refId for ids in _record(content.get('claims')).values() for refId in _strings(ids)}
+    reasons: list[str] = []
+    for refId in bound:
+        ref = refs.get(refId, {})
+        if ref.get('source_kind') not in ('readme', 'official_site', 'official_document', 'release'):
+            continue
+        current, reviewed = ref.get('source_hash'), expected.get(refId)
+        if (ref.get('context_changed') and (not reviewed or current != reviewed)) or (reviewed and current != reviewed):
+            reasons.append('context_changed:' + refId)
+    return reasons
+
+
+def pathClaimRefs(content: Record, path: Record, refs: list[Record]) -> list[str]:
+    claims = _strings(_record(content.get('claims')).get('usage_paths'))
+    explicit = _strings(path.get('ref_ids'))
+    if explicit:
+        return [refId for refId in explicit if refId in claims]
+    url = str(path.get('url', '')).split('#', 1)[0]
+    matching = [str(ref.get('id')) for ref in refs if ref.get('id') in claims
+                and str(ref.get('url', '')).split('#', 1)[0] == url]
+    return matching or claims
+
+
+def _pathEvidenceProblems(content: Record, refs: dict[str, Record], asOf: dt.datetime) -> list[str]:
+    reasons: list[str] = []
+    for path in _records(content.get('usage_paths')):
+        url = str(path.get('url', ''))
+        for refId in pathClaimRefs(content, path, list(refs.values())):
+            ref = refs.get(refId, {})
+            if not isinstance(ref.get('path_checks'), dict):
+                continue
+            check = _record(_record(ref['path_checks']).get(url))
+            checked = _time(check.get('checked_at'))
+            if check.get('status') in (404, 410):
+                reasons.append('missing_path:' + url)
+            elif (check.get('status') != 200 or checked is None or checked > asOf
+                    or asOf - checked > dt.timedelta(days=7)):
+                reasons.append('unverified_path:' + url)
+    return reasons
 
 
 def _checkRef(refId: str, field: str, ref: Record, hashes: Record,
@@ -206,7 +263,9 @@ def eligibleForRecommendation(content: Record, observation: Record | None = None
     reasons.extend(_evidenceProblems(content, _asOf(asOf), bool(content.get('review_kind'))))
     reasons.extend(_contentProblems(content))
     if observation and (observation.get('identity_conflict') or observation.get('status') in ('not_found', 'blocked')
-                        or observation.get('http_status') == 404):
+                        or observation.get('observation_status') == 'identity_conflict'
+                        or observation.get('http_status') in (404, 410) or observation.get('archived') is True
+                        or observation.get('fork') is True):
         reasons.append('repository_unavailable')
     if content.get('critical_unknowns'):
         reasons.append('critical_unknowns')
@@ -286,7 +345,9 @@ def _deriveFormAndPlatforms(facts: Record, ref: Record, text: str) -> None:
              (r'\bself-hosted (?:service|application)\b', 'self_hosted'))
     for sentence in _positiveSentences(text):
         for pattern, form in forms:
-            if re.search(pattern, sentence, re.I):
+            selfPrefix = r'(?:(?:This(?: project| application| app| tool)?|It|' + re.escape(
+                str(facts.get('full_name', '')).rsplit('/', 1)[-1]) + r') is )?(?:an? )?'
+            if re.fullmatch(selfPrefix + pattern + r'(?: for [^.!。]+)?', sentence, re.I):
                 _bind(facts, 'form', form, str(ref['id']))
         if not re.match(r'(?:supports?|available for|runs on)\s', sentence, re.I):
             continue

@@ -27,15 +27,17 @@ jobs:
         with:
           node-version: '22'
       - name: Test collector
+        if: ${{ inputs.probe_only != true }}
         run: python -m unittest discover -s tests
       - name: Test frontend
-        run: node --test tests/frontend.test.cjs
-      - name: Collect data and inspect README files
+        if: ${{ inputs.probe_only != true }}
+        run: node --test tests/*.test.cjs
+      - name: Collect and validate isolated batch
         id: collect
         if: ${{ inputs.probe_only != true }}
         env:
           GH_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: python collect.py
+        run: python collect.py --output-dir .v4-output
       - name: Probe built-in token batch access
         if: ${{ inputs.probe_only == true }}
         env:
@@ -48,24 +50,28 @@ jobs:
           name: gitradar-batch-probe
           path: probe-report.json
           if-no-files-found: error
-      - name: Commit snapshots
+      - name: Promote verified batch
+        if: ${{ inputs.probe_only != true }}
+        run: python collect.py --output-dir .v4-output --promote-only --publish-to .
+      - name: Commit verified snapshots and pages
+        id: commit
         if: ${{ inputs.probe_only != true }}
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add data/projects.json data/history.json data/summaries.json
+          python -c 'import json, subprocess; manifest = json.load(open("build-manifest.json")); subprocess.run(["git", "add", "--", *manifest["artifacts"], "build-manifest.json"], check=True)'
           if ! git diff --cached --quiet; then
-            git commit -m 'data: refresh GitRadar snapshots'
+            git commit -m 'data: refresh verified GitRadar V4 batch'
             git push origin "HEAD:${GITHUB_REF_NAME}"
           fi
-      - name: Preserve snapshots after commit or push failure
-        if: ${{ failure() && steps.collect.outcome == 'success' }}
+      - name: Preserve complete failed batch and diagnostics
+        if: ${{ failure() && inputs.probe_only != true }}
         uses: actions/upload-artifact@v4
         with:
-          name: gitradar-snapshots-${{ github.run_id }}-${{ github.run_attempt }}
+          name: gitradar-v4-failed-${{ github.run_id }}-${{ github.run_attempt }}
           path: |
-            data/projects.json
-            data/history.json
-            data/summaries.json
-          if-no-files-found: error
+            .v4-output/
+            build-manifest.json
+          include-hidden-files: true
+          if-no-files-found: warn
           retention-days: 7

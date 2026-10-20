@@ -30,6 +30,23 @@ def sampleContent():
 
 
 class ContentTests(unittest.TestCase):
+    def testEditorialCriticalUnknownCannotBeErasedByMachineFacts(self):
+        facts, curation = sampleContent()
+        curation['critical_unknowns'] = ['required_account']
+        content = resolveContent(facts, curation, NOW)
+        self.assertFalse(content['eligibility']['eligible'])
+
+    def testOfficialChinesePurposeTakesPriorityOverEnglish(self):
+        refs = []
+        for identifier, text in [('english', 'A file converter.'),
+                                 ('chinese', '这是一款记录和整理笔记的应用。')]:
+            refs.append({'id': identifier, 'url': 'https://github.com/demo/search',
+                         'section': 'Introduction', 'source_kind': 'readme',
+                         'text': text, 'content_hash': identifier, 'checked_at': NOW, 'status': 200})
+        facts = deriveFacts({'full_name': 'demo/search', 'refs': refs})
+        self.assertEqual(facts.get('purpose'), '记录和整理笔记')
+        self.assertEqual(facts['claims']['purpose'], ['chinese'])
+
     def testReviewedEvidencePassesWithoutChangingLegacyOrEditorialFields(self):
         facts, curation = sampleContent()
         original = copy.deepcopy(curation)
@@ -107,6 +124,15 @@ class ContentTests(unittest.TestCase):
 
 
 class AutomaticContentTests(unittest.TestCase):
+    def testCompanionApplicationCannotEstablishThisProjectsForm(self):
+        bundle = self.bundle()
+        bundle['refs'][0]['text'] = 'FastFind is a local file search tool.'
+        bundle['refs'][1]['text'] = ('The companion is a desktop application.\nSupports Windows.\n'
+                                   'Requires an account.\n'
+                                   '[Download](https://github.com/demo/FastFind/releases)')
+        content = resolveContent(deriveFacts(bundle), asOf=NOW)
+        self.assertFalse(content['eligibility']['eligible'])
+
     def bundle(self):
         return {'full_name': 'demo/FastFind', 'refs': [
             {'id': 'intro', 'url': 'https://github.com/demo/FastFind/blob/main/README.md',
@@ -173,3 +199,33 @@ class PathRefreshTests(unittest.TestCase):
         facts, curation = sampleContent()
         next(ref for ref in facts['evidence_refs'] if ref['id'] == 'cost')['content_hash'] = 'paid-now'
         self.assertFalse(eligibleForRecommendation(resolveContent(facts, curation, NOW), asOf=NOW)['eligible'])
+
+
+class ContextAndMultiplePathTests(unittest.TestCase):
+    def test_context_change_blocks_until_editor_binds_current_context_hash(self):
+        facts, curation = sampleContent()
+        oldEditorial = copy.deepcopy(curation)
+        ref = facts['evidence_refs'][0]
+        ref.update(source_hash='new-context', context_changed=True)
+        content = resolveContent(facts, curation, NOW)
+        self.assertEqual(content['effective_status'], 'review_required')
+        self.assertIn('context_changed:purpose', content['invalidation_reasons'])
+        self.assertEqual(curation, oldEditorial)
+        curation['evidence_context_hashes'] = {'purpose': 'new-context'}
+        self.assertTrue(resolveContent(facts, curation, NOW)['eligibility']['eligible'])
+        ref['source_hash'] = 'another-context'
+        self.assertFalse(resolveContent(facts, curation, NOW)['eligibility']['eligible'])
+
+    def test_shared_path_claim_requires_both_url_checks(self):
+        facts, curation = sampleContent()
+        second = {'url': 'https://github.com/demo/search/releases/second', 'kind': 'download'}
+        curation['usage_paths'].append(second)
+        ref = next(ref for ref in facts['evidence_refs'] if ref['id'] == 'usage_paths')
+        firstUrl = curation['usage_paths'][0]['url']
+        ref.update(path_checked_at=NOW, path_status=200, path_checks={
+            firstUrl: {'status': 200, 'checked_at': NOW}, second['url']: {'status': 'unverified'}})
+        self.assertFalse(resolveContent(facts, curation, NOW)['eligibility']['eligible'])
+        ref['path_checks'][second['url']] = {'status': 404}
+        self.assertFalse(resolveContent(facts, curation, NOW)['eligibility']['eligible'])
+        ref['path_checks'][second['url']] = {'status': 200, 'checked_at': NOW}
+        self.assertTrue(resolveContent(facts, curation, NOW)['eligibility']['eligible'])

@@ -236,7 +236,7 @@ class SummaryCacheTests(unittest.TestCase):
                 with patch.object(collect, 'api', side_effect=TimeoutError('temporary failure')):
                     with patch.object(collect, 'saveSnapshots', side_effect=capture), patch('time.sleep'):
                         with contextlib.redirect_stdout(io.StringIO()):
-                            collect.main()
+                            collect.legacyMain()
         retained = next(item for item in captured['projects'] if item['full_name'] == 'sample/old')
         self.assertIn('文件格式转换', retained['summary_zh'])
         self.assertNotIn('截图工具', retained['summary_zh'])

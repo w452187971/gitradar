@@ -57,7 +57,8 @@ def _momentum(project: Record, asOf: dt.datetime) -> bool:
     if _growth(project, asOf):
         return True
     for ref in _records(_content(project).get('evidence_refs')):
-        if ref.get('source_kind') == 'release' and ref.get('status') == 200 and _recent(ref.get('published_at'), asOf):
+        if (ref.get('source_kind') == 'release' and ref.get('status') in (200, 'verified')
+                and _recent(ref.get('published_at'), asOf)):
             return True
     return False
 
@@ -123,13 +124,17 @@ def _qualify(projects: list[Record], previous: Record, asOf: str) -> tuple[list[
     eligible, qualification, dates = [], {}, copy.deepcopy(_record(previous.get('first_qualified_at')))
     for project in projects:
         identity = _identity(project)
-        result = eligibleForRecommendation(_content(project), _record(project.get('observation')), asOf)
+        observation = dict(project)
+        observation.update(_record(project.get('observation')))
+        result = eligibleForRecommendation(_content(project), observation, asOf)
         qualification[identity] = result
         if result['eligible'] and identity:
             eligible.append(project)
             dates.setdefault(identity, project.get('first_qualified_at') or asOf)
     # Content and environment outrank freshness and novelty. Legacy scores cannot override these gates.
-    eligible.sort(key=lambda item: (not _ordinary(item), str(dates.get(_identity(item))), _identity(item)))
+    shown = _record(previous.get('last_recommended_at'))
+    eligible.sort(key=lambda item: (not _ordinary(item), str(shown.get(_identity(item), '')),
+                                    str(dates.get(_identity(item))), _identity(item)))
     return eligible, qualification, dates
 
 
@@ -146,9 +151,12 @@ def selectRecommendations(projects: list[Record], previousFeed: Record | None, a
     firstDates = copy.deepcopy(_record(previous.get('first_recommended_at')))
     counts: Counter[str] = Counter()
     _annotate(selected, firstDates, qualifiedDates, counts, now, asOf)
+    lastDates = copy.deepcopy(_record(previous.get('last_recommended_at')))
+    lastDates.update({_identity(project): asOf for project in selected})
     return {'recommendation_version': RECOMMENDATION_VERSION, 'generated_at': asOf,
             'recommendations': selected, 'first_recommended_at': firstDates,
             'first_qualified_at': qualifiedDates, 'eligibility': qualification,
+            'last_recommended_at': lastDates,
             'discovery_counts': {key: counts[key] for key in ('automatic_new', 'seed', 'baseline_backfill', 'manual_addition', 'rotation')},
             'eligible_count': len(eligible), 'selected_count': len(selected),
             'shortfall_reasons': ['合格内容或场景、普通用户使用路径不足，展示实际数量'] if len(selected) < 20 else []}

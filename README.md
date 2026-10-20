@@ -1,4 +1,4 @@
-# GitRadar — 中文 GitHub 爆款发现雷达
+# GitRadar V4 — 发现适合自己的实用开源
 
 面向中文用户，从 GitHub 搜索候选池中发现近期增长、有趣、实用的开源项目，覆盖影音、下载、效率、隐私、系统工具和 AI 应用等领域。
 
@@ -6,15 +6,17 @@
 
 ## 当前功能与范围
 
-- 候选发现评分、Star 增量、按用途探索、搜索和浏览器本地收藏。“近 30 天新项目”按数据采集时刻与仓库创建时间筛选，不代表已验证增长；用途分类也不代表普通人容易使用。
-- 搜索覆盖中文用途、分类、安装方式及平台线索；支持按安装方式筛选，每次加载 60 个匹配项目，可继续加载更多。
-- GitHub Actions 每日采集，GitHub Pages 提供静态网站；Python 与前端均使用标准库或浏览器原生能力，无需安装第三方依赖。
-- 中文用途优先依据项目公开简介，再参考 README 核心介绍；不将截图、示例或徽章中的关键词当成主要功能。无法可靠识别时明确提示资料不足，无付费 AI API、翻译服务或个人 API Key 要求。
-- 每轮最多检查 40 个待处理项目的 README；优先补齐新版规则尚未检查的项目，再按上次检查时间复核旧记录。成功结果满 14 天进入复核队列，同版本、同公开简介且日期合法的旧结果继续展示，标明原检查日期和“待复核”；复核失败保留这份证据，当天不反复重试，次日起可重新排队。版本或公开简介变化仍立即使旧结果失效。40 次预算不能保证全量每 14 天复核，排队也不保证当天处理。
-- 安装方式依据 README 标记推断，未经实际安装验证，也不代表项目安全性或质量保证。README 已检查不等于用途已确认；资料来源与不足情况会体现在用途提示中。
-- 平台线索来自官方简介和 Topics 中明确的平台信息，不从仓库名称或泛称“跨平台”推断。线索不表示提供安装包或已经验证可用，缺少证据时显示平台未确认；Android TV 也不自动表示支持 Android 手机。
+- 首页从有证据的推荐池选择最多20项，默认先看6项；卡片直接说明用途、人群、设备、前提和官方入口。场景目录展示全部合格内容，完整候选与真实增长另有入口。
+- 原生静态首页、场景及详情无需JavaScript即可阅读。搜索、多标签与目标设备筛选、本地`radar_saved`收藏在启用JavaScript后增强；旧收藏和仓库改名别名保持兼容。
+- 采用官方资料结构化规则与可追溯编辑内容，不使用付费AI或翻译。首批核实34个项目；未达到许可、资料和使用条件门槛的项目保留待复核，不凑推荐数。
+- 每条关键断言绑定官方来源及内容哈希。来源变化、确认404/410、身份冲突、资料或路径到期会撤销推荐资格；已发布详情保留旧日期及原因，失效入口禁用。
+- 用途、平台、前提资料最长14天复核，使用路径最长7天；失败不刷新日期。资料核对不等于实际试用，开源许可不等于运行、服务或移动版本全部免费。
+- Actions先做有限搜索，再用GraphQL每批最多50项观测全池；内容与路径分开核对。搜索最多20次，非搜索REST合计100次含重试，其中内容60、路径20、身份补查20；GraphQL软预算600点、100批，并保留响应头余量。实际消耗与覆盖逐批保存，未知点数停止后续批量请求。
+- 全领域候选继续保留。首期自动用途模板支持六类明确自述；复杂、模糊或条件缺失项目等待编辑。不能把有限搜索说成全GitHub覆盖，也不能把人工种子、旧池补齐或轮换说成自动新发现。
 
-候选来自有限的搜索条件，再刷新此前跟踪的项目。每轮搜索预算最多 20 次：创建时间、Star 区间和主题入口补充候选，增加低 Star 新项目及近期更新的老项目入口；按 UTC 日期轮换 Star / 更新时间排序，并给受限查询分配少量轮换分页。每次请求最多 100 条，仍可能漏掉候选，尤其是没有近期代码推送且未被主题入口覆盖的老项目。每次搜索的返回数量、覆盖限制和 GitHub 的不完整结果会记录在 `search_reports`；页面汇总受限和不完整的请求数量，不能把无警告解释为全站覆盖。
+[V4产品范围与验收](docs/V4_PRODUCT_DESIGN.md) · [实施计划](docs/V4_IMPLEMENTATION_PLAN.md) · [核对记录](docs/evaluation/seed-review.md)。工程、独立样本、真实读者和14天持续运行分别验收；尚未取得证据的项目保持“未验证”。
+
+下面的启发式评分用于完整候选页，首页推荐单独使用`recommendation_version`，不再直接按发现分截取前20。
 
 ## 发现评分与列表口径
 
@@ -43,46 +45,50 @@
 
 ## 本地检查与运行
 
-环境：Python 3.12、Node.js 22。测试使用临时数据与离线样例，不调用采集 API：
+环境：Python3.12、Node.js22；Python标准库和原生前端，无第三方依赖。
 
 ```sh
 python3 -m unittest discover -s tests
-node --test tests/frontend.test.cjs
+node --test tests/*.test.cjs
+python3 collect.py --offline --output-dir .v4-preview
+python3 -m http.server 8000 --directory .v4-preview
 ```
 
-静态页面通过 HTTP 访问，避免直接打开 HTML 时浏览器限制读取 JSON：
+离线预览不会假装观测了Star，也不能发布。真实采集使用`GH_API_TOKEN`环境变量（Actions使用内置`GITHUB_TOKEN`），默认只写隔离目录：
 
 ```sh
-python3 -m http.server 8000
+python3 collect.py --output-dir .v4-output
 ```
 
-然后打开 `http://localhost:8000`。如需主动刷新数据，在确认已有历史完整、当前改动已妥善保存后运行：
+检查`.v4-output/validation-report.json`、预算、覆盖和页面后，显式提升已验证批次：
 
 ```sh
-python3 collect.py
+python3 collect.py --output-dir .v4-output --promote-only --publish-to .
 ```
 
-此命令会访问 GitHub 并更新 `data/`。可通过环境变量 `GH_API_TOKEN` 提供 GitHub 令牌以提高请求额度；不要把令牌写进代码或提交到仓库。Actions 自动使用内置 `GITHUB_TOKEN`，无需提供个人密钥。候选池扩张、限流和网络故障可能造成部分刷新失败，需检查输出及 `data/projects.json` 的 `warnings`。
+提升前会重新核对正式历史是否新增及产物哈希；正式文件变化会阻止覆盖。`curation.json`与`seed-evidence.json`不由采集器改写，`evidence.json`保存后续机器复核；原历史、候选、摘要缓存保留。
+
+观察结算使用真实Pages上线时间，从次个完整UTC日期计14天采样加48小时收尾；独立未来参考集不足时最多28天采样，仍不足则未验证：
+
+```sh
+python3 scripts/evaluate_v4.py --published-at <实际UTC时间> --references <独立参考集JSON>
+```
+
+无真实读者时不填写通过记录，任务表见[读者任务](docs/evaluation/reader-tasks.md)。
 
 ## GitHub Actions 与 Pages
 
-`.github/workflows/update.yml` 支持每日计划和手动运行，使用 Python 3.12、Node.js 22。工作流先通过两组离线测试，再采集并提交 `data/projects.json`、`data/history.json`、`data/summaries.json`；`contents: write` 用于提交数据，采集任务通过并发组避免同时运行。
+保留每日UTC02:23（北京时间10:23）的定时及手动触发、并发保护和现有Pages。工作流先通过Python/Node离线回归，在隔离目录采集、生成与整批校验，再提升确切manifest产物并普通提交推送；不会force push。失败保存隔离批次与诊断附件7天。
 
-仓库继续使用现有 GitHub Pages 配置，网站入口为根目录 `index.html`。在 Settings → Pages 确认发布源；在 Actions 中分别核对采集和 Pages 发布结果，再检查线上页面及 JSON 的更新时间。公开仓库的标准 GitHub 托管 runner 和 GitHub Pages 可免费使用，仍受平台调度、API 配额及使用限制约束。
+`probe_only`手动输入只验证内置令牌50项GraphQL访问，不采集、提交或发布生产数据。首次实测[记录](docs/evaluation/actions-token-probe.json)含真实点数和Actions运行链接，运行时始终按真实响应计预算。
 
-如需手动采集：Actions → Update GitRadar data → Run workflow。请先确认上传的是当前代码、测试和工作流，保留整个 `data/`。运行测试失败时不会进入采集；历史文件损坏或结构异常时采集会终止，避免用默认空历史继续写入。
-
-采集先验证数据再通过临时文件替换 JSON，以减少写入中断损坏单个文件的风险。三个文件不是跨文件事务，恢复时应检查同一轮的数据是否一致。采集成功后若提交或推送失败，任务会失败，并尝试把本轮三个 JSON 保存为 `gitradar-snapshots-运行编号-尝试次数` 附件，保留 7 天。下载后先检查历史完整性与警告，人工合并需要保留的快照，再重新提交；不要直接覆盖远端较新的历史。推送采用普通更新，不会强制覆盖其他提交。
+展示回退不能覆盖后来产生的历史。采集器回退必须支持`history_key`和稳定身份契约，不能直接恢复不认识新批次的V3.3写入器。已确认身份冲突保留旧历史并隔离，不拼接不同仓库的Star。
 
 ## 项目文件
 
-- `index.html`：中文静态页面。
-- `collect.py`：候选搜索、历史快照、规则解读与缓存。
-- `discovery_stats.py`：从已有快照和采集结果推导观测日期、刷新情况及覆盖统计，不发起额外请求。
-- `data/projects.json`：最新候选列表、生成时间和采集警告。
-- `data/history.json`：各项目按 UTC 日期保存的 Star 历史。
-- `data/summaries.json`：免费 README 解读与安装线索缓存。
-- `tests/`：采集与前端的离线回归测试。
-- [AGENTS.md](AGENTS.md)：后续开发的交接约束。
-
-[CHAT_HISTORY.md](docs/CHAT_HISTORY.md) 根据可见对话整理，包含产品决策和早期运行记录，并非逐字聊天导出；当前行为应以仓库代码和实际数据为准。
+- `collect.py`：兼容入口；`gitradar/`分离访问预算、观测、证据内容、推荐、验证、静态生成与评测。
+- `web/templates/`、`web/assets/`：页面源；根`index.html`、`explore.html`、`scenes.html`与`projects/`是生成产物。
+- `data/history.json`：不可丢弃的真实Star历史；`projects.json`保留旧字段并增量加入身份、内容和状态。
+- `data/curation.json`：可追溯编辑结论；`seed-evidence.json`：原始核实资料；`evidence.json`：机器复核状态。
+- `data/recommendations.json`、`observation-reports.json`：首次推荐、实际轮换与每日观察；`detail-index.json`保留旧详情地址。
+- `build-manifest.json`：同批次标识与产物哈希；`tests/`离线回归；`docs/evaluation/`保存实际证据及未验证项。

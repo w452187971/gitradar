@@ -4,7 +4,7 @@ const path = require('node:path');
 const test = require('node:test');
 const vm = require('node:vm');
 
-const html = fs.readFileSync(path.join(__dirname, '..', 'index.html'), 'utf8');
+const html = fs.readFileSync(path.join(__dirname, '..', 'explore.html'), 'utf8');
 const source = html.match(/<script>([\s\S]*?)<\/script>/)[1];
 const voidTags = new Set(['meta', 'input', 'br', 'link']);
 
@@ -29,6 +29,7 @@ class Element {
   set textContent(value) { this.children = [String(value)]; }
   set innerHTML(value) { this.children = parseMarkup(value).children; }
   replaceChildren(...children) { this.children = children; }
+  setAttribute(name, value) { this.attributes[name] = String(value); }
   querySelector(selector) { return this.querySelectorAll(selector)[0] || null; }
   querySelectorAll(selector) {
     return this.children.filter(child => child instanceof Element).flatMap(child =>
@@ -88,7 +89,7 @@ async function loadPage(projects, options = {}) {
     requestCount += 1;
     return {ok: true, json: async () => payload};
   };
-  const context = vm.createContext({document, localStorage, fetch, console, Date, Set, JSON, Error});
+  const context = vm.createContext({document, localStorage, fetch, console, Date, Set, JSON, Error, URL});
   vm.runInContext(source, context);
   await new Promise(resolve => setImmediate(resolve));
   return {document, stored, requestCount: () => requestCount,
@@ -430,7 +431,7 @@ test('coverage exposes retained, discovery and search limitations without claimi
   assert.match(text, /记录过 2 个 UTC 日期/);
   assert.doesNotMatch(text, /连续\s*2\s*天/);
   assert.match(text, /1日可算 1\/3.*7日可算 0\/3/);
-  assert.match(text, /本轮刷新 2.*保留旧值 1.*新发现 1/);
+  assert.match(text, /本轮刷新 2.*保留旧值 1.*本轮新增候选 1/);
   assert.match(text, /README.*已检查 2\/3.*待复核 1/);
   assert.match(text, /受限 2.*不完整 3/);
 });
@@ -555,3 +556,126 @@ for (const rulesVersion of [null, 'v3.2']) {
     assert.match(page.cards()[0].querySelector('.reason').textContent, /旧规则发现分 95/);
   });
 }
+
+test('unobserved Star values remain readable candidates instead of zero or a broken list', async () => {
+  const page = await loadPage([project('seed/unobserved', {stargazers_count: null, observation_status: 'deferred'}),
+    project('seed/observed', {stargazers_count: 123})]);
+  assert.equal(page.cards().length, 2);
+  const card = page.cards().find(item => item.querySelector('.name').textContent === 'seed/unobserved');
+  assert.match(card.querySelector('.stars').textContent, /未观测/);
+  assert.doesNotMatch(card.querySelector('.stars').textContent, /\b0\b/);
+  assert.doesNotMatch(card.querySelector('.reason').textContent, /Star 0/);
+  assert.doesNotMatch(page.get('notice').textContent, /列表加载失败/);
+});
+
+test('saved candidates without a Star observation can be viewed and unstarred', async () => {
+  const page = await loadPage([project('seed/unobserved', {stargazers_count: null})],
+    {stored: {radar_saved: '["seed/unobserved","retired/keep"]'}});
+  page.tab('saved');
+  assert.equal(page.cards().length, 1);
+  assert.match(page.cards()[0].querySelector('.stars').textContent, /未观测/);
+  page.cards()[0].querySelector('.save').onclick();
+  assert.deepEqual(JSON.parse(page.stored.get('radar_saved')), ['retired/keep']);
+  assert.equal(page.cards().length, 0);
+});
+
+test('Star sorting places unobserved candidates after observed zero and positive counts', async () => {
+  const page = await loadPage([project('seed/null', {stargazers_count: null}),
+    project('seed/zero', {stargazers_count: 0}), project('seed/positive', {stargazers_count: 7}),
+    project('seed/missing', {stargazers_count: undefined})]);
+  page.get('sort').value = 'stars';
+  page.get('sort').onchange();
+  assert.deepEqual(page.cards().map(card => card.querySelector('.name').textContent),
+    ['seed/positive', 'seed/zero', 'seed/null', 'seed/missing']);
+  assert.equal(page.cards()[1].querySelector('.stars').textContent, '⭐ 0');
+});
+
+test('missing or zero Star baselines never invent relative growth percentages', async () => {
+  const page = await loadPage([project('seed/null', {stargazers_count: null, delta_1d: null}),
+    project('seed/zero', {stargazers_count: 0, delta_1d: 0})]);
+  assert.equal(page.cards().length, 2);
+  for (const card of page.cards()) assert.doesNotMatch(card.textContent, /NaN|Infinity|\d+%/);
+});
+
+function reviewedVideoContent(overrides = {}) {
+  return {full_name: 'sample/video', effective_status: 'published',
+    eligibility: {eligible: true, reasons: []}, review_kind: 'source_review',
+    purpose: '把已有影片转为 MP4 或 MKV，便于在其他设备播放。',
+    audience: '想压缩家庭录像并保留自己的副本的人。', scenes: ['文件转换', '影音处理'],
+    platforms: ['Windows', 'macOS'], prerequisites: ['需要自己准备本地视频文件。'],
+    usage_paths: [{url: 'https://video.example/download', kind: 'download', label: '官方安装说明'}],
+    official_urls: ['https://video.example'], recommendation_reason: '官方提供桌面安装路径',
+    evidence_refs: [{id: 'intro', url: 'https://github.com/sample/video/blob/main/README.md',
+      section: '核心介绍', checked_at: '2020-01-02T12:00:00Z', status: 200, content_hash: 'fixture-intro-v1'}],
+    ...overrides};
+}
+
+test('qualified published content replaces contradictory legacy purpose and platform hints', async () => {
+  const page = await loadPage([project('sample/video', {summary_zh: '【资料不足】旧版无法识别用途',
+    platforms_zh: [], readme_checked: false, content: reviewedVideoContent()})]);
+  const card = page.cards()[0];
+  assert.match(card.querySelector('.desc').textContent, /把已有影片转为 MP4/);
+  assert.match(card.querySelector('.platforms').textContent, /Windows.*macOS/);
+  assert.doesNotMatch(card.textContent, /资料不足|平台未确认|安装方式未确认|已检查 README/);
+  assert.match(card.querySelector('.content-audience').textContent, /压缩家庭录像/);
+  assert.match(card.querySelector('.content-conditions').textContent, /自己准备本地视频/);
+  assert.match(card.querySelector('.content-source').textContent, /资料已核对.*2020-01-02/);
+  assert.equal(card.querySelector('.official-paths').querySelector('a').attributes.href, 'https://video.example/download');
+  assert.equal(card.querySelector('.content-source').querySelector('a').attributes.href,
+    'https://github.com/sample/video/blob/main/README.md');
+});
+
+test('unpublished ineligible and unknown new records keep legacy behavior instead of inheriting review', async () => {
+  for (const content of [reviewedVideoContent({effective_status: 'review_required', invalidation_reasons: ['stale_path:download']}),
+    reviewedVideoContent({effective_status: 'unknown'}), reviewedVideoContent({eligibility: {eligible: false}}),
+    reviewedVideoContent({eligibility: undefined})]) {
+    const page = await loadPage([project('sample/video', {summary_zh: '旧版用途保持可读', content})]);
+    const card = page.cards()[0];
+    assert.equal(card.querySelector('.desc').textContent, '旧版用途保持可读');
+    assert.match(card.querySelector('.platforms').textContent, /平台未确认/);
+    assert.doesNotMatch(card.textContent, /资料已核对|官方安装说明/);
+    if (content.effective_status === 'review_required') assert.match(card.textContent, /待复核.*stale_path/);
+  }
+});
+
+test('purpose audience and multiple reviewed scenes can find qualified candidates', async () => {
+  const page = await loadPage([project('sample/video', {content: reviewedVideoContent()}), project('sample/other')]);
+  for (const query of ['已有影片', '家庭录像', '影音处理']) {
+    page.get('search').value = query;
+    page.get('search').oninput();
+    assert.equal(page.cards().length, 1);
+    assert.equal(page.cards()[0].querySelector('.name').textContent, 'sample/video');
+  }
+});
+
+test('reviewed content remains plain text and unsafe official links are visibly withheld', async () => {
+  const content = reviewedVideoContent({purpose: '<img src=x onerror=alert(1)> 用途文本',
+    usage_paths: [{url: 'javascript:alert(1)', label: '<script>evil</script>'}]});
+  const page = await loadPage([project('sample/video', {content})]);
+  const card = page.cards()[0];
+  assert.match(card.querySelector('.desc').textContent, /<img src=x/);
+  assert.equal(card.querySelectorAll('img').length, 0);
+  assert.equal(card.querySelector('.official-paths').querySelectorAll('a').length, 0);
+  assert.match(card.querySelector('.official-paths').textContent, /入口.*待复核/);
+});
+
+test('reviewed source does not hide retained observations or falsely refresh old Star values', async () => {
+  const page = await loadPage([project('sample/video', {content: reviewedVideoContent(),
+    observation_status: 'retained', first_seen_date: '2019-12-01', last_observed_date: '2020-01-01'})]);
+  const card = page.cards()[0];
+  assert.match(card.querySelector('.observed').textContent, /最近观测 2020-01-01.*本轮保留旧值/);
+  assert.match(card.querySelector('.reason').textContent, /本轮未更新，保留旧值/);
+  assert.match(card.querySelector('.delta').textContent, /本轮未更新/);
+  assert.match(card.querySelector('.content-source').textContent, /2020-01-02/);
+});
+
+test('unknown review method and failed source checks remain explicit on qualified-looking records', async () => {
+  const content = reviewedVideoContent({review_kind: 'unknown', evidence_refs: [{
+    url: 'https://github.com/sample/video/blob/main/README.md', section: '安装资料', checked_at: 'bad-date', status: 404}]});
+  const page = await loadPage([project('sample/video', {content, observation_status: 'retained'})]);
+  const card = page.cards()[0];
+  assert.match(card.querySelector('.content-source').textContent, /审核方式未记录/);
+  assert.match(card.querySelector('.content-source').textContent, /未知.*来源状态 404/);
+  assert.doesNotMatch(card.querySelector('.content-source').textContent, /资料已核对/);
+  assert.match(card.querySelector('.observed').textContent, /本轮保留旧值/);
+});

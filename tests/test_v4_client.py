@@ -190,3 +190,195 @@ class ClientTests(unittest.TestCase):
         self.assertEqual(batch['usage']['graphql_points'], 0)
         self.assertEqual(batch['usage']['graphql_unmeasured_requests'], 1)
         self.assertEqual(batch['observations'][-1]['status'], 'deferred')
+
+    def test_confirmed_deleted_seed_sources_revoke_recommendation(self):
+        import json
+        from pathlib import Path
+        from gitradar.content import deriveFacts, resolveContent
+        from gitradar.evidence import mergeEvidence
+        root = Path(__file__).resolve().parents[1]
+        previous = json.loads((root/'data/seed-evidence.json').read_text())['projects']['localsend/localsend']
+        editorial = json.loads((root/'data/curation.json').read_text())['projects']['localsend/localsend']
+        client = GitHubClient('secret', transport=lambda *args: HttpResponse(404, {}, {}), now=lambda: NOW)
+        fetched = client.readProjectEvidence(previous, previous, Budget())
+        content = resolveContent(deriveFacts(mergeEvidence(previous, fetched)), editorial, '2026-10-20T20:00:00Z')
+        self.assertFalse(content['eligibility']['eligible'])
+        self.assertTrue(any(ref['status'] == 404 for ref in fetched['refs']))
+        self.assertEqual(previous['refs'][0]['status'], 200)
+
+    def test_graphql_critical_null_and_field_errors_fail_only_affected_nodes(self):
+        for field in ['isArchived', 'isFork', 'id', 'nameWithOwner', 'stargazerCount', 'createdAt']:
+            for nullValue in [True, False]:
+                with self.subTest(field=field, null=nullValue):
+                    bad = node()
+                    if nullValue:
+                        bad[field] = None
+                    payload = {'data': {'r0': bad, 'r1': node('R2', 'b/tool'),
+                               'rateLimit': {'cost': 1, 'remaining': 999}},
+                               'errors': [{'message': 'failed critical field', 'path': ['r0', field]}]}
+                    batch = self.client([HttpResponse(200, {}, payload)]).fetchObservations(
+                        [{'full_name': 'a/tool'}, {'full_name': 'b/tool'}], Budget())
+                    self.assertEqual([o['status'] for o in batch['observations']], ['failed', 'success'])
+
+    def test_bound_sources_are_fetched_by_unique_url_before_optional_defaults(self):
+        import base64
+        old = {'full_name': 'a/tool', 'node_id': 'R1', 'official_urls': ['https://official.example'],
+               'facts': {'license': {'ref_ids': ['license']}}, 'refs': [
+                   {'id': 'license', 'url': 'https://raw.githubusercontent.com/a/tool/main/COPYING',
+                    'source_kind': 'readme', 'text': 'MIT license', 'checked_at': '2026-10-01T00:00:00Z'},
+                   {'id': 'install', 'url': 'https://github.com/a/tool/blob/main/docs/install.md',
+                    'source_kind': 'readme', 'text': 'Install the tool.'},
+                   {'id': 'web', 'url': 'https://official.example/help', 'source_kind': 'official_site', 'text': 'Install'},
+                   {'id': 'path', 'url': 'https://official.example/help', 'source_kind': 'official_site', 'text': 'Install'}]}
+        encoded = lambda text: {'encoding': 'base64', 'content': base64.b64encode(text.encode()).decode(), 'sha': 'new'}
+        client = self.client([HttpResponse(200, {}, encoded('MIT license')),
+                              HttpResponse(200, {}, encoded('Install the tool.')),
+                              HttpResponse(200, {'Content-Type': 'text/html'}, '<h1>Install</h1><script>wrong</script><p>Safely.</p>')])
+        fetched = client.readProjectEvidence(old, old, Budget(content_requests=3))
+        self.assertEqual(len(self.calls), 3)
+        self.assertIn('/contents/COPYING?ref=main', self.calls[0][1])
+        self.assertIn('/contents/docs/install.md?ref=main', self.calls[1][1])
+        self.assertEqual(self.calls[2][1], 'https://official.example/help')
+        self.assertNotIn('Authorization', self.calls[2][2])
+        self.assertTrue(any(ref['url'] == old['refs'][0]['url'] and ref['text'] == 'MIT license' for ref in fetched['refs']))
+        web = next(ref for ref in fetched['refs'] if ref['url'] == 'https://official.example/help')
+        self.assertEqual(web['text'], 'Install\nSafely.')
+        self.assertEqual(web['checked_at'], NOW)
+
+    def test_website_revalidation_requires_verified_origin_and_caps_body(self):
+        old = {'full_name': 'a/tool', 'node_id': 'R1', 'official_urls': ['https://official.example'],
+               'refs': [{'id': 'bad', 'url': 'https://evil.example/help', 'source_kind': 'official_site'},
+                        {'id': 'large', 'url': 'https://official.example/help', 'source_kind': 'official_document'}]}
+        client = self.client([HttpResponse(200, {}, 'x'*(1024*1024+1))])
+        fetched = client.readProjectEvidence(old, old, Budget(content_requests=1))
+        self.assertEqual(len(self.calls), 1)
+        self.assertEqual(self.calls[0][1], 'https://official.example/help')
+        self.assertTrue(fetched['errors'])
+        self.assertFalse(any(ref.get('checked_at') == NOW for ref in fetched['refs']))
+
+    def test_timeout_keeps_bound_source_text_and_old_date(self):
+        old = {'full_name': 'a/tool', 'node_id': 'R1', 'official_urls': [], 'refs': [
+            {'id': 'license', 'url': 'https://raw.githubusercontent.com/a/tool/main/LICENSE',
+             'source_kind': 'readme', 'text': 'Original', 'status': 200, 'checked_at': '2026-10-01T00:00:00Z'}]}
+        client = self.client([TimeoutError('offline')])
+        fetched = client.readProjectEvidence(old, old, Budget(content_requests=1))
+        ref = next(ref for ref in fetched['refs'] if ref['id'] == 'license')
+        self.assertEqual(ref['checked_at'], '2026-10-01T00:00:00Z')
+        self.assertEqual(ref['status'], 200)
+        self.assertEqual(ref['text'], 'Original')
+
+    def test_real_transport_reads_html_and_caps_stream_to_one_mebibyte(self):
+        from unittest.mock import Mock, patch
+        from gitradar.github_client import httpTransport
+        class Response:
+            status = 200
+            headers = {'Content-Type': 'text/html'}
+            def __enter__(self):
+                return self
+            def __exit__(self, *args):
+                return False
+            def read(self, limit=-1):
+                self.limit = limit
+                return b'<h1>Visible</h1>'
+        response = Response()
+        opener = Mock()
+        opener.open.return_value = response
+        with patch('urllib.request.build_opener', return_value=opener):
+            result = httpTransport('GET', 'https://official.example/help', {'User-Agent': 'test'}, None)
+        self.assertEqual(result.body, '<h1>Visible</h1>')
+        self.assertEqual(response.limit, 1024*1024+1)
+
+    def test_redirect_handler_never_forwards_auth_to_other_origin(self):
+        import urllib.request
+        from gitradar.github_client import SameOriginRedirectHandler
+        handler = SameOriginRedirectHandler()
+        request = urllib.request.Request('https://api.github.com/repos/a/tool',
+                                         headers={'Authorization': 'Bearer secret'})
+        redirected = handler.redirect_request(request, None, 302, 'redirect', {}, 'https://evil.example/path')
+        self.assertIsNone(redirected)
+
+    def test_external_confirmed_gone_retains_old_date_and_typed_status(self):
+        old = {'full_name': 'a/tool', 'node_id': 'R1', 'official_urls': ['https://official.example'],
+               'refs': [{'id': 'site', 'url': 'https://official.example/help', 'source_kind': 'official_document',
+                         'status': 200, 'text': 'Was here', 'checked_at': '2026-10-01T00:00:00Z'}]}
+        client = self.client([HttpResponse(410, {}, None)])
+        fetched = client.readProjectEvidence(old, old, Budget(content_requests=1))
+        ref = next(ref for ref in fetched['refs'] if ref['id'] == 'site')
+        self.assertEqual(ref['status'], 410)
+        self.assertEqual(ref['checked_at'], '2026-10-01T00:00:00Z')
+        self.assertEqual(ref['text'], 'Was here')
+
+    def test_github_file_document_keeps_kind_and_revalidates_exact_text(self):
+        import base64
+        old = {'full_name': 'a/tool', 'node_id': 'R1', 'refs': [
+            {'id': 'doc', 'url': 'https://github.com/a/tool/blob/main/docs/setup.md',
+             'source_kind': 'official_document', 'text': 'Original instructions.'}]}
+        client = self.client([HttpResponse(200, {}, {'encoding': 'base64', 'sha': 'v2',
+                              'content': base64.b64encode(b'Original instructions.').decode()})])
+        fetched = client.readProjectEvidence(old, old, Budget(content_requests=1))
+        doc = next(ref for ref in fetched['refs'] if ref['url'] == old['refs'][0]['url'])
+        self.assertEqual(doc['text'], 'Original instructions.')
+        self.assertEqual(doc['source_kind'], 'official_document')
+
+    def test_null_critical_state_without_graphql_errors_is_failed(self):
+        for field in ['isArchived', 'isFork']:
+            bad = node()
+            bad.pop(field)
+            payload = {'data': {'nodes': [bad], 'rateLimit': {'cost': 1, 'remaining': 999}}}
+            batch = self.client([HttpResponse(200, {}, payload)]).fetchObservations(
+                [{'full_name': 'a/tool', 'node_id': 'R1'}], Budget())
+            self.assertEqual(batch['observations'][0]['status'], 'failed')
+
+    def test_graphql_nodes_error_path_matches_reordered_node_identity(self):
+        payload = {'data': {'nodes': [node('R2', 'b/tool'), node()],
+                           'rateLimit': {'cost': 1, 'remaining': 999}},
+                   'errors': [{'message': 'archived unavailable', 'path': ['nodes', 1, 'isArchived']}]}
+        batch = self.client([HttpResponse(200, {}, payload)]).fetchObservations(
+            [{'full_name': 'a/tool', 'node_id': 'R1'}, {'full_name': 'b/tool', 'node_id': 'R2'}], Budget())
+        self.assertEqual([o['status'] for o in batch['observations']], ['failed', 'success'])
+
+    def test_official_page_fragment_only_refreshes_when_still_present(self):
+        from gitradar.evidence import mergeEvidence
+        old = {'full_name': 'a/tool', 'node_id': 'R1', 'official_urls': ['https://official.example'],
+               'refs': [{'id': 'doc', 'url': 'https://official.example/install',
+                         'source_kind': 'official_site', 'text': 'Requires Windows 11.',
+                         'content_hash': 'edited-source-hash', 'checked_at': '2026-10-01T00:00:00Z'}]}
+        for text, unchanged in [('<nav>Menu</nav><p>Requires Windows 11.</p>', True),
+                                ('<p>Requires Windows 12.</p>', False)]:
+            client = self.client([HttpResponse(200, {'Content-Type': 'text/html'}, text)])
+            fetched = client.readProjectEvidence(old, old, Budget(content_requests=1))
+            merged = mergeEvidence(old, fetched)
+            document = next(ref for ref in merged['refs'] if ref['id'] == 'doc')
+            self.assertEqual(document['content_hash'] == 'edited-source-hash', unchanged)
+            self.assertEqual(document['checked_at'], NOW)
+
+    def test_rest_not_found_status_is_machine_readable(self):
+        for status in [404, 410]:
+            client = self.client([HttpResponse(status, {}, {})])
+            batch = client.fetchRestObservations([{'full_name': 'a/tool', 'node_id': 'R1'}], Budget())
+            self.assertEqual(batch['observations'][0]['status'], 'not_found')
+            self.assertEqual(batch['observations'][0]['http_status'], status)
+
+    def test_graphql_null_is_unknown_unless_repository_path_confirms_not_found(self):
+        for errors, confirmed in [([], False), ([{'type': 'NOT_FOUND', 'path': ['r0']}], True),
+                                  ([{'type': 'NOT_FOUND', 'path': ['r1']}], False),
+                                  ([{'type': 'NOT_FOUND', 'path': ['r0', 'license']}], False)]:
+            payload = {'data': {'r0': None, 'rateLimit': {'cost': 1, 'remaining': 999}}, 'errors': errors}
+            batch = self.client([HttpResponse(200, {}, payload)]).fetchObservations([{'full_name': 'a/tool'}], Budget())
+            result = batch['observations'][0]
+            self.assertEqual(result.get('http_status') == 404, confirmed)
+            self.assertEqual(result['status'], 'not_found' if confirmed else 'failed')
+
+    def test_graphql_error_only_response_can_confirm_repository_not_found(self):
+        payload = {'errors': [{'type': 'NOT_FOUND', 'path': ['r0']}]}
+        batch = self.client([HttpResponse(200, {}, payload)]).fetchObservations([{'full_name': 'a/tool'}], Budget())
+        self.assertEqual(batch['observations'][0]['http_status'], 404)
+        self.assertEqual(batch['observations'][0]['status'], 'not_found')
+
+    def test_graphql_multiple_null_nodes_do_not_share_not_found_confirmation(self):
+        payload = {'data': {'nodes': [None, None], 'rateLimit': {'cost': 1, 'remaining': 999}},
+                   'errors': [{'type': 'NOT_FOUND', 'path': ['nodes', 0]}]}
+        batch = self.client([HttpResponse(200, {}, payload)]).fetchObservations(
+            [{'full_name': 'a/tool', 'node_id': 'R1'}, {'full_name': 'b/tool', 'node_id': 'R2'}], Budget())
+        self.assertEqual([o['status'] for o in batch['observations']], ['not_found', 'failed'])
+        self.assertNotIn('http_status', batch['observations'][1])

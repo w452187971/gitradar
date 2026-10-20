@@ -21,6 +21,34 @@ def candidate(index, scene='文件查找', form='desktop_app'):
 
 
 class RecommendationsTests(unittest.TestCase):
+    def testRecentReleaseFromRealClientEvidenceCanUseMomentumSlot(self):
+        from gitradar.github_client import GitHubClient
+        item = candidate(1)
+        item['first_qualified_at'] = '2026-09-01T00:00:00Z'
+        ref = GitHubClient(now=lambda: NOW).makeEvidenceRef('Release notes', 'release', 'release',
+            {'html_url': 'https://github.com/demo/tool1/releases/tag/v1',
+             'published_at': '2026-10-19T00:00:00Z'}, {'full_name': 'demo/tool1'})
+        item['content']['evidence_refs'].append(ref)
+        feed = selectRecommendations([item], {}, NOW)
+        self.assertEqual('momentum', feed['recommendations'][0]['slot'])
+
+    def testLaterBatchRotatesQualifiedProjectsOutsideTheInitialTwenty(self):
+        projects = [candidate(i, str(i % 4)) for i in range(29)]
+        first = selectRecommendations(projects, {}, NOW)
+        second = selectRecommendations(projects, first, '2026-10-21T12:00:00Z')
+        initial = {p['node_id'] for p in first['recommendations']}
+        later = {p['node_id'] for p in second['recommendations']}
+        self.assertEqual(29, len(initial | later))
+        self.assertEqual(NOW, second['first_recommended_at'][next(iter(initial & later))])
+
+    def testUnavailableOrConflictedTopLevelObservationCannotRecommend(self):
+        for fields in ({'observation_status': 'identity_conflict'}, {'archived': True},
+                       {'fork': True}, {'status': 'not_found'}, {'http_status': 404}):
+            with self.subTest(fields=fields):
+                item = candidate(1)
+                item.update(fields)
+                self.assertEqual([], selectRecommendations([item], {}, NOW)['recommendations'])
+
     def testZeroEligibleDoesNotFillFromOldScores(self):
         item = candidate(1)
         item['content']['effective_status'] = 'queued'

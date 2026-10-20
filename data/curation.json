@@ -1,0 +1,2960 @@
+{
+  "schema_version": "4.0",
+  "rules_version": "v3.3",
+  "recommendation_version": "v4.0",
+  "generated_at": "2026-10-20T15:49:39.260875+00:00",
+  "source_commit": "b70e0370c75fe669e6ed030dcd3fbba83a4fea9e",
+  "batch_id": "seed-source-review-2026-10-20",
+  "review_kind": "source_review",
+  "projects": {
+    "localsend/localsend": {
+      "status": "published",
+      "review_kind": "source_review",
+      "reviewed_at": "2026-10-20T15:49:39.260875+00:00",
+      "purpose": "在同一局域网的手机和电脑之间发送文件、文件夹与文字，不必先上传网盘。",
+      "audience": "需要在身边设备之间传照片、文档，又不想注册传输服务的人。",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux",
+        "Android",
+        "iOS"
+      ],
+      "form": "desktop_app",
+      "prerequisites": [
+        "发送和接收设备都安装 LocalSend，并连接同一局域网。",
+        "需允许本地网络权限；防火墙和路由器 AP 隔离可能阻止发现设备。",
+        "当前版最低要求 Windows 10、macOS 11、Android 7、iOS 13；Linux 需相应桌面 portal 依赖。"
+      ],
+      "license": "Apache-2.0",
+      "cost": "官方明确称免费；不需要第三方服务器。",
+      "usage_paths": [
+        {
+          "url": "https://github.com/localsend/localsend/releases/latest",
+          "kind": "download",
+          "label": "官方发布页（自行选择安装包）"
+        }
+      ],
+      "scenes": [
+        "文件传输"
+      ],
+      "primary_scene": "文件传输",
+      "recommendation_reason": "在同一局域网的手机和电脑之间发送文件、文件夹与文字，不必先上传网盘；官方资料已说明所选平台和获取方式。",
+      "claims": {
+        "purpose": [
+          "intro",
+          "repository"
+        ],
+        "audience": [
+          "intro",
+          "repository"
+        ],
+        "platforms": [
+          "install",
+          "path"
+        ],
+        "form": [
+          "intro",
+          "install"
+        ],
+        "prerequisites": [
+          "install",
+          "path"
+        ],
+        "license": [
+          "repository"
+        ],
+        "usage_paths": [
+          "install",
+          "path"
+        ],
+        "cost": [
+          "intro",
+          "path"
+        ]
+      },
+      "evidence_hashes": {
+        "intro": "f250a6dd112455e91877dbeb5cab43ea505a205287f3af7c66f603b2b03b5ae9",
+        "install": "16e68749d2087b8fee038b9f6c78dfb1faa28519c30f25e64dc7c8c74fe23495",
+        "repository": "026cbb4f56b1b117dfe6716517aaf5034077b6be4513a0082e1d6f9e32cbec34",
+        "path": "b3bfef743873f57d2895326963b21acc035a4fea9a74a53b827e20a37f37d19b"
+      },
+      "family": "localsend/localsend",
+      "seed": true,
+      "limitations": [
+        "这是局域网传输工具，不是跨互联网网盘。",
+        "仅核对官方资料，未安装或实际试用，也不构成安全背书。"
+      ],
+      "tested": false,
+      "assertion_notes": {
+        "audience": "适用人群为基于官方用途的编辑判断；不是官方用户研究结果。",
+        "review_kind": "source_review 仅表示本轮读取并核对官方资料，不代表人工读者验收或实际试用。",
+        "revision": "根据独立审查逐项修正用途、渠道、前提、许可及证据绑定；不将资料核对称为试用。"
+      }
+    },
+    "syncthing/syncthing": {
+      "status": "published",
+      "review_kind": "source_review",
+      "reviewed_at": "2026-10-20T15:49:39.260875+00:00",
+      "purpose": "让两台或多台电脑自动同步指定文件夹中的文件。",
+      "audience": "希望在自己的多台电脑之间保持工作文件一致的人。",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "form": "web_app",
+      "prerequisites": [
+        "每台参与同步的设备都安装并运行 Syncthing。",
+        "在浏览器管理界面添加对方设备 ID，并在两端确认共享文件夹。",
+        "需要设备之间可连通；管理界面使用浏览器并需要允许 Cookie。"
+      ],
+      "license": "MPL-2.0",
+      "cost": "官方提供公开安装入口；所核对资料未单独说明完整费用条款，不能据此承诺所有功能或服务免费。",
+      "usage_paths": [
+        {
+          "url": "https://docs.syncthing.net/intro/getting-started.html",
+          "kind": "documentation",
+          "label": "官方安装与获取说明"
+        }
+      ],
+      "scenes": [
+        "文件传输"
+      ],
+      "primary_scene": "文件传输",
+      "recommendation_reason": "让两台或多台电脑自动同步指定文件夹中的文件；官方资料已说明所选平台和获取方式。",
+      "claims": {
+        "purpose": [
+          "intro",
+          "repository"
+        ],
+        "audience": [
+          "intro",
+          "repository"
+        ],
+        "platforms": [
+          "install",
+          "requirements_1",
+          "requirements_2",
+          "path"
+        ],
+        "form": [
+          "intro",
+          "install",
+          "requirements_1",
+          "requirements_2"
+        ],
+        "prerequisites": [
+          "install",
+          "requirements_1",
+          "requirements_2",
+          "path"
+        ],
+        "license": [
+          "repository"
+        ],
+        "usage_paths": [
+          "install",
+          "requirements_1",
+          "requirements_2",
+          "path"
+        ],
+        "cost": [
+          "intro",
+          "requirements_1",
+          "requirements_2",
+          "path"
+        ]
+      },
+      "evidence_hashes": {
+        "intro": "2bfbe07f7f5277fff14a25053caf41562fcb82cc08829823961e8afd3cb54311",
+        "install": "22e319f2b4467b3c5065329cd57027a07ff4919828707dbc2845eb84f7fa92a4",
+        "repository": "10893e5328c36ffbfb7f004c7f672d534bd3e092bb2fcff2f2fd95574b0fe1a4",
+        "requirements_1": "bf08fd7ada7e413207f9c6b3d26a7ca14de3783d4e3072f31a9d2531b01afbff",
+        "requirements_2": "cffac94f7af01a4b0d66cb94c43a3a3f3feb615647233343905bbed863f09162",
+        "path": "63da601c225873dfd40b1c406d7daac723da3ee7ab8648e344cc7c3f7278194c"
+      },
+      "family": "syncthing/syncthing",
+      "seed": true,
+      "limitations": [
+        "持续同步会传播文件变更；不能将其当作独立历史备份。",
+        "仅核对官方资料，未安装或实际试用，也不构成安全背书。"
+      ],
+      "tested": false,
+      "assertion_notes": {
+        "audience": "适用人群为基于官方用途的编辑判断；不是官方用户研究结果。",
+        "review_kind": "source_review 仅表示本轮读取并核对官方资料，不代表人工读者验收或实际试用。",
+        "revision": "根据独立审查逐项修正用途、渠道、前提、许可及证据绑定；不将资料核对称为试用。"
+      }
+    },
+    "keepassxreboot/keepassxc": {
+      "status": "published",
+      "review_kind": "source_review",
+      "reviewed_at": "2026-10-20T15:49:39.260875+00:00",
+      "purpose": "将账号、密码、网址与附件保存在自己掌握的离线加密数据库文件中。",
+      "audience": "账号很多，希望集中管理密码并自行保存数据库的人。",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "form": "desktop_app",
+      "prerequisites": [
+        "在自己的电脑安装 KeePassXC，并创建或打开密码数据库。",
+        "需要自行保存数据库文件及解锁凭据；跨设备同步不是此处选择的使用路径。",
+        "当前主下载：Windows 10/11 64 位且需 MSVC Redistributable；macOS 主下载为 12+；Linux 按官方包选择。"
+      ],
+      "license": "GPL-2.0-only OR GPL-3.0-only",
+      "cost": "官方提供公开安装入口；所核对资料未单独说明完整费用条款，不能据此承诺所有功能或服务免费。",
+      "usage_paths": [
+        {
+          "url": "https://keepassxc.org/download/",
+          "kind": "download",
+          "label": "官方安装与获取说明"
+        }
+      ],
+      "scenes": [
+        "隐私保护"
+      ],
+      "primary_scene": "隐私保护",
+      "recommendation_reason": "将账号、密码、网址与附件保存在自己掌握的离线加密数据库文件中；官方资料已说明所选平台和获取方式。",
+      "claims": {
+        "purpose": [
+          "intro",
+          "repository"
+        ],
+        "audience": [
+          "intro",
+          "repository"
+        ],
+        "platforms": [
+          "install",
+          "requirements_1",
+          "path"
+        ],
+        "form": [
+          "intro",
+          "install",
+          "requirements_1"
+        ],
+        "prerequisites": [
+          "install",
+          "requirements_1",
+          "path"
+        ],
+        "license": [
+          "license"
+        ],
+        "usage_paths": [
+          "install",
+          "requirements_1",
+          "path"
+        ],
+        "cost": [
+          "intro",
+          "requirements_1",
+          "path"
+        ]
+      },
+      "evidence_hashes": {
+        "intro": "710ce670cd5d22b6cb25f7e44c0818b396214ca87415575168f21f529ecece5d",
+        "install": "9638d42c83b0753f79cd0a83c2a3f7407b54b1a0b1f295aaf3eab0614d9b4e27",
+        "repository": "b7ed55cebd8749da74ca197234be55bf11d4bb2fff45b76554bfedf2acec27f2",
+        "license": "a5e24aab3797c9d5b95400c4a9c2e99b38cc872533348f4785cd1270d6c26c33",
+        "requirements_1": "771c1c78354d1b7fe30dbf305881f72b644c3f357222c13d27925b4bdd464369",
+        "path": "0c13c22191c99c7a9ba784078f35c44a7bad8a7ccf2a23ba66ec76e362f21e77"
+      },
+      "family": "keepassxreboot/keepassxc",
+      "seed": true,
+      "limitations": [
+        "仅核对官方资料，未安装或实际试用，也不构成安全背书。"
+      ],
+      "tested": false,
+      "assertion_notes": {
+        "audience": "适用人群为基于官方用途的编辑判断；不是官方用户研究结果。",
+        "review_kind": "source_review 仅表示本轮读取并核对官方资料，不代表人工读者验收或实际试用。",
+        "revision": "根据独立审查逐项修正用途、渠道、前提、许可及证据绑定；不将资料核对称为试用。"
+      }
+    },
+    "laurent22/joplin": {
+      "status": "published",
+      "review_kind": "source_review",
+      "reviewed_at": "2026-10-20T15:49:39.260875+00:00",
+      "purpose": "按笔记本整理 Markdown 笔记和待办，并搜索、标记和编辑已有记录。",
+      "audience": "想把学习、工作笔记保存到本机，并可选择多端同步的人。",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux",
+        "Android",
+        "iOS"
+      ],
+      "form": "desktop_app",
+      "prerequisites": [
+        "选择桌面或移动应用安装；本条介绍的是本机笔记路径。",
+        "若需跨设备同步，须另行选择并配置同步目标；Joplin Cloud 是可选服务。"
+      ],
+      "license": "AGPL-3.0-or-later",
+      "cost": "官方明确称笔记应用免费；Joplin Cloud 与第三方同步服务的费用另计。",
+      "usage_paths": [
+        {
+          "url": "https://joplinapp.org/help/install/",
+          "kind": "download",
+          "label": "官方安装与获取说明"
+        }
+      ],
+      "scenes": [
+        "笔记效率"
+      ],
+      "primary_scene": "笔记效率",
+      "recommendation_reason": "按笔记本整理 Markdown 笔记和待办，并搜索、标记和编辑已有记录；官方资料已说明所选平台和获取方式。",
+      "claims": {
+        "purpose": [
+          "intro",
+          "repository"
+        ],
+        "audience": [
+          "intro",
+          "repository"
+        ],
+        "platforms": [
+          "install",
+          "requirements_1",
+          "path"
+        ],
+        "form": [
+          "intro",
+          "install",
+          "requirements_1"
+        ],
+        "prerequisites": [
+          "install",
+          "requirements_1",
+          "path"
+        ],
+        "license": [
+          "license"
+        ],
+        "usage_paths": [
+          "install",
+          "requirements_1",
+          "path"
+        ],
+        "cost": [
+          "intro",
+          "requirements_1",
+          "path"
+        ]
+      },
+      "evidence_hashes": {
+        "intro": "0cf57a045a8c630de2c19c17067f16bc78c60bd0548a71beaee477fb7567872e",
+        "install": "eae31e30b623d7cfd75902b6315258ed885ac1ccf3bac45ae7405db0434a988b",
+        "repository": "b1d5a22c7a77fa42cdc6de0c69068f8044845f22dceab261c7f24a5c2fdb712c",
+        "license": "f6b29267fe2c4251ed95cf9c846b47774a970c5960be9eb8a409f21ffd98425e",
+        "requirements_1": "91b0f1ab5a4291e4005b7de2d1c36082e8c4634da26202ba8bb57fad37747645",
+        "path": "cd6348ea9607c9105a4dc39b7bbdeb0f7e258e973e8ba312be558e683ae6014b"
+      },
+      "family": "laurent22/joplin",
+      "seed": true,
+      "limitations": [
+        "仓库有单独授权的子目录；这里核对的是桌面及移动笔记用途，不将服务器服务一并宣称同许可或免费。",
+        "仅核对官方资料，未安装或实际试用，也不构成安全背书。"
+      ],
+      "tested": false,
+      "assertion_notes": {
+        "audience": "适用人群为基于官方用途的编辑判断；不是官方用户研究结果。",
+        "review_kind": "source_review 仅表示本轮读取并核对官方资料，不代表人工读者验收或实际试用。",
+        "revision": "根据独立审查逐项修正用途、渠道、前提、许可及证据绑定；不将资料核对称为试用。"
+      }
+    },
+    "obsproject/obs-studio": {
+      "status": "published",
+      "review_kind": "source_review",
+      "reviewed_at": "2026-10-20T15:49:39.260875+00:00",
+      "purpose": "录制电脑画面、组合视频和音频来源，并向直播平台推流。",
+      "audience": "需要录屏教学、会议演示或制作直播画面的人。",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "form": "desktop_app",
+      "prerequisites": [
+        "按当前官方下载安装：Windows 10/11、macOS 13.0+；Linux 选官方 Flatpak，Ubuntu PPA 需要 24.04+。",
+        "录屏和直播性能取决于硬件、编码器、分辨率与场景复杂度；需先配置来源与输出参数。",
+        "直播需另有目标直播服务及其推流配置；本地录屏不等于已接入直播服务。"
+      ],
+      "license": "GPL-2.0-or-later",
+      "cost": "官方提供公开安装入口；所核对资料未单独说明完整费用条款，不能据此承诺所有功能或服务免费。",
+      "usage_paths": [
+        {
+          "url": "https://obsproject.com/download",
+          "kind": "download",
+          "label": "官方安装与获取说明"
+        }
+      ],
+      "scenes": [
+        "影音工具"
+      ],
+      "primary_scene": "影音工具",
+      "recommendation_reason": "录制电脑画面、组合视频和音频来源，并向直播平台推流；官方资料已说明所选平台和获取方式。",
+      "claims": {
+        "purpose": [
+          "intro",
+          "repository"
+        ],
+        "audience": [
+          "intro",
+          "repository"
+        ],
+        "platforms": [
+          "install",
+          "path"
+        ],
+        "form": [
+          "intro",
+          "install"
+        ],
+        "prerequisites": [
+          "install",
+          "path"
+        ],
+        "license": [
+          "intro",
+          "license_document_review"
+        ],
+        "usage_paths": [
+          "install",
+          "path"
+        ],
+        "cost": [
+          "intro",
+          "path"
+        ]
+      },
+      "evidence_hashes": {
+        "intro": "f2e0074926df388e68339282e2967d43ec08d6c6434bc9c5e65a8bff50fa8917",
+        "install": "0701332060cd28c3daae3533b63dd5b04e3b0a57453119a7a0281f8056648c72",
+        "repository": "c98c06f2c497c60cfbd89f261841a910cdc390198777737b0baa2d809c8f625d",
+        "path": "44fa4a651850c33ac1fbe3ef77321158b6af30cce8ed8c53b350b9977aac91ba",
+        "license_document_review": "3fafcf60f022ad98ac1ab8815304d1d1f1b61aa74b551d5fe37a779aa8ecec00"
+      },
+      "family": "obsproject/obs-studio",
+      "seed": true,
+      "limitations": [
+        "官方旧硬件要求页仍写 macOS 11；本条按本轮当前下载页的 macOS 13.0+ 约束，不沿用旧页面最低版本。",
+        "仅核对官方资料，未安装或实际试用，也不构成安全背书。"
+      ],
+      "tested": false,
+      "assertion_notes": {
+        "audience": "适用人群为基于官方用途的编辑判断；不是官方用户研究结果。",
+        "review_kind": "source_review 仅表示本轮读取并核对官方资料，不代表人工读者验收或实际试用。",
+        "revision": "根据独立审查逐项修正用途、渠道、前提、许可及证据绑定；不将资料核对称为试用。"
+      },
+      "license_scope_note": "官方项目 README 明确授予所列版本或任何后续版本。"
+    },
+    "ShareX/ShareX": {
+      "status": "review_required",
+      "review_kind": "source_review",
+      "reviewed_at": "2026-10-20T15:49:39.260875+00:00",
+      "purpose": "截取并标注屏幕画面，或把操作过程录成视频和 GIF。",
+      "audience": "经常制作问题截图、教程图片或短操作演示的 Windows 用户。",
+      "platforms": [
+        "Windows"
+      ],
+      "form": "desktop_app",
+      "prerequisites": [
+        "需要 Windows 电脑并安装常规版或运行便携版。",
+        "若选择上传分享，需要自行确认上传目标、账户与相关隐私条件；可仅保存本地截图。"
+      ],
+      "license": "NOASSERTION",
+      "cost": "官方明确称完全免费、无广告且使用 ShareX 不要求账号；外部上传服务条件另查。",
+      "usage_paths": [
+        {
+          "url": "https://getsharex.com/downloads",
+          "kind": "download",
+          "label": "官方安装与获取说明"
+        }
+      ],
+      "scenes": [
+        "影音工具"
+      ],
+      "primary_scene": "影音工具",
+      "recommendation_reason": "用途资料已核对，列出的关键条件仍待补核，暂不推荐。",
+      "claims": {
+        "purpose": [
+          "intro",
+          "repository"
+        ],
+        "audience": [
+          "intro",
+          "repository"
+        ],
+        "platforms": [
+          "install",
+          "path"
+        ],
+        "form": [
+          "intro",
+          "install"
+        ],
+        "prerequisites": [
+          "install",
+          "path"
+        ],
+        "license": [
+          "license_document_review",
+          "license_grant_review"
+        ],
+        "usage_paths": [
+          "install",
+          "path"
+        ],
+        "cost": [
+          "intro",
+          "path"
+        ]
+      },
+      "evidence_hashes": {
+        "intro": "c330c087d35dc3a24cbfa20f9bb844138437a916608cf2ef92c78db7b797f64b",
+        "install": "405439bba1b684ce38779a6c569c27b3d8d4bd1ee648fc0d58e2a20d90450e17",
+        "repository": "52aee33b091b4c7fac4207ad8492a7786cbe80270f05587b9d3b49d2e23db887",
+        "path": "f117e000417636cff006c1449783551d63cea21bdcb42bd05d0074bc805e669b",
+        "license_document_review": "56634e73f40e16a31c357aa7bb580006d14ca6c8d7c900981877308faf02a546",
+        "license_grant_review": "32f35f093b56af8ad6e3fc88caa5010bdae7d07bafd7d1cd6658f7cb091dc318"
+      },
+      "family": "sharex/sharex",
+      "seed": true,
+      "limitations": [
+        "用途与下载事实保留；许可证出现项目源文件与根文档的版本范围差异，需先厘清整包授权。",
+        "只推荐本机截图与录屏路径，不承诺第三方图床免费或可用。",
+        "仅核对官方资料，未安装或实际试用，也不构成安全背书。"
+      ],
+      "tested": false,
+      "assertion_notes": {
+        "audience": "适用人群为基于官方用途的编辑判断；不是官方用户研究结果。",
+        "review_kind": "source_review 仅表示本轮读取并核对官方资料，不代表人工读者验收或实际试用。",
+        "revision": "根据独立审查逐项修正用途、渠道、前提、许可及证据绑定；不将资料核对称为试用。"
+      },
+      "license_scope_note": "根 LICENSE 为 GPLv3；应用 Program.cs 标题为 GPLv3，实际授予段却写 GPLv2 或后续版本。整包适用精确变体未厘清，暂停推荐。"
+    },
+    "flameshot-org/flameshot": {
+      "status": "published",
+      "review_kind": "source_review",
+      "reviewed_at": "2026-10-20T15:49:39.260875+00:00",
+      "purpose": "截屏时直接添加箭头、文字和标记，便于说明页面或软件问题。",
+      "audience": "需要快速给截图做说明的 Windows 用户。",
+      "platforms": [
+        "Windows"
+      ],
+      "form": "desktop_app",
+      "prerequisites": [
+        "选择官方 Windows 发布包安装。",
+        "截图的快捷键需要按自己的桌面环境配置；此处只选 Windows 路径。"
+      ],
+      "license": "GPL-3.0-or-later",
+      "cost": "官方提供公开安装入口；所核对资料未单独说明完整费用条款，不能据此承诺所有功能或服务免费。",
+      "usage_paths": [
+        {
+          "url": "https://github.com/flameshot-org/flameshot/releases",
+          "kind": "download",
+          "label": "官方发布页（自行选择安装包）"
+        }
+      ],
+      "scenes": [
+        "笔记效率"
+      ],
+      "primary_scene": "笔记效率",
+      "recommendation_reason": "截屏时直接添加箭头、文字和标记，便于说明页面或软件问题；官方资料已说明所选平台和获取方式。",
+      "claims": {
+        "purpose": [
+          "intro",
+          "repository"
+        ],
+        "audience": [
+          "intro",
+          "repository"
+        ],
+        "platforms": [
+          "install",
+          "path"
+        ],
+        "form": [
+          "intro",
+          "install"
+        ],
+        "prerequisites": [
+          "install",
+          "path"
+        ],
+        "license": [
+          "license_grant_review",
+          "license_document_review"
+        ],
+        "usage_paths": [
+          "install",
+          "path"
+        ],
+        "cost": [
+          "intro",
+          "path"
+        ]
+      },
+      "evidence_hashes": {
+        "intro": "5c8148d319de05459114be1f544269cbfddbbdf6d0c101b84aeab92129b1c56b",
+        "install": "4123f1ca486b87eab300ef71730caaa3e5b212ccd3e097e329c10ffa618d582a",
+        "repository": "7003c4d3cacba6427e6add05a37cb9f90ca5b4eed98f4586bff695b1ecb8ce1d",
+        "path": "f40c068c1ef5cc9c6ef36367bbfc154b1f33a346f4b59ce85a89e1ea8d99c275",
+        "license_document_review": "046cba2f38252b4a676071079ea6d96b414320959de506a5698c7351bf526f09",
+        "license_grant_review": "f86d2f10575fe6582ba5c84988720d8e64a54b1ddc9ffd06e13a18c85a46983b"
+      },
+      "family": "flameshot-org/flameshot",
+      "seed": true,
+      "limitations": [
+        "仅核对官方资料，未安装或实际试用，也不构成安全背书。"
+      ],
+      "tested": false,
+      "assertion_notes": {
+        "audience": "适用人群为基于官方用途的编辑判断；不是官方用户研究结果。",
+        "review_kind": "source_review 仅表示本轮读取并核对官方资料，不代表人工读者验收或实际试用。",
+        "revision": "根据独立审查逐项修正用途、渠道、前提、许可及证据绑定；不将资料核对称为试用。"
+      },
+      "license_scope_note": "官方项目 README 或应用源文件 SPDX 明确给出 or-later；根许可证文档同时保留。"
+    },
+    "Flow-Launcher/Flow.Launcher": {
+      "status": "published",
+      "review_kind": "source_review",
+      "reviewed_at": "2026-10-20T15:49:39.260875+00:00",
+      "purpose": "通过一个搜索框快速查找电脑上的文件和应用，并启动目标程序。",
+      "audience": "不想在菜单和文件夹之间反复翻找的 Windows 用户。",
+      "platforms": [
+        "Windows"
+      ],
+      "form": "desktop_app",
+      "prerequisites": [
+        "需要 Windows 10 或更新版本。",
+        "选择安装版或便携版；文件搜索可结合 Windows Index 或 Everything，具体索引配置按所选功能处理。"
+      ],
+      "license": "MIT",
+      "cost": "官方提供公开安装入口；所核对资料未单独说明完整费用条款，不能据此承诺所有功能或服务免费。",
+      "usage_paths": [
+        {
+          "url": "https://github.com/Flow-Launcher/Flow.Launcher/releases/latest",
+          "kind": "download",
+          "label": "官方发布页（自行选择安装包）"
+        }
+      ],
+      "scenes": [
+        "文件查找"
+      ],
+      "primary_scene": "文件查找",
+      "recommendation_reason": "通过一个搜索框快速查找电脑上的文件和应用，并启动目标程序；官方资料已说明所选平台和获取方式。",
+      "claims": {
+        "purpose": [
+          "intro",
+          "repository"
+        ],
+        "audience": [
+          "intro",
+          "repository"
+        ],
+        "platforms": [
+          "install",
+          "path"
+        ],
+        "form": [
+          "intro",
+          "install"
+        ],
+        "prerequisites": [
+          "install",
+          "path"
+        ],
+        "license": [
+          "repository"
+        ],
+        "usage_paths": [
+          "install",
+          "path"
+        ],
+        "cost": [
+          "intro",
+          "path"
+        ]
+      },
+      "evidence_hashes": {
+        "intro": "d2b1f7943d95fb4b8bc277db42d0773ae72e2526bd9c6b614b28874298ff267d",
+        "install": "13398f5d1ce9800813ba79c72882d040d6988df0cf1ebdaaf48b54166c081593",
+        "repository": "39713a6be190926ce8da8d4ab01580ef9e38112179268654ee881c879dc8f9fd",
+        "path": "75eddc426d5aa29e20abadcb84440c0aadfa78ba3a298be64c0335890e9acb90"
+      },
+      "family": "flow-launcher/flow.launcher",
+      "seed": true,
+      "limitations": [
+        "仅核对官方资料，未安装或实际试用，也不构成安全背书。"
+      ],
+      "tested": false,
+      "assertion_notes": {
+        "audience": "适用人群为基于官方用途的编辑判断；不是官方用户研究结果。",
+        "review_kind": "source_review 仅表示本轮读取并核对官方资料，不代表人工读者验收或实际试用。",
+        "revision": "根据独立审查逐项修正用途、渠道、前提、许可及证据绑定；不将资料核对称为试用。"
+      }
+    },
+    "microsoft/PowerToys": {
+      "status": "published",
+      "review_kind": "source_review",
+      "reviewed_at": "2026-10-20T15:49:39.260875+00:00",
+      "purpose": "给 Windows 增加窗口置顶、窗口布局、批量重命名等日常小工具。",
+      "audience": "想减少重复桌面操作，并按需启用系统小工具的 Windows 用户。",
+      "platforms": [
+        "Windows"
+      ],
+      "form": "desktop_app",
+      "prerequisites": [
+        "需要 Windows 11 或 Windows 10 2004/19041 以上的 64 位 x64 或 ARM64 电脑。",
+        "安装过程会配置 Microsoft Edge WebView2 Runtime；需选匹配架构与安装范围的安装文件。",
+        "此处只介绍常规本机工具；可选 AI 功能的服务与费用未纳入此路径。"
+      ],
+      "license": "MIT",
+      "cost": "官方提供公开安装入口；所核对资料未单独说明完整费用条款，不能据此承诺所有功能或服务免费。",
+      "usage_paths": [
+        {
+          "url": "https://learn.microsoft.com/en-us/windows/powertoys/install",
+          "kind": "download",
+          "label": "官方安装与获取说明"
+        }
+      ],
+      "scenes": [
+        "电视桌面"
+      ],
+      "primary_scene": "电视桌面",
+      "recommendation_reason": "给 Windows 增加窗口置顶、窗口布局、批量重命名等日常小工具；官方资料已说明所选平台和获取方式。",
+      "claims": {
+        "purpose": [
+          "intro",
+          "repository"
+        ],
+        "audience": [
+          "intro",
+          "repository"
+        ],
+        "platforms": [
+          "install",
+          "requirements_1",
+          "path"
+        ],
+        "form": [
+          "intro",
+          "install",
+          "requirements_1"
+        ],
+        "prerequisites": [
+          "install",
+          "requirements_1",
+          "path"
+        ],
+        "license": [
+          "repository"
+        ],
+        "usage_paths": [
+          "install",
+          "requirements_1",
+          "path"
+        ],
+        "cost": [
+          "intro",
+          "requirements_1",
+          "path"
+        ]
+      },
+      "evidence_hashes": {
+        "intro": "f7407cbb73cd6c766f428818a1989fd2f7aca210d10c6be5de576393abb4a030",
+        "install": "90d86011812820a02b93f0524f46b28a4fd246e1c8f57317987dfec79b61b571",
+        "repository": "77e7576930d75df8f6886996cca38efbb9c0b358c77e3b255185ab0de84be95b",
+        "requirements_1": "e1d4cc3f35a2216fb678926318c02186a2cb1fb46e0c960b7f734322706af2a9",
+        "path": "33c71fa40d735ea04bddf74f07bfa583e082f1cc4221387ac75d4a79a5fcfa72"
+      },
+      "family": "microsoft/powertoys",
+      "seed": true,
+      "limitations": [
+        "仅核对官方资料，未安装或实际试用，也不构成安全背书。"
+      ],
+      "tested": false,
+      "assertion_notes": {
+        "audience": "适用人群为基于官方用途的编辑判断；不是官方用户研究结果。",
+        "review_kind": "source_review 仅表示本轮读取并核对官方资料，不代表人工读者验收或实际试用。",
+        "revision": "根据独立审查逐项修正用途、渠道、前提、许可及证据绑定；不将资料核对称为试用。"
+      }
+    },
+    "Stirling-Tools/Stirling-PDF": {
+      "status": "review_required",
+      "review_kind": "source_review",
+      "reviewed_at": "2026-10-20T15:49:39.260875+00:00",
+      "purpose": "通过桌面、网页或自部署方式编辑、签署、遮盖和转换 PDF。",
+      "audience": "希望集中处理 PDF 的个人或团队；当前授权范围仍需进一步确认。",
+      "platforms": [],
+      "form": "desktop_app",
+      "prerequisites": [
+        "必须先核对所选桌面、引擎或服务版本的单独授权、费用和安装条件。"
+      ],
+      "license": "NOASSERTION",
+      "cost": "该项目官方标为 open-core；不能把整个产品或所有版本称为免费开源。",
+      "usage_paths": [
+        {
+          "url": "https://stirling.com",
+          "kind": "download",
+          "label": "官方安装与获取说明"
+        }
+      ],
+      "scenes": [
+        "文件转换"
+      ],
+      "primary_scene": "文件转换",
+      "recommendation_reason": "用途资料已核对，列出的关键条件仍待补核，暂不推荐。",
+      "claims": {
+        "purpose": [
+          "intro",
+          "repository"
+        ],
+        "audience": [
+          "intro",
+          "repository"
+        ],
+        "platforms": [
+          "install"
+        ],
+        "form": [
+          "intro",
+          "install"
+        ],
+        "prerequisites": [
+          "install"
+        ],
+        "license": [
+          "license"
+        ],
+        "usage_paths": [
+          "install"
+        ],
+        "cost": [
+          "intro"
+        ]
+      },
+      "evidence_hashes": {
+        "intro": "de4194fa66d43308eb79ab19f1437c0dd55eb28dc1dfef3fb32fb644730d51c7",
+        "install": "cb2e37b3d9656ecc0b793f99b25437e7acf4f3417fd6502b0bcae087dbf30222",
+        "repository": "19eec1798461347446ab09819eed9c8fed2cd6e490165686d9ca096e29a099fd",
+        "license": "c73ed11d680e12fa8e76d28f498c19d77c8b3980d35450125c6fb7416b6cd412"
+      },
+      "family": "stirling-tools/stirling-pdf",
+      "seed": true,
+      "limitations": [
+        "根许可证虽有 MIT 标题，但 engine、desktop、proprietary、saas 等目录适用单独许可；本轮不进入默认开源推荐。",
+        "仅核对官方资料，未安装或实际试用，也不构成安全背书。"
+      ],
+      "tested": false,
+      "assertion_notes": {
+        "audience": "适用人群为基于官方用途的编辑判断；不是官方用户研究结果。",
+        "review_kind": "source_review 仅表示本轮读取并核对官方资料，不代表人工读者验收或实际试用。",
+        "revision": "根据独立审查逐项修正用途、渠道、前提、许可及证据绑定；不将资料核对称为试用。"
+      }
+    },
+    "marktext/marktext": {
+      "status": "published",
+      "review_kind": "source_review",
+      "reviewed_at": "2026-10-20T15:49:39.260875+00:00",
+      "purpose": "以实时预览方式编写 Markdown 文档，并导出 HTML 或 PDF。",
+      "audience": "想专注写作，又希望边写边看到排版效果的人。",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "form": "desktop_app",
+      "prerequisites": [
+        "当前版要求 Windows 10/11 或 macOS 11+；按 x64/arm64 选择安装器，macOS 没有通用二进制包。",
+        "官方 v0.22.0 macOS 包未签名；拖入 Applications 后，首次运行需按该官方发布说明处理 quarantine 属性。",
+        "本轮未执行解除隔离或安装操作；Linux 需按 README 对应发行包说明选择。"
+      ],
+      "license": "MIT",
+      "cost": "官方提供公开安装入口；所核对资料未单独说明完整费用条款，不能据此承诺所有功能或服务免费。",
+      "usage_paths": [
+        {
+          "url": "https://github.com/marktext/marktext/releases/latest",
+          "kind": "download",
+          "label": "官方发布页（自行选择安装包）"
+        }
+      ],
+      "scenes": [
+        "笔记效率"
+      ],
+      "primary_scene": "笔记效率",
+      "recommendation_reason": "以实时预览方式编写 Markdown 文档，并导出 HTML 或 PDF；官方资料已说明所选平台和获取方式。",
+      "claims": {
+        "purpose": [
+          "intro",
+          "repository"
+        ],
+        "audience": [
+          "intro",
+          "repository"
+        ],
+        "platforms": [
+          "install",
+          "path"
+        ],
+        "form": [
+          "intro",
+          "install"
+        ],
+        "prerequisites": [
+          "install",
+          "path"
+        ],
+        "license": [
+          "repository"
+        ],
+        "usage_paths": [
+          "install",
+          "path"
+        ],
+        "cost": [
+          "intro",
+          "path"
+        ]
+      },
+      "evidence_hashes": {
+        "intro": "cd95e117796cc087730a77d5d7f45e7ba5e7c8db18d95882810881d0d31f3930",
+        "install": "a839765dddb455f806339be2bed3bf5ce11f2127c4b5e4c52821debe3452e6b2",
+        "repository": "9fb5eae74d2b3e478a61550b1538c45c720bc43c7d5906eb143c558735739f1d",
+        "path": "e2e5ec42abd4bc60ca5ad59ea2d1aef9b1f26354604b77e5bc2961e6e583d8bf"
+      },
+      "family": "marktext/marktext",
+      "seed": true,
+      "limitations": [
+        "macOS 未签名包的首次启动条件来自官方发布说明；本轮仅记录前提，没有实际执行。",
+        "仅核对官方资料，未安装或实际试用，也不构成安全背书。"
+      ],
+      "tested": false,
+      "assertion_notes": {
+        "audience": "适用人群为基于官方用途的编辑判断；不是官方用户研究结果。",
+        "review_kind": "source_review 仅表示本轮读取并核对官方资料，不代表人工读者验收或实际试用。",
+        "revision": "根据独立审查逐项修正用途、渠道、前提、许可及证据绑定；不将资料核对称为试用。"
+      }
+    },
+    "Zettlr/Zettlr": {
+      "status": "published",
+      "review_kind": "source_review",
+      "reviewed_at": "2026-10-20T15:49:39.260875+00:00",
+      "purpose": "在桌面中编写和组织 Markdown 文稿，适合较长的写作工作。",
+      "audience": "希望用一个桌面工作台整理文章、研究记录或长文的人。",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "form": "desktop_app",
+      "prerequisites": [
+        "选择官方安装包；当前不提供 32 位版本。",
+        "Windows 直接安装包为 x64；macOS 有 Intel 与 Apple Silicon，Linux 按发行版与架构选择。",
+        "当前官网下载要求 macOS 12.0+ 或 Windows 10+；Linux 按发行包选择。"
+      ],
+      "license": "GPL-3.0-only",
+      "cost": "官方提供公开安装入口；所核对资料未单独说明完整费用条款，不能据此承诺所有功能或服务免费。",
+      "usage_paths": [
+        {
+          "url": "https://www.zettlr.com/download",
+          "kind": "download",
+          "label": "官方安装与获取说明"
+        }
+      ],
+      "scenes": [
+        "笔记效率"
+      ],
+      "primary_scene": "笔记效率",
+      "recommendation_reason": "在桌面中编写和组织 Markdown 文稿，适合较长的写作工作；官方资料已说明所选平台和获取方式。",
+      "claims": {
+        "purpose": [
+          "intro",
+          "repository"
+        ],
+        "audience": [
+          "intro",
+          "repository"
+        ],
+        "platforms": [
+          "install",
+          "path"
+        ],
+        "form": [
+          "intro",
+          "install"
+        ],
+        "prerequisites": [
+          "install",
+          "path"
+        ],
+        "license": [
+          "license_document_review"
+        ],
+        "usage_paths": [
+          "install",
+          "path"
+        ],
+        "cost": [
+          "intro",
+          "path"
+        ]
+      },
+      "evidence_hashes": {
+        "intro": "f8b37d6d7f7c5512a13ac9430c9aef15012044adc3065006e74333fa27b934c5",
+        "install": "c352322549755bffb66335189354dabc40cd5c697c9e1ce07288e0ed2b479e95",
+        "repository": "5ef8b27fdd03fac2d028cb9247eeb374110d8769d7a3503c7e9ec6811e6db4c4",
+        "path": "790cca643a4aa1b1a84fe44a409a63032dde57edd01b3c09a4a998374fc44137",
+        "license_document_review": "6c96d6c809f90ed63987ef54ac3a4d415725a7ccbc926cc1ebc549013065ea60"
+      },
+      "family": "zettlr/zettlr",
+      "seed": true,
+      "limitations": [
+        "仅核对官方资料，未安装或实际试用，也不构成安全背书。"
+      ],
+      "tested": false,
+      "assertion_notes": {
+        "audience": "适用人群为基于官方用途的编辑判断；不是官方用户研究结果。",
+        "review_kind": "source_review 仅表示本轮读取并核对官方资料，不代表人工读者验收或实际试用。",
+        "revision": "根据独立审查逐项修正用途、渠道、前提、许可及证据绑定；不将资料核对称为试用。"
+      },
+      "license_scope_note": "核对官方根许可证文档所列版本；不从通用许可证的示范授予语句推断项目允许后续版本。第三方组件可能另有许可。"
+    },
+    "logseq/logseq": {
+      "status": "review_required",
+      "review_kind": "source_review",
+      "reviewed_at": "2026-10-20T15:49:39.260875+00:00",
+      "purpose": "以结构化笔记组织想法，管理任务并批注 PDF。",
+      "audience": "希望把读书记录、任务和知识关联起来的人。",
+      "platforms": [],
+      "form": "desktop_app",
+      "prerequisites": [
+        "官方 README 的完整 Download 链接与本轮发行元数据已核对；当前仅确认发行说明入口。",
+        "目标平台与最终用户安装前提仍未核齐，不从开发环境或资产名称推断支持。"
+      ],
+      "license": "AGPL-3.0-only",
+      "cost": "官方提供公开安装入口；所核对资料未单独说明完整费用条款，不能据此承诺所有功能或服务免费。",
+      "usage_paths": [
+        {
+          "url": "https://github.com/logseq/logseq/releases/tag/2.0.2",
+          "kind": "documentation",
+          "label": "官方发行说明（平台与安装前提仍待核）"
+        }
+      ],
+      "scenes": [
+        "笔记效率"
+      ],
+      "primary_scene": "笔记效率",
+      "recommendation_reason": "用途资料已核对，列出的关键条件仍待补核，暂不推荐。",
+      "claims": {
+        "purpose": [
+          "intro",
+          "repository"
+        ],
+        "audience": [
+          "intro",
+          "repository"
+        ],
+        "platforms": [
+          "install"
+        ],
+        "form": [
+          "intro",
+          "install"
+        ],
+        "prerequisites": [
+          "intro",
+          "release_entry_review"
+        ],
+        "license": [
+          "license_document_review"
+        ],
+        "usage_paths": [
+          "intro",
+          "release_entry_review"
+        ],
+        "cost": [
+          "intro"
+        ]
+      },
+      "evidence_hashes": {
+        "intro": "90ade32f3abcba68f74e214b0e2873161ac2dea663bb402d0a3fd040cb7ad8e7",
+        "install": "75abdf1c22f01e7695603aeed0b35dab19bd806b8f9273f765ebb54ea74cd016",
+        "repository": "b5c5635b55ab47bc4bc9acc73ed4859b81f2800bccd07373336537f09545d94a",
+        "license_document_review": "6c7a63499640ad6f6b9133615daa3c732d01ac2bb3103cf96e71e43f6782447b",
+        "release_entry_review": "9b78b169a5f88c39095fad597417bdb640c1cfe366c12e4e7deafeb7e701de10"
+      },
+      "family": "logseq/logseq",
+      "seed": true,
+      "limitations": [
+        "已补全官方发行说明证据和实际链接绑定；平台与安装前提仍待核，因此继续不进入推荐。",
+        "仅核对官方资料，未安装或实际试用，也不构成安全背书。"
+      ],
+      "tested": false,
+      "assertion_notes": {
+        "audience": "适用人群为基于官方用途的编辑判断；不是官方用户研究结果。",
+        "review_kind": "source_review 仅表示本轮读取并核对官方资料，不代表人工读者验收或实际试用。",
+        "revision": "根据独立审查逐项修正用途、渠道、前提、许可及证据绑定；不将资料核对称为试用。"
+      },
+      "license_scope_note": "核对官方根许可证文档所列版本；不从通用许可证的示范授予语句推断项目允许后续版本。第三方组件可能另有许可。"
+    },
+    "giuspen/cherrytree": {
+      "status": "published",
+      "review_kind": "source_review",
+      "reviewed_at": "2026-10-20T15:49:39.260875+00:00",
+      "purpose": "用树状层级整理富文本笔记，并在笔记中加入图片、表格和附件。",
+      "audience": "需要按主题分层归档资料，而不只写纯文本的人。",
+      "platforms": [
+        "Windows",
+        "Linux"
+      ],
+      "form": "desktop_app",
+      "prerequisites": [
+        "按官网的 stable 区域选择适合系统的桌面安装包。",
+        "所选条目只涵盖 Windows/Linux；其他平台的安装与兼容性不在本轮确认范围。"
+      ],
+      "license": "GPL-3.0-or-later",
+      "cost": "官方提供公开安装入口；所核对资料未单独说明完整费用条款，不能据此承诺所有功能或服务免费。",
+      "usage_paths": [
+        {
+          "url": "https://www.giuspen.net/cherrytree/",
+          "kind": "download",
+          "label": "官方安装与获取说明"
+        }
+      ],
+      "scenes": [
+        "笔记效率"
+      ],
+      "primary_scene": "笔记效率",
+      "recommendation_reason": "用树状层级整理富文本笔记，并在笔记中加入图片、表格和附件；官方资料已说明所选平台和获取方式。",
+      "claims": {
+        "purpose": [
+          "intro",
+          "repository"
+        ],
+        "audience": [
+          "intro",
+          "repository"
+        ],
+        "platforms": [
+          "install",
+          "requirements_1",
+          "requirements_2",
+          "path"
+        ],
+        "form": [
+          "intro",
+          "install",
+          "requirements_1",
+          "requirements_2"
+        ],
+        "prerequisites": [
+          "install",
+          "requirements_1",
+          "requirements_2",
+          "path"
+        ],
+        "license": [
+          "license"
+        ],
+        "usage_paths": [
+          "install",
+          "requirements_1",
+          "requirements_2",
+          "path"
+        ],
+        "cost": [
+          "intro",
+          "requirements_1",
+          "requirements_2",
+          "path"
+        ]
+      },
+      "evidence_hashes": {
+        "intro": "0431c288e59dca013e383b22a55b42195070a2ca2523ba8dfe10c96c1514283f",
+        "install": "d0e581a12019459e90158f76b20da9b43077962ff0665974cd4208fa97685e7d",
+        "repository": "2ddf1128c1009e215642d065051d463db5fb398c9dee0529c44645f27f99278e",
+        "license": "6e4eaa63b385e262aae81efee8dd95ad14d9113eb21a4a5272d2f5878aca489f",
+        "requirements_1": "ce46de992567ce4849ebe868e0d83df7a92770ed559beb8d761766268215e8cf",
+        "requirements_2": "7837e5b2c3d22cabab9cd7eaa530b035b6ee64f756e0fee197173e7cb80711cd",
+        "path": "e955ebe329e3829133580b26e4afca175e003309af946fd3c98a03d02dff9175"
+      },
+      "family": "giuspen/cherrytree",
+      "seed": true,
+      "limitations": [
+        "仅核对官方资料，未安装或实际试用，也不构成安全背书。"
+      ],
+      "tested": false,
+      "assertion_notes": {
+        "audience": "适用人群为基于官方用途的编辑判断；不是官方用户研究结果。",
+        "review_kind": "source_review 仅表示本轮读取并核对官方资料，不代表人工读者验收或实际试用。",
+        "revision": "根据独立审查逐项修正用途、渠道、前提、许可及证据绑定；不将资料核对称为试用。"
+      }
+    },
+    "pbek/QOwnNotes": {
+      "status": "published",
+      "review_kind": "source_review",
+      "reviewed_at": "2026-10-20T15:49:39.260875+00:00",
+      "purpose": "把笔记保存为普通 Markdown 文件，在桌面中搜索、编辑并管理待办。",
+      "audience": "希望笔记保持为自己可管理的文本文件，并可选择同步服务的人。",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "form": "desktop_app",
+      "prerequisites": [
+        "选择对应系统的官方安装说明与桌面包。",
+        "本机笔记以 Markdown 文件保存；跨设备同步需另行配置 Nextcloud、ownCloud 或其他文件同步工具。",
+        "在线待办功能需要相应 Tasks 后端，不包含在单机笔记路径里。"
+      ],
+      "license": "GPL-2.0-only",
+      "cost": "官方提供公开安装入口；所核对资料未单独说明完整费用条款，不能据此承诺所有功能或服务免费。",
+      "usage_paths": [
+        {
+          "url": "https://www.qownnotes.org/installation/",
+          "kind": "download",
+          "label": "官方安装与获取说明"
+        }
+      ],
+      "scenes": [
+        "笔记效率"
+      ],
+      "primary_scene": "笔记效率",
+      "recommendation_reason": "把笔记保存为普通 Markdown 文件，在桌面中搜索、编辑并管理待办；官方资料已说明所选平台和获取方式。",
+      "claims": {
+        "purpose": [
+          "intro",
+          "repository"
+        ],
+        "audience": [
+          "intro",
+          "repository"
+        ],
+        "platforms": [
+          "install",
+          "requirements_1",
+          "path"
+        ],
+        "form": [
+          "intro",
+          "install",
+          "requirements_1"
+        ],
+        "prerequisites": [
+          "install",
+          "requirements_1",
+          "path"
+        ],
+        "license": [
+          "license_document_review"
+        ],
+        "usage_paths": [
+          "install",
+          "requirements_1",
+          "path"
+        ],
+        "cost": [
+          "intro",
+          "requirements_1",
+          "path"
+        ]
+      },
+      "evidence_hashes": {
+        "intro": "7a54d45f5f2c89a346b86cf2f937e2741b6191fcddb8fe72169eba92b4e4795f",
+        "install": "9732eb63655a8533a00be87824ec95a6df13306c075dcfc7ed78769e25e727fe",
+        "repository": "46c725fd70180b5fcd2f10f7ad7dfad96fe93f116c61f6a68e0174687a5fc7ea",
+        "requirements_1": "351277476e2743992ed00b77c974e818b03892c0076d3580baabe7fc2cf0d00a",
+        "path": "74c1faa49bb794b380ced7f35c9b1e790e89f535b3e7a25d56b2b8ce513aa678",
+        "license_document_review": "8b4ad23d868ba100ee9d7e7d71bbc67bf046fcff01a3bdee54011eea44d889fe"
+      },
+      "family": "pbek/qownnotes",
+      "seed": true,
+      "limitations": [
+        "仅核对官方资料，未安装或实际试用，也不构成安全背书。"
+      ],
+      "tested": false,
+      "assertion_notes": {
+        "audience": "适用人群为基于官方用途的编辑判断；不是官方用户研究结果。",
+        "review_kind": "source_review 仅表示本轮读取并核对官方资料，不代表人工读者验收或实际试用。",
+        "revision": "根据独立审查逐项修正用途、渠道、前提、许可及证据绑定；不将资料核对称为试用。"
+      },
+      "license_scope_note": "核对官方根许可证文档所列版本；不从通用许可证的示范授予语句推断项目允许后续版本。第三方组件可能另有许可。"
+    },
+    "qbittorrent/qBittorrent": {
+      "status": "review_required",
+      "review_kind": "source_review",
+      "reviewed_at": "2026-10-20T15:49:39.260875+00:00",
+      "purpose": "通过 BitTorrent 协议下载和做种文件。",
+      "audience": "已有合法种子或磁力链接，需要桌面 BT 客户端的人。",
+      "platforms": [],
+      "form": "desktop_app",
+      "prerequisites": [
+        "需进一步核对能访问的官方二进制下载入口及当前平台条件；官方站点本轮 TLS 请求失败。"
+      ],
+      "license": "GPL-3.0-or-later",
+      "cost": "官方提供公开安装入口；所核对资料未单独说明完整费用条款，不能据此承诺所有功能或服务免费。",
+      "usage_paths": [
+        {
+          "url": "https://www.qbittorrent.org",
+          "kind": "documentation",
+          "label": "官方主页（下载页面本轮未成功核对）"
+        }
+      ],
+      "scenes": [
+        "影音工具"
+      ],
+      "primary_scene": "影音工具",
+      "recommendation_reason": "用途资料已核对，列出的关键条件仍待补核，暂不推荐。",
+      "claims": {
+        "purpose": [
+          "intro",
+          "repository"
+        ],
+        "audience": [
+          "intro",
+          "repository"
+        ],
+        "platforms": [
+          "install"
+        ],
+        "form": [
+          "intro",
+          "install"
+        ],
+        "prerequisites": [
+          "install"
+        ],
+        "license": [
+          "license"
+        ],
+        "usage_paths": [
+          "intro",
+          "repository"
+        ],
+        "cost": [
+          "intro"
+        ]
+      },
+      "evidence_hashes": {
+        "intro": "36acd9b89285d19d129f25cad56f396a193321225c24f0178ade530d43e17e14",
+        "install": "2af2ac2a8dbace228a8727360acf1f13829b38397a606abe549d844f4ff0fb86",
+        "repository": "57724d82d60da12ccf8a2e365c8c8a5a3914f11309bfad8dcbebaa302f72027a",
+        "license": "e675cd856f9817474455200ba7e6f5b7cc42d6598a5eecbbbdaa0e6fd304d6b7"
+      },
+      "family": "qbittorrent/qbittorrent",
+      "seed": true,
+      "limitations": [
+        "已删除没有保存成功页面证据的 download 深链接，仅保留原文支持的官方主页；本轮没有成功核对下载页，不推荐。",
+        "仅核对官方资料，未安装或实际试用，也不构成安全背书。"
+      ],
+      "tested": false,
+      "assertion_notes": {
+        "audience": "适用人群为基于官方用途的编辑判断；不是官方用户研究结果。",
+        "review_kind": "source_review 仅表示本轮读取并核对官方资料，不代表人工读者验收或实际试用。",
+        "revision": "根据独立审查逐项修正用途、渠道、前提、许可及证据绑定；不将资料核对称为试用。"
+      },
+      "license_scope_note": "保存的 COPYING 明确：源码 GPLv2+，二进制发行 GPLv3+，并有 OpenSSL 链接例外。本条桌面发行路径采用二进制授权范围，不能把源码范围当安装包范围。"
+    },
+    "FreeTubeApp/FreeTube": {
+      "status": "published",
+      "review_kind": "source_review",
+      "reviewed_at": "2026-10-20T15:49:39.260875+00:00",
+      "purpose": "使用独立桌面播放器观看 YouTube，减少网站 Cookie 与 JavaScript 对使用过程的关联。",
+      "audience": "希望用独立桌面应用观看 YouTube、减少账号关联的人。",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "form": "desktop_app",
+      "prerequisites": [
+        "需要 Windows 10+、macOS 12+ 或受支持 Linux 发行版。",
+        "需要能够访问 YouTube；服务变化和网络条件可能影响播放。",
+        "选择官方 Beta 发行版（当前保存发布页为 v0.25.3 Beta / Pre-release），不是 nightly/weekly 自动测试构建；不能将其称为稳定正式版。"
+      ],
+      "license": "AGPL-3.0-or-later",
+      "cost": "官方提供公开安装入口；所核对资料未单独说明完整费用条款，不能据此承诺所有功能或服务免费。",
+      "usage_paths": [
+        {
+          "url": "https://github.com/FreeTubeApp/FreeTube/releases",
+          "kind": "download",
+          "label": "官方发布页（自行选择安装包）"
+        }
+      ],
+      "scenes": [
+        "影音工具"
+      ],
+      "primary_scene": "影音工具",
+      "recommendation_reason": "使用独立桌面播放器观看 YouTube，减少网站 Cookie 与 JavaScript 对使用过程的关联；官方资料已说明所选平台和获取方式。",
+      "claims": {
+        "purpose": [
+          "intro",
+          "repository"
+        ],
+        "audience": [
+          "intro",
+          "repository"
+        ],
+        "platforms": [
+          "install",
+          "path"
+        ],
+        "form": [
+          "intro",
+          "install"
+        ],
+        "prerequisites": [
+          "install",
+          "path"
+        ],
+        "license": [
+          "license_grant_review",
+          "license_document_review"
+        ],
+        "usage_paths": [
+          "install",
+          "path"
+        ],
+        "cost": [
+          "intro",
+          "path"
+        ]
+      },
+      "evidence_hashes": {
+        "intro": "fdab724c95e2e9de15284ef39bf3c8c3ed8e73c48f2d40f3667193bb0e8d95ea",
+        "install": "0e531b5ba1fd93974674376d34df1461bc99754405b0e80fcac096d73c8f8e3c",
+        "repository": "3268536d007ab9de70adbe4f447e76c2293f7e2eb2db6bf1885470046f6451e8",
+        "path": "138bb8b363e8af9f2d01d28a9547198b70c2ce1cebc0c94f01686dd182cf4cd8",
+        "license_document_review": "2f4f8eb60fe0cca59abfb0a1337cb85b7d794cc35bbe31e11aafbf078d007bd8",
+        "license_grant_review": "0c844086a26818164f3eea9c790ba69b0407a3f8b8d607cb7d66d225d8fb841f"
+      },
+      "family": "freetubeapp/freetube",
+      "seed": true,
+      "limitations": [
+        "官方 Beta 发行版仍属预发布渠道；已删除没有保存直接原句支持的“订阅信息本地保存”断言。",
+        "这是 YouTube 桌面播放器，不等于提供视频版权或保证所有地区网络可用。",
+        "仅核对官方资料，未安装或实际试用，也不构成安全背书。"
+      ],
+      "tested": false,
+      "assertion_notes": {
+        "audience": "适用人群为基于官方用途的编辑判断；不是官方用户研究结果。",
+        "review_kind": "source_review 仅表示本轮读取并核对官方资料，不代表人工读者验收或实际试用。",
+        "revision": "根据独立审查逐项修正用途、渠道、前提、许可及证据绑定；不将资料核对称为试用。"
+      },
+      "license_scope_note": "官方项目 README 或应用源文件 SPDX 明确给出 or-later；根许可证文档同时保留。"
+    },
+    "jellyfin/jellyfin": {
+      "status": "published",
+      "review_kind": "source_review",
+      "reviewed_at": "2026-10-20T15:49:39.260875+00:00",
+      "purpose": "在自己的设备上建立媒体库，再通过浏览器或客户端播放自己的视频、音乐等内容。",
+      "audience": "已有媒体文件，愿意设置家庭媒体服务器的人。",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "form": "self_hosted",
+      "prerequisites": [
+        "需要一台安装并持续运行 Jellyfin 服务器的设备，以及自行准备的媒体文件。",
+        "首次配置媒体库与用户；浏览器客户端默认访问服务器的 8096 端口。",
+        "这属于自行部署服务，需要按系统安装文档操作；不自带影视资源。"
+      ],
+      "license": "GPL-2.0-only",
+      "cost": "官方提供公开安装入口；所核对资料未单独说明完整费用条款，不能据此承诺所有功能或服务免费。",
+      "usage_paths": [
+        {
+          "url": "https://jellyfin.org/docs/general/installation/",
+          "kind": "documentation",
+          "label": "官方安装与获取说明"
+        }
+      ],
+      "scenes": [
+        "影音工具"
+      ],
+      "primary_scene": "影音工具",
+      "recommendation_reason": "在自己的设备上建立媒体库，再通过浏览器或客户端播放自己的视频、音乐等内容；官方资料已说明所选平台和获取方式。",
+      "claims": {
+        "purpose": [
+          "intro",
+          "repository"
+        ],
+        "audience": [
+          "intro",
+          "repository"
+        ],
+        "platforms": [
+          "install",
+          "requirements_1",
+          "path"
+        ],
+        "form": [
+          "intro",
+          "install",
+          "requirements_1"
+        ],
+        "prerequisites": [
+          "install",
+          "requirements_1",
+          "path"
+        ],
+        "license": [
+          "license_document_review"
+        ],
+        "usage_paths": [
+          "install",
+          "requirements_1",
+          "path"
+        ],
+        "cost": [
+          "intro",
+          "requirements_1",
+          "path"
+        ]
+      },
+      "evidence_hashes": {
+        "intro": "cb3e44d1a4f7f797dd4dc6d49d32c87fe2797ac0f1be65e427a5b6b2d5480243",
+        "install": "17c904bf60c6e3a957d14d1d453faa4a839fd1d7b6c57b7efc1aadeb62835428",
+        "repository": "f5d6f8179b32f55798903bb63ec30324cd8ef7ba02a602fe961964e4c45543a4",
+        "requirements_1": "4e73208f5cfa1c10cfc991fb02de8331d9072628e7fb9022060b3927bda5fb37",
+        "path": "3e4d251564e0008bc1f55eff688e7c66a5dc1e6f2519cc07bec7d0e31a70c93e",
+        "license_document_review": "ad7d917032a09ce238d9c35f10e4151f05e419851cdcc029f9bfdc32c750020c"
+      },
+      "family": "jellyfin/jellyfin",
+      "seed": true,
+      "limitations": [
+        "软件许可证与托管、电力、存储或网络成本分开；远程访问需要额外配置。",
+        "仅核对官方资料，未安装或实际试用，也不构成安全背书。"
+      ],
+      "tested": false,
+      "assertion_notes": {
+        "audience": "适用人群为基于官方用途的编辑判断；不是官方用户研究结果。",
+        "review_kind": "source_review 仅表示本轮读取并核对官方资料，不代表人工读者验收或实际试用。",
+        "revision": "根据独立审查逐项修正用途、渠道、前提、许可及证据绑定；不将资料核对称为试用。"
+      },
+      "license_scope_note": "核对官方根许可证文档所列版本；不从通用许可证的示范授予语句推断项目允许后续版本。第三方组件可能另有许可。"
+    },
+    "HandBrake/HandBrake": {
+      "status": "published",
+      "review_kind": "source_review",
+      "reviewed_at": "2026-10-20T15:49:39.260875+00:00",
+      "purpose": "将已有视频转码为 MP4、MKV 或 WebM，便于在其他设备播放。",
+      "audience": "手里有视频文件，需要调整格式与编码的人。",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "form": "desktop_app",
+      "prerequisites": [
+        "需要已有视频文件；本工具不负责提供影视内容。",
+        "当前官网桌面包支持 Windows 10+、macOS 10.13+ 和 Linux Flatpak；按架构选择。"
+      ],
+      "license": "GPL-2.0-only",
+      "cost": "官网明确称软件免费、无需账号且完全本机运行。",
+      "usage_paths": [
+        {
+          "url": "https://handbrake.fr/downloads.php",
+          "kind": "download",
+          "label": "官方安装与获取说明"
+        }
+      ],
+      "scenes": [
+        "文件转换"
+      ],
+      "primary_scene": "文件转换",
+      "recommendation_reason": "将已有视频转码为 MP4、MKV 或 WebM，便于在其他设备播放；官方资料已说明所选平台和获取方式。",
+      "claims": {
+        "purpose": [
+          "intro",
+          "repository"
+        ],
+        "audience": [
+          "intro",
+          "repository"
+        ],
+        "platforms": [
+          "install",
+          "requirements_1",
+          "path"
+        ],
+        "form": [
+          "intro",
+          "install",
+          "requirements_1"
+        ],
+        "prerequisites": [
+          "install",
+          "requirements_1",
+          "path"
+        ],
+        "license": [
+          "license"
+        ],
+        "usage_paths": [
+          "install",
+          "requirements_1",
+          "path"
+        ],
+        "cost": [
+          "intro",
+          "requirements_1",
+          "path"
+        ]
+      },
+      "evidence_hashes": {
+        "intro": "7886380235e1f6c95b2081f8acdfd9807ffd050dce43816f6027b0c4a8067ca8",
+        "install": "98c8ea4d9b7228ce3bd1691aaf05a7715b688b58d725e8e0842ff56a1adbc90d",
+        "repository": "f4bc91c7fa23cd8ec5cd28fde2af68d9c2cd139eee1ffe85776a4d0c2a0dd20f",
+        "license": "08f0eef24050a8bc4cee32314a290e1c39d4c4699ded56f1e8dec6215c0712b8",
+        "requirements_1": "d052625ff113d40431f8b22aac0837a8282a6a711bdf675df99179468bd3ae39",
+        "path": "a629474580d287aa91e74b06ad55f23cde230e9f8c9398304580debf38a43638"
+      },
+      "family": "handbrake/handbrake",
+      "seed": true,
+      "limitations": [
+        "仅核对官方资料，未安装或实际试用，也不构成安全背书。"
+      ],
+      "tested": false,
+      "assertion_notes": {
+        "audience": "适用人群为基于官方用途的编辑判断；不是官方用户研究结果。",
+        "review_kind": "source_review 仅表示本轮读取并核对官方资料，不代表人工读者验收或实际试用。",
+        "revision": "根据独立审查逐项修正用途、渠道、前提、许可及证据绑定；不将资料核对称为试用。"
+      }
+    },
+    "paulpacifico/shutter-encoder": {
+      "status": "published",
+      "review_kind": "source_review",
+      "reviewed_at": "2026-10-20T15:49:39.260875+00:00",
+      "purpose": "通过图形界面对视频、音频和图片进行转码，支持批量处理。",
+      "audience": "经常处理多段素材、想避免逐个输入 FFmpeg 命令的人。",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "form": "desktop_app",
+      "prerequisites": [
+        "下载官网提供的本机安装版或便携版。",
+        "不同转码任务需要兼容的输入格式，并会占用本机处理时间与存储空间。"
+      ],
+      "license": "GPL-3.0-only",
+      "cost": "官方 README 明确称免费开源应用。",
+      "usage_paths": [
+        {
+          "url": "https://www.shutterencoder.com/",
+          "kind": "download",
+          "label": "官方安装与获取说明"
+        }
+      ],
+      "scenes": [
+        "文件转换"
+      ],
+      "primary_scene": "文件转换",
+      "recommendation_reason": "通过图形界面对视频、音频和图片进行转码，支持批量处理；官方资料已说明所选平台和获取方式。",
+      "claims": {
+        "purpose": [
+          "intro",
+          "repository"
+        ],
+        "audience": [
+          "intro",
+          "repository"
+        ],
+        "platforms": [
+          "install",
+          "path"
+        ],
+        "form": [
+          "intro",
+          "install"
+        ],
+        "prerequisites": [
+          "install",
+          "path"
+        ],
+        "license": [
+          "license_document_review"
+        ],
+        "usage_paths": [
+          "install",
+          "path"
+        ],
+        "cost": [
+          "intro",
+          "path"
+        ]
+      },
+      "evidence_hashes": {
+        "intro": "ec893c4583d06445a120b730f4ad45d91fc39f8a1c0e41ab365bb8f943758241",
+        "install": "ad8332158eb84326881cc62b241ff314b38fae4689479b87513d22b99a25dedc",
+        "repository": "6efb82326a95c9a83bc9a2787fdb3ce00d97e20b36f5ce257db321f723f249d1",
+        "path": "369a03a24b9c5948a866d5797d84480fe19c9148da0bd4664cadff8dc70b5f29",
+        "license_document_review": "56634e73f40e16a31c357aa7bb580006d14ca6c8d7c900981877308faf02a546"
+      },
+      "family": "paulpacifico/shutter-encoder",
+      "seed": true,
+      "limitations": [
+        "仅核对官方资料，未安装或实际试用，也不构成安全背书。"
+      ],
+      "tested": false,
+      "assertion_notes": {
+        "audience": "适用人群为基于官方用途的编辑判断；不是官方用户研究结果。",
+        "review_kind": "source_review 仅表示本轮读取并核对官方资料，不代表人工读者验收或实际试用。",
+        "revision": "根据独立审查逐项修正用途、渠道、前提、许可及证据绑定；不将资料核对称为试用。"
+      },
+      "license_scope_note": "核对官方根许可证文档所列版本；不从通用许可证的示范授予语句推断项目允许后续版本。第三方组件可能另有许可。"
+    },
+    "audacity/audacity": {
+      "status": "published",
+      "review_kind": "source_review",
+      "reviewed_at": "2026-10-20T15:49:39.260875+00:00",
+      "purpose": "录制并剪辑多轨音频，整理播客、配音或其他声音素材。",
+      "audience": "需要在电脑上录音、剪掉多余片段或编辑多条音轨的人。",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "form": "desktop_app",
+      "prerequisites": [
+        "按官方页面选择匹配系统与处理器的安装文件。",
+        "录音需要可用的音频输入设备；某些导入导出格式可能另需 FFmpeg 扩展。",
+        "本条选择本机音频编辑路径，云存储或商业插件不在核对范围。"
+      ],
+      "license": "GPL-3.0-only",
+      "cost": "官方提供公开安装入口；所核对资料未单独说明完整费用条款，不能据此承诺所有功能或服务免费。",
+      "usage_paths": [
+        {
+          "url": "https://www.audacityteam.org/download/",
+          "kind": "download",
+          "label": "官方安装与获取说明"
+        }
+      ],
+      "scenes": [
+        "影音工具"
+      ],
+      "primary_scene": "影音工具",
+      "recommendation_reason": "录制并剪辑多轨音频，整理播客、配音或其他声音素材；官方资料已说明所选平台和获取方式。",
+      "claims": {
+        "purpose": [
+          "intro",
+          "repository"
+        ],
+        "audience": [
+          "intro",
+          "repository"
+        ],
+        "platforms": [
+          "install",
+          "requirements_1",
+          "path"
+        ],
+        "form": [
+          "intro",
+          "install",
+          "requirements_1"
+        ],
+        "prerequisites": [
+          "install",
+          "requirements_1",
+          "path"
+        ],
+        "license": [
+          "license"
+        ],
+        "usage_paths": [
+          "install",
+          "requirements_1",
+          "path"
+        ],
+        "cost": [
+          "intro",
+          "requirements_1",
+          "path"
+        ]
+      },
+      "evidence_hashes": {
+        "intro": "93473ace301c7df66aa0b97523459181a81838a1718dd7f4fded87672ee5a3e6",
+        "install": "52b82c06ca2060dbfd01f7fafde8019251e53d5172cb24f40af6f0d6e3f51638",
+        "repository": "0e07bb14d5dc21aa397660fa6c71eef315b0b5b1ec051f34dd4435adfb3036f6",
+        "license": "e5b691a275215f2ba62a20b048eb98c9fa7cd03f7d23aa7ddae759b43d508c79",
+        "requirements_1": "0c26ee8e238246198c40336c981b3946e9711d4aa2b35ea008f0adee758696b4",
+        "path": "64282a2e0a907dbcd744096d8099212975b68a94f465cf5eab47449f01c57242"
+      },
+      "family": "audacity/audacity",
+      "seed": true,
+      "limitations": [
+        "仅核对官方资料，未安装或实际试用，也不构成安全背书。"
+      ],
+      "tested": false,
+      "assertion_notes": {
+        "audience": "适用人群为基于官方用途的编辑判断；不是官方用户研究结果。",
+        "review_kind": "source_review 仅表示本轮读取并核对官方资料，不代表人工读者验收或实际试用。",
+        "revision": "根据独立审查逐项修正用途、渠道、前提、许可及证据绑定；不将资料核对称为试用。"
+      }
+    },
+    "KDE/kdenlive": {
+      "status": "published",
+      "review_kind": "source_review",
+      "reviewed_at": "2026-10-20T15:49:39.260875+00:00",
+      "purpose": "在时间线中剪辑视频、组合素材，制作家庭视频或较完整的视频项目。",
+      "audience": "需要免费桌面视频剪辑工作流的个人创作者。",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "form": "desktop_app",
+      "prerequisites": [
+        "当前 Windows 版需要 Windows 10+；macOS 版需要 macOS 13+；Linux 按 AppImage/Flatpak 入口选择。",
+        "应选稳定版；官方提醒每日测试构建可能损坏已有工程。",
+        "需要自行准备视频和音频素材，性能取决于素材与硬件。"
+      ],
+      "license": "GPL-3.0-only",
+      "cost": "官方明确称免费视频编辑器；捐赠为可选支持。",
+      "usage_paths": [
+        {
+          "url": "https://kdenlive.org/download/",
+          "kind": "download",
+          "label": "官方安装与获取说明"
+        }
+      ],
+      "scenes": [
+        "影音工具"
+      ],
+      "primary_scene": "影音工具",
+      "recommendation_reason": "在时间线中剪辑视频、组合素材，制作家庭视频或较完整的视频项目；官方资料已说明所选平台和获取方式。",
+      "claims": {
+        "purpose": [
+          "intro",
+          "repository"
+        ],
+        "audience": [
+          "intro",
+          "repository"
+        ],
+        "platforms": [
+          "install",
+          "requirements_1",
+          "path"
+        ],
+        "form": [
+          "intro",
+          "install",
+          "requirements_1"
+        ],
+        "prerequisites": [
+          "install",
+          "requirements_1",
+          "path"
+        ],
+        "license": [
+          "license_document_review"
+        ],
+        "usage_paths": [
+          "install",
+          "requirements_1",
+          "path"
+        ],
+        "cost": [
+          "intro",
+          "requirements_1",
+          "path"
+        ]
+      },
+      "evidence_hashes": {
+        "intro": "01c2a907c7521958de6b72a9bd7e962f5263a21ea25bc60f068f837a97e50f47",
+        "install": "47885e18d0b4b94aae157fddfc2bce3e92d4c96bc6ad8eab2fc8a55bb5438fa9",
+        "repository": "683494fe762791db5c3b46458349a028d16a7ce86c8e614f46c8beee01f61b49",
+        "requirements_1": "b86edf13d8d56a3a0b40a5cb26398ec0f5d1e23fb7b6d308ea7fc389e49cbadc",
+        "path": "edabfeb0ab3930867f715c58e023b7e552cfac6cd2685b2e689130d57f423639",
+        "license_document_review": "1e9e4945aa88b812ed04cb6136a6d4f2405b1bbabdef994c7c1cc9a37dabf785"
+      },
+      "family": "kde/kdenlive",
+      "seed": true,
+      "limitations": [
+        "仅核对官方资料，未安装或实际试用，也不构成安全背书。"
+      ],
+      "tested": false,
+      "assertion_notes": {
+        "audience": "适用人群为基于官方用途的编辑判断；不是官方用户研究结果。",
+        "review_kind": "source_review 仅表示本轮读取并核对官方资料，不代表人工读者验收或实际试用。",
+        "revision": "根据独立审查逐项修正用途、渠道、前提、许可及证据绑定；不将资料核对称为试用。"
+      },
+      "license_scope_note": "核对官方根许可证文档所列版本；不从通用许可证的示范授予语句推断项目允许后续版本。第三方组件可能另有许可。"
+    },
+    "lively-community/lively": {
+      "status": "published",
+      "review_kind": "source_review",
+      "reviewed_at": "2026-10-20T15:49:39.260875+00:00",
+      "purpose": "把视频、网页等设为 Windows 动态桌面壁纸，并可在全屏应用时暂停播放。",
+      "audience": "想让电脑桌面显示动态内容的 Windows 用户。",
+      "platforms": [
+        "Windows"
+      ],
+      "form": "desktop_app",
+      "prerequisites": [
+        "这里选 GitHub 安装包，需要 Windows 10 1903 或更新版本。",
+        "需要自行选择壁纸素材；动态内容仍会占用资源，可设置全屏或电池暂停规则。"
+      ],
+      "license": "GPL-3.0-only",
+      "cost": "官方明确称开源免费，没有付费墙后的功能。",
+      "usage_paths": [
+        {
+          "url": "https://github.com/lively-community/lively/releases/latest",
+          "kind": "download",
+          "label": "官方发布页（自行选择安装包）"
+        }
+      ],
+      "scenes": [
+        "电视桌面"
+      ],
+      "primary_scene": "电视桌面",
+      "recommendation_reason": "把视频、网页等设为 Windows 动态桌面壁纸，并可在全屏应用时暂停播放；官方资料已说明所选平台和获取方式。",
+      "claims": {
+        "purpose": [
+          "intro",
+          "repository"
+        ],
+        "audience": [
+          "intro",
+          "repository"
+        ],
+        "platforms": [
+          "install",
+          "path"
+        ],
+        "form": [
+          "intro",
+          "install"
+        ],
+        "prerequisites": [
+          "install",
+          "path"
+        ],
+        "license": [
+          "license_document_review"
+        ],
+        "usage_paths": [
+          "install",
+          "path"
+        ],
+        "cost": [
+          "intro",
+          "path"
+        ]
+      },
+      "evidence_hashes": {
+        "intro": "4846eaab6f9ee41e24f375837bfb7419f42a280d8077353351e990cfe2d53581",
+        "install": "a4363774e8e956c7f61f75a0e786f9dc8f1e3f9265095e3ad39bf3092855357e",
+        "repository": "d3f2761377b33832e2f1529f448695a91cccfd9d169255851e44abe8d3ebc0f3",
+        "path": "c356703172bce1271ed327fb5f66c4567403af7268e933ccf9533c5c2bf04771",
+        "license_document_review": "046cba2f38252b4a676071079ea6d96b414320959de506a5698c7351bf526f09"
+      },
+      "family": "lively-community/lively",
+      "seed": true,
+      "limitations": [
+        "仅核对官方资料，未安装或实际试用，也不构成安全背书。"
+      ],
+      "tested": false,
+      "assertion_notes": {
+        "audience": "适用人群为基于官方用途的编辑判断；不是官方用户研究结果。",
+        "review_kind": "source_review 仅表示本轮读取并核对官方资料，不代表人工读者验收或实际试用。",
+        "revision": "根据独立审查逐项修正用途、渠道、前提、许可及证据绑定；不将资料核对称为试用。"
+      },
+      "license_scope_note": "核对官方根许可证文档所列版本；不从通用许可证的示范授予语句推断项目允许后续版本。第三方组件可能另有许可。"
+    },
+    "files-community/Files": {
+      "status": "review_required",
+      "review_kind": "source_review",
+      "reviewed_at": "2026-10-20T15:49:39.260875+00:00",
+      "purpose": "用带多任务、文件标签和集成功能的图形文件管理器整理 Windows 文件与文件夹。",
+      "audience": "想改善日常文件浏览和多目录操作体验的 Windows 用户。",
+      "platforms": [
+        "Windows"
+      ],
+      "form": "desktop_app",
+      "prerequisites": [
+        "选择官网 classic installer，或购买 Microsoft Store 版本。",
+        "当前最低 Windows 版本与经典安装器具体要求尚需补核。"
+      ],
+      "license": "MIT",
+      "cost": "官方明确区分 Microsoft Store 购买和 classic installer；不能把商店版称免费。",
+      "usage_paths": [
+        {
+          "url": "https://files.community/download",
+          "kind": "download",
+          "label": "官方安装与获取说明"
+        }
+      ],
+      "scenes": [
+        "文件管理"
+      ],
+      "primary_scene": "文件管理",
+      "recommendation_reason": "用途资料已核对，列出的关键条件仍待补核，暂不推荐。",
+      "claims": {
+        "purpose": [
+          "intro",
+          "repository"
+        ],
+        "audience": [
+          "intro",
+          "repository"
+        ],
+        "platforms": [
+          "install"
+        ],
+        "form": [
+          "intro",
+          "install"
+        ],
+        "prerequisites": [
+          "install"
+        ],
+        "license": [
+          "repository"
+        ],
+        "usage_paths": [
+          "install"
+        ],
+        "cost": [
+          "intro"
+        ]
+      },
+      "evidence_hashes": {
+        "intro": "3c6a33e3b76bdd1f22062f7c9a1c9f9b17db6a8724d24026ce442d3b26fba8f6",
+        "install": "af21d1067fb63671214b0db49a1a7d53072a7407c5d2bb4b1d01a532d6ea6587",
+        "repository": "403e27afe7c03448844981b75b69157f27bc3bac8a29b88f07e4efe5627eb50a"
+      },
+      "family": "files-community/files",
+      "seed": true,
+      "limitations": [
+        "用途与 Windows 桌面形态已核对；最低系统和获取入口尚未完成复核，不进入推荐。",
+        "仅核对官方资料，未安装或实际试用，也不构成安全背书。"
+      ],
+      "tested": false,
+      "assertion_notes": {
+        "audience": "适用人群为基于官方用途的编辑判断；不是官方用户研究结果。",
+        "review_kind": "source_review 仅表示本轮读取并核对官方资料，不代表人工读者验收或实际试用。",
+        "revision": "根据独立审查逐项修正用途、渠道、前提、许可及证据绑定；不将资料核对称为试用。"
+      }
+    },
+    "WinMerge/winmerge": {
+      "status": "published",
+      "review_kind": "source_review",
+      "reviewed_at": "2026-10-20T15:49:39.260875+00:00",
+      "purpose": "并排比较两个文件或文件夹，直观看出差异并决定如何合并。",
+      "audience": "经常核对文档版本、备份目录或修改内容的 Windows 用户。",
+      "platforms": [
+        "Windows"
+      ],
+      "form": "desktop_app",
+      "prerequisites": [
+        "按 x64、ARM64 或 x86 选择对应安装器。",
+        "64 位版官方最低 Windows 7；普通安装器需管理员权限，每用户安装器例外。",
+        "合并会写入文件，实际操作前应自行保留原文件。"
+      ],
+      "license": "GPL-2.0-or-later",
+      "cost": "官方提供公开安装入口；所核对资料未单独说明完整费用条款，不能据此承诺所有功能或服务免费。",
+      "usage_paths": [
+        {
+          "url": "https://winmerge.org/downloads/",
+          "kind": "download",
+          "label": "官方安装与获取说明"
+        }
+      ],
+      "scenes": [
+        "文件查找"
+      ],
+      "primary_scene": "文件查找",
+      "recommendation_reason": "并排比较两个文件或文件夹，直观看出差异并决定如何合并；官方资料已说明所选平台和获取方式。",
+      "claims": {
+        "purpose": [
+          "intro",
+          "repository"
+        ],
+        "audience": [
+          "intro",
+          "repository"
+        ],
+        "platforms": [
+          "install",
+          "requirements_1",
+          "requirements_2",
+          "path"
+        ],
+        "form": [
+          "intro",
+          "install",
+          "requirements_1",
+          "requirements_2"
+        ],
+        "prerequisites": [
+          "install",
+          "requirements_1",
+          "requirements_2",
+          "path"
+        ],
+        "license": [
+          "license_grant_review",
+          "license_document_review"
+        ],
+        "usage_paths": [
+          "install",
+          "requirements_1",
+          "requirements_2",
+          "path"
+        ],
+        "cost": [
+          "intro",
+          "requirements_1",
+          "requirements_2",
+          "path"
+        ]
+      },
+      "evidence_hashes": {
+        "intro": "358672569f302fbd262bea6455eb302666bcc9c6375c6212749de58f13f38fba",
+        "install": "389267875d5e933bee49dffcbd3c82e84efc7f775c9e88d23de3ebb86c7a5e8a",
+        "repository": "489766c1fc7253cc2c97ef59b11b6ed651d799286f20c728d60e8698e673f14c",
+        "requirements_1": "888f96e92e86e74e16c1f5e92c3784719dd8293824ac1a4dc352b4b808e59042",
+        "requirements_2": "35ccd1e4d2c4c831d6807f999ce55d84b6b996aa76ed42a0224af71288aa6ab1",
+        "path": "8dcbc39e7603a7d69303441a31d3a5de8a26d588446a3de858d1e8badb0235e1",
+        "license_document_review": "fd6e77c7795d1b97eda9367662c36f3771a59c535ef671d93381220523f91d98",
+        "license_grant_review": "94306dbec9e3428852cdad700302c2c9497635a4cbf69bcd90761c0c875eed74"
+      },
+      "family": "winmerge/winmerge",
+      "seed": true,
+      "limitations": [
+        "仅核对官方资料，未安装或实际试用，也不构成安全背书。"
+      ],
+      "tested": false,
+      "assertion_notes": {
+        "audience": "适用人群为基于官方用途的编辑判断；不是官方用户研究结果。",
+        "review_kind": "source_review 仅表示本轮读取并核对官方资料，不代表人工读者验收或实际试用。",
+        "revision": "根据独立审查逐项修正用途、渠道、前提、许可及证据绑定；不将资料核对称为试用。"
+      },
+      "license_scope_note": "官方项目 README 或应用源文件 SPDX 明确给出 or-later；根许可证文档同时保留。"
+    },
+    "sindresorhus/Gifski": {
+      "status": "published",
+      "review_kind": "source_review",
+      "reviewed_at": "2026-10-20T15:49:39.260875+00:00",
+      "purpose": "把本机视频片段转换为 GIF，并调整尺寸、帧率和画质。",
+      "audience": "需要给教程、演示或设计成果制作 GIF 的 Mac 用户。",
+      "platforms": [
+        "macOS"
+      ],
+      "form": "desktop_app",
+      "prerequisites": [
+        "当前版要求 macOS 26 或更新版本；旧系统应按 README 的 Older versions 选择旧版。",
+        "输入视频需属于 macOS 支持的格式；QuickTime Animation 编码不支持。"
+      ],
+      "license": "MIT",
+      "cost": "官网明确标注免费。",
+      "usage_paths": [
+        {
+          "url": "https://sindresorhus.com/gifski",
+          "kind": "download",
+          "label": "官方安装与获取说明"
+        }
+      ],
+      "scenes": [
+        "文件转换"
+      ],
+      "primary_scene": "文件转换",
+      "recommendation_reason": "把本机视频片段转换为 GIF，并调整尺寸、帧率和画质；官方资料已说明所选平台和获取方式。",
+      "claims": {
+        "purpose": [
+          "intro",
+          "repository"
+        ],
+        "audience": [
+          "intro",
+          "repository"
+        ],
+        "platforms": [
+          "install",
+          "requirements_1",
+          "path"
+        ],
+        "form": [
+          "intro",
+          "install",
+          "requirements_1"
+        ],
+        "prerequisites": [
+          "install",
+          "requirements_1",
+          "path"
+        ],
+        "license": [
+          "repository"
+        ],
+        "usage_paths": [
+          "install",
+          "requirements_1",
+          "path"
+        ],
+        "cost": [
+          "intro",
+          "requirements_1",
+          "path"
+        ]
+      },
+      "evidence_hashes": {
+        "intro": "4b5b85d66735c100eeb99a1a674672fb26083aae9aff6e80d375ee522388006c",
+        "install": "f2ed5c029f57d65f868767ffe6cd58d6392abde2ee5ff6253eacd233793340b6",
+        "repository": "9c28819196901bb4535fe9d601cea2365ef9bf97ce84921676067a2242b9c6fb",
+        "requirements_1": "9e923acd554645292ce0be13abc0ca1dbc4f297063286a5c22de9d8c214757a2",
+        "path": "5b37e0db8bfeb3ebe393aea37c461370307986d734f23f66e554712908ca6967"
+      },
+      "family": "sindresorhus/gifski",
+      "seed": true,
+      "limitations": [
+        "这是 Mac 图形应用，不能与同名编码器或其他系统的命令行程序混为一个获取路径。",
+        "仅核对官方资料，未安装或实际试用，也不构成安全背书。"
+      ],
+      "tested": false,
+      "assertion_notes": {
+        "audience": "适用人群为基于官方用途的编辑判断；不是官方用户研究结果。",
+        "review_kind": "source_review 仅表示本轮读取并核对官方资料，不代表人工读者验收或实际试用。",
+        "revision": "根据独立审查逐项修正用途、渠道、前提、许可及证据绑定；不将资料核对称为试用。"
+      }
+    },
+    "arsenetar/dupeguru": {
+      "status": "published",
+      "review_kind": "source_review",
+      "reviewed_at": "2026-10-20T15:49:39.260875+00:00",
+      "purpose": "在电脑中扫描重复文件，使用图形界面查看候选重复项。",
+      "audience": "磁盘中有多份拷贝，想先找出重复内容再决定清理的人。",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "form": "desktop_app",
+      "prerequisites": [
+        "从项目官网按系统选择安装包。",
+        "扫描后先核对重复项再执行清理；本轮没有验证任一机器上的删除结果。"
+      ],
+      "license": "GPL-3.0-only",
+      "cost": "官方提供公开安装入口；所核对资料未单独说明完整费用条款，不能据此承诺所有功能或服务免费。",
+      "usage_paths": [
+        {
+          "url": "https://dupeguru.voltaicideas.net/",
+          "kind": "download",
+          "label": "官方安装与获取说明"
+        }
+      ],
+      "scenes": [
+        "文件查找"
+      ],
+      "primary_scene": "文件查找",
+      "recommendation_reason": "在电脑中扫描重复文件，使用图形界面查看候选重复项；官方资料已说明所选平台和获取方式。",
+      "claims": {
+        "purpose": [
+          "intro",
+          "repository"
+        ],
+        "audience": [
+          "intro",
+          "repository"
+        ],
+        "platforms": [
+          "install",
+          "requirements_1",
+          "path"
+        ],
+        "form": [
+          "intro",
+          "install",
+          "requirements_1"
+        ],
+        "prerequisites": [
+          "install",
+          "requirements_1",
+          "path"
+        ],
+        "license": [
+          "license_document_review"
+        ],
+        "usage_paths": [
+          "install",
+          "requirements_1",
+          "path"
+        ],
+        "cost": [
+          "intro",
+          "requirements_1",
+          "path"
+        ]
+      },
+      "evidence_hashes": {
+        "intro": "0b5eff230b53c3edf717bf425cfcc99a2fb58d407f228bc712d32e1524a80bbc",
+        "install": "e85e7b5eab8528c3a80b34ebfa8149d5054a915fbadc7a62c03cd8c9f43fdcf7",
+        "repository": "99cc95e2c3a7aca2f23cb40fba3f5f6f169668c4a97244008ddbb8c789030513",
+        "requirements_1": "aa8851670cc0aa0edfaf21c938fa7a992012c737a5b854a2f5cff5db7fc23886",
+        "path": "992d3b18dcd7ca1779aba5ba4624adbf07a4f9d958e3ece24ebec7b01ed2a303",
+        "license_document_review": "56634e73f40e16a31c357aa7bb580006d14ca6c8d7c900981877308faf02a546"
+      },
+      "family": "arsenetar/dupeguru",
+      "seed": true,
+      "limitations": [
+        "README 明示 macOS/Linux 打包维护仍需要帮助；有系统兼容问题应查官方发布说明。",
+        "仅核对官方资料，未安装或实际试用，也不构成安全背书。"
+      ],
+      "tested": false,
+      "assertion_notes": {
+        "audience": "适用人群为基于官方用途的编辑判断；不是官方用户研究结果。",
+        "review_kind": "source_review 仅表示本轮读取并核对官方资料，不代表人工读者验收或实际试用。",
+        "revision": "根据独立审查逐项修正用途、渠道、前提、许可及证据绑定；不将资料核对称为试用。"
+      },
+      "license_scope_note": "核对官方根许可证文档所列版本；不从通用许可证的示范授予语句推断项目允许后续版本。第三方组件可能另有许可。"
+    },
+    "qarmin/czkawka": {
+      "status": "published",
+      "review_kind": "source_review",
+      "reviewed_at": "2026-10-20T15:49:39.260875+00:00",
+      "purpose": "用 Krokiet 图形界面扫描重复文件及其他冗余文件，帮助整理磁盘。",
+      "audience": "需要找出重复或无用文件，并愿意在清理前逐项确认的人。",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "form": "desktop_app",
+      "prerequisites": [
+        "按 Krokiet 子目录说明选择该 GUI 对应的官方发行文件。",
+        "不要把 Czkawka Core 开发库或 CLI 当成同一个桌面安装包。",
+        "实际删除前需自行审阅扫描结果；本轮未执行扫描或删除。",
+        "官方预编译包支持 Windows 10/11、Mac、Ubuntu 22.04 基础版或 24.04 加库版；相似视频工具另需 ffmpeg。"
+      ],
+      "license": "GPL-3.0-only",
+      "cost": "官方明确称免费、无广告；本条只选择 Krokiet 桌面图形界面。",
+      "usage_paths": [
+        {
+          "url": "https://github.com/qarmin/czkawka/blob/master/krokiet/README.md",
+          "kind": "documentation",
+          "label": "官方安装与获取说明"
+        }
+      ],
+      "scenes": [
+        "文件查找"
+      ],
+      "primary_scene": "文件查找",
+      "recommendation_reason": "用 Krokiet 图形界面扫描重复文件及其他冗余文件，帮助整理磁盘；官方资料已说明所选平台和获取方式。",
+      "claims": {
+        "purpose": [
+          "intro",
+          "repository"
+        ],
+        "audience": [
+          "intro",
+          "repository"
+        ],
+        "platforms": [
+          "install",
+          "requirements_1",
+          "requirements_2",
+          "path"
+        ],
+        "form": [
+          "intro",
+          "install",
+          "requirements_1",
+          "requirements_2"
+        ],
+        "prerequisites": [
+          "install",
+          "requirements_1",
+          "requirements_2",
+          "path"
+        ],
+        "license": [
+          "license"
+        ],
+        "usage_paths": [
+          "install",
+          "requirements_1",
+          "requirements_2",
+          "path"
+        ],
+        "cost": [
+          "intro",
+          "requirements_1",
+          "requirements_2",
+          "path"
+        ]
+      },
+      "evidence_hashes": {
+        "intro": "2ddd23b900460ca91b17c876b31a4067c9d619beb47f2a6847ccaaa9dd17a458",
+        "install": "a592880a07b1c0caea1e84655745d52c3f43725e09b3e0ee04a8c331e8d4915b",
+        "repository": "bf30eff4460582d79999a0c0693e65dc13d2cfe465b081302c6a874948c02c83",
+        "license": "26dd1fb9b5c8059e43d125e2594a048ea19e7aac14e3868f8ffda445bfb7856b",
+        "requirements_1": "23f5d7b5a6db94e746cb0efa4c1fdd91c5c9b3ae0d3175aebea992d78cf8e96e",
+        "requirements_2": "20d70690ef7f618071bc9459d43cf5633e21e5589f3ee525428f4882d90969d7",
+        "path": "a2ae0de81ae09cf9689d6dbd6d43e47f6efc6eaea5080db061bc60c3980bb50f"
+      },
+      "family": "qarmin/czkawka",
+      "seed": true,
+      "limitations": [
+        "同一仓库含多个前端；本条按 family 合并，只推荐官方现在建议的 Krokiet，GTK 旧版已声明不再发布新二进制。",
+        "仅核对官方资料，未安装或实际试用，也不构成安全背书。"
+      ],
+      "tested": false,
+      "display_name": "Krokiet（Czkawka）",
+      "assertion_notes": {
+        "audience": "适用人群为基于官方用途的编辑判断；不是官方用户研究结果。",
+        "review_kind": "source_review 仅表示本轮读取并核对官方资料，不代表人工读者验收或实际试用。",
+        "revision": "根据独立审查逐项修正用途、渠道、前提、许可及证据绑定；不将资料核对称为试用。"
+      }
+    },
+    "upscayl/upscayl": {
+      "status": "published",
+      "review_kind": "source_review",
+      "reviewed_at": "2026-10-20T15:49:39.260875+00:00",
+      "purpose": "在电脑上用图形界面放大低分辨率图片。",
+      "audience": "想给已有照片或插图提高分辨率，并有合适显卡的人。",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "form": "desktop_app",
+      "prerequisites": [
+        "需要支持 Vulkan 的 GPU；官方提醒许多集成显卡不能正常工作。",
+        "按系统选择桌面安装包；本条不包含 Upscayl Cloud 服务。",
+        "输出画面是算法估计，不能当作恢复了真实丢失细节。"
+      ],
+      "license": "AGPL-3.0-only",
+      "cost": "官方提供公开安装入口；所核对资料未单独说明完整费用条款，不能据此承诺所有功能或服务免费。",
+      "usage_paths": [
+        {
+          "url": "https://github.com/upscayl/upscayl/releases/latest",
+          "kind": "download",
+          "label": "官方发布页（自行选择安装包）"
+        }
+      ],
+      "scenes": [
+        "文件转换"
+      ],
+      "primary_scene": "文件转换",
+      "recommendation_reason": "在电脑上用图形界面放大低分辨率图片；官方资料已说明所选平台和获取方式。",
+      "claims": {
+        "purpose": [
+          "intro",
+          "repository"
+        ],
+        "audience": [
+          "intro",
+          "repository"
+        ],
+        "platforms": [
+          "install",
+          "path"
+        ],
+        "form": [
+          "intro",
+          "install"
+        ],
+        "prerequisites": [
+          "install",
+          "path"
+        ],
+        "license": [
+          "license_document_review"
+        ],
+        "usage_paths": [
+          "install",
+          "path"
+        ],
+        "cost": [
+          "intro",
+          "path"
+        ]
+      },
+      "evidence_hashes": {
+        "intro": "b78e8e94104ab0a5c19db20d2d8f0ac695bb1a55997b28e2611f072457c8c33e",
+        "install": "0a3e2949a6b16c89e1630280bec00c325fe014c2fc8feb6ec6605b06a30d452c",
+        "repository": "a7dbe14ff098e8d46f80472727b7c6c896fe2d9a9ed23338603e2e9e62e984d2",
+        "path": "216b81840c07b83a23cdea44205327e781abde099eb19deba24d6cff463bd14d",
+        "license_document_review": "2f4f8eb60fe0cca59abfb0a1337cb85b7d794cc35bbe31e11aafbf078d007bd8"
+      },
+      "family": "upscayl/upscayl",
+      "seed": true,
+      "limitations": [
+        "仅核对官方资料，未安装或实际试用，也不构成安全背书。"
+      ],
+      "tested": false,
+      "assertion_notes": {
+        "audience": "适用人群为基于官方用途的编辑判断；不是官方用户研究结果。",
+        "review_kind": "source_review 仅表示本轮读取并核对官方资料，不代表人工读者验收或实际试用。",
+        "revision": "根据独立审查逐项修正用途、渠道、前提、许可及证据绑定；不将资料核对称为试用。"
+      },
+      "license_scope_note": "核对官方根许可证文档所列版本；不从通用许可证的示范授予语句推断项目允许后续版本。第三方组件可能另有许可。"
+    },
+    "Tichau/FileConverter": {
+      "status": "published",
+      "review_kind": "source_review",
+      "reviewed_at": "2026-10-20T15:49:39.260875+00:00",
+      "purpose": "在 Windows 文件右键菜单中批量转换或压缩音视频、图片和文档。",
+      "audience": "不想打开大型编辑软件，只需对文件做常用格式处理的人。",
+      "platforms": [
+        "Windows"
+      ],
+      "form": "desktop_app",
+      "prerequisites": [
+        "需要 Windows 文件资源管理器和官方安装程序。",
+        "转换 Office 文档必须已安装并激活 Microsoft Office；其他格式按官网输入/输出表核对。",
+        "格式表不能解释为任意两种格式都可互转。"
+      ],
+      "license": "GPL-3.0-only",
+      "cost": "官网明确称免费；Office 文档转换另需已激活的 Microsoft Office，其费用不包含在工具里。",
+      "usage_paths": [
+        {
+          "url": "https://file-converter.io/",
+          "kind": "download",
+          "label": "官方安装与获取说明"
+        }
+      ],
+      "scenes": [
+        "文件转换"
+      ],
+      "primary_scene": "文件转换",
+      "recommendation_reason": "在 Windows 文件右键菜单中批量转换或压缩音视频、图片和文档；官方资料已说明所选平台和获取方式。",
+      "claims": {
+        "purpose": [
+          "intro",
+          "repository",
+          "requirements_1"
+        ],
+        "audience": [
+          "intro",
+          "requirements_1"
+        ],
+        "platforms": [
+          "install",
+          "requirements_1",
+          "path"
+        ],
+        "form": [
+          "intro",
+          "install",
+          "requirements_1"
+        ],
+        "prerequisites": [
+          "install",
+          "requirements_1",
+          "path"
+        ],
+        "license": [
+          "license_document_review"
+        ],
+        "usage_paths": [
+          "install",
+          "requirements_1",
+          "path"
+        ],
+        "cost": [
+          "intro",
+          "requirements_1",
+          "path"
+        ]
+      },
+      "evidence_hashes": {
+        "intro": "bd0122fd5ab6b29cbb2c9231e136155a7e588c036ceda1db81f34b34638c5cd4",
+        "install": "b1ac0f2d5f8e05c252968528209e0fb0571c8b2b2234395a153798c53f993662",
+        "repository": "23f0176fa413ec6ff5d3625ec38f29e00fcec29c3e905669a866912840220519",
+        "requirements_1": "ccd281477f738a03bcbf3cb5f6dbb0e54edf903f31c67bf0b1aa254347a5f0ae",
+        "path": "a134144cca90b5d5d3d15701ef9da71eb334b520c3c94c619dc9d215448e7b0b",
+        "license_document_review": "210cf948a98e75d197a0d39eba3aac116b112bb470bb895431398356e30f4fa4"
+      },
+      "family": "tichau/fileconverter",
+      "seed": true,
+      "limitations": [
+        "没有宣称 PDF 转 Word；官网表格列出了不同类别的输入与输出，不据此编造双向转换。",
+        "仅核对官方资料，未安装或实际试用，也不构成安全背书。"
+      ],
+      "tested": false,
+      "assertion_notes": {
+        "audience": "适用人群为基于官方用途的编辑判断；不是官方用户研究结果。",
+        "review_kind": "source_review 仅表示本轮读取并核对官方资料，不代表人工读者验收或实际试用。",
+        "revision": "根据独立审查逐项修正用途、渠道、前提、许可及证据绑定；不将资料核对称为试用。"
+      },
+      "license_scope_note": "核对官方根许可证文档所列版本；不从通用许可证的示范授予语句推断项目允许后续版本。第三方组件可能另有许可。"
+    },
+    "NickeManarin/ScreenToGif": {
+      "status": "review_required",
+      "review_kind": "source_review",
+      "reviewed_at": "2026-10-20T15:49:39.260875+00:00",
+      "purpose": "录制屏幕区域、摄像头或画板，再剪辑并导出 GIF、APNG 或视频。",
+      "audience": "需要制作短操作动图与问题复现片段的人；系统支持仍待补核。",
+      "platforms": [],
+      "form": "desktop_app",
+      "prerequisites": [
+        "官方 README 明确要求 .NET 9 Desktop Runtime 或更高版本。",
+        "官方发行入口已核对；本轮仍缺明确的系统支持及最低 Windows 版本原句，不能把 Store 链接当系统支持证明。"
+      ],
+      "license": "MS-PL",
+      "cost": "官方提供公开安装入口；所核对资料未单独说明完整费用条款，不能据此承诺所有功能或服务免费。",
+      "usage_paths": [
+        {
+          "url": "https://github.com/NickeManarin/ScreenToGif/releases/latest",
+          "kind": "download",
+          "label": "官方发布页（自行选择安装包）"
+        }
+      ],
+      "scenes": [
+        "影音工具"
+      ],
+      "primary_scene": "影音工具",
+      "recommendation_reason": "用途资料已核对，列出的关键条件仍待补核，暂不推荐。",
+      "claims": {
+        "purpose": [
+          "intro",
+          "repository"
+        ],
+        "audience": [
+          "intro",
+          "repository"
+        ],
+        "platforms": [
+          "intro"
+        ],
+        "form": [
+          "intro",
+          "install",
+          "requirements_1"
+        ],
+        "prerequisites": [
+          "intro",
+          "path"
+        ],
+        "license": [
+          "repository"
+        ],
+        "usage_paths": [
+          "install",
+          "requirements_1",
+          "path"
+        ],
+        "cost": [
+          "intro",
+          "requirements_1",
+          "path"
+        ]
+      },
+      "evidence_hashes": {
+        "intro": "c1c8a3add44f1d181d22831441fc1b07070ea967e5a28f2b3d40c2fae6e82c04",
+        "install": "b02f8f70c0033bce7cc8f299e3162390f79d82ae34e3eab4350bf33f6f14cdb3",
+        "repository": "6659b4be74f2833e23a79b8e705c6b8093736b303b3ffb10bf1973a569edc88c",
+        "requirements_1": "e16518dac242c9ac0612c539b84b0951243ca4d9d601b2920dcaec39dccae440",
+        "path": "2a47a3005cb7a67e2e83375bde78f3fabc67df9bd6ac131fc407d9a7ddb96faf"
+      },
+      "family": "nickemanarin/screentogif",
+      "seed": true,
+      "limitations": [
+        "已准确记录 .NET 9 Desktop Runtime 前提并移除证据不足的 Windows 平台字段；明确系统支持仍待补核，不推荐。"
+      ],
+      "tested": false,
+      "assertion_notes": {
+        "audience": "适用人群为基于官方用途的编辑判断；不是官方用户研究结果。",
+        "review_kind": "source_review 仅表示本轮读取并核对官方资料，不代表人工读者验收或实际试用。",
+        "revision": "根据独立审查逐项修正用途、渠道、前提、许可及证据绑定；不将资料核对称为试用。"
+      }
+    },
+    "rustdesk/rustdesk": {
+      "status": "published",
+      "review_kind": "source_review",
+      "reviewed_at": "2026-10-20T15:49:39.260875+00:00",
+      "purpose": "远程查看并控制另一台电脑，帮助异地处理桌面操作。",
+      "audience": "需要连接自己的另一台电脑或协助熟人的人。",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "form": "desktop_app",
+      "prerequisites": [
+        "被控与控制端都要运行客户端，并使用设备 ID 和连接凭据。",
+        "默认连接公共服务器；也可自行部署，网络可达性和服务器条件会影响连接。",
+        "macOS 需要按官方提示授予必要权限；iOS 不能作为被远程控制的目标。"
+      ],
+      "license": "AGPL-3.0-only",
+      "cost": "官方提供公开安装入口；所核对资料未单独说明完整费用条款，不能据此承诺所有功能或服务免费。",
+      "usage_paths": [
+        {
+          "url": "https://rustdesk.com/docs/en/client/",
+          "kind": "documentation",
+          "label": "官方安装与获取说明"
+        }
+      ],
+      "scenes": [
+        "电视桌面"
+      ],
+      "primary_scene": "电视桌面",
+      "recommendation_reason": "远程查看并控制另一台电脑，帮助异地处理桌面操作；官方资料已说明所选平台和获取方式。",
+      "claims": {
+        "purpose": [
+          "intro",
+          "repository"
+        ],
+        "audience": [
+          "intro",
+          "repository"
+        ],
+        "platforms": [
+          "install",
+          "requirements_1",
+          "path"
+        ],
+        "form": [
+          "intro",
+          "install",
+          "requirements_1"
+        ],
+        "prerequisites": [
+          "install",
+          "requirements_1",
+          "path"
+        ],
+        "license": [
+          "license_document_review"
+        ],
+        "usage_paths": [
+          "install",
+          "requirements_1",
+          "path"
+        ],
+        "cost": [
+          "intro",
+          "requirements_1",
+          "path"
+        ]
+      },
+      "evidence_hashes": {
+        "intro": "ec5017fbd44cada940e01cf49a36ebc3620ce513359094e0e023044300090cdc",
+        "install": "08318bf3dbb2ba5ad68aa04ae2719e6b8c1059c701a034f25f0b8846c89becdb",
+        "repository": "3efbc0af3959f9e1c8c0fe8533f86303a0586ed9ac76924ddc1320df0b6c8c3e",
+        "requirements_1": "c64a96b029f401395b6e14569160f23d8b44b2a5fb1655ac261895163bd43456",
+        "path": "9cd82edd840e4eb509343247323a9693382e304eb7351f7ae8a81451a4ddeebf",
+        "license_document_review": "2f4f8eb60fe0cca59abfb0a1337cb85b7d794cc35bbe31e11aafbf078d007bd8"
+      },
+      "family": "rustdesk/rustdesk",
+      "seed": true,
+      "limitations": [
+        "Pro Server 是另外的产品；本条没有把其账号、管理能力或费用一并承诺。",
+        "仅核对官方资料，未安装或实际试用，也不构成安全背书。"
+      ],
+      "tested": false,
+      "assertion_notes": {
+        "audience": "适用人群为基于官方用途的编辑判断；不是官方用户研究结果。",
+        "review_kind": "source_review 仅表示本轮读取并核对官方资料，不代表人工读者验收或实际试用。",
+        "revision": "根据独立审查逐项修正用途、渠道、前提、许可及证据绑定；不将资料核对称为试用。"
+      },
+      "license_scope_note": "核对官方根许可证文档所列版本；不从通用许可证的示范授予语句推断项目允许后续版本。第三方组件可能另有许可。"
+    },
+    "cryptomator/cryptomator": {
+      "status": "published",
+      "review_kind": "source_review",
+      "reviewed_at": "2026-10-20T15:49:39.260875+00:00",
+      "purpose": "把文件保存在客户端加密的保险库中，再交给自己选择的云盘同步。",
+      "audience": "希望云盘中存放的是加密文件，并自己管理解锁密码的人。",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "form": "desktop_app",
+      "prerequisites": [
+        "Windows 安装器需要 Windows 10 1803+，包含 WinFsp 驱动；macOS 当前最低 11。",
+        "需要创建或打开保险库并保管解锁密码；云盘同步及其账号由用户另行选择。",
+        "本条只选桌面版；移动版免费能力为只读，写入需对应平台授权。"
+      ],
+      "license": "GPL-3.0-only",
+      "cost": "官方说明桌面版免费；Android/iOS 免费版只读，完整能力按平台购买，云盘费用另计。",
+      "usage_paths": [
+        {
+          "url": "https://cryptomator.org/downloads/",
+          "kind": "download",
+          "label": "官方安装与获取说明"
+        }
+      ],
+      "scenes": [
+        "隐私保护"
+      ],
+      "primary_scene": "隐私保护",
+      "recommendation_reason": "把文件保存在客户端加密的保险库中，再交给自己选择的云盘同步；官方资料已说明所选平台和获取方式。",
+      "claims": {
+        "purpose": [
+          "intro",
+          "repository"
+        ],
+        "audience": [
+          "intro",
+          "repository"
+        ],
+        "platforms": [
+          "install",
+          "requirements_1",
+          "requirements_2",
+          "path"
+        ],
+        "form": [
+          "intro",
+          "install",
+          "requirements_1",
+          "requirements_2"
+        ],
+        "prerequisites": [
+          "install",
+          "requirements_1",
+          "requirements_2",
+          "path"
+        ],
+        "license": [
+          "license_document_review"
+        ],
+        "usage_paths": [
+          "install",
+          "requirements_1",
+          "requirements_2",
+          "path"
+        ],
+        "cost": [
+          "intro",
+          "requirements_1",
+          "requirements_2",
+          "path"
+        ]
+      },
+      "evidence_hashes": {
+        "intro": "edc8aeb39d90f668df95f744c40d3f71ee25f4e518a7705e5a88eb678e1eb7c9",
+        "install": "f45f398c21356b69674c549103b60414392018c4e6af1ece7a9922376846bbf1",
+        "repository": "673a640a4bc74d68b3b3cba52d89b862bbc77bcbd753acb061df8d734e25b6d9",
+        "requirements_1": "1039ea49bd4e85a96ec006b0a6f055064699cc630323a157d67bb30096d1e78c",
+        "requirements_2": "ec9a4382dda9379a83e6eb3e681373758e5d3b6d3e02a9f24bc35c5057843670",
+        "path": "40c03e879c131231bf40d6ed3559b2d7625182d751f16002761a285ac817bcaf",
+        "license_document_review": "56634e73f40e16a31c357aa7bb580006d14ca6c8d7c900981877308faf02a546"
+      },
+      "family": "cryptomator/cryptomator",
+      "seed": true,
+      "limitations": [
+        "桌面开源授权和商业再分发授权分开；不把手机或团队产品的条款合并到桌面版。",
+        "仅核对官方资料，未安装或实际试用，也不构成安全背书。"
+      ],
+      "tested": false,
+      "assertion_notes": {
+        "audience": "适用人群为基于官方用途的编辑判断；不是官方用户研究结果。",
+        "review_kind": "source_review 仅表示本轮读取并核对官方资料，不代表人工读者验收或实际试用。",
+        "revision": "根据独立审查逐项修正用途、渠道、前提、许可及证据绑定；不将资料核对称为试用。"
+      },
+      "license_scope_note": "核对官方根许可证文档所列版本；不从通用许可证的示范授予语句推断项目允许后续版本。第三方组件可能另有许可。"
+    },
+    "bleachbit/bleachbit": {
+      "status": "published",
+      "review_kind": "source_review",
+      "reviewed_at": "2026-10-20T15:49:39.260875+00:00",
+      "purpose": "预览并清理临时文件等占用，释放磁盘空间并减少本机残留信息。",
+      "audience": "希望先查看将删除哪些文件，再清理 Windows 或 Linux 电脑的人。",
+      "platforms": [
+        "Windows",
+        "Linux"
+      ],
+      "form": "desktop_app",
+      "prerequisites": [
+        "Windows 官方安装器支持 Windows 10/11；Linux 按发行版选择 deb/rpm 包。",
+        "先使用 Preview 审阅文件与清理选项，再自行决定 Delete；本轮未执行清理。"
+      ],
+      "license": "GPL-3.0-or-later",
+      "cost": "官网明确称免费下载和使用，不要求付款或注册。",
+      "usage_paths": [
+        {
+          "url": "https://www.bleachbit.org/download",
+          "kind": "download",
+          "label": "官方安装与获取说明"
+        }
+      ],
+      "scenes": [
+        "隐私保护"
+      ],
+      "primary_scene": "隐私保护",
+      "recommendation_reason": "预览并清理临时文件等占用，释放磁盘空间并减少本机残留信息；官方资料已说明所选平台和获取方式。",
+      "claims": {
+        "purpose": [
+          "intro",
+          "repository"
+        ],
+        "audience": [
+          "intro",
+          "repository"
+        ],
+        "platforms": [
+          "install",
+          "requirements_1",
+          "requirements_2",
+          "path"
+        ],
+        "form": [
+          "intro",
+          "install",
+          "requirements_1",
+          "requirements_2"
+        ],
+        "prerequisites": [
+          "install",
+          "requirements_1",
+          "requirements_2",
+          "path"
+        ],
+        "license": [
+          "intro",
+          "license_document_review"
+        ],
+        "usage_paths": [
+          "install",
+          "requirements_1",
+          "requirements_2",
+          "path"
+        ],
+        "cost": [
+          "intro",
+          "requirements_1",
+          "requirements_2",
+          "path"
+        ]
+      },
+      "evidence_hashes": {
+        "intro": "9121800b00988e5aa8f38ee81043b878aae4059173d9e8b5f918abe34a151641",
+        "install": "ac463abfd7fc7a41c5bb52be1b8f6d22d96feb3f08e477c03e2f9979cbfaeee4",
+        "repository": "6f089b3987947e87a0214617167c78aef07954257ba59508f83db3efbd222d0c",
+        "requirements_1": "e5cb8ae840980b98f7313d9c99a2f3f2355cee0f2ddfe9e4ec8fd3295280cae4",
+        "requirements_2": "0c4c44cbe66bedfe7a870e04d758d5f6aa945660ca628a2332f5a274081acde6",
+        "path": "78e38e8714cc1a9ea53a2885406f315fcb63fee0871f74f63c46aba49b2fc08f",
+        "license_document_review": "046cba2f38252b4a676071079ea6d96b414320959de506a5698c7351bf526f09"
+      },
+      "family": "bleachbit/bleachbit",
+      "seed": true,
+      "limitations": [
+        "macOS 在官网仅列为实验支持，本条不计为已确认可用的平台。",
+        "仅核对官方资料，未安装或实际试用，也不构成安全背书。"
+      ],
+      "tested": false,
+      "assertion_notes": {
+        "audience": "适用人群为基于官方用途的编辑判断；不是官方用户研究结果。",
+        "review_kind": "source_review 仅表示本轮读取并核对官方资料，不代表人工读者验收或实际试用。",
+        "revision": "根据独立审查逐项修正用途、渠道、前提、许可及证据绑定；不将资料核对称为试用。"
+      },
+      "license_scope_note": "官方项目 README 明确授予所列版本或任何后续版本。"
+    }
+  },
+  "revision": "independent-source-review-fixes-1"
+}

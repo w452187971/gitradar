@@ -79,7 +79,7 @@ class CollectorTests(unittest.TestCase):
         with patch('urllib.request.urlopen', self.fakeUrlopen), patch('time.sleep'):
             with patch.dict(os.environ, {'OPENAI_API_KEY': 'must-not-be-used'}, clear=True):
                 with contextlib.redirect_stdout(io.StringIO()):
-                    runpy.run_path(str(self.script), run_name='__main__')
+                    runpy.run_path(str(self.script), run_name='legacy_regression')['legacyMain']()
         return self.readData('projects.json')
 
     def testCorruptHistoryAbortsWithoutChangingAnySnapshot(self):

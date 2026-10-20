@@ -4,15 +4,40 @@ from __future__ import annotations
 import copy
 import hashlib
 import json
+from urllib.parse import unquote, urlsplit
 
-from gitradar.content import Record, _record, _records, _strings, isOfficialUrl
+from gitradar.content import Record, _record, _records, _strings, isOfficialUrl, pathClaimRefs
 from gitradar.github_client import BudgetExceeded, GitHubClient
 from gitradar.models import Budget
 
 
+def sourceLocation(url: object, kind: object) -> str:
+    parsed = urlsplit(str(url or ''))
+    parts = unquote(parsed.path).strip('/').split('/')
+    host = parsed.hostname or ''
+    if host == 'raw.githubusercontent.com' and len(parts) >= 4:
+        return 'github:' + '/'.join(parts[:2] + parts[3:])
+    if host == 'github.com' and len(parts) >= 2:
+        if kind == 'repository':
+            return 'github:' + '/'.join(parts[:2])
+        if len(parts) >= 5 and parts[2] == 'blob':
+            return 'github:' + '/'.join(parts[:2] + parts[4:])
+    if host == 'api.github.com' and parts[:1] == ['repos'] and len(parts) >= 3:
+        if kind == 'repository':
+            return 'github:' + '/'.join(parts[1:3])
+        if len(parts) > 4 and parts[3] == 'contents':
+            return 'github:' + '/'.join(parts[1:3] + parts[4:])
+    return parsed._replace(fragment='').geturl()
+
+
 def _matchingSource(ref: Record, sources: list[Record]) -> Record:
     kind = ref.get('source_kind')
-    matches = [source for source in sources if source.get('source_kind') == kind]
+    location = sourceLocation(ref.get('url'), kind)
+    matches = [source for source in sources if source.get('source_kind') == kind
+               and sourceLocation(source.get('url'), kind) == location]
+    exact = next((source for source in matches if source.get('id') == ref.get('id')), None)
+    if exact is not None:
+        return exact
     if kind == 'readme':
         matches.sort(key=lambda item: len(str(item.get('text', ''))), reverse=True)
     return matches[0] if matches else {}
@@ -34,8 +59,11 @@ def _unchanged(ref: Record, source: Record) -> bool:
 
 def _refreshRef(ref: Record, source: Record) -> Record:
     result = copy.deepcopy(ref)
-    result.update(checked_at=source.get('checked_at'), status=source.get('status', 200),
-                  source_hash=source.get('content_hash'))
+    sourceHash = source.get('source_hash') or source.get('content_hash')
+    result.update(checked_at=source.get('checked_at'), status=source.get('status', 200), source_hash=sourceHash)
+    if ref.get('source_kind') in ('readme', 'official_site', 'official_document', 'release') and ref.get('source_hash'):
+        if ref.get('context_changed') or ref.get('source_hash') != sourceHash:
+            result.update(context_changed=True, previous_source_hash=ref.get('previous_source_hash') or ref['source_hash'])
     if not _unchanged(ref, source):
         text = str(source.get('text', ''))[:16000]
         result.update(text=text, content_hash=hashlib.sha256(text.encode()).hexdigest(),
@@ -63,15 +91,68 @@ def mergeEvidence(previous: Record, fetched: Record) -> Record:
     return result
 
 
-def _recordPathResult(bundle: Record, claims: list[str], status: int, asOf: str) -> None:
+def _initializePaths(bundle: Record, content: Record) -> None:
+    refs = _records(bundle.get('refs'))
+    required: dict[str, list[str]] = {}
+    for path in _records(content.get('usage_paths')):
+        url = str(path.get('url', ''))
+        for refId in pathClaimRefs(content, path, refs):
+            required.setdefault(refId, []).append(url)
+    for ref in refs:
+        urls = required.get(str(ref.get('id')), [])
+        if not urls:
+            continue
+        checks = copy.deepcopy(_record(ref.get('path_checks')))
+        for url in urls:
+            checks.setdefault(url, {'status': 'unverified'})
+        ref.update(path_checks=checks, path_required_urls=list(dict.fromkeys(urls)))
+    bundle['refs'] = refs
+
+
+def _recordPathResult(bundle: Record, claims: list[str], url: str, status: int, asOf: str) -> None:
     refs = _records(bundle.get('refs'))
     for ref in refs:
         if ref.get('id') not in claims:
             continue
-        ref['path_status'] = status
+        checks = _record(ref.get('path_checks'))
+        check = _record(checks.get(url))
+        check.update(status=status, last_attempt_at=asOf)
         if status == 200:
-            ref['path_checked_at'] = asOf
+            check['checked_at'] = asOf
+        checks[url] = check
+        ref['path_checks'] = checks
+        _aggregatePathChecks(ref, checks)
     bundle['refs'] = refs
+
+
+def _aggregatePathChecks(ref: Record, checks: Record) -> None:
+    required = [_record(checks.get(url)) for url in _strings(ref.get('path_required_urls'))]
+    gone = next((check['status'] for check in required if check.get('status') in (404, 410)), None)
+    if gone:
+        ref['path_status'] = gone
+    elif required and all(check.get('status') == 200 and check.get('checked_at') for check in required):
+        ref.update(path_status=200, path_checked_at=min(str(check['checked_at']) for check in required))
+
+
+def _checkProjectPaths(project: Record, bundle: Record, client: GitHubClient,
+                       budget: Budget, asOf: str, result: Record) -> bool:
+    name, content = str(project.get('full_name', '')), _record(project.get('content'))
+    _initializePaths(bundle, content)
+    checked: set[str] = set()
+    for path in _records(content.get('usage_paths')):
+        url = str(path.get('url', ''))
+        if url in checked or not isOfficialUrl(url, name, content.get('official_urls')):
+            continue
+        checked.add(url)
+        try:
+            response = client.exchange('HEAD', url, None, budget, 'path', {'User-Agent': 'GitRadar-V4-link-check'})
+            ids = pathClaimRefs(content, path, _records(bundle.get('refs')))
+            _recordPathResult(bundle, ids, url, response.status, asOf)
+        except BudgetExceeded:
+            return False
+        except (OSError, ValueError):
+            result['path_failures'] = _strings(result.get('path_failures')) + [name + ':' + url]
+    return True
 
 
 def refreshPaths(projects: list[Record], evidence: Record, client: GitHubClient,
@@ -79,22 +160,11 @@ def refreshPaths(projects: list[Record], evidence: Record, client: GitHubClient,
     result = copy.deepcopy(evidence)
     bundles = _record(result.get('projects'))
     for project in projects[:20]:
-        name, content = str(project.get('full_name', '')), _record(project.get('content'))
-        paths = _records(content.get('usage_paths'))
-        if not paths or not isOfficialUrl(paths[0].get('url'), name, content.get('official_urls')):
-            continue
-        try:
-            response = client.exchange('HEAD', str(paths[0]['url']), None, budget, 'path',
-                                       {'User-Agent': 'GitRadar-V4-link-check'})
-            if response.status in (200, 404, 410):
-                bundle = _record(bundles.get(name))
-                ids = _strings(_record(content.get('claims')).get('usage_paths'))
-                _recordPathResult(bundle, ids, response.status, asOf)
-                bundles[name] = bundle
-        except BudgetExceeded:
+        name = str(project.get('full_name', ''))
+        bundle = _record(bundles.get(name))
+        complete = _checkProjectPaths(project, bundle, client, budget, asOf, result)
+        bundles[name] = bundle
+        if not complete:
             break
-        except (OSError, ValueError):
-            failures = _strings(result.get('path_failures'))
-            result['path_failures'] = failures + [name]
     result['projects'] = bundles
     return result

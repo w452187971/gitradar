@@ -146,7 +146,7 @@ class ScoreAndObservationTests(unittest.TestCase):
             with patch.object(collect, 'discover', side_effect=discover), patch.object(collect, 'api', return_value=payload):
                 with patch.object(collect, 'saveSnapshots', side_effect=save), patch('time.sleep'):
                     with contextlib.redirect_stdout(io.StringIO()):
-                        collect.main()
+                        collect.legacyMain()
         self.assertEqual('v3.3', captured.get('rules_version'))
         self.assertEqual(1, captured['collection_stats']['refreshed_count'])
         self.assertEqual(1, captured['collection_stats']['search_attempted'])

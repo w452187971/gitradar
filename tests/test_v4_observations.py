@@ -99,3 +99,32 @@ class ObservationTests(unittest.TestCase):
         result = applyObservations(old, [], DATE)
         self.assertEqual(result['projects'][0]['last_observed_at'], '2026-10-19T22:00:00Z')
         self.assertEqual(result['projects'][0]['observation_status'], 'deferred')
+
+    def test_confirmed_unavailable_state_survives_timeouts_and_is_cleared_by_success(self):
+        for httpStatus in [404, 410]:
+            original = snapshot()
+            unavailable = observation(status='not_found', http_status=httpStatus, error='Confirmed unavailable')
+            result = applyObservations(original, [unavailable], DATE)
+            project = result['projects'][0]
+            self.assertEqual(project['http_status'], httpStatus)
+            self.assertEqual(project['status'], 'not_found')
+            self.assertEqual(project['observation_status'], 'not_found')
+            self.assertEqual(result['history'], original['history'])
+            self.assertIsNone(project['delta_1d'])
+            self.assertIsNone(project['delta_7d'])
+            retained = applyObservations(result, [observation(status='failed', error='timeout')], DATE)
+            self.assertEqual(retained['projects'][0]['http_status'], httpStatus)
+            self.assertEqual(retained['projects'][0]['status'], 'not_found')
+            deferred = applyObservations(retained, [], DATE)
+            self.assertEqual(deferred['projects'][0]['observation_status'], 'not_found')
+            recovered = applyObservations(retained, [observation()], DATE)
+            self.assertNotIn('http_status', recovered['projects'][0])
+            self.assertEqual(recovered['projects'][0]['status'], 'success')
+            self.assertEqual(recovered['projects'][0]['observation_status'], 'fresh')
+            self.assertEqual(recovered['history']['a/old'][DATE], 95)
+
+    def test_generic_failure_does_not_invent_unavailability(self):
+        result = applyObservations(snapshot(), [observation(status='failed', error='unknown GraphQL null')], DATE)
+        self.assertNotIn('http_status', result['projects'][0])
+        self.assertNotEqual(result['projects'][0].get('status'), 'not_found')
+        self.assertEqual(result['projects'][0]['observation_status'], 'retained')

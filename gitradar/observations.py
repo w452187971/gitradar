@@ -31,6 +31,8 @@ def identityError(project: ProjectRecord, observation: Observation,
 
 
 def retainProject(project: ProjectRecord, status: str, error: str) -> None:
+    if project.get('http_status') in (404, 410) or project.get('status') == 'not_found':
+        status = 'not_found'
     project.update(observation_status=status, observation_error=error, delta_1d=None, delta_7d=None,
                    discovery_score=0)
 
@@ -68,6 +70,7 @@ def applySuccess(project: ProjectRecord, observation: Observation, history: Hist
                    schema_version=SCHEMA_VERSION)
     project['discovery_score'] = candidateScore(project, date)
     project.pop('observation_error', None)
+    project.pop('http_status', None)
 
 
 def candidateScore(project: ProjectRecord, date: dt.date) -> float:
@@ -110,6 +113,10 @@ def applyOne(projects: list[ProjectRecord], history: History, aliases: dict[str,
         if project is None:
             return
     if failure:
+        if observation.get('http_status') in (404, 410):
+            project.update(http_status=observation['http_status'], status='not_found')
+        elif observation.get('status') == 'not_found':
+            project['status'] = 'not_found'
         status = 'deferred' if observation.get('status') == 'deferred' else 'retained'
         retainProject(project, status, failure)
         return

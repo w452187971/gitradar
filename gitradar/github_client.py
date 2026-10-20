@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import base64
+import copy
 import datetime as dt
 import hashlib
 import json
@@ -11,8 +12,9 @@ import urllib.error
 import urllib.parse
 import urllib.request
 from dataclasses import asdict, dataclass
-from typing import Callable, Optional, cast
+from typing import Callable, Optional, Union, cast
 
+from .sources import (MAX_SOURCE_BYTES, SourceRequest, boundSourceRequests, visibleSourceText)
 from .models import Budget, EvidenceBundle, EvidenceRef, Observation, ObservationBatch, RepositoryRef, Usage
 
 API_ROOT = 'https://api.github.com'
@@ -22,6 +24,12 @@ NODE_FIELDS = ('id nameWithOwner stargazerCount createdAt isArchived isFork url 
 
 class BudgetExceeded(RuntimeError):
     """本轮已无法安全发出请求。"""
+
+
+class HttpStatusError(ValueError):
+    def __init__(self, status: int, url: str):
+        super().__init__(f'Official source HTTP {status}: {url}')
+        self.status, self.url = status, url
 
 
 @dataclass
@@ -38,18 +46,42 @@ def utcNow() -> str:
     return dt.datetime.now(dt.timezone.utc).isoformat().replace('+00:00', 'Z')
 
 
+class SameOriginRedirectHandler(urllib.request.HTTPRedirectHandler):
+    def redirect_request(self, req, fp, code, msg, headers, newurl):
+        before, after = urllib.parse.urlsplit(req.full_url), urllib.parse.urlsplit(newurl)
+        if after.scheme != 'https' or after.netloc != before.netloc or after.username or after.password:
+            return None
+        return super().redirect_request(req, fp, code, msg, headers, newurl)
+
+
+def responseBody(raw: bytes, apiResponse: bool, status: int) -> object:
+    if not raw:
+        return None
+    text = raw.decode('utf-8')
+    if not apiResponse:
+        return text
+    try:
+        return json.loads(text)
+    except ValueError as error:
+        if status != 200:
+            return text
+        raise ValueError('GitHub returned invalid JSON.') from error
+
+
 def httpTransport(method: str, url: str, headers: dict[str, str], body: Optional[bytes]) -> HttpResponse:
     request = urllib.request.Request(url, data=body, headers=headers, method=method)
+    opener = urllib.request.build_opener(SameOriginRedirectHandler())
     try:
-        response = urllib.request.urlopen(request, timeout=35)
+        response = opener.open(request, timeout=35)
     except urllib.error.HTTPError as error:
         response = error
+    apiResponse = urllib.parse.urlsplit(url).hostname == 'api.github.com'
+    maximum = MAX_SOURCE_BYTES*2 if apiResponse else MAX_SOURCE_BYTES
     with response:
-        raw = response.read()
-        try:
-            payload = json.loads(raw) if raw else None
-        except (ValueError, UnicodeDecodeError) as error:
-            raise ValueError('GitHub returned invalid JSON.') from error
+        raw = response.read(maximum+1)
+        if len(raw) > maximum:
+            raise ValueError('Official source exceeds the bounded reading limit.')
+        payload = responseBody(raw, apiResponse, response.status)
         return HttpResponse(response.status, dict(response.headers.items()), payload)
 
 
@@ -167,7 +199,7 @@ class GitHubClient:
             self.usage.not_modified += 1
             return entry['body']
         if response.status != 200:
-            raise ValueError(f'GitHub REST HTTP {response.status}.')
+            raise HttpStatusError(response.status, url)
         if cache is not None and self.lastHeaders.get('etag'):
             cache[url] = {'etag': self.lastHeaders['etag'], 'identity': identity,
                           'authenticated': bool(self.token), 'auth_scope': self.authScope(), 'body': response.body}
@@ -241,7 +273,7 @@ class GitHubClient:
                 observations.append(self.parseRestObservation(ref, payload))
             except (OSError, ValueError, BudgetExceeded) as error:
                 status = 'deferred' if isinstance(error, BudgetExceeded) else 'failed'
-                observations.append(self.failedObservation(ref, str(error), status))
+                observations.append(self.failedObservation(ref, error, status))
                 errors.append(str(error))
         return {'observations': observations, 'observed_at': observedAt,
                 'errors': errors, 'usage': cast(dict[str, object], asdict(self.usage))}
@@ -261,8 +293,7 @@ class GitHubClient:
 
     def parseBatch(self, refs: list[RepositoryRef], payload: dict[str, object]) -> list[Observation]:
         data = payload.get('data')
-        if not isinstance(data, dict):
-            return [self.failedObservation(ref, 'GraphQL returned no data.') for ref in refs]
+        data = data if isinstance(data, dict) else {}
         nodes = data.get('nodes')
         byId = {node['id']: node for node in nodes if isinstance(node, dict) and isinstance(node.get('id'), str)} \
             if isinstance(nodes, list) else {}
@@ -270,10 +301,45 @@ class GitHubClient:
         for index, ref in enumerate(refs):
             node = byId.get(ref.get('node_id')) if isinstance(nodes, list) else data.get('r' + str(index))
             try:
+                nodeQuery = all(item.get('node_id') for item in refs)
+                position = next((i for i, value in enumerate(nodes) if value is node), index) if isinstance(nodes, list) and node is not None else index
+                path = ['nodes', position] if nodeQuery else ['r' + str(index)]
+                if self.notFoundNodeError(payload.get('errors'), path):
+                    raise HttpStatusError(404, ref['full_name'])
+                if self.criticalNodeError(payload.get('errors'), nodes, node, index):
+                    raise ValueError('GraphQL failed a critical repository field.')
                 result.append(self.parseNode(ref, node))
             except ValueError as error:
-                result.append(self.failedObservation(ref, str(error)))
+                result.append(self.failedObservation(ref, error))
         return result
+
+    def notFoundNodeError(self, errors: object, path: list[Union[str, int]]) -> bool:
+        if not isinstance(errors, list):
+            return False
+        for error in errors:
+            if not isinstance(error, dict) or error.get('path') != path:
+                continue
+            extensions = error.get('extensions')
+            code = extensions.get('code') if isinstance(extensions, dict) else None
+            if error.get('type') == 'NOT_FOUND' or code == 'NOT_FOUND':
+                return True
+        return False
+
+    def criticalNodeError(self, errors: object, nodes: object, node: object, index: int) -> bool:
+        critical = {'id', 'nameWithOwner', 'stargazerCount', 'createdAt', 'isArchived', 'isFork'}
+        if not isinstance(errors, list):
+            return False
+        nodeIndex = next((position for position, item in enumerate(nodes) if item is node), -1)             if isinstance(nodes, list) else -1
+        for error in errors:
+            path = error.get('path') if isinstance(error, dict) else None
+            if not isinstance(path, list) or not path:
+                continue
+            affected = (path[0] == 'r' + str(index)) or (len(path) > 1 and
+                        path[0] == 'nodes' and path[1] == nodeIndex)
+            fieldOffset = 2 if path[0] == 'nodes' else 1
+            if affected and (len(path) <= fieldOffset or path[fieldOffset] in critical):
+                return True
+        return False
 
     def parseNode(self, ref: RepositoryRef, value: object) -> Observation:
         if not isinstance(value, dict) or not isinstance(value.get('id'), str):
@@ -284,6 +350,8 @@ class GitHubClient:
             raise ValueError('Invalid observed Star count.')
         if not isinstance(value.get('nameWithOwner'), str) or not isinstance(value.get('createdAt'), str):
             raise ValueError('Missing repository name or creation date.')
+        if type(value.get('isArchived')) is not bool or type(value.get('isFork')) is not bool:
+            raise ValueError('Repository archive and fork states must be explicit booleans.')
         language = value.get('primaryLanguage')
         topics = value.get('repositoryTopics', {})
         topicNodes = topics.get('nodes', []) if isinstance(topics, dict) else []
@@ -299,31 +367,80 @@ class GitHubClient:
             observation['history_key'] = ref['history_key']
         return observation
 
-    def failedObservation(self, ref: RepositoryRef, reason: str, status: str = 'failed') -> Observation:
+    def failedObservation(self, ref: RepositoryRef, reason: Union[str, Exception], status: str = 'failed') -> Observation:
         observation = cast(Observation, dict(ref))
-        observation.update(observed_at=self.now(), status=status, error=reason)
+        observation.update(observed_at=self.now(), status=status, error=str(reason))
+        if isinstance(reason, HttpStatusError) and reason.status in (404, 410):
+            observation.update(status='not_found', http_status=reason.status)
         return observation
 
     def readProjectEvidence(self, ref: RepositoryRef, previousEvidence: Optional[EvidenceBundle],
                             budget: Budget) -> EvidenceBundle:
         previous = previousEvidence or {}
-        cache = dict(previous.get('cache', {})) if previous.get('node_id') == ref.get('node_id') else {}
+        sameIdentity = previous.get('node_id') == ref.get('node_id')
+        cache = dict(previous.get('cache', {})) if sameIdentity else {}
+        requests, errors = boundSourceRequests(previous if sameIdentity else {}, ref)
         refs: list[EvidenceRef] = []
-        errors: list[str] = []
-        for suffix, kind in [('readme', 'readme'), ('releases/latest', 'release'), ('', 'repository')]:
+        defaults = self.defaultSources(ref, requests)
+        for source in requests + defaults:
             try:
-                path = '/repos/' + urllib.parse.quote(ref['full_name'], safe='/') + ('/' + suffix if suffix else '')
-                payload = self.requestRest(path, budget, 'content', cache, ref.get('node_id'))
-                if kind == 'repository' and isinstance(payload, dict) and ref.get('node_id') != payload.get('node_id'):
-                    raise ValueError('Evidence repository identity changed.')
-                refs.extend(self.evidenceRefs(payload, kind, ref))
+                refs.extend(self.readEvidenceSource(source, ref, budget, cache))
             except (OSError, ValueError, BudgetExceeded) as error:
-                errors.append(f'{kind}: {error}')
-                if previous.get('node_id') == ref.get('node_id'):
-                    refs.extend(old for old in previous.get('refs', []) if old.get('source_kind') == kind)
+                errors.append(str(error))
+                refs.extend(self.failedEvidenceSource(source, error))
         return {'full_name': ref['full_name'], 'node_id': ref.get('node_id', ''), 'refs': refs,
-                'cache': cache, 'errors': errors, 'status': 'partial' if refs and errors else
-                ('success' if refs else 'failed')}
+                'cache': cache, 'official_urls': previous.get('official_urls', []),
+                'errors': errors, 'status': 'partial' if refs and errors else ('success' if refs else 'failed')}
+
+    def defaultSources(self, ref: RepositoryRef, required: list[SourceRequest]) -> list[SourceRequest]:
+        root = '/repos/' + urllib.parse.quote(ref['full_name'], safe='/')
+        defaults = [SourceRequest(API_ROOT + root + '/' + suffix, root + '/' + suffix, kind)
+                    for suffix, kind in [('readme', 'readme'), ('releases/latest', 'release')]]
+        defaults.append(SourceRequest(API_ROOT + root, root, 'repository'))
+        known = {source.endpoint for source in required}
+        available = [source for source in defaults if source.endpoint not in known and
+                     API_ROOT + source.endpoint not in known]
+        return available[:max(0, 3-len(required))]
+
+    def readEvidenceSource(self, source: SourceRequest, ref: RepositoryRef, budget: Budget,
+                           cache: dict[str, object]) -> list[EvidenceRef]:
+        if source.web:
+            headers = {'Accept': 'text/html, text/plain;q=0.9', 'User-Agent': 'GitRadar-V4'}
+            response = self.exchange('GET', source.url, None, budget, 'content', headers)
+            if response.status != 200:
+                raise HttpStatusError(response.status, source.url)
+            text = visibleSourceText(response.body, self.lastHeaders.get('content-type', ''))
+            return self.webEvidence(text, source, ref)
+        payload = self.requestRest(source.endpoint, budget, 'content', cache, ref.get('node_id'))
+        if not isinstance(payload, dict):
+            raise ValueError('Official evidence response must be an object.')
+        if source.kind == 'repository' and ref.get('node_id') != payload.get('node_id'):
+            raise ValueError('Evidence repository identity changed.')
+        payload = dict(payload, html_url=source.url if source.old_refs else payload.get('html_url') or source.url)
+        kind = 'readme' if payload.get('encoding') == 'base64' else source.kind
+        refs = self.evidenceRefs(payload, kind, ref)
+        for evidence in refs:
+            evidence['source_kind'] = source.kind
+        return refs
+
+    def webEvidence(self, text: str, source: SourceRequest, ref: RepositoryRef) -> list[EvidenceRef]:
+        kinds = {old.get('source_kind', source.kind) for old in source.old_refs} or {source.kind}
+        refs = [self.makeEvidenceRef(text, kind, 'source', {'html_url': source.url}, ref) for kind in kinds]
+        for old in source.old_refs:
+            fragment = old.get('text')
+            if isinstance(fragment, str) and fragment and fragment in text:
+                evidence = copy.deepcopy(old)
+                evidence.update(checked_at=self.now(), status=200,
+                                source_hash=hashlib.sha256(text.encode()).hexdigest())
+                refs.append(evidence)
+        return refs
+
+    def failedEvidenceSource(self, source: SourceRequest, error: Exception) -> list[EvidenceRef]:
+        refs = copy.deepcopy(source.old_refs)
+        if isinstance(error, HttpStatusError) and error.status in (404, 410):
+            for old in refs:
+                old['status'] = error.status
+        return refs
 
     def evidenceRefs(self, payload: object, kind: str, ref: RepositoryRef) -> list[EvidenceRef]:
         if not isinstance(payload, dict):

@@ -1,3 +1,6 @@
 .DS_Store
 __pycache__/
 *.py[cod]
+
+.v4-output/
+.v4-preview/
