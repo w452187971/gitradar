@@ -1,0 +1,19 @@
+{
+  "run_id": 39460331994,
+  "run_url": "https://github.com/w452187971/gitradar/actions/runs/39460331994",
+  "code_commit": "f88b0dbf5ce770866fa3457e89b3b7ac999eccc6",
+  "protocol_version": 2,
+  "scope": "same six seen development cases, not blind",
+  "status": "failed_unverified",
+  "files": {
+    "case-00-schema-canary.txt": "b7ccdc558e5b464862c8e832c7d59595caee17f56efadfac671f9b29dd50202c",
+    "case-01.txt": "f0b3e98119fc53bdf9e40646523bad44f9dd005bdd02f52b7e3d441221979fc8",
+    "case-02.txt": "f080b72a1169f698cade619f91702ffd6303cebb2ea4fd4e9d4375a068c8c03a",
+    "case-03.txt": "f9cc48cebc10646621469fca0abf8f9a51789f98d5ad2747a06ac4bd0e71fcb6",
+    "case-04.txt": "5c64f560510d17dd5dc38eae61473d4e8f2c0fa0071074e662e55d79b3585e32",
+    "case-05.txt": "afe03e6e5bdd80bb3208a02f736a4ea88dae6a1334937341e6fce53c0f2aac30",
+    "case-06.txt": "e5a2c80c858a0a0eb23e03cd365447be9250496bf084d805ec940c16e1cdbbc0",
+    "report.json": "6e1f2e44d153d7b43fd7cb1ef078833d03de83df4a9e7d2b6f72becbd25e0b02",
+    "server.log": "746400039ab6fe8aa1a4cff6839cdc1f1e87a74998a0ed841d4d45c35bf05cc8"
+  }
+}

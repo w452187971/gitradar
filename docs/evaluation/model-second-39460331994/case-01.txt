@@ -1,0 +1,11 @@
+{
+  "purpose": {"value": "使Windows任务栏透明/透明", "source_quote": "A lightweight (uses a few MB of RAM and almost no CPU) utility that makes the Windows taskbar translucent/transparent on Windows 10 and Windows 11.", "ref_id": "r1"},
+  "audience": {"value": "Windows用户", "source_quote": "A lightweight (uses a few MB of RAM and almost no CPU) utility that makes the Windows taskbar translucent/transparent on Windows 10 and Windows 11.", "ref_id": "r1"},
+  "platforms": {"value": "Windows 10/11", "source_quote": "A lightweight (uses a few MB of RAM and almost no CPU) utility that makes the Windows taskbar translucent/transparent on Windows 10 and Windows 11.", "ref_id": "r1"},
+  "form": {"value": "桌面应用程序", "source_quote": "A lightweight (uses a few MB of RAM and almost no CPU) utility that makes the Windows taskbar translucent/transparent on Windows 10 and Windows 11.", "ref_id": "r1"},
+  "requirements": {"value": "Windows 10/11", "source_quote": "A lightweight (uses a few MB of RAM and almost no CPU) utility that makes the Windows taskbar translucent/transparent on Windows 10 and Windows 11.", "ref_id": "r1"},
+  "path": {"value": "https://apps.microsoft.com/store/apps/9PF4KZ2VN4W9", "source_quote": "You can download the program for free from the [Microsoft Store](https://www.microsoft.com/store/apps/9PF4KZ2VN4W9) and take advantage of its features like background auto-updates.", "ref_id": "r2"},
+  "fees": {"value": "免费", "source_quote": "This program is free (as in speech) software under the GPLv3.", "ref_id": "r3"},
+  "license": {"value": "GPLv3", "source_quote": "This program is free (as in speech) software under the GPLv3.", "ref_id": "r3"},
+  "unknowns": ["platforms", "form", "requirements", "path", "fees", "license"]
+}

@@ -1,0 +1,11 @@
+{
+  "purpose": {"value": "Transformers acts as the model-definition framework for state-of-the-art machine learning with text, computer vision, audio, video, and multimodal models, for both inference and training.", "source_quote": "r1", "ref_id": "r1"},
+  "audience": {"value": "Researchers and developers who need to define and use state-of-the-art machine learning models.", "source_quote": "r1", "ref_id": "r1"},
+  "platforms": {"value": "Python 3.10+ and PyTorch 2.6+", "source_quote": "r2", "ref_id": "r2"},
+  "form": {"value": "Python package", "source_quote": "r2", "ref_id": "r2"},
+  "requirements": {"value": "Python 3.10+, PyTorch 2.6+", "source_quote": "r2", "ref_id": "r2"},
+  "path": {"value": "https://huggingface.co/transformers", "source_quote": "r1", "ref_id": "r1"},
+  "fees": {"value": null, "source_quote": null, "ref_id": null},
+  "license": {"value": null, "source_quote": null, "ref_id": null},
+  "unknowns": ["purpose", "audience", "platforms", "form", "requirements", "path", "fees", "license"]
+}

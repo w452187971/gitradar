@@ -1,0 +1,744 @@
+{
+  "version": 2,
+  "request_contract": "b11756-nested-json-schema-v2",
+  "checked_at": "2026-10-20T16:46:20.860233+00:00",
+  "status": "failed_unverified",
+  "cases": [
+    {
+      "full_name": "TranslucentTB/TranslucentTB",
+      "kind": "desktop",
+      "status": "failed",
+      "semantic_status": "human_review_required",
+      "token_budget": {
+        "prompt_tokens": 768,
+        "reserved_output_tokens": 700,
+        "special_token_margin": 8,
+        "context": 4096,
+        "fits": true
+      },
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 503,
+        "prompt_tokens": 768,
+        "total_tokens": 1271,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 768,
+        "prompt_ms": 7245.681,
+        "prompt_per_token_ms": 9.43448046875,
+        "prompt_per_second": 105.99417777293812,
+        "predicted_n": 503,
+        "predicted_ms": 26027.955,
+        "predicted_per_token_ms": 51.848515936254984,
+        "predicted_per_second": 19.286955121906423
+      },
+      "prefill_seconds": 7.245680999999999,
+      "generate_seconds": 26.027955000000002,
+      "thinking_disabled": true,
+      "output": {
+        "purpose": {
+          "value": "使Windows任务栏透明/透明",
+          "source_quote": "A lightweight (uses a few MB of RAM and almost no CPU) utility that makes the Windows taskbar translucent/transparent on Windows 10 and Windows 11.",
+          "ref_id": "r1"
+        },
+        "audience": {
+          "value": "Windows用户",
+          "source_quote": "A lightweight (uses a few MB of RAM and almost no CPU) utility that makes the Windows taskbar translucent/transparent on Windows 10 and Windows 11.",
+          "ref_id": "r1"
+        },
+        "platforms": {
+          "value": "Windows 10/11",
+          "source_quote": "A lightweight (uses a few MB of RAM and almost no CPU) utility that makes the Windows taskbar translucent/transparent on Windows 10 and Windows 11.",
+          "ref_id": "r1"
+        },
+        "form": {
+          "value": "桌面应用程序",
+          "source_quote": "A lightweight (uses a few MB of RAM and almost no CPU) utility that makes the Windows taskbar translucent/transparent on Windows 10 and Windows 11.",
+          "ref_id": "r1"
+        },
+        "requirements": {
+          "value": "Windows 10/11",
+          "source_quote": "A lightweight (uses a few MB of RAM and almost no CPU) utility that makes the Windows taskbar translucent/transparent on Windows 10 and Windows 11.",
+          "ref_id": "r1"
+        },
+        "path": {
+          "value": "https://apps.microsoft.com/store/apps/9PF4KZ2VN4W9",
+          "source_quote": "You can download the program for free from the [Microsoft Store](https://www.microsoft.com/store/apps/9PF4KZ2VN4W9) and take advantage of its features like background auto-updates.",
+          "ref_id": "r2"
+        },
+        "fees": {
+          "value": "免费",
+          "source_quote": "This program is free (as in speech) software under the GPLv3.",
+          "ref_id": "r3"
+        },
+        "license": {
+          "value": "GPLv3",
+          "source_quote": "This program is free (as in speech) software under the GPLv3.",
+          "ref_id": "r3"
+        },
+        "unknowns": [
+          "platforms",
+          "form",
+          "requirements",
+          "path",
+          "fees",
+          "license"
+        ]
+      },
+      "schema_valid": false,
+      "quotes_match": false,
+      "quoted_fields": 0,
+      "matched_fields": 0,
+      "wall_seconds": 33.319
+    },
+    {
+      "full_name": "AdguardTeam/AdGuardHome",
+      "kind": "self_hosted",
+      "status": "failed",
+      "semantic_status": "human_review_required",
+      "token_budget": {
+        "prompt_tokens": 784,
+        "reserved_output_tokens": 700,
+        "special_token_margin": 8,
+        "context": 4096,
+        "fits": true
+      },
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 380,
+        "prompt_tokens": 784,
+        "total_tokens": 1164,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 784,
+        "prompt_ms": 7436.715,
+        "prompt_per_token_ms": 9.485605867346939,
+        "prompt_per_second": 105.42289169344261,
+        "predicted_n": 380,
+        "predicted_ms": 19772.912,
+        "predicted_per_token_ms": 52.171271767810026,
+        "predicted_per_second": 19.16763701775439
+      },
+      "prefill_seconds": 7.436715,
+      "generate_seconds": 19.772912,
+      "thinking_disabled": true,
+      "output": {
+        "purpose": {
+          "value": "网络级广告和追踪器阻断",
+          "source_quote": "  Free and open source, powerful network-wide ads & trackers blocking DNS server.",
+          "ref_id": "r1"
+        },
+        "audience": {
+          "value": "网络用户",
+          "source_quote": "AdGuard Home is a network-wide software for blocking ads and tracking.",
+          "ref_id": "r2"
+        },
+        "platforms": {
+          "value": "Linux, macOS, Windows",
+          "source_quote": "Manual installation",
+          "ref_id": "r3"
+        },
+        "form": {
+          "value": "DNS服务器",
+          "source_quote": "AdGuard Home is a network-wide software for blocking ads and tracking. It operates as a DNS server that re-routes tracking domains to a “black hole”, thus preventing your devices from connecting to those servers.",
+          "ref_id": "r2"
+        },
+        "requirements": {
+          "value": "网络环境",
+          "source_quote": "AdGuard Home is a network-wide software for blocking ads and tracking. It operates as a DNS server that re-routes tracking domains to a “black hole”, thus preventing your devices from connecting to those servers.",
+          "ref_id": "r2"
+        },
+        "path": {
+          "value": "https://wiki.adguard.com/AdGuard-Home/Getting-Started",
+          "source_quote": "Manual installation",
+          "ref_id": "r3"
+        },
+        "fees": {
+          "value": "免费",
+          "source_quote": "Free and open source",
+          "ref_id": "r1"
+        },
+        "license": {
+          "value": "开源",
+          "source_quote": "Free and open source",
+          "ref_id": "r1"
+        },
+        "unknowns": [
+          "purpose",
+          "audience",
+          "platforms",
+          "form",
+          "requirements",
+          "path",
+          "fees",
+          "license"
+        ]
+      },
+      "schema_valid": false,
+      "quotes_match": false,
+      "quoted_fields": 0,
+      "matched_fields": 0,
+      "wall_seconds": 27.315
+    },
+    {
+      "full_name": "sharkdp/fd",
+      "kind": "cli",
+      "status": "failed",
+      "semantic_status": "human_review_required",
+      "token_budget": {
+        "prompt_tokens": 691,
+        "reserved_output_tokens": 700,
+        "special_token_margin": 8,
+        "context": 4096,
+        "fits": true
+      },
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 356,
+        "prompt_tokens": 691,
+        "total_tokens": 1047,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 691,
+        "prompt_ms": 6265.743,
+        "prompt_per_token_ms": 9.067645441389292,
+        "prompt_per_second": 110.28221234097855,
+        "predicted_n": 356,
+        "predicted_ms": 18634.669,
+        "predicted_per_token_ms": 52.492025352112684,
+        "predicted_per_second": 19.050512783457542
+      },
+      "prefill_seconds": 6.2657430000000005,
+      "generate_seconds": 18.634669000000002,
+      "thinking_disabled": true,
+      "output": {
+        "purpose": {
+          "value": "查找文件系统中的条目",
+          "source_quote": "fd 是一个程序，用于查找文件系统中的条目。",
+          "ref_id": "r1"
+        },
+        "audience": {
+          "value": "用户",
+          "source_quote": "fd 是一个简单、快速且用户友好的替代品。",
+          "ref_id": "r1"
+        },
+        "platforms": {
+          "value": "Linux, macOS, Windows",
+          "source_quote": "预编译二进制文件包含在发布页面中。",
+          "ref_id": "r2"
+        },
+        "form": {
+          "value": "命令行工具",
+          "source_quote": "fd 是一个命令行程序。",
+          "ref_id": "r1"
+        },
+        "requirements": {
+          "value": "系统支持 Linux, macOS, Windows",
+          "source_quote": "预编译二进制文件包含在发布页面中。",
+          "ref_id": "r2"
+        },
+        "path": {
+          "value": "https://github.com/sharkdp/fd/releases",
+          "source_quote": "预编译二进制文件包含在发布页面中。",
+          "ref_id": "r2"
+        },
+        "fees": {
+          "value": "免费",
+          "source_quote": "fd 是免费的。",
+          "ref_id": "r1"
+        },
+        "license": {
+          "value": "MIT 和 Apache 2.0",
+          "source_quote": "fd 以 MIT 和 Apache 2.0 许可证分发。",
+          "ref_id": "r3"
+        },
+        "unknowns": [
+          "purpose",
+          "audience",
+          "platforms",
+          "form",
+          "requirements",
+          "path",
+          "fees",
+          "license"
+        ]
+      },
+      "schema_valid": false,
+      "quotes_match": false,
+      "quoted_fields": 0,
+      "matched_fields": 0,
+      "wall_seconds": 24.998
+    },
+    {
+      "full_name": "huggingface/transformers",
+      "kind": "library",
+      "status": "failed",
+      "semantic_status": "human_review_required",
+      "token_budget": {
+        "prompt_tokens": 903,
+        "reserved_output_tokens": 700,
+        "special_token_margin": 8,
+        "context": 4096,
+        "fits": true
+      },
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 321,
+        "prompt_tokens": 903,
+        "total_tokens": 1224,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 903,
+        "prompt_ms": 8476.249,
+        "prompt_per_token_ms": 9.38676522702104,
+        "prompt_per_second": 106.53297230885973,
+        "predicted_n": 321,
+        "predicted_ms": 16674.405,
+        "predicted_per_token_ms": 52.107515625,
+        "predicted_per_second": 19.191089577109352
+      },
+      "prefill_seconds": 8.476249,
+      "generate_seconds": 16.674405,
+      "thinking_disabled": true,
+      "output": {
+        "purpose": {
+          "value": "Transformers acts as the model-definition framework for state-of-the-art machine learning with text, computer vision, audio, video, and multimodal models, for both inference and training.",
+          "source_quote": "r1",
+          "ref_id": "r1"
+        },
+        "audience": {
+          "value": "Researchers and developers who need to define and use state-of-the-art machine learning models.",
+          "source_quote": "r1",
+          "ref_id": "r1"
+        },
+        "platforms": {
+          "value": "Python 3.10+ and PyTorch 2.6+",
+          "source_quote": "r2",
+          "ref_id": "r2"
+        },
+        "form": {
+          "value": "Python package",
+          "source_quote": "r2",
+          "ref_id": "r2"
+        },
+        "requirements": {
+          "value": "Python 3.10+, PyTorch 2.6+",
+          "source_quote": "r2",
+          "ref_id": "r2"
+        },
+        "path": {
+          "value": "https://huggingface.co/transformers",
+          "source_quote": "r1",
+          "ref_id": "r1"
+        },
+        "fees": {
+          "value": null,
+          "source_quote": null,
+          "ref_id": null
+        },
+        "license": {
+          "value": null,
+          "source_quote": null,
+          "ref_id": null
+        },
+        "unknowns": [
+          "purpose",
+          "audience",
+          "platforms",
+          "form",
+          "requirements",
+          "path",
+          "fees",
+          "license"
+        ]
+      },
+      "schema_valid": false,
+      "quotes_match": false,
+      "quoted_fields": 0,
+      "matched_fields": 0,
+      "wall_seconds": 25.255
+    },
+    {
+      "full_name": "hehonghui/awesome-english-ebooks",
+      "kind": "collection_other_subject",
+      "status": "format_and_quotes_passed_semantics_pending",
+      "semantic_status": "human_review_required",
+      "token_budget": {
+        "prompt_tokens": 705,
+        "reserved_output_tokens": 700,
+        "special_token_margin": 8,
+        "context": 4096,
+        "fits": true
+      },
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 206,
+        "prompt_tokens": 705,
+        "total_tokens": 911,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 705,
+        "prompt_ms": 6582.316,
+        "prompt_per_token_ms": 9.336618439716311,
+        "prompt_per_second": 107.10515873136447,
+        "predicted_n": 206,
+        "predicted_ms": 10390.358,
+        "predicted_per_token_ms": 50.684673170731706,
+        "predicted_per_second": 19.729830290736857
+      },
+      "prefill_seconds": 6.582316,
+      "generate_seconds": 10.390358,
+      "thinking_disabled": true,
+      "output": {
+        "purpose": {
+          "value": null,
+          "source_quote": null,
+          "ref_id": null
+        },
+        "audience": {
+          "value": null,
+          "source_quote": null,
+          "ref_id": null
+        },
+        "platforms": {
+          "value": null,
+          "source_quote": null,
+          "ref_id": null
+        },
+        "form": {
+          "value": null,
+          "source_quote": null,
+          "ref_id": null
+        },
+        "requirements": {
+          "value": null,
+          "source_quote": null,
+          "ref_id": null
+        },
+        "path": {
+          "value": null,
+          "source_quote": null,
+          "ref_id": null
+        },
+        "fees": {
+          "value": null,
+          "source_quote": null,
+          "ref_id": null
+        },
+        "license": {
+          "value": null,
+          "source_quote": null,
+          "ref_id": null
+        },
+        "unknowns": [
+          "purpose",
+          "audience",
+          "platforms",
+          "form",
+          "requirements",
+          "path",
+          "fees",
+          "license"
+        ]
+      },
+      "schema_valid": true,
+      "quotes_match": true,
+      "quoted_fields": 0,
+      "matched_fields": 0,
+      "wall_seconds": 17.081
+    },
+    {
+      "full_name": "squoosh/squoosh",
+      "kind": "missing_official_source",
+      "status": "format_and_quotes_passed_semantics_pending",
+      "semantic_status": "human_review_required",
+      "unknown_control": {
+        "passed": 8,
+        "total": 8
+      },
+      "token_budget": {
+        "prompt_tokens": 474,
+        "reserved_output_tokens": 700,
+        "special_token_margin": 8,
+        "context": 4096,
+        "fits": true
+      },
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 195,
+        "prompt_tokens": 474,
+        "total_tokens": 669,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 474,
+        "prompt_ms": 4322.579,
+        "prompt_per_token_ms": 9.119364978902953,
+        "prompt_per_second": 109.65675815294529,
+        "predicted_n": 195,
+        "predicted_ms": 9395.305,
+        "predicted_per_token_ms": 48.429407216494845,
+        "predicted_per_second": 20.648611194633915
+      },
+      "prefill_seconds": 4.322578999999999,
+      "generate_seconds": 9.395305,
+      "thinking_disabled": true,
+      "output": {
+        "purpose": {
+          "value": null,
+          "source_quote": null,
+          "ref_id": null
+        },
+        "audience": {
+          "value": null,
+          "source_quote": null,
+          "ref_id": null
+        },
+        "platforms": {
+          "value": null,
+          "source_quote": null,
+          "ref_id": null
+        },
+        "form": {
+          "value": null,
+          "source_quote": null,
+          "ref_id": null
+        },
+        "requirements": {
+          "value": null,
+          "source_quote": null,
+          "ref_id": null
+        },
+        "path": {
+          "value": null,
+          "source_quote": null,
+          "ref_id": null
+        },
+        "fees": {
+          "value": null,
+          "source_quote": null,
+          "ref_id": null
+        },
+        "license": {
+          "value": null,
+          "source_quote": null,
+          "ref_id": null
+        },
+        "unknowns": [
+          "purpose",
+          "audience",
+          "platforms",
+          "form",
+          "requirements",
+          "path",
+          "fees",
+          "license"
+        ]
+      },
+      "schema_valid": true,
+      "quotes_match": true,
+      "quoted_fields": 0,
+      "matched_fields": 0,
+      "wall_seconds": 13.799
+    }
+  ],
+  "scope": "six seen development cases, not blind",
+  "runtime": {
+    "platform": "Linux-7.0.0-1017-azure-x86_64-with-glibc2.39",
+    "cpu_count": 4,
+    "runner_os": "Linux",
+    "runner_arch": "X64"
+  },
+  "limits": {
+    "cpu_threads": 4,
+    "gpu_layers": 0,
+    "context": 4096,
+    "max_tokens": 700,
+    "temperature": 0,
+    "thinking": false,
+    "whole_timeout_seconds": 900
+  },
+  "pins": {
+    "runtime": {
+      "project": "ggml-org/llama.cpp",
+      "tag": "b11756",
+      "source": "https://github.com/ggml-org/llama.cpp/releases/tag/b11756",
+      "url": "https://github.com/ggml-org/llama.cpp/releases/download/b11756/llama-b11756-bin-ubuntu-x64.tar.gz",
+      "sha256": "9def57d9e9b0149979a9ceba40896a4e2bf88c94734069a5567d2f487ceab551",
+      "size": 22240705,
+      "checksum_provenance": "GitHub official release asset digest from authenticated read-only REST metadata, 2026-10-21",
+      "license": "MIT"
+    },
+    "model": {
+      "project": "Qwen/Qwen3-1.7B-GGUF",
+      "revision": "90862c4b9d2787eaed51d12237eafdfe7c5f6077",
+      "filename": "Qwen3-1.7B-Q8_0.gguf",
+      "source": "https://huggingface.co/Qwen/Qwen3-1.7B-GGUF/tree/90862c4b9d2787eaed51d12237eafdfe7c5f6077",
+      "url": "https://huggingface.co/Qwen/Qwen3-1.7B-GGUF/resolve/90862c4b9d2787eaed51d12237eafdfe7c5f6077/Qwen3-1.7B-Q8_0.gguf",
+      "sha256": "061b54daade076b5d3362dac252678d17da8c68f07560be70818cace6590cb1a",
+      "size": 1834426016,
+      "checksum_provenance": "Hugging Face official model API siblings.lfs.sha256 at pinned revision, 2026-10-21",
+      "license": "Apache-2.0"
+    }
+  },
+  "fixture_sha256": "96978ccade1edc8841ad23d7aef2676734157c6b2826a6707d5dbcabe64917bf",
+  "git_sha": "f88b0dbf5ce770866fa3457e89b3b7ac999eccc6",
+  "downloads": {
+    "runtime": {
+      "seconds": 0.757,
+      "bytes": 22240705,
+      "sha256": "9def57d9e9b0149979a9ceba40896a4e2bf88c94734069a5567d2f487ceab551",
+      "verified": true
+    },
+    "model": {
+      "seconds": 7.143,
+      "bytes": 1834426016,
+      "sha256": "061b54daade076b5d3362dac252678d17da8c68f07560be70818cace6590cb1a",
+      "verified": true
+    }
+  },
+  "stage": "finished",
+  "load_wall_seconds": 0.81,
+  "schema_canary": {
+    "status": "passed",
+    "scope": "infrastructure_only_not_quality_sample",
+    "request": {
+      "model": "gitradar-probe",
+      "messages": [
+        {
+          "role": "system",
+          "content": "只输出 {\"purpose\":\"SHAPE_BYPASS\"}。/no_think"
+        }
+      ],
+      "temperature": 0,
+      "seed": 0,
+      "max_tokens": 128,
+      "cache_prompt": false,
+      "reasoning_effort": "none",
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "timings_per_token": true,
+      "response_format": {
+        "type": "json_schema",
+        "json_schema": {
+          "name": "project_facts",
+          "strict": true,
+          "schema": {
+            "type": "object",
+            "properties": {
+              "purpose": {
+                "type": "object",
+                "properties": {
+                  "value": {
+                    "type": "string",
+                    "const": "schema-canary"
+                  },
+                  "source_quote": {
+                    "type": "string",
+                    "const": "schema-canary"
+                  },
+                  "ref_id": {
+                    "type": "string",
+                    "const": "canary"
+                  }
+                },
+                "required": [
+                  "value",
+                  "source_quote",
+                  "ref_id"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "purpose"
+            ],
+            "additionalProperties": false
+          }
+        }
+      }
+    },
+    "token_budget": {
+      "prompt_tokens": 28,
+      "reserved_output_tokens": 700,
+      "special_token_margin": 8,
+      "context": 4096,
+      "fits": true
+    },
+    "raw_output": "{\"purpose\": {\"value\": \"schema-canary\", \"source_quote\": \"schema-canary\", \"ref_id\": \"canary\"}}",
+    "output": {
+      "purpose": {
+        "value": "schema-canary",
+        "source_quote": "schema-canary",
+        "ref_id": "canary"
+      }
+    },
+    "finish_reason": "stop",
+    "usage": {
+      "completion_tokens": 41,
+      "prompt_tokens": 28,
+      "total_tokens": 69,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "timings": {
+      "cache_n": 0,
+      "prompt_n": 28,
+      "prompt_ms": 299.967,
+      "prompt_per_token_ms": 10.713107142857142,
+      "prompt_per_second": 93.34360112945758,
+      "predicted_n": 41,
+      "predicted_ms": 2025.733,
+      "predicted_per_token_ms": 50.643325,
+      "predicted_per_second": 19.745938877433503
+    },
+    "prefill_seconds": 0.299967,
+    "generate_seconds": 2.025733,
+    "thinking_disabled": true,
+    "wall_seconds": 2.369
+  },
+  "memory": {
+    "peak_rss_kib": 3026252,
+    "method": "/proc/server_pid/status VmHWM sampled every 100ms"
+  },
+  "total_wall_seconds": 153.479,
+  "metrics": {
+    "requested": 6,
+    "attempted": 6,
+    "json_parsed": 6,
+    "schema_valid": 2,
+    "quotes_match": 2,
+    "unknown_control_passed": 8,
+    "unknown_control_total": 8,
+    "no_source_control_attempted": true,
+    "no_source_unknown_rate": 1.0,
+    "semantic_accuracy": null,
+    "semantic_refusal_rate": null,
+    "semantic_review": "pending; exact quote matching does not prove entailment or subject identity"
+  }
+}

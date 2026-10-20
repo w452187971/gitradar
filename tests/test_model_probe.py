@@ -16,25 +16,24 @@ from scripts.probe_local_model import FIELDS, checkOutput, downloadVerified, loa
 class ModelProbeTests(unittest.TestCase):
     def setUp(self):
         self.case = {'refs': [{'ref_id': 'r1', 'source_quote': 'does not block YouTube ads'}]}
-        self.output = {name: {'value': None, 'source_quote': None, 'ref_id': None} for name in FIELDS}
-        self.output['unknowns'] = list(FIELDS)
+        self.output = {name: {'value': None, 'ref_id': None} for name in FIELDS}
 
-    def test_quotes_only_match_the_referenced_document(self):
-        self.output['purpose'] = {'value': '屏蔽广告', 'source_quote': 'block YouTube ads', 'ref_id': 'other'}
-        self.output['unknowns'].remove('purpose')
-        self.assertFalse(checkOutput(self.output, self.case)['quotes_match'])
+    def test_reference_identity_does_not_promote_semantic_status(self):
+        self.output['purpose'] = {'value': '屏蔽广告', 'ref_id': 'other'}
+        self.assertFalse(checkOutput(self.output, self.case)['raw_valid'])
         self.output['purpose']['ref_id'] = 'r1'
         result = checkOutput(self.output, self.case)
-        self.assertTrue(result['quotes_match'])
+        self.assertTrue(result['raw_valid'])
         self.assertEqual(result['semantic_status'], 'human_review_required')
+        self.assertNotIn('quotes_match', result)
 
-    def test_unknown_requires_null_evidence_and_exact_unknown_list(self):
+    def test_unknown_requires_null_pair_and_model_cannot_output_unknowns(self):
         self.assertTrue(checkOutput(self.output, self.case)['schema_valid'])
-        self.output['purpose']['source_quote'] = 'does not block YouTube ads'
-        self.assertFalse(checkOutput(self.output, self.case)['schema_valid'])
-        self.output['purpose']['source_quote'] = None
-        self.output['unknowns'].pop()
-        self.assertFalse(checkOutput(self.output, self.case)['schema_valid'])
+        self.output['purpose']['ref_id'] = 'r1'
+        self.assertFalse(checkOutput(self.output, self.case)['nullpair_valid'])
+        self.output['purpose']['ref_id'] = None
+        self.output['unknowns'] = list(FIELDS)
+        self.assertFalse(checkOutput(self.output, self.case)['raw_valid'])
 
     def test_json_must_be_a_single_object_without_fences_or_duplicate_keys(self):
         for raw in ['```json\n{}\n```', '[]', '{} prose', '{"purpose":1,"purpose":2}', '{"purpose":NaN}']:
@@ -44,11 +43,10 @@ class ModelProbeTests(unittest.TestCase):
     def test_no_source_control_counts_refusal_without_semantic_promotion(self):
         case = {'refs': [], 'controls': ['all_fields_unknown']}
         self.assertEqual(checkOutput(self.output, case)['unknown_control'], {'passed': 8, 'total': 8})
-        self.output['purpose'] = {'value': '压缩图片', 'source_quote': 'image', 'ref_id': 'r1'}
-        self.output['unknowns'].remove('purpose')
+        self.output['purpose'] = {'value': '压缩图片', 'ref_id': None}
         result = checkOutput(self.output, case)
         self.assertEqual(result['unknown_control']['passed'], 7)
-        self.assertFalse(result['quotes_match'])
+        self.assertFalse(result['raw_valid'])
 
     def test_hash_mismatch_never_promotes_download(self):
         from unittest.mock import patch

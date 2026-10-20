@@ -1,0 +1,11 @@
+{
+  "purpose": {"value": "网络级广告和追踪器阻断", "source_quote": "  Free and open source, powerful network-wide ads & trackers blocking DNS server.", "ref_id": "r1"},
+  "audience": {"value": "网络用户", "source_quote": "AdGuard Home is a network-wide software for blocking ads and tracking.", "ref_id": "r2"},
+  "platforms": {"value": "Linux, macOS, Windows", "source_quote": "Manual installation", "ref_id": "r3"},
+  "form": {"value": "DNS服务器", "source_quote": "AdGuard Home is a network-wide software for blocking ads and tracking. It operates as a DNS server that re-routes tracking domains to a “black hole”, thus preventing your devices from connecting to those servers.", "ref_id": "r2"},
+  "requirements": {"value": "网络环境", "source_quote": "AdGuard Home is a network-wide software for blocking ads and tracking. It operates as a DNS server that re-routes tracking domains to a “black hole”, thus preventing your devices from connecting to those servers.", "ref_id": "r2"},
+  "path": {"value": "https://wiki.adguard.com/AdGuard-Home/Getting-Started", "source_quote": "Manual installation", "ref_id": "r3"},
+  "fees": {"value": "免费", "source_quote": "Free and open source", "ref_id": "r1"},
+  "license": {"value": "开源", "source_quote": "Free and open source", "ref_id": "r1"},
+  "unknowns": ["purpose", "audience", "platforms", "form", "requirements", "path", "fees", "license"]
+}

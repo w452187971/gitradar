@@ -44,9 +44,9 @@ class ModelProbeContractTests(unittest.TestCase):
         try:
             payload = requestPayload({'full_name': 'test/public', 'refs': []})
             result = localJson(server.server_port, '/v1/chat/completions', payload)
-            self.assertEqual(result['parsed_schema'], responseSchema())
+            self.assertEqual(result['parsed_schema'], responseSchema({'refs': []}))
             legacy = copy.deepcopy(payload)
-            legacy['response_format'] = {'type': 'json_schema', 'schema': responseSchema()}
+            legacy['response_format'] = {'type': 'json_schema', 'schema': responseSchema({'refs': []})}
             result = localJson(server.server_port, '/v1/chat/completions', legacy)
             self.assertEqual(result['parsed_schema'], {'type': 'object'})
         finally:
@@ -94,8 +94,8 @@ class ModelProbeContractTests(unittest.TestCase):
     def test_main_prompt_serializes_the_nested_output_shape(self):
         payload = requestPayload({'full_name': 'test/public', 'refs': []})
         template = json.loads(payload['messages'][0]['content'].split('OUTPUT_TEMPLATE=', 1)[1])
-        self.assertEqual(set(template['purpose']), {'value', 'source_quote', 'ref_id'})
-        self.assertEqual(set(template), set(responseSchema()['properties']))
+        self.assertEqual(set(template['purpose']), {'value', 'ref_id'})
+        self.assertEqual(set(template), set(responseSchema({'refs': []})['properties']))
 
 
 if __name__ == '__main__':

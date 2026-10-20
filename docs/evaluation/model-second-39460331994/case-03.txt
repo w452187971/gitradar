@@ -1,0 +1,11 @@
+{
+  "purpose": {"value": "查找文件系统中的条目", "source_quote": "fd 是一个程序，用于查找文件系统中的条目。", "ref_id": "r1"},
+  "audience": {"value": "用户", "source_quote": "fd 是一个简单、快速且用户友好的替代品。", "ref_id": "r1"},
+  "platforms": {"value": "Linux, macOS, Windows", "source_quote": "预编译二进制文件包含在发布页面中。", "ref_id": "r2"},
+  "form": {"value": "命令行工具", "source_quote": "fd 是一个命令行程序。", "ref_id": "r1"},
+  "requirements": {"value": "系统支持 Linux, macOS, Windows", "source_quote": "预编译二进制文件包含在发布页面中。", "ref_id": "r2"},
+  "path": {"value": "https://github.com/sharkdp/fd/releases", "source_quote": "预编译二进制文件包含在发布页面中。", "ref_id": "r2"},
+  "fees": {"value": "免费", "source_quote": "fd 是免费的。", "ref_id": "r1"},
+  "license": {"value": "MIT 和 Apache 2.0", "source_quote": "fd 以 MIT 和 Apache 2.0 许可证分发。", "ref_id": "r3"},
+  "unknowns": ["purpose", "audience", "platforms", "form", "requirements", "path", "fees", "license"]
+}

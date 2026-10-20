@@ -1,0 +1,11 @@
+{
+  "purpose": {"value": null, "source_quote": null, "ref_id": null},
+  "audience": {"value": null, "source_quote": null, "ref_id": null},
+  "platforms": {"value": null, "source_quote": null, "ref_id": null},
+  "form": {"value": null, "source_quote": null, "ref_id": null},
+  "requirements": {"value": null, "source_quote": null, "ref_id": null},
+  "path": {"value": null, "source_quote": null, "ref_id": null},
+  "fees": {"value": null, "source_quote": null, "ref_id": null},
+  "license": {"value": null, "source_quote": null, "ref_id": null},
+  "unknowns": ["purpose", "audience", "platforms", "form", "requirements", "path", "fees", "license"]
+}
