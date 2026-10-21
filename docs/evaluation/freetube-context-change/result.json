@@ -1,0 +1,63 @@
+{
+  "before_file_sha256": "fdf10983e25927945b387551a88696721857b8b7fe17100b4260cde52ce72598",
+  "after_file_sha256": "bcada5fc99848481be742b419375d92551bc0bfc1b7cb90038f2b00dbcee713b",
+  "new_http_body_sha256": "38d83daf821b056f0f7d99b049d38c44319936f96c26cecc168df56722c24cde",
+  "old_source_hash": "af2104e7ed60b10555e3d697a49b5980c33aa7fbe2b01303ef04e033d2e71665",
+  "new_source_hash": "29dacbde5baf766d956bf6632b92ccc095fa3052a2a7c706dbd5f80daad4d3d4",
+  "old_checked_at": "2026-10-20T16:54:25.698349Z",
+  "new_checked_at": "2026-10-21T01:22:36.903398Z",
+  "chars": [
+    34226,
+    34226
+  ],
+  "lines": [
+    967,
+    967
+  ],
+  "changed_lines": [
+    {
+      "line": 100,
+      "before": "Pull requests11 (11)",
+      "after": "Pull requests12 (12)"
+    }
+  ],
+  "before_eligibility": {
+    "eligible": true,
+    "reasons": []
+  },
+  "replayed_eligibility": {
+    "eligible": false,
+    "reasons": [
+      "context_changed:path",
+      "not_published"
+    ]
+  },
+  "curation_claims": {
+    "platforms": [
+      "install",
+      "path"
+    ],
+    "prerequisites": [
+      "install",
+      "path"
+    ],
+    "usage_paths": [
+      "install",
+      "path"
+    ],
+    "cost": [
+      "intro",
+      "path"
+    ]
+  },
+  "curation_prerequisites": [
+    "需要 Windows 10+、macOS 12+ 或受支持 Linux 发行版。",
+    "需要能够访问 YouTube；服务变化和网络条件可能影响播放。",
+    "选择官方 Beta 发行版（当前保存发布页为 v0.25.3 Beta / Pre-release），不是 nightly/weekly 自动测试构建；不能将其称为稳定正式版。"
+  ],
+  "limits": [
+    "Old source is complete normalized text, not an old raw HTML response.",
+    "URL/HTML attributes absent from normalized text cannot be compared.",
+    "No sticky flags changed; no production writes or network."
+  ]
+}

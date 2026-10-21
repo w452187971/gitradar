@@ -1,0 +1,11 @@
+--- old-normalized-text
++++ new-normalized-text
+@@ -97,7 +97,7 @@
+ Repository navigation
+ Code
+ Issues284 (284)
+-Pull requests11 (11)
++Pull requests12 (12)
+ Discussions
+ Actions
+ Projects
