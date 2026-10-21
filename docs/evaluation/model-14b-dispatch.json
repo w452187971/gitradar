@@ -1,0 +1,15 @@
+{
+  "parent_development_commit": "4fd8400e7654b898f2dfb9272f21f5c71aa11df4",
+  "diagnostic_commit": "8bb4c748b179f10c9c403c1e62b0dc7ce86bdee6",
+  "diagnostic_branch": "codex/gitradar-v4-model-comparison",
+  "only_changed_path": ".github/workflows/update.yml",
+  "comparison_workflow_sha256": "20b9f2c022a94e1179e685958cce5afcd4d70b4777267ff991e58de540f194f7",
+  "registered_workflow_sha256": "20b9f2c022a94e1179e685958cce5afcd4d70b4777267ff991e58de540f194f7",
+  "workflow_bytes_identical": true,
+  "development_update_unchanged": true,
+  "run_id": 39527528160,
+  "run_url": "https://github.com/w452187971/gitradar/actions/runs/39527528160",
+  "dispatch_created_at": "2026-10-21T01:28:35Z",
+  "scope": "One manually dispatched read-only comparison; no collector, promotion, commits or production writes",
+  "status_at_recording": "in_progress; runtime and semantics unverified"
+}
