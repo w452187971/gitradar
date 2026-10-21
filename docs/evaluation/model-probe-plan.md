@@ -1,6 +1,6 @@
 # 免费公开 CPU runner：开放权重模型隔离实验
 
-状态：首次运行 39457606306 与第二次运行 39460331994 已分别封存。v2 canary 已通过，但六项仅两个全未知结果满足旧协议，不能接入生产。当前准备 v3：4B 固定权重、模型仅生成 value/ref_id、程序绑定原文；尚未运行。各次原始输出与评分不得覆盖，不能据此声称内容合格或 V4 验收通过。
+状态：前三次运行 39457606306、39460331994、39463843672 已独立封存。v3 的 4B 运行耗时 171.215 秒、canary 通过、5/6 raw 合格，但已暴露主语、依赖入口、平台与费用错误，不能接入生产。当前只准备一次 v4 受控两步开发诊断；沿用同 4B、runtime 和六项已见输入，尚待远程执行。旧档案及首次分数不覆盖。
 
 用户授权的研究问题：在现有公开 GitHub 仓库的标准托管 Actions runner 上，临时运行无需个人密钥的开放权重模型，能否在有限时间内把官方资料转换为有逐字来源的中文事实？本实验不接入 collector、content、推荐、正式 JSON 或 Pages，不使用付费 AI/翻译 API，不要求个人电脑常驻或新增硬件。
 
@@ -36,7 +36,7 @@
 
 每项先 `/apply-template` 形成完整 system+user prompt，再 `/tokenize`，记录实际输入 token，预留 700 输出与 8 个 special token 余量；超过 4096 不推理、不自动删片段。该检查不保证 700 tokens 足够完整输出；若被截断，保留原文并记失败。模型和二进制放系统临时目录，按 size+SHA256 两项验证后才启用，退出清理；下载/校验/启动失败均保留报告并退出非 0，不自动降级成“成功”。
 
-## 当前 v3 输出、指标与人工判断
+## v3 输出、指标与人工判断（历史协议）
 
 模型 raw JSON 严格包含八个字段：`purpose`、`audience`、`platforms`、`form`、`requirements`、`path`、`fees`、`license`。每字段只有 `{value, ref_id}`，不输出 `source_quote` 或 `unknowns`。`value` 是简短中文断言或 null；`ref_id` 只能选当前 case 的输入 ID 或 null。两者必须同时有效或同时为 null，禁止把无效配对转换成未知凑合格率。raw JSON 保留到 `raw_model_output`，原始文本另存 `raw_model_text` 和 `case-*.txt`。
 
@@ -83,6 +83,51 @@ Actions artifact 只收 `.model-probe/report.json`、`case-*.txt`（含 canary�
 
 v2 实测证实 canary 与嵌套 schema 有效，但出现未知列表与已填值矛盾、翻译/编造原文、把 r1 当引用文字、凭记忆猜平台和 URL 等问题；仅两个全未知项目通过旧格式检查。v3 把逐字原文复制与未知列表计算交给确定性代码，模型只承担中文断言与选择现有来源，缩小本次需要评估的输入输出边界。
 
-v3 同时改用固定官方 4B Q5_K_M 和简化协议，因而即使结果变好，也不能把提升单独归因于参数量或量化方式。六项仍是原有已见开发样本，整体 fixture SHA256 保持 `96978ccade1edc8841ad23d7aef2676734157c6b2826a6707d5dbcabe64917bf`；不增加答案、不借助付费模型翻译、不把复测重新称为盲评。4B 的加载、RAM、速度、总 900 秒预算与最终语义是否足够都待真实运行，不按旧模型性能推算。
+v3 同时改用固定官方 4B Q5_K_M 和简化协议，因而即使结果变好，也不能把提升单独归因于参数量或量化方式。六项仍是原有已见开发样本，整体 fixture SHA256 保持 `96978ccade1edc8841ad23d7aef2676734157c6b2826a6707d5dbcabe64917bf`；不增加答案、不借助付费模型翻译、不把复测重新称为盲评。v3 已实测完整运行 171.215 秒、峰值 RSS 4,286,684 KiB；这些只描述本次六项的运行情况，语义不达标，不能按比例推算更大样本或下一协议。
 
-v3 的独立 schema canary 保持旧固定 quote 对象测试，仅用于基础设施约束证明；它不代表主样本仍要求模型生成 quote。主样本原文 hash、raw/bound 分离、nullpair、逐字路径、无来源真实推理、非中文待审与语义 pending 边界由离线测试覆盖。当前命令为 `python3 -m unittest tests.test_model_probe tests.test_model_probe_contract tests.test_model_probe_v3`，共 28 项；未下载或运行本机模型。首次与 v2 结果档案保持不变，v3 结果将按新的 run ID 独立封存。
+v3 的独立 schema canary 保持旧固定 quote 对象测试，仅用于基础设施约束证明；它不代表主样本仍要求模型生成 quote。主样本原文 hash、raw/bound 分离、nullpair、逐字路径、无来源真实推理、非中文待审与语义 pending 边界由离线测试覆盖。当前命令为 `python3 -m unittest tests.test_model_probe tests.test_model_probe_contract tests.test_model_probe_v3`，共 28 项；未下载或运行本机模型。首次与 v2 结果档案保持不变，v3 结果已按 run 39463843672 独立封存。
+
+
+## 当前 v4：一次受控选择与翻译开发诊断
+
+本次只改变抽取协议，固定使用现有 4B/Q5_K_M 与 llama.cpp b11756 pins，固定同六项已见开发资料。没有读取私有未见输入、反例名单或标签，也没有按仓库名分支。复用原下载、size+SHA256、服务、loopback、凭据白名单、显式诊断入口和 canary；不导入生产模块或写正式数据，不修改公共 ProjectFacts。
+
+### 完整上下文与 stage1 契约
+
+`paragraphPacket()` 按原空行分配 `r1:p1` 之类的确定性段落 ID，保留原分隔字符。所有段落顺序拼接必须逐字重建原 `source_quote`，并先核对原来源 SHA256；代码块、标题、否定句、限制段和空白都不裁剪。段落 hash 留在本地 packet/报告用于审计；发给模型的 `promptPacket()` 只含 `ref_id`、`paragraph_id`、`text`，不携带这些机器 hash。若原文本身写了 checksum，原文内容仍完整保留。
+
+stage1 接收所有原段落，只输出八个字段，每字段结构固定为：
+
+```json
+{"ref_id":"r1","paragraph_id":"r1:p2","relation":"project"}
+```
+
+这里只示例单个字段值；实际八字段全部必需。ref 与段落 ID 均限定在当前 case 输入 enum，不允许 `value`、`quote`、概括或额外键。运行时还验证段落确属所选 ref，不能跨来源拼接。无选择时两个 ID 同时 null，relation 必须 unknown。选择了有效段落时 relation 可以是 `project`、`dependency`、`third_party` 或 `unknown`。这些关系**全部是模型判断，尚未核实**，不能把选择了 project 算成真实主语正确。
+
+每字段只选一个完整段落，是一次有限的单断言实验；它不能证明已找到全部前置条件。stage1 的 JSON、原始文本、协议结果，以及程序取出的 `selected_evidence` 原段落和 hash，均保存给独立评审。
+
+### stage2 契约与机械边界
+
+stage2 仍接收**全部原始段落**及 stage1 选择，不是只看摘出来的一句话。模型输出沿用 v3 八个 `{value, ref_id}`，要求忠实中文、保留否定和条件，不新增来源或推断事实。每字段 ref enum 只允许该字段 stage1 所选且标 project 的 ref，或 null；未选择及非 project 字段 ref enum 只有 null，但 value 仍允许字符串，程序不会预填未知以隐藏猜测。
+
+运行时保留 raw，拒绝无效 null 配对、外来/未选择的来源、非 project 字段的非空断言。path 另要求完整 HTTPS URL token 出现在所选段落，不能跳到同 ref 的其他依赖段。非 path 字段的机械检查**只能约束同 ref 和模型所报 relation**；它无法判断中文是否出自所选 paragraph，更不能证明主语、蕴含关系或前提完整性。即便两阶段完全一致，也可能一致地理解错误，必须独立语义评分。没有新增关键词语义评分或自动纠正。
+
+只在两阶段均正常完成、stage1 选择合法、stage2 raw 及上述机械边界通过后，才调用原有绑定函数。`runtime_bound_output` 继续复制完整冻结 ref 原文并程序计算 unknowns；`selected_evidence` 另列所选段落供核对。模型没有自由生成 quote，程序复制不计作模型引用准确率。非中文原值仍保留并标待审；不得伪造翻译完成。
+
+### 固定预算、失败与无来源控制
+
+所有项目统一 stage1 **300**、stage2 **400** 最大生成 tokens，合计最多 **700**，不按案例调配、不把 stage1 剩余额度加到 stage2。两阶段要求紧凑 JSON。每阶段报告的 `max_tokens`、HTTP 请求值、实际 tokenizer 预算中的 `reserved_output_tokens` 必须一致；还核对返回 usage 未超阶段上限。
+
+每阶段独立 `/apply-template` + `/tokenize`，保留 8 个 special token 余量，完整 prompt 加本阶段预留超过 4096 就失败，不删来源。stage1 截断、超限、无效选择时不继续 stage2；stage2 截断、超限或无效输出时不绑定。各阶段保留原始文本、可解析的 raw、finish_reason、usage、prefill/generate、墙钟时间与错误。当前 case 在执行前就加入报告，因此全局截止发生在第二阶段时，仍保留第一阶段已完成结果和第二阶段失败状态。
+
+无来源 case 没有程序提前拒答：合法 stage1 后，stage2 仍实际推理；它若凭记忆返回非空 value，raw 留下并计失败。若 stage1 自身给出非法选择，则该 case 已是可见失败，stage2 标 not_attempted，不能当作两步拒答成功。无来源控制只检查该例的缺证据行为，不证明一般语义可靠性。
+
+CPU-only、4 线程、单 slot、非思考、每阶段 completion HTTP 最多 120 秒，以及含下载的全实验 **900 秒**硬截止不变。canary 另有 job 级 128-token 上限，不计入每个内容项目的 700。两次推理与更完整 prompt 会改变成本，不能把上一轮 171 秒乘二当作实际耗时保证；真实耗时、RAM 和能否在预算内完成六项，只有本次远程运行才能确认。未运行项目继续保留在固定六项分母，报告分别记录 stage1 解析/选择有效数、stage2 实际调用数、总生成 tokens 与最终非空覆盖。
+
+报告 `version=4`、`request_contract=b11756-controlled-select-translate-v4`。每项有 `stage1`、`stage2`、`selected_evidence`、stage2 的 `raw_model_output` 和 `runtime_bound_output`；原文文件为 `case-NN-stage1.txt` 与 `case-NN-stage2.txt`，由现有 artifact 通配规则保存。`model_relation_accuracy`、`model_source_selection_accuracy`、`semantic_accuracy` 与 `semantic_refusal_rate` 均保持 null，关系/语义始终待独立审核。
+
+### 验证与停止条件
+
+`tests/test_model_probe_v4.py` 覆盖完整原文重建、CRLF/空白/代码块与 hash、prompt 不携带机器 hash 但不删除正文 checksum、严格选择契约、关系与来源约束、两阶段实际调用、阶段上限/预留一致、截断不继续、同 ref 其他段落路径拒绝、无来源幻觉保留，以及全局截止保留当前阶段。原 v3 的 raw/bound 与路径边界测试继续保留，改用两阶段 mocked completion。
+
+此次只运行固定六项开发组一次。由独立评审分别检查 stage1 是否选对对象与证据、stage2 是否忠实翻译，以及最终正确覆盖是否改善；格式合格或全答未知不能替代效果。若仍有重大主语、否定、费用或前提错误，停止按这六项调 prompt，不自动增加试验。只有实测值得继续时再冻结实现、由独立评测者开展新的未见组；本实验不宣称已泛化，不直接发布模型内容。

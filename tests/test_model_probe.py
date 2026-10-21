@@ -67,12 +67,12 @@ class ModelProbeTests(unittest.TestCase):
             timeoutHandler(14, None)
 
     def test_oversized_context_is_reported_without_inference(self):
-        responses = [{'prompt': 'long'}, {'tokens': [1] * 3500}]
+        responses = [{'prompt': 'long'}, {'tokens': [1] * 4000}]
         with patch('scripts.probe_local_model.localJson', side_effect=responses) as local:
             with tempfile.TemporaryDirectory() as directory:
                 result = runCase({'full_name': 'test/public', 'kind': 'cli', 'refs': []}, 12345, Path(directory), 1)
         self.assertEqual(local.call_count, 2)
-        self.assertFalse(result['token_budget']['fits'])
+        self.assertFalse(result['stage1']['token_budget']['fits'])
         self.assertEqual(result['status'], 'failed')
 
     def test_local_execution_fails_before_any_download_and_preserves_report(self):

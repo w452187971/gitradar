@@ -54,9 +54,16 @@ class ModelProbeV3Tests(unittest.TestCase):
             probe.bindOutput(self.raw, changed)
 
     def modelResponses(self, raw):
-        return [{'prompt': 'probe'}, {'tokens': [1] * 40}, {'choices': [{
-            'message': {'content': json.dumps(raw)}, 'finish_reason': 'stop'}],
-            'timings': {'prompt_ms': 1, 'predicted_ms': 2}}]
+        selection = {name: {'ref_id': None, 'paragraph_id': None, 'relation': 'unknown'} for name in probe.FIELDS}
+        for name, field in raw.items():
+            if field.get('ref_id') == 'r1':
+                selection[name] = {'ref_id': 'r1', 'paragraph_id': 'r1:p1', 'relation': 'project'}
+        def response(output):
+            return [{'prompt': 'probe'}, {'tokens': [1] * 40}, {'choices': [{
+                'message': {'content': json.dumps(output)}, 'finish_reason': 'stop'}],
+                'usage': {'completion_tokens': 40, 'prompt_tokens': 40, 'total_tokens': 80},
+                'timings': {'prompt_ms': 1, 'predicted_ms': 2}}]
+        return response(selection) + response(raw)
 
     def test_invalid_model_output_is_visible_and_never_bound_or_coerced(self):
         self.raw['purpose'] = {'value': '图片压缩', 'ref_id': None}
@@ -92,7 +99,7 @@ class ModelProbeV3Tests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as directory:
             with patch('scripts.probe_local_model.localJson', side_effect=self.modelResponses(self.raw)) as request:
                 result = probe.runCase(case, 12345, Path(directory), 1)
-        self.assertEqual(request.call_count, 3)
+        self.assertEqual(request.call_count, 6)
         self.assertEqual(result['unknown_control'], {'passed': 7, 'total': 8})
         self.assertFalse(result['nullpair_valid'])
         self.assertEqual(result['raw_model_output']['purpose']['value'], '凭记忆压缩图片')
