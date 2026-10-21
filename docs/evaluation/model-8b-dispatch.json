@@ -1,0 +1,15 @@
+{
+  "parent_development_commit": "401dd4bc982f38a6c627d95d7528d968909280ae",
+  "diagnostic_commit": "e41ba0d35aa69fa19b3c74c286b8b343d449fd45",
+  "diagnostic_branch": "codex/gitradar-v4-model-8b-comparison",
+  "only_changed_path": ".github/workflows/update.yml",
+  "comparison_workflow_sha256": "2d4628876ac19924c6313ea78d8e09eb2d1a66ea7a35e534d3da1ab69ea938f6",
+  "registered_workflow_sha256": "2d4628876ac19924c6313ea78d8e09eb2d1a66ea7a35e534d3da1ab69ea938f6",
+  "workflow_bytes_identical": true,
+  "development_update_unchanged": true,
+  "run_id": 39533359976,
+  "run_url": "https://github.com/w452187971/gitradar/actions/runs/39533359976",
+  "dispatch_created_at": "2026-10-21T02:30:07Z",
+  "scope": "One final fixed-method 8B read-only development comparison; no collection, promotion, commit or production writes",
+  "status_at_recording": "in_progress; resource and semantics unverified"
+}
