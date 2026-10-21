@@ -10051,12 +10051,264 @@
         "status": "awaiting_independent_human_reference",
         "items": []
       }
+    },
+    {
+      "batch_id": "1cba6c5f3fe84d94aafe74c7b94fbc53",
+      "observed_at": "2026-10-21T04:19:33.473215Z",
+      "utc_date": "2026-10-21",
+      "run_kind": "workflow_dispatch",
+      "planned_run": false,
+      "fresh_count": 3922,
+      "cohort_size": 1970,
+      "cohort_fresh": 1965,
+      "pool_size": 3930,
+      "pending_candidate_count": 0,
+      "usage": {
+        "search_requests": 20,
+        "rest_requests": 82,
+        "content_requests": 60,
+        "path_requests": 20,
+        "identity_requests": 2,
+        "graphql_points": 79,
+        "graphql_batches": 79,
+        "graphql_unmeasured_requests": 0,
+        "retries": 0,
+        "not_modified": 0,
+        "rest_remaining": 4950,
+        "search_remaining": 10,
+        "graphql_remaining": 4929,
+        "reset_at": null,
+        "retry_after": null,
+        "rate_limited": false
+      },
+      "new_recommendations": [],
+      "discovery_counts": {
+        "automatic_new": 0,
+        "seed": 0,
+        "baseline_backfill": 0,
+        "manual_addition": 0,
+        "rotation": 20
+      },
+      "recommendation_count": 20,
+      "recommendation_fresh_count": 20,
+      "all_selected": [
+        {
+          "full_name": "qarmin/czkawka",
+          "node_id": "MDEwOlJlcG9zaXRvcnkyOTIwNjU1Nzg=",
+          "observation_status": "fresh",
+          "first_recommended_at": "2026-10-20T16:49:09.942365Z",
+          "discovery_kind": "rotation"
+        },
+        {
+          "full_name": "rustdesk/rustdesk",
+          "node_id": "MDEwOlJlcG9zaXRvcnkyOTkzNTQyMDc=",
+          "observation_status": "fresh",
+          "first_recommended_at": "2026-10-20T16:49:09.942365Z",
+          "discovery_kind": "rotation"
+        },
+        {
+          "full_name": "giuspen/cherrytree",
+          "node_id": "MDEwOlJlcG9zaXRvcnkzMjY5ODQ2OQ==",
+          "observation_status": "fresh",
+          "first_recommended_at": "2026-10-20T16:49:09.942365Z",
+          "discovery_kind": "rotation"
+        },
+        {
+          "full_name": "audacity/audacity",
+          "node_id": "MDEwOlJlcG9zaXRvcnkzMjkyMTczNg==",
+          "observation_status": "fresh",
+          "first_recommended_at": "2026-10-20T16:49:09.942365Z",
+          "discovery_kind": "rotation"
+        },
+        {
+          "full_name": "Tichau/FileConverter",
+          "node_id": "MDEwOlJlcG9zaXRvcnkzMzQ3NjU2Ng==",
+          "observation_status": "fresh",
+          "first_recommended_at": "2026-10-20T16:49:09.942365Z",
+          "discovery_kind": "rotation"
+        },
+        {
+          "full_name": "upscayl/upscayl",
+          "node_id": "R_kgDOHvghIw",
+          "observation_status": "fresh",
+          "first_recommended_at": "2026-10-20T16:49:09.942365Z",
+          "discovery_kind": "rotation"
+        },
+        {
+          "full_name": "localsend/localsend",
+          "node_id": "R_kgDOIoAhgw",
+          "observation_status": "fresh",
+          "first_recommended_at": "2026-10-20T16:49:09.942365Z",
+          "discovery_kind": "rotation"
+        },
+        {
+          "full_name": "HandBrake/HandBrake",
+          "node_id": "MDEwOlJlcG9zaXRvcnk0MTIxNTgzNQ==",
+          "observation_status": "fresh",
+          "first_recommended_at": "2026-10-20T16:05:01.116030Z",
+          "discovery_kind": "rotation"
+        },
+        {
+          "full_name": "keepassxreboot/keepassxc",
+          "node_id": "MDEwOlJlcG9zaXRvcnk1MjcyOTI0Mg==",
+          "observation_status": "fresh",
+          "first_recommended_at": "2026-10-20T16:05:01.116030Z",
+          "discovery_kind": "rotation"
+        },
+        {
+          "full_name": "laurent22/joplin",
+          "node_id": "MDEwOlJlcG9zaXRvcnk3OTE2MjY4Mg==",
+          "observation_status": "fresh",
+          "first_recommended_at": "2026-10-20T16:05:01.116030Z",
+          "discovery_kind": "rotation"
+        },
+        {
+          "full_name": "flameshot-org/flameshot",
+          "node_id": "MDEwOlJlcG9zaXRvcnk5MDkwMjEzMg==",
+          "observation_status": "fresh",
+          "first_recommended_at": "2026-10-20T16:05:01.116030Z",
+          "discovery_kind": "rotation"
+        },
+        {
+          "full_name": "arsenetar/dupeguru",
+          "node_id": "MDEwOlJlcG9zaXRvcnkxMDg1NjM0MA==",
+          "observation_status": "fresh",
+          "first_recommended_at": "2026-10-20T16:05:01.116030Z",
+          "discovery_kind": "rotation"
+        },
+        {
+          "full_name": "Zettlr/Zettlr",
+          "node_id": "MDEwOlJlcG9zaXRvcnkxMTU0NDYwODE=",
+          "observation_status": "fresh",
+          "first_recommended_at": "2026-10-20T16:05:01.116030Z",
+          "discovery_kind": "rotation"
+        },
+        {
+          "full_name": "FreeTubeApp/FreeTube",
+          "node_id": "MDEwOlJlcG9zaXRvcnkxMjMyMjAxNTI=",
+          "observation_status": "fresh",
+          "first_recommended_at": "2026-10-20T16:05:01.116030Z",
+          "discovery_kind": "rotation"
+        },
+        {
+          "full_name": "KDE/kdenlive",
+          "node_id": "MDEwOlJlcG9zaXRvcnk0MjcyMzI2OA==",
+          "observation_status": "fresh",
+          "first_recommended_at": "2026-10-20T16:05:01.116030Z",
+          "discovery_kind": "rotation"
+        },
+        {
+          "full_name": "obsproject/obs-studio",
+          "node_id": "MDEwOlJlcG9zaXRvcnkxMzIzMzE1OA==",
+          "observation_status": "fresh",
+          "first_recommended_at": "2026-10-20T16:05:01.116030Z",
+          "discovery_kind": "rotation"
+        },
+        {
+          "full_name": "syncthing/syncthing",
+          "node_id": "MDEwOlJlcG9zaXRvcnkxNDcxMjg1MA==",
+          "observation_status": "fresh",
+          "first_recommended_at": "2026-10-20T16:05:01.116030Z",
+          "discovery_kind": "rotation"
+        },
+        {
+          "full_name": "cryptomator/cryptomator",
+          "node_id": "MDEwOlJlcG9zaXRvcnkxNjQ0NjA5OQ==",
+          "observation_status": "fresh",
+          "first_recommended_at": "2026-10-20T16:05:01.116030Z",
+          "discovery_kind": "rotation"
+        },
+        {
+          "full_name": "bleachbit/bleachbit",
+          "node_id": "MDEwOlJlcG9zaXRvcnkxNzU3ODU5Mg==",
+          "observation_status": "fresh",
+          "first_recommended_at": "2026-10-20T16:05:01.116030Z",
+          "discovery_kind": "rotation"
+        },
+        {
+          "full_name": "microsoft/PowerToys",
+          "node_id": "MDEwOlJlcG9zaXRvcnkxODQ0NTYyNTE=",
+          "observation_status": "fresh",
+          "first_recommended_at": "2026-10-20T16:05:01.116030Z",
+          "discovery_kind": "rotation"
+        }
+      ],
+      "automatic_new_recommendations": [],
+      "content_allocation": {
+        "planned": {
+          "recommended": 8,
+          "new": 6,
+          "review": 4,
+          "rotation": 2
+        },
+        "actual": {
+          "due": 0,
+          "recommended": 8,
+          "new": 6,
+          "review": 4,
+          "rotation": 2,
+          "refill": 0
+        },
+        "selected": [
+          "lively-community/lively",
+          "marktext/marktext",
+          "microsoft/PowerToys",
+          "obsproject/obs-studio",
+          "paulpacifico/shutter-encoder",
+          "pbek/QOwnNotes",
+          "sindresorhus/Gifski",
+          "syncthing/syncthing",
+          "zhuyansen/new-term-radar",
+          "dominikmartn/harp",
+          "withmarbleapp/os-taxonomy",
+          "UniXNU/UniXNU",
+          "mw00/project-maya",
+          "AjncSystem/ShadowOfTheColossus-PC",
+          "5-whys/adh-rules",
+          "521xueweihan/GitHub520",
+          "5dive-ai/5dive",
+          "84593320z/GKD-XA",
+          "0xMarcio/pocindex",
+          "0xMiden/protocol"
+        ],
+        "waiting": 3911,
+        "attempted": [
+          "lively-community/lively",
+          "marktext/marktext",
+          "microsoft/PowerToys",
+          "obsproject/obs-studio",
+          "paulpacifico/shutter-encoder",
+          "pbek/QOwnNotes",
+          "sindresorhus/Gifski",
+          "syncthing/syncthing",
+          "zhuyansen/new-term-radar",
+          "dominikmartn/harp",
+          "withmarbleapp/os-taxonomy",
+          "UniXNU/UniXNU",
+          "mw00/project-maya",
+          "AjncSystem/ShadowOfTheColossus-PC",
+          "5-whys/adh-rules",
+          "521xueweihan/GitHub520",
+          "5dive-ai/5dive",
+          "84593320z/GKD-XA",
+          "0xMarcio/pocindex"
+        ],
+        "attempted_count": 19,
+        "requests_used": 60,
+        "successful_count": 15,
+        "partial_count": 4,
+        "failed_count": 0
+      },
+      "future_reference_set": {
+        "status": "awaiting_independent_human_reference",
+        "items": []
+      }
     }
   ],
   "schema_version": "4.0",
   "rules_version": "v3.3",
   "recommendation_version": "v4.0",
-  "batch_id": "217947df35da48d29457f9938c5434cc",
-  "generated_at": "2026-10-21T01:00:28.698358Z",
-  "source_commit": "61aca582ba85e3b5e2711e770beb376139d6b9c8"
+  "batch_id": "1cba6c5f3fe84d94aafe74c7b94fbc53",
+  "generated_at": "2026-10-21T04:19:33.473215Z",
+  "source_commit": "f0945c1b8f30c66e643acb7b71d19d132c903e46"
 }

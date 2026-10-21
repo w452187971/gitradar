@@ -1,9 +1,5 @@
 {
-  "batch_id": "217947df35da48d29457f9938c5434cc",
+  "batch_id": "1cba6c5f3fe84d94aafe74c7b94fbc53",
   "schema_version": "4.0",
-  "saved_aliases": {
-    "JeroenCorthout/TheMachine": "Salesflare/TheMachine",
-    "AvengeMedia/DankMaterialShell": "duxlabs-dev/dux-shell",
-    "Timeregainedme/ChangeAT": "Timeregainedme/DyeingTime"
-  }
+  "saved_aliases": {}
 }
