@@ -1,0 +1,883 @@
+{
+  "version": 3,
+  "request_contract": "b11756-value-ref-runtime-binding-v3",
+  "binding_method": "program copies full frozen source by model-selected ref_id; not model quote accuracy",
+  "unknowns_method": "program computes unknowns from valid raw null pairs",
+  "checked_at": "2026-10-21T02:30:13.937218+00:00",
+  "status": "failed_unverified",
+  "cases": [
+    {
+      "full_name": "TranslucentTB/TranslucentTB",
+      "kind": "desktop",
+      "status": "raw_contract_passed_semantics_pending",
+      "semantic_status": "human_review_required",
+      "raw_model_output": {
+        "purpose": {
+          "value": "使Windows任务栏透明",
+          "ref_id": "r1"
+        },
+        "audience": {
+          "value": "Windows 10和Windows 11用户",
+          "ref_id": "r1"
+        },
+        "platforms": {
+          "value": "Windows 10, Windows 11",
+          "ref_id": "r1"
+        },
+        "form": {
+          "value": "应用程序",
+          "ref_id": "r2"
+        },
+        "requirements": {
+          "value": "Windows 10或Windows 11",
+          "ref_id": "r1"
+        },
+        "path": {
+          "value": "https://www.microsoft.com/store/apps/9PF4KZ2VN4W9",
+          "ref_id": "r2"
+        },
+        "fees": {
+          "value": "免费",
+          "ref_id": "r2"
+        },
+        "license": {
+          "value": "GNU General Public License v3.0",
+          "ref_id": "r3"
+        }
+      },
+      "runtime_bound_output": {
+        "purpose": {
+          "value": "使Windows任务栏透明",
+          "ref_id": "r1",
+          "source_quote": "A lightweight (uses a few MB of RAM and almost no CPU) utility that makes the Windows taskbar translucent/transparent on Windows 10 and Windows 11."
+        },
+        "audience": {
+          "value": "Windows 10和Windows 11用户",
+          "ref_id": "r1",
+          "source_quote": "A lightweight (uses a few MB of RAM and almost no CPU) utility that makes the Windows taskbar translucent/transparent on Windows 10 and Windows 11."
+        },
+        "platforms": {
+          "value": "Windows 10, Windows 11",
+          "ref_id": "r1",
+          "source_quote": "A lightweight (uses a few MB of RAM and almost no CPU) utility that makes the Windows taskbar translucent/transparent on Windows 10 and Windows 11."
+        },
+        "form": {
+          "value": "应用程序",
+          "ref_id": "r2",
+          "source_quote": "## Download\n\n[<img src=\"https://get.microsoft.com/images/en-us%20dark.svg\" alt=\"Get it from Microsoft\" height=\"104\">](https://apps.microsoft.com/store/detail/9PF4KZ2VN4W9)\n\nYou can download the program for free from the [Microsoft Store](https://www.microsoft.com/store/apps/9PF4KZ2VN4W9) and take advantage of its features like background auto-updates.\n\nAlternatively, you can download `TranslucentTB.appinstaller` [via the releases tab](https://github.com/TranslucentTB/TranslucentTB/releases) and open it to install the app.\n\nA portable version of the app is also available [on GitHub releases](https://github.com/TranslucentTB/TranslucentTB/releases) as `TranslucentTB.zip`, but this version only works on Windows 11."
+        },
+        "requirements": {
+          "value": "Windows 10或Windows 11",
+          "ref_id": "r1",
+          "source_quote": "A lightweight (uses a few MB of RAM and almost no CPU) utility that makes the Windows taskbar translucent/transparent on Windows 10 and Windows 11."
+        },
+        "path": {
+          "value": "https://www.microsoft.com/store/apps/9PF4KZ2VN4W9",
+          "ref_id": "r2",
+          "source_quote": "## Download\n\n[<img src=\"https://get.microsoft.com/images/en-us%20dark.svg\" alt=\"Get it from Microsoft\" height=\"104\">](https://apps.microsoft.com/store/detail/9PF4KZ2VN4W9)\n\nYou can download the program for free from the [Microsoft Store](https://www.microsoft.com/store/apps/9PF4KZ2VN4W9) and take advantage of its features like background auto-updates.\n\nAlternatively, you can download `TranslucentTB.appinstaller` [via the releases tab](https://github.com/TranslucentTB/TranslucentTB/releases) and open it to install the app.\n\nA portable version of the app is also available [on GitHub releases](https://github.com/TranslucentTB/TranslucentTB/releases) as `TranslucentTB.zip`, but this version only works on Windows 11."
+        },
+        "fees": {
+          "value": "免费",
+          "ref_id": "r2",
+          "source_quote": "## Download\n\n[<img src=\"https://get.microsoft.com/images/en-us%20dark.svg\" alt=\"Get it from Microsoft\" height=\"104\">](https://apps.microsoft.com/store/detail/9PF4KZ2VN4W9)\n\nYou can download the program for free from the [Microsoft Store](https://www.microsoft.com/store/apps/9PF4KZ2VN4W9) and take advantage of its features like background auto-updates.\n\nAlternatively, you can download `TranslucentTB.appinstaller` [via the releases tab](https://github.com/TranslucentTB/TranslucentTB/releases) and open it to install the app.\n\nA portable version of the app is also available [on GitHub releases](https://github.com/TranslucentTB/TranslucentTB/releases) as `TranslucentTB.zip`, but this version only works on Windows 11."
+        },
+        "license": {
+          "value": "GNU General Public License v3.0",
+          "ref_id": "r3",
+          "source_quote": "This program is free (as in speech) software under the GPLv3. Please see [the license file](LICENSE.md) for more."
+        },
+        "unknowns": []
+      },
+      "binding_status": "program_bound_by_reference_not_semantically_verified",
+      "token_budget": {
+        "prompt_tokens": 707,
+        "reserved_output_tokens": 700,
+        "special_token_margin": 8,
+        "context": 4096,
+        "fits": true
+      },
+      "raw_model_text": "{\n  \"purpose\": {\"value\": \"使Windows任务栏透明\", \"ref_id\": \"r1\"},\n  \"audience\": {\"value\": \"Windows 10和Windows 11用户\", \"ref_id\": \"r1\"},\n  \"platforms\": {\"value\": \"Windows 10, Windows 11\", \"ref_id\": \"r1\"},\n  \"form\": {\"value\": \"应用程序\", \"ref_id\": \"r2\"},\n  \"requirements\": {\"value\": \"Windows 10或Windows 11\", \"ref_id\": \"r1\"},\n  \"path\": {\"value\": \"https://www.microsoft.com/store/apps/9PF4KZ2VN4W9\", \"ref_id\": \"r2\"},\n  \"fees\": {\"value\": \"免费\", \"ref_id\": \"r2\"},\n  \"license\": {\"value\": \"GNU General Public License v3.0\", \"ref_id\": \"r3\"}\n}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 203,
+        "prompt_tokens": 707,
+        "total_tokens": 910,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 707,
+        "prompt_ms": 50372.616,
+        "prompt_per_token_ms": 71.24839603960396,
+        "prompt_per_second": 14.035403680444151,
+        "predicted_n": 203,
+        "predicted_ms": 33038.703,
+        "predicted_per_token_ms": 163.55793564356435,
+        "predicted_per_second": 6.114041462220838
+      },
+      "prefill_seconds": 50.372616,
+      "generate_seconds": 33.038703,
+      "thinking_disabled": true,
+      "schema_valid": true,
+      "nullpair_valid": true,
+      "path_source_valid": true,
+      "raw_valid": true,
+      "validation_errors": {},
+      "language_review_fields": [
+        "platforms",
+        "path",
+        "license"
+      ],
+      "non_null_fields": 8,
+      "wall_seconds": 83.479
+    },
+    {
+      "full_name": "AdguardTeam/AdGuardHome",
+      "kind": "self_hosted",
+      "status": "failed",
+      "semantic_status": "human_review_required",
+      "raw_model_output": {
+        "purpose": {
+          "value": "网络范围内的广告和跟踪器阻止",
+          "ref_id": "r2"
+        },
+        "audience": {
+          "value": "家庭设备用户",
+          "ref_id": "r2"
+        },
+        "platforms": {
+          "value": "未明确说明",
+          "ref_id": null
+        },
+        "form": {
+          "value": "DNS服务器",
+          "ref_id": "r2"
+        },
+        "requirements": {
+          "value": "需要设置并配置设备使用",
+          "ref_id": "r2"
+        },
+        "path": {
+          "value": null,
+          "ref_id": null
+        },
+        "fees": {
+          "value": "免费",
+          "ref_id": "r1"
+        },
+        "license": {
+          "value": "开源",
+          "ref_id": "r1"
+        }
+      },
+      "runtime_bound_output": null,
+      "binding_status": "rejected_invalid_raw_output",
+      "token_budget": {
+        "prompt_tokens": 723,
+        "reserved_output_tokens": 700,
+        "special_token_margin": 8,
+        "context": 4096,
+        "fits": true
+      },
+      "raw_model_text": "{\n  \"purpose\": {\"value\": \"网络范围内的广告和跟踪器阻止\", \"ref_id\": \"r2\"},\n  \"audience\": {\"value\": \"家庭设备用户\", \"ref_id\": \"r2\"},\n  \"platforms\": {\"value\": \"未明确说明\", \"ref_id\": null},\n  \"form\": {\"value\": \"DNS服务器\", \"ref_id\": \"r2\"},\n  \"requirements\": {\"value\": \"需要设置并配置设备使用\", \"ref_id\": \"r2\"},\n  \"path\": {\"value\": null, \"ref_id\": null},\n  \"fees\": {\"value\": \"免费\", \"ref_id\": \"r1\"},\n  \"license\": {\"value\": \"开源\", \"ref_id\": \"r1\"}\n}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 162,
+        "prompt_tokens": 723,
+        "total_tokens": 885,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 723,
+        "prompt_ms": 51564.906,
+        "prompt_per_token_ms": 71.320755186722,
+        "prompt_per_second": 14.021163928816238,
+        "predicted_n": 162,
+        "predicted_ms": 26825.448,
+        "predicted_per_token_ms": 166.6176894409938,
+        "predicted_per_second": 6.001763698410554
+      },
+      "prefill_seconds": 51.564906,
+      "generate_seconds": 26.825448,
+      "thinking_disabled": true,
+      "schema_valid": true,
+      "nullpair_valid": false,
+      "path_source_valid": true,
+      "raw_valid": false,
+      "validation_errors": {
+        "platforms": "invalid_null_pair"
+      },
+      "language_review_fields": [],
+      "non_null_fields": 7,
+      "wall_seconds": 78.531
+    },
+    {
+      "full_name": "sharkdp/fd",
+      "kind": "cli",
+      "status": "failed",
+      "semantic_status": "human_review_required",
+      "raw_model_output": {
+        "purpose": {
+          "value": "查找文件系统中的条目",
+          "ref_id": "r1"
+        },
+        "audience": {
+          "value": "需要快速查找文件的用户",
+          "ref_id": "r1"
+        },
+        "platforms": {
+          "value": "Linux, macOS, Windows",
+          "ref_id": "r2"
+        },
+        "form": {
+          "value": "预编译二进制文件",
+          "ref_id": "r2"
+        },
+        "requirements": {
+          "value": "无特殊要求",
+          "ref_id": null
+        },
+        "path": {
+          "value": "https://github.com/sharkdp/fd/releases",
+          "ref_id": "r2"
+        },
+        "fees": {
+          "value": "免费",
+          "ref_id": null
+        },
+        "license": {
+          "value": "MIT License 和 Apache License 2.0",
+          "ref_id": "r3"
+        }
+      },
+      "runtime_bound_output": null,
+      "binding_status": "rejected_invalid_raw_output",
+      "token_budget": {
+        "prompt_tokens": 630,
+        "reserved_output_tokens": 700,
+        "special_token_margin": 8,
+        "context": 4096,
+        "fits": true
+      },
+      "raw_model_text": "{\n  \"purpose\": {\"value\": \"查找文件系统中的条目\", \"ref_id\": \"r1\"},\n  \"audience\": {\"value\": \"需要快速查找文件的用户\", \"ref_id\": \"r1\"},\n  \"platforms\": {\"value\": \"Linux, macOS, Windows\", \"ref_id\": \"r2\"},\n  \"form\": {\"value\": \"预编译二进制文件\", \"ref_id\": \"r2\"},\n  \"requirements\": {\"value\": \"无特殊要求\", \"ref_id\": null},\n  \"path\": {\"value\": \"https://github.com/sharkdp/fd/releases\", \"ref_id\": \"r2\"},\n  \"fees\": {\"value\": \"免费\", \"ref_id\": null},\n  \"license\": {\"value\": \"MIT License 和 Apache License 2.0\", \"ref_id\": \"r3\"}\n}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 185,
+        "prompt_tokens": 630,
+        "total_tokens": 815,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 630,
+        "prompt_ms": 45241.366,
+        "prompt_per_token_ms": 71.81169206349206,
+        "prompt_per_second": 13.925308974976573,
+        "predicted_n": 185,
+        "predicted_ms": 30812.341,
+        "predicted_per_token_ms": 167.458375,
+        "predicted_per_second": 5.971633249158186
+      },
+      "prefill_seconds": 45.241366,
+      "generate_seconds": 30.812341,
+      "thinking_disabled": true,
+      "schema_valid": true,
+      "nullpair_valid": false,
+      "path_source_valid": true,
+      "raw_valid": false,
+      "validation_errors": {
+        "requirements": "invalid_null_pair",
+        "fees": "invalid_null_pair"
+      },
+      "language_review_fields": [
+        "platforms",
+        "path"
+      ],
+      "non_null_fields": 8,
+      "wall_seconds": 76.193
+    },
+    {
+      "full_name": "huggingface/transformers",
+      "kind": "library",
+      "status": "raw_contract_passed_semantics_pending",
+      "semantic_status": "human_review_required",
+      "raw_model_output": {
+        "purpose": {
+          "value": "提供最先进的机器学习模型定义框架",
+          "ref_id": "r1"
+        },
+        "audience": {
+          "value": "研究人员和开发者",
+          "ref_id": "r1"
+        },
+        "platforms": {
+          "value": "Python 3.10+",
+          "ref_id": "r2"
+        },
+        "form": {
+          "value": "Python库",
+          "ref_id": "r2"
+        },
+        "requirements": {
+          "value": "PyTorch 2.6+",
+          "ref_id": "r2"
+        },
+        "path": {
+          "value": "https://pytorch.org/get-started/locally/",
+          "ref_id": "r2"
+        },
+        "fees": {
+          "value": null,
+          "ref_id": null
+        },
+        "license": {
+          "value": null,
+          "ref_id": null
+        }
+      },
+      "runtime_bound_output": {
+        "purpose": {
+          "value": "提供最先进的机器学习模型定义框架",
+          "ref_id": "r1",
+          "source_quote": "Transformers acts as the model-definition framework for state-of-the-art machine learning with text, computer\nvision, audio, video, and multimodal models, for both inference and training.\n\nIt centralizes the model definition so that this definition is agreed upon across the ecosystem. `transformers` is the\npivot across frameworks: if a model definition is supported, it will be compatible with the majority of training\nframeworks (Axolotl, Unsloth, DeepSpeed, FSDP, PyTorch-Lightning, ...), inference engines (vLLM, SGLang, TGI, ...),\nand adjacent modeling libraries (llama.cpp, mlx, ...) which leverage the model definition from `transformers`.\n"
+        },
+        "audience": {
+          "value": "研究人员和开发者",
+          "ref_id": "r1",
+          "source_quote": "Transformers acts as the model-definition framework for state-of-the-art machine learning with text, computer\nvision, audio, video, and multimodal models, for both inference and training.\n\nIt centralizes the model definition so that this definition is agreed upon across the ecosystem. `transformers` is the\npivot across frameworks: if a model definition is supported, it will be compatible with the majority of training\nframeworks (Axolotl, Unsloth, DeepSpeed, FSDP, PyTorch-Lightning, ...), inference engines (vLLM, SGLang, TGI, ...),\nand adjacent modeling libraries (llama.cpp, mlx, ...) which leverage the model definition from `transformers`.\n"
+        },
+        "platforms": {
+          "value": "Python 3.10+",
+          "ref_id": "r2",
+          "source_quote": "## Installation\n\nTransformers works with Python 3.10+, and [PyTorch](https://pytorch.org/get-started/locally/) 2.6+.\n\nCreate and activate a virtual environment with [venv](https://docs.python.org/3/library/venv.html) or [uv](https://docs.astral.sh/uv/), a fast Rust-based Python package and project manager.\n\n```py\n# venv\npython -m venv .my-env\nsource .my-env/bin/activate\n# uv\nuv venv .my-env\nsource .my-env/bin/activate\n```\n\nInstall Transformers in your virtual environment.\n\n```py\n# pip\npip install \"transformers[torch]\"\n\n# uv\nuv pip install \"transformers[torch]\""
+        },
+        "form": {
+          "value": "Python库",
+          "ref_id": "r2",
+          "source_quote": "## Installation\n\nTransformers works with Python 3.10+, and [PyTorch](https://pytorch.org/get-started/locally/) 2.6+.\n\nCreate and activate a virtual environment with [venv](https://docs.python.org/3/library/venv.html) or [uv](https://docs.astral.sh/uv/), a fast Rust-based Python package and project manager.\n\n```py\n# venv\npython -m venv .my-env\nsource .my-env/bin/activate\n# uv\nuv venv .my-env\nsource .my-env/bin/activate\n```\n\nInstall Transformers in your virtual environment.\n\n```py\n# pip\npip install \"transformers[torch]\"\n\n# uv\nuv pip install \"transformers[torch]\""
+        },
+        "requirements": {
+          "value": "PyTorch 2.6+",
+          "ref_id": "r2",
+          "source_quote": "## Installation\n\nTransformers works with Python 3.10+, and [PyTorch](https://pytorch.org/get-started/locally/) 2.6+.\n\nCreate and activate a virtual environment with [venv](https://docs.python.org/3/library/venv.html) or [uv](https://docs.astral.sh/uv/), a fast Rust-based Python package and project manager.\n\n```py\n# venv\npython -m venv .my-env\nsource .my-env/bin/activate\n# uv\nuv venv .my-env\nsource .my-env/bin/activate\n```\n\nInstall Transformers in your virtual environment.\n\n```py\n# pip\npip install \"transformers[torch]\"\n\n# uv\nuv pip install \"transformers[torch]\""
+        },
+        "path": {
+          "value": "https://pytorch.org/get-started/locally/",
+          "ref_id": "r2",
+          "source_quote": "## Installation\n\nTransformers works with Python 3.10+, and [PyTorch](https://pytorch.org/get-started/locally/) 2.6+.\n\nCreate and activate a virtual environment with [venv](https://docs.python.org/3/library/venv.html) or [uv](https://docs.astral.sh/uv/), a fast Rust-based Python package and project manager.\n\n```py\n# venv\npython -m venv .my-env\nsource .my-env/bin/activate\n# uv\nuv venv .my-env\nsource .my-env/bin/activate\n```\n\nInstall Transformers in your virtual environment.\n\n```py\n# pip\npip install \"transformers[torch]\"\n\n# uv\nuv pip install \"transformers[torch]\""
+        },
+        "fees": {
+          "value": null,
+          "ref_id": null,
+          "source_quote": null
+        },
+        "license": {
+          "value": null,
+          "ref_id": null,
+          "source_quote": null
+        },
+        "unknowns": [
+          "fees",
+          "license"
+        ]
+      },
+      "binding_status": "program_bound_by_reference_not_semantically_verified",
+      "token_budget": {
+        "prompt_tokens": 842,
+        "reserved_output_tokens": 700,
+        "special_token_margin": 8,
+        "context": 4096,
+        "fits": true
+      },
+      "raw_model_text": "{\n  \"purpose\": {\"value\": \"提供最先进的机器学习模型定义框架\", \"ref_id\": \"r1\"},\n  \"audience\": {\"value\": \"研究人员和开发者\", \"ref_id\": \"r1\"},\n  \"platforms\": {\"value\": \"Python 3.10+\", \"ref_id\": \"r2\"},\n  \"form\": {\"value\": \"Python库\", \"ref_id\": \"r2\"},\n  \"requirements\": {\"value\": \"PyTorch 2.6+\", \"ref_id\": \"r2\"},\n  \"path\": {\"value\": \"https://pytorch.org/get-started/locally/\", \"ref_id\": \"r2\"},\n  \"fees\": {\"value\": null, \"ref_id\": null},\n  \"license\": {\"value\": null, \"ref_id\": null}\n}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 174,
+        "prompt_tokens": 842,
+        "total_tokens": 1016,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 842,
+        "prompt_ms": 60597.374,
+        "prompt_per_token_ms": 71.96837767220903,
+        "prompt_per_second": 13.894991555244623,
+        "predicted_n": 174,
+        "predicted_ms": 28962.401,
+        "predicted_per_token_ms": 167.4127225433526,
+        "predicted_per_second": 5.973261678132278
+      },
+      "prefill_seconds": 60.597374,
+      "generate_seconds": 28.962401000000003,
+      "thinking_disabled": true,
+      "schema_valid": true,
+      "nullpair_valid": true,
+      "path_source_valid": true,
+      "raw_valid": true,
+      "validation_errors": {},
+      "language_review_fields": [
+        "platforms",
+        "requirements",
+        "path"
+      ],
+      "non_null_fields": 6,
+      "wall_seconds": 89.698
+    },
+    {
+      "full_name": "hehonghui/awesome-english-ebooks",
+      "kind": "collection_other_subject",
+      "status": "raw_contract_passed_semantics_pending",
+      "semantic_status": "human_review_required",
+      "raw_model_output": {
+        "purpose": {
+          "value": "提供经济学人、纽约客等英语外刊杂志的下载",
+          "ref_id": "r1"
+        },
+        "audience": {
+          "value": "英语学习者和英语阅读爱好者",
+          "ref_id": "r1"
+        },
+        "platforms": {
+          "value": "iOS, Android",
+          "ref_id": "r1"
+        },
+        "form": {
+          "value": "应用程序",
+          "ref_id": "r1"
+        },
+        "requirements": {
+          "value": "iOS或Android设备",
+          "ref_id": "r1"
+        },
+        "path": {
+          "value": null,
+          "ref_id": null
+        },
+        "fees": {
+          "value": null,
+          "ref_id": null
+        },
+        "license": {
+          "value": null,
+          "ref_id": null
+        }
+      },
+      "runtime_bound_output": {
+        "purpose": {
+          "value": "提供经济学人、纽约客等英语外刊杂志的下载",
+          "ref_id": "r1",
+          "source_quote": "# 经济学人、纽约客等英语外刊杂志下载\n---------------------\n\n## 一、优质App推荐\n\n* <img align=\"center\" src=\"https://ereader.link/images/ereader.png\" width=\"32px\" /> 英阅阅读器 - 超好用的英语阅读神器! <font color=\"#e3120b\">让您轻松读懂英文小说、外刊杂志</font>,支持点击查词、句子翻译、mdict英汉-英英词典、阅读笔记、AI学英语(语法、词汇分析)等功能,[iOS版下载](https://apps.apple.com/cn/app/ereader-%E8%8B%B1%E9%98%85%E9%98%85%E8%AF%BB%E5%99%A8/id1558805880)、[Android版下载(华为、小米等应用商店均可下载)](https://ereader.link/);"
+        },
+        "audience": {
+          "value": "英语学习者和英语阅读爱好者",
+          "ref_id": "r1",
+          "source_quote": "# 经济学人、纽约客等英语外刊杂志下载\n---------------------\n\n## 一、优质App推荐\n\n* <img align=\"center\" src=\"https://ereader.link/images/ereader.png\" width=\"32px\" /> 英阅阅读器 - 超好用的英语阅读神器! <font color=\"#e3120b\">让您轻松读懂英文小说、外刊杂志</font>,支持点击查词、句子翻译、mdict英汉-英英词典、阅读笔记、AI学英语(语法、词汇分析)等功能,[iOS版下载](https://apps.apple.com/cn/app/ereader-%E8%8B%B1%E9%98%85%E9%98%85%E8%AF%BB%E5%99%A8/id1558805880)、[Android版下载(华为、小米等应用商店均可下载)](https://ereader.link/);"
+        },
+        "platforms": {
+          "value": "iOS, Android",
+          "ref_id": "r1",
+          "source_quote": "# 经济学人、纽约客等英语外刊杂志下载\n---------------------\n\n## 一、优质App推荐\n\n* <img align=\"center\" src=\"https://ereader.link/images/ereader.png\" width=\"32px\" /> 英阅阅读器 - 超好用的英语阅读神器! <font color=\"#e3120b\">让您轻松读懂英文小说、外刊杂志</font>,支持点击查词、句子翻译、mdict英汉-英英词典、阅读笔记、AI学英语(语法、词汇分析)等功能,[iOS版下载](https://apps.apple.com/cn/app/ereader-%E8%8B%B1%E9%98%85%E9%98%85%E8%AF%BB%E5%99%A8/id1558805880)、[Android版下载(华为、小米等应用商店均可下载)](https://ereader.link/);"
+        },
+        "form": {
+          "value": "应用程序",
+          "ref_id": "r1",
+          "source_quote": "# 经济学人、纽约客等英语外刊杂志下载\n---------------------\n\n## 一、优质App推荐\n\n* <img align=\"center\" src=\"https://ereader.link/images/ereader.png\" width=\"32px\" /> 英阅阅读器 - 超好用的英语阅读神器! <font color=\"#e3120b\">让您轻松读懂英文小说、外刊杂志</font>,支持点击查词、句子翻译、mdict英汉-英英词典、阅读笔记、AI学英语(语法、词汇分析)等功能,[iOS版下载](https://apps.apple.com/cn/app/ereader-%E8%8B%B1%E9%98%85%E9%98%85%E8%AF%BB%E5%99%A8/id1558805880)、[Android版下载(华为、小米等应用商店均可下载)](https://ereader.link/);"
+        },
+        "requirements": {
+          "value": "iOS或Android设备",
+          "ref_id": "r1",
+          "source_quote": "# 经济学人、纽约客等英语外刊杂志下载\n---------------------\n\n## 一、优质App推荐\n\n* <img align=\"center\" src=\"https://ereader.link/images/ereader.png\" width=\"32px\" /> 英阅阅读器 - 超好用的英语阅读神器! <font color=\"#e3120b\">让您轻松读懂英文小说、外刊杂志</font>,支持点击查词、句子翻译、mdict英汉-英英词典、阅读笔记、AI学英语(语法、词汇分析)等功能,[iOS版下载](https://apps.apple.com/cn/app/ereader-%E8%8B%B1%E9%98%85%E9%98%85%E8%AF%BB%E5%99%A8/id1558805880)、[Android版下载(华为、小米等应用商店均可下载)](https://ereader.link/);"
+        },
+        "path": {
+          "value": null,
+          "ref_id": null,
+          "source_quote": null
+        },
+        "fees": {
+          "value": null,
+          "ref_id": null,
+          "source_quote": null
+        },
+        "license": {
+          "value": null,
+          "ref_id": null,
+          "source_quote": null
+        },
+        "unknowns": [
+          "path",
+          "fees",
+          "license"
+        ]
+      },
+      "binding_status": "program_bound_by_reference_not_semantically_verified",
+      "token_budget": {
+        "prompt_tokens": 644,
+        "reserved_output_tokens": 700,
+        "special_token_margin": 8,
+        "context": 4096,
+        "fits": true
+      },
+      "raw_model_text": "{\n  \"purpose\": {\"value\": \"提供经济学人、纽约客等英语外刊杂志的下载\", \"ref_id\": \"r1\"},\n  \"audience\": {\"value\": \"英语学习者和英语阅读爱好者\", \"ref_id\": \"r1\"},\n  \"platforms\": {\"value\": \"iOS, Android\", \"ref_id\": \"r1\"},\n  \"form\": {\"value\": \"应用程序\", \"ref_id\": \"r1\"},\n  \"requirements\": {\"value\": \"iOS或Android设备\", \"ref_id\": \"r1\"},\n  \"path\": {\"value\": null, \"ref_id\": null},\n  \"fees\": {\"value\": null, \"ref_id\": null},\n  \"license\": {\"value\": null, \"ref_id\": null}\n}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 164,
+        "prompt_tokens": 644,
+        "total_tokens": 808,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 644,
+        "prompt_ms": 45871.71,
+        "prompt_per_token_ms": 71.22936335403726,
+        "prompt_per_second": 14.039153979653255,
+        "predicted_n": 164,
+        "predicted_ms": 26854.143,
+        "predicted_per_token_ms": 164.74934355828222,
+        "predicted_per_second": 6.069826916464994
+      },
+      "prefill_seconds": 45.87171,
+      "generate_seconds": 26.854143,
+      "thinking_disabled": true,
+      "schema_valid": true,
+      "nullpair_valid": true,
+      "path_source_valid": true,
+      "raw_valid": true,
+      "validation_errors": {},
+      "language_review_fields": [
+        "platforms"
+      ],
+      "non_null_fields": 5,
+      "wall_seconds": 72.878
+    },
+    {
+      "full_name": "squoosh/squoosh",
+      "kind": "missing_official_source",
+      "status": "raw_contract_passed_semantics_pending",
+      "semantic_status": "human_review_required",
+      "raw_model_output": {
+        "purpose": {
+          "value": null,
+          "ref_id": null
+        },
+        "audience": {
+          "value": null,
+          "ref_id": null
+        },
+        "platforms": {
+          "value": null,
+          "ref_id": null
+        },
+        "form": {
+          "value": null,
+          "ref_id": null
+        },
+        "requirements": {
+          "value": null,
+          "ref_id": null
+        },
+        "path": {
+          "value": null,
+          "ref_id": null
+        },
+        "fees": {
+          "value": null,
+          "ref_id": null
+        },
+        "license": {
+          "value": null,
+          "ref_id": null
+        }
+      },
+      "runtime_bound_output": {
+        "purpose": {
+          "value": null,
+          "ref_id": null,
+          "source_quote": null
+        },
+        "audience": {
+          "value": null,
+          "ref_id": null,
+          "source_quote": null
+        },
+        "platforms": {
+          "value": null,
+          "ref_id": null,
+          "source_quote": null
+        },
+        "form": {
+          "value": null,
+          "ref_id": null,
+          "source_quote": null
+        },
+        "requirements": {
+          "value": null,
+          "ref_id": null,
+          "source_quote": null
+        },
+        "path": {
+          "value": null,
+          "ref_id": null,
+          "source_quote": null
+        },
+        "fees": {
+          "value": null,
+          "ref_id": null,
+          "source_quote": null
+        },
+        "license": {
+          "value": null,
+          "ref_id": null,
+          "source_quote": null
+        },
+        "unknowns": [
+          "purpose",
+          "audience",
+          "platforms",
+          "form",
+          "requirements",
+          "path",
+          "fees",
+          "license"
+        ]
+      },
+      "binding_status": "program_bound_by_reference_not_semantically_verified",
+      "unknown_control": {
+        "passed": 8,
+        "total": 8
+      },
+      "token_budget": {
+        "prompt_tokens": 413,
+        "reserved_output_tokens": 700,
+        "special_token_margin": 8,
+        "context": 4096,
+        "fits": true
+      },
+      "raw_model_text": "{\"purpose\": {\"value\": null, \"ref_id\": null}, \"audience\": {\"value\": null, \"ref_id\": null}, \"platforms\": {\"value\": null, \"ref_id\": null}, \"form\": {\"value\": null, \"ref_id\": null}, \"requirements\": {\"value\": null, \"ref_id\": null}, \"path\": {\"value\": null, \"ref_id\": null}, \"fees\": {\"value\": null, \"ref_id\": null}, \"license\": {\"value\": null, \"ref_id\": null}}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 116,
+        "prompt_tokens": 413,
+        "total_tokens": 529,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 413,
+        "prompt_ms": 29267.029,
+        "prompt_per_token_ms": 70.86447699757869,
+        "prompt_per_second": 14.111442606627412,
+        "predicted_n": 116,
+        "predicted_ms": 17801.108,
+        "predicted_per_token_ms": 154.79224347826087,
+        "predicted_per_second": 6.460272023516738
+      },
+      "prefill_seconds": 29.267028999999997,
+      "generate_seconds": 17.801108,
+      "thinking_disabled": true,
+      "schema_valid": true,
+      "nullpair_valid": true,
+      "path_source_valid": true,
+      "raw_valid": true,
+      "validation_errors": {},
+      "language_review_fields": [],
+      "non_null_fields": 0,
+      "wall_seconds": 47.213
+    }
+  ],
+  "scope": "six seen development cases, not blind",
+  "runtime": {
+    "platform": "Linux-7.0.0-1017-azure-x86_64-with-glibc2.39",
+    "cpu_count": 4,
+    "runner_os": "Linux",
+    "runner_arch": "X64"
+  },
+  "limits": {
+    "cpu_threads": 4,
+    "gpu_layers": 0,
+    "context": 4096,
+    "max_tokens": 700,
+    "temperature": 0,
+    "thinking": false,
+    "whole_timeout_seconds": 900
+  },
+  "pins": {
+    "runtime": {
+      "project": "ggml-org/llama.cpp",
+      "tag": "b11756",
+      "source": "https://github.com/ggml-org/llama.cpp/releases/tag/b11756",
+      "url": "https://github.com/ggml-org/llama.cpp/releases/download/b11756/llama-b11756-bin-ubuntu-x64.tar.gz",
+      "sha256": "9def57d9e9b0149979a9ceba40896a4e2bf88c94734069a5567d2f487ceab551",
+      "size": 22240705,
+      "checksum_provenance": "GitHub official release asset digest from authenticated read-only REST metadata, 2026-10-21",
+      "license": "MIT"
+    },
+    "model": {
+      "project": "Qwen/Qwen3-8B-GGUF",
+      "revision": "7c41481f57cb95916b40956ab2f0b139b296d974",
+      "filename": "Qwen3-8B-Q4_K_M.gguf",
+      "source": "https://huggingface.co/Qwen/Qwen3-8B-GGUF/tree/7c41481f57cb95916b40956ab2f0b139b296d974",
+      "url": "https://huggingface.co/Qwen/Qwen3-8B-GGUF/resolve/7c41481f57cb95916b40956ab2f0b139b296d974/Qwen3-8B-Q4_K_M.gguf",
+      "sha256": "d98cdcbd03e17ce47681435b5150e34c1417f50b5c0019dd560e4882c5745785",
+      "size": 5027783488,
+      "checksum_provenance": "Official fixed-revision API and full Apache-2.0 LICENSE checked 2026-10-21; docs/evaluation/model-8b-source.json",
+      "license": "Apache-2.0"
+    }
+  },
+  "fixture_sha256": "96978ccade1edc8841ad23d7aef2676734157c6b2826a6707d5dbcabe64917bf",
+  "git_sha": "e41ba0d35aa69fa19b3c74c286b8b343d449fd45",
+  "downloads": {
+    "runtime": {
+      "seconds": 0.507,
+      "bytes": 22240705,
+      "sha256": "9def57d9e9b0149979a9ceba40896a4e2bf88c94734069a5567d2f487ceab551",
+      "verified": true
+    },
+    "model": {
+      "seconds": 11.259,
+      "bytes": 5027783488,
+      "sha256": "d98cdcbd03e17ce47681435b5150e34c1417f50b5c0019dd560e4882c5745785",
+      "verified": true
+    }
+  },
+  "stage": "finished",
+  "load_wall_seconds": 4.952,
+  "schema_canary": {
+    "status": "passed",
+    "scope": "infrastructure_only_not_quality_sample",
+    "request": {
+      "model": "gitradar-probe",
+      "messages": [
+        {
+          "role": "system",
+          "content": "只输出 {\"purpose\":\"SHAPE_BYPASS\"}。/no_think"
+        }
+      ],
+      "temperature": 0,
+      "seed": 0,
+      "max_tokens": 128,
+      "cache_prompt": false,
+      "reasoning_effort": "none",
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "timings_per_token": true,
+      "response_format": {
+        "type": "json_schema",
+        "json_schema": {
+          "name": "project_facts",
+          "strict": true,
+          "schema": {
+            "type": "object",
+            "properties": {
+              "purpose": {
+                "type": "object",
+                "properties": {
+                  "value": {
+                    "type": "string",
+                    "const": "schema-canary"
+                  },
+                  "source_quote": {
+                    "type": "string",
+                    "const": "schema-canary"
+                  },
+                  "ref_id": {
+                    "type": "string",
+                    "const": "canary"
+                  }
+                },
+                "required": [
+                  "value",
+                  "source_quote",
+                  "ref_id"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "purpose"
+            ],
+            "additionalProperties": false
+          }
+        }
+      }
+    },
+    "token_budget": {
+      "prompt_tokens": 28,
+      "reserved_output_tokens": 700,
+      "special_token_margin": 8,
+      "context": 4096,
+      "fits": true
+    },
+    "raw_output": "{\"purpose\": {\"value\": \"schema-canary\", \"source_quote\": \"schema-canary\", \"ref_id\": \"canary\"}}",
+    "output": {
+      "purpose": {
+        "value": "schema-canary",
+        "source_quote": "schema-canary",
+        "ref_id": "canary"
+      }
+    },
+    "finish_reason": "stop",
+    "usage": {
+      "completion_tokens": 41,
+      "prompt_tokens": 28,
+      "total_tokens": 69,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "timings": {
+      "cache_n": 0,
+      "prompt_n": 28,
+      "prompt_ms": 2281.972,
+      "prompt_per_token_ms": 81.49900000000001,
+      "prompt_per_second": 12.270089203548508,
+      "predicted_n": 41,
+      "predicted_ms": 5854.017,
+      "predicted_per_token_ms": 146.350425,
+      "predicted_per_second": 6.832914902706979
+    },
+    "prefill_seconds": 2.281972,
+    "generate_seconds": 5.854017,
+    "thinking_disabled": true,
+    "wall_seconds": 8.205
+  },
+  "memory": {
+    "peak_rss_kib": 9585644,
+    "method": "/proc/server_pid/status VmHWM sampled every 100ms"
+  },
+  "total_wall_seconds": 474.099,
+  "metrics": {
+    "requested": 6,
+    "attempted": 6,
+    "json_parsed": 6,
+    "schema_valid": 6,
+    "nullpair_valid": 4,
+    "raw_valid": 4,
+    "runtime_bound_cases": 4,
+    "model_source_selection_accuracy": null,
+    "non_null_fields": 34,
+    "cases_with_non_null_fields": 5,
+    "unknown_control_passed": 8,
+    "unknown_control_total": 8,
+    "no_source_control_attempted": true,
+    "no_source_unknown_rate": 1.0,
+    "semantic_accuracy": null,
+    "semantic_refusal_rate": null,
+    "semantic_review": "pending; program-bound quotes are exact by construction, not model citation accuracy or semantic entailment"
+  }
+}

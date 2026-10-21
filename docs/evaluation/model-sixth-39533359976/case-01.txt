@@ -1,0 +1,10 @@
+{
+  "purpose": {"value": "使Windows任务栏透明", "ref_id": "r1"},
+  "audience": {"value": "Windows 10和Windows 11用户", "ref_id": "r1"},
+  "platforms": {"value": "Windows 10, Windows 11", "ref_id": "r1"},
+  "form": {"value": "应用程序", "ref_id": "r2"},
+  "requirements": {"value": "Windows 10或Windows 11", "ref_id": "r1"},
+  "path": {"value": "https://www.microsoft.com/store/apps/9PF4KZ2VN4W9", "ref_id": "r2"},
+  "fees": {"value": "免费", "ref_id": "r2"},
+  "license": {"value": "GNU General Public License v3.0", "ref_id": "r3"}
+}

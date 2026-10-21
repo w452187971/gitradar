@@ -1,0 +1,15 @@
+{
+  "baseline_commit": "980b7657415796f9d9c67181dac69365a22e2838",
+  "expected_source_sha256": "0871654d0a1f0731daa75133c46ab632332bcd9fabde8719f0e44be49e1b74ae",
+  "event_github_sha": "e41ba0d35aa69fa19b3c74c286b8b343d449fd45",
+  "status": "failed_unverified",
+  "scope": "model-capacity comparison; not production or blind",
+  "checkout_head": "e41ba0d35aa69fa19b3c74c286b8b343d449fd45",
+  "source_sha256": "0871654d0a1f0731daa75133c46ab632332bcd9fabde8719f0e44be49e1b74ae",
+  "baseline_fixture_sha256": "96978ccade1edc8841ad23d7aef2676734157c6b2826a6707d5dbcabe64917bf",
+  "model_key": "8b",
+  "model_pins_sha256": "2ac76850f9afa2f1f44050bad3e65f374d8f5acff775236b283dbaf00cf8b191",
+  "harness_fixture_sha256": "96978ccade1edc8841ad23d7aef2676734157c6b2826a6707d5dbcabe64917bf",
+  "harness_pins_sha256": "2f347d10232e979d578621042e9083badf546143f11edc002abc550acdaf02d5",
+  "exit_code": 1
+}

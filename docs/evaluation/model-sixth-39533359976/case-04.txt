@@ -1,0 +1,10 @@
+{
+  "purpose": {"value": "提供最先进的机器学习模型定义框架", "ref_id": "r1"},
+  "audience": {"value": "研究人员和开发者", "ref_id": "r1"},
+  "platforms": {"value": "Python 3.10+", "ref_id": "r2"},
+  "form": {"value": "Python库", "ref_id": "r2"},
+  "requirements": {"value": "PyTorch 2.6+", "ref_id": "r2"},
+  "path": {"value": "https://pytorch.org/get-started/locally/", "ref_id": "r2"},
+  "fees": {"value": null, "ref_id": null},
+  "license": {"value": null, "ref_id": null}
+}

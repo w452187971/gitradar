@@ -1,0 +1,10 @@
+{
+  "purpose": {"value": "网络范围内的广告和跟踪器阻止", "ref_id": "r2"},
+  "audience": {"value": "家庭设备用户", "ref_id": "r2"},
+  "platforms": {"value": "未明确说明", "ref_id": null},
+  "form": {"value": "DNS服务器", "ref_id": "r2"},
+  "requirements": {"value": "需要设置并配置设备使用", "ref_id": "r2"},
+  "path": {"value": null, "ref_id": null},
+  "fees": {"value": "免费", "ref_id": "r1"},
+  "license": {"value": "开源", "ref_id": "r1"}
+}

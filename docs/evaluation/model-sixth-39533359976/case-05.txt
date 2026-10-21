@@ -1,0 +1,10 @@
+{
+  "purpose": {"value": "提供经济学人、纽约客等英语外刊杂志的下载", "ref_id": "r1"},
+  "audience": {"value": "英语学习者和英语阅读爱好者", "ref_id": "r1"},
+  "platforms": {"value": "iOS, Android", "ref_id": "r1"},
+  "form": {"value": "应用程序", "ref_id": "r1"},
+  "requirements": {"value": "iOS或Android设备", "ref_id": "r1"},
+  "path": {"value": null, "ref_id": null},
+  "fees": {"value": null, "ref_id": null},
+  "license": {"value": null, "ref_id": null}
+}

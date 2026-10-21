@@ -1,0 +1,18 @@
+{
+  "run_id": 39533359976,
+  "run_url": "https://github.com/w452187971/gitradar/actions/runs/39533359976",
+  "scope": "Final fixed v3 method asset comparison using 8B Q4 and six seen development cases; no production writes or unseen evaluation",
+  "archived_at": "2026-10-21T02:40:00.695312+00:00",
+  "sha256": {
+    "case-00-schema-canary.txt": "b7ccdc558e5b464862c8e832c7d59595caee17f56efadfac671f9b29dd50202c",
+    "case-01.txt": "eabb54b1d8555fc63e42b7cae14f587a371bef6a5df52697a98baba6155cb4c9",
+    "case-02.txt": "deb7145c78e066fa20be507fb0ac269f9aeddba2f28470fca76aaf6b2373f60a",
+    "case-03.txt": "63943e294d29bac6b05c173c0d2028705bf1e444d9d582a34e83ab355858874a",
+    "case-04.txt": "44fc82ed14992bf68d8529a5f660187e5e99440eeec4a2bce2f2a94dee03e989",
+    "case-05.txt": "61be7d605cd009532d1c764c33482228985dbe53b26a5856c46cb867f65b84fd",
+    "case-06.txt": "33437ad3220ab1604b3645ed30ae10ed680455a1e0f06a64220aacc453d443f7",
+    "comparison-provenance.json": "b3231b443d6ef32677ffa911307accbc1f56a9dcfa067b07ed5efab25f588c29",
+    "report.json": "de99cadf4fb47aa4cf158f9089bb0c0768a8b7d0dd21d00a553b888db3923b06",
+    "server.log": "c5eb5686abf45ab0f5dec52db1b6797f2540a14a40c8d5e47f23e9d62e90182f"
+  }
+}

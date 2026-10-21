@@ -1,5 +1,7 @@
 # 一次14B容量对照
 
+以下为原冻结设计；执行后记：[39527528160](https://github.com/w452187971/gitradar/actions/runs/39527528160) 实际用时749.187秒，五个有来源项目均超过120秒，语义未验证，独立核对见 [model-fifth-14b-review.md](model-fifth-14b-review.md)。原源码、配置和输出仍保留在当时的固定Git对象及归档中。
+
 本实验仅回答：保持原 v3 抽取协议不变时，增加模型容量是否值得继续评测。仍使用六个已见开发样本，不使用隐藏组，不按项目名调整提示词，不导入生产模块或写入正式数据。4B 两步诊断不再调参。
 
 `scripts/probe_model_comparison.py` 从 Git 对象读取基线 `980b7657415796f9d9c67181dac69365a22e2838` 的 `scripts/probe_local_model.py`，执行前两次核对 SHA256 `0871654d0a1f0731daa75133c46ab632332bcd9fabde8719f0e44be49e1b74ae`。六项 fixture 必须与基线及当前文件逐字节相同，SHA256 为 `96978ccade1edc8841ad23d7aef2676734157c6b2826a6707d5dbcabe64917bf`。临时 harness 仅包含该 fixture 和由基线 pins 替换 model 节点得到的配置；动态模块仅更换 ROOT，提示词、函数、运行时和协议均不修改。当前 v4 脚本及4B配置保持原样。

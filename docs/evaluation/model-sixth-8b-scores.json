@@ -1,0 +1,602 @@
+{
+  "version": 1,
+  "review_kind": "independent_ai_selected_frozen_source_review",
+  "human_reviewed": false,
+  "run_id": 39533359976,
+  "baseline_commit": "980b7657415796f9d9c67181dac69365a22e2838",
+  "checkout_head": "e41ba0d35aa69fa19b3c74c286b8b343d449fd45",
+  "source_sha256": "0871654d0a1f0731daa75133c46ab632332bcd9fabde8719f0e44be49e1b74ae",
+  "fixture_sha256": "96978ccade1edc8841ad23d7aef2676734157c6b2826a6707d5dbcabe64917bf",
+  "model_key": "8b",
+  "model_pins_sha256": "2ac76850f9afa2f1f44050bad3e65f374d8f5acff775236b283dbaf00cf8b191",
+  "harness_pins_sha256": "2f347d10232e979d578621042e9083badf546143f11edc002abc550acdaf02d5",
+  "raw_report_sha256": "de99cadf4fb47aa4cf158f9089bb0c0768a8b7d0dd21d00a553b888db3923b06",
+  "provenance_sha256": "b3231b443d6ef32677ffa911307accbc1f56a9dcfa067b07ed5efab25f588c29",
+  "scope": "Six seen development repositories, not unseen validation; support requires this selected ref, project subject, and field role. All invalid raw cases retained.",
+  "cases": [
+    {
+      "full_name": "TranslucentTB/TranslucentTB",
+      "kind": "desktop",
+      "raw_valid": true,
+      "runtime_bound_available": true,
+      "validation_errors": {},
+      "finish_reason": "stop",
+      "wall_seconds": 83.479,
+      "fields": {
+        "purpose": {
+          "value": "使Windows任务栏透明",
+          "ref_id": "r1",
+          "judgement": "supported",
+          "reason": "r1直接说明使Windows任务栏半透明/透明；未增加功能。",
+          "tags": []
+        },
+        "audience": {
+          "value": "Windows 10和Windows 11用户",
+          "ref_id": "r1",
+          "judgement": "supported",
+          "reason": "r1明确Windows 10/11使用范围，归纳为其用户未增加职业或需求群体。",
+          "tags": []
+        },
+        "platforms": {
+          "value": "Windows 10, Windows 11",
+          "ref_id": "r1",
+          "judgement": "supported",
+          "reason": "r1直接列出Windows 10和11。",
+          "tags": []
+        },
+        "form": {
+          "value": "应用程序",
+          "ref_id": "r2",
+          "judgement": "supported",
+          "reason": "r2直接称app并给出appinstaller与安装说明，支持应用形态。",
+          "tags": []
+        },
+        "requirements": {
+          "value": "Windows 10或Windows 11",
+          "ref_id": "r1",
+          "judgement": "supported",
+          "reason": "r1明确系统运行范围，可作为系统前提；当前所选Store路径没有声称便携包支持Windows 10。",
+          "tags": []
+        },
+        "path": {
+          "value": "https://www.microsoft.com/store/apps/9PF4KZ2VN4W9",
+          "ref_id": "r2",
+          "judgement": "supported",
+          "reason": "r2明确把该完整Microsoft Store URL作为本程序的下载入口。",
+          "tags": []
+        },
+        "fees": {
+          "value": "免费",
+          "ref_id": "r2",
+          "judgement": "supported",
+          "reason": "r2直接写可免费下载，不是从GPL推导。",
+          "tags": []
+        },
+        "license": {
+          "value": "GNU General Public License v3.0",
+          "ref_id": "r3",
+          "judgement": "supported",
+          "reason": "r3直接写GPLv3，名称展开未擅自增加only或later条款。",
+          "tags": []
+        }
+      },
+      "judgement_counts": {
+        "supported": 8
+      }
+    },
+    {
+      "full_name": "AdguardTeam/AdGuardHome",
+      "kind": "self_hosted",
+      "raw_valid": false,
+      "runtime_bound_available": false,
+      "validation_errors": {
+        "platforms": "invalid_null_pair"
+      },
+      "finish_reason": "stop",
+      "wall_seconds": 78.531,
+      "fields": {
+        "purpose": {
+          "value": "网络范围内的广告和跟踪器阻止",
+          "ref_id": "r2",
+          "judgement": "supported",
+          "reason": "r2直接说明网络范围广告和跟踪拦截用途。",
+          "tags": []
+        },
+        "audience": {
+          "value": "家庭设备用户",
+          "ref_id": "r2",
+          "judgement": "supported",
+          "reason": "r2明确覆盖家庭设备，家庭设备用户与该范围一致。",
+          "tags": []
+        },
+        "platforms": {
+          "value": "未明确说明",
+          "ref_id": null,
+          "judgement": "insufficient",
+          "reason": "未知被写为非空字符串且ref为null；应保留合法null对，不能作为已知平台。",
+          "tags": [
+            "unknown_as_nonnull",
+            "invalid_null_pair"
+          ]
+        },
+        "form": {
+          "value": "DNS服务器",
+          "ref_id": "r2",
+          "judgement": "supported",
+          "reason": "r2直接说明本项目作为DNS server运行，正确放入形态字段。",
+          "tags": []
+        },
+        "requirements": {
+          "value": "需要设置并配置设备使用",
+          "ref_id": "r2",
+          "judgement": "insufficient",
+          "reason": "r2支持需要设置，但没有直接说明设备配置；r3才明确configure your devices，不能替模型换ref补证。",
+          "tags": [
+            "selected_ref_insufficient"
+          ]
+        },
+        "path": {
+          "value": null,
+          "ref_id": null,
+          "judgement": "unknown",
+          "reason": "冻结片段没有展开本项目安装Wiki的完整https URL，合法null保持未知。",
+          "tags": []
+        },
+        "fees": {
+          "value": "免费",
+          "ref_id": "r1",
+          "judgement": "supported",
+          "reason": "r1明确Free，有直接费用依据。",
+          "tags": []
+        },
+        "license": {
+          "value": "开源",
+          "ref_id": "r1",
+          "judgement": "insufficient",
+          "reason": "r1只给开源属性，没有具体许可证名称或条款；开源不能充当license已知值。",
+          "tags": [
+            "license_unspecified"
+          ]
+        }
+      },
+      "judgement_counts": {
+        "supported": 4,
+        "insufficient": 3,
+        "unknown": 1
+      }
+    },
+    {
+      "full_name": "sharkdp/fd",
+      "kind": "cli",
+      "raw_valid": false,
+      "runtime_bound_available": false,
+      "validation_errors": {
+        "requirements": "invalid_null_pair",
+        "fees": "invalid_null_pair"
+      },
+      "finish_reason": "stop",
+      "wall_seconds": 76.193,
+      "fields": {
+        "purpose": {
+          "value": "查找文件系统中的条目",
+          "ref_id": "r1",
+          "judgement": "supported",
+          "reason": "r1直接说明查找文件系统条目。",
+          "tags": []
+        },
+        "audience": {
+          "value": "需要快速查找文件的用户",
+          "ref_id": "r1",
+          "judgement": "insufficient",
+          "reason": "把用途和fast特点改写成需要快速找文件的人群，原文未直接声明此目标受众。",
+          "tags": [
+            "audience_inferred"
+          ]
+        },
+        "platforms": {
+          "value": "Linux, macOS, Windows",
+          "ref_id": "r2",
+          "judgement": "supported",
+          "reason": "r2直接列出预编译二进制的Linux/macOS/Windows平台。",
+          "tags": []
+        },
+        "form": {
+          "value": "预编译二进制文件",
+          "ref_id": "r2",
+          "judgement": "supported",
+          "reason": "r2直接说明precompiled binaries，所选来源足以支持交付形态。",
+          "tags": []
+        },
+        "requirements": {
+          "value": "无特殊要求",
+          "ref_id": null,
+          "judgement": "insufficient",
+          "reason": "资料没列特殊要求不等于明确无特殊要求；ref=null且非空，不能当合法未知。",
+          "tags": [
+            "unsupported_no_requirements",
+            "invalid_null_pair"
+          ]
+        },
+        "path": {
+          "value": "https://github.com/sharkdp/fd/releases",
+          "ref_id": "r2",
+          "judgement": "supported",
+          "reason": "r2给出本项目release page和二进制获取角色。",
+          "tags": []
+        },
+        "fees": {
+          "value": "免费",
+          "ref_id": null,
+          "judgement": "insufficient",
+          "reason": "冻结资料没有价格/免费声明；不能从二进制或许可推导免费，且ref=null。不是证明实际收费。",
+          "tags": [
+            "unsupported_fee",
+            "invalid_null_pair"
+          ]
+        },
+        "license": {
+          "value": "MIT License 和 Apache License 2.0",
+          "ref_id": "r3",
+          "judgement": "supported",
+          "reason": "r3直接列出MIT与Apache License 2.0；未补充SPDX AND/OR关系。",
+          "tags": []
+        }
+      },
+      "judgement_counts": {
+        "supported": 5,
+        "insufficient": 3
+      }
+    },
+    {
+      "full_name": "huggingface/transformers",
+      "kind": "library",
+      "raw_valid": true,
+      "runtime_bound_available": true,
+      "validation_errors": {},
+      "finish_reason": "stop",
+      "wall_seconds": 89.698,
+      "fields": {
+        "purpose": {
+          "value": "提供最先进的机器学习模型定义框架",
+          "ref_id": "r1",
+          "judgement": "supported",
+          "reason": "r1直接说明model-definition framework定位。",
+          "tags": []
+        },
+        "audience": {
+          "value": "研究人员和开发者",
+          "ref_id": "r1",
+          "judgement": "insufficient",
+          "reason": "r1没直接给研究人员和开发者受众；r3提researchers也不能补足当前ref和整个并列断言。",
+          "tags": [
+            "audience_inferred",
+            "selected_ref_insufficient"
+          ]
+        },
+        "platforms": {
+          "value": "Python 3.10+",
+          "ref_id": "r2",
+          "judgement": "wrong",
+          "reason": "Python 3.10+是运行前提版本，不是操作系统或可运行平台，填错字段。",
+          "tags": [
+            "field_role_platform_requirement"
+          ]
+        },
+        "form": {
+          "value": "Python库",
+          "ref_id": "r2",
+          "judgement": "insufficient",
+          "reason": "r2给Python安装包与依赖环境，但没有直接给library形态；r3才明确library，严格按所选ref不替换。",
+          "tags": [
+            "selected_ref_insufficient"
+          ]
+        },
+        "requirements": {
+          "value": "PyTorch 2.6+",
+          "ref_id": "r2",
+          "judgement": "supported",
+          "reason": "r2直接写PyTorch 2.6+运行条件；只支持此条断言，完整条件仍漏Python版本的正确归位。",
+          "tags": []
+        },
+        "path": {
+          "value": "https://pytorch.org/get-started/locally/",
+          "ref_id": "r2",
+          "judgement": "wrong",
+          "reason": "完整URL虽逐字出现，但它是PyTorch依赖的安装页，不是Transformers获取入口。",
+          "tags": [
+            "dependency_url_as_project_path"
+          ]
+        },
+        "fees": {
+          "value": null,
+          "ref_id": null,
+          "judgement": "unknown",
+          "reason": "输入没有费用声明，合法null保持未知。",
+          "tags": []
+        },
+        "license": {
+          "value": null,
+          "ref_id": null,
+          "judgement": "unknown",
+          "reason": "输入没有具体许可名称，合法null保持未知。",
+          "tags": []
+        }
+      },
+      "judgement_counts": {
+        "supported": 2,
+        "insufficient": 2,
+        "wrong": 2,
+        "unknown": 2
+      }
+    },
+    {
+      "full_name": "hehonghui/awesome-english-ebooks",
+      "kind": "collection_other_subject",
+      "raw_valid": true,
+      "runtime_bound_available": true,
+      "validation_errors": {},
+      "finish_reason": "stop",
+      "wall_seconds": 72.878,
+      "fields": {
+        "purpose": {
+          "value": "提供经济学人、纽约客等英语外刊杂志的下载",
+          "ref_id": "r1",
+          "judgement": "supported",
+          "reason": "r1仓库标题直接说明经济学人、纽约客等英语外刊杂志下载；这次未并入第三方阅读服务。",
+          "tags": []
+        },
+        "audience": {
+          "value": "英语学习者和英语阅读爱好者",
+          "ref_id": "r1",
+          "judgement": "insufficient",
+          "reason": "人群虽合理，但冻结文字没有直接声明仓库受众；不能用推荐App的学习功能补证。",
+          "tags": [
+            "audience_inferred"
+          ]
+        },
+        "platforms": {
+          "value": "iOS, Android",
+          "ref_id": "r1",
+          "judgement": "wrong",
+          "reason": "iOS/Android属于推荐的英阅App，不是资料仓库本身的平台。",
+          "tags": [
+            "third_party_subject"
+          ]
+        },
+        "form": {
+          "value": "应用程序",
+          "ref_id": "r1",
+          "judgement": "wrong",
+          "reason": "应用程序属于推荐App；仓库的App推荐段不能证明仓库就是该App。",
+          "tags": [
+            "third_party_subject"
+          ]
+        },
+        "requirements": {
+          "value": "iOS或Android设备",
+          "ref_id": "r1",
+          "judgement": "wrong",
+          "reason": "把可选第三方App的设备平台改成本仓库使用前提。",
+          "tags": [
+            "third_party_subject",
+            "unsupported_requirement"
+          ]
+        },
+        "path": {
+          "value": null,
+          "ref_id": null,
+          "judgement": "unknown",
+          "reason": "只有推荐App的URL，没有本仓库自身的获取URL，合法null避免错入口。",
+          "tags": []
+        },
+        "fees": {
+          "value": null,
+          "ref_id": null,
+          "judgement": "unknown",
+          "reason": "输入没有费用声明，合法null保持未知。",
+          "tags": []
+        },
+        "license": {
+          "value": null,
+          "ref_id": null,
+          "judgement": "unknown",
+          "reason": "输入没有具体许可，合法null保持未知。",
+          "tags": []
+        }
+      },
+      "judgement_counts": {
+        "supported": 1,
+        "insufficient": 1,
+        "wrong": 3,
+        "unknown": 3
+      }
+    },
+    {
+      "full_name": "squoosh/squoosh",
+      "kind": "missing_official_source",
+      "raw_valid": true,
+      "runtime_bound_available": true,
+      "validation_errors": {},
+      "finish_reason": "stop",
+      "wall_seconds": 47.213,
+      "fields": {
+        "purpose": {
+          "value": null,
+          "ref_id": null,
+          "judgement": "unknown",
+          "reason": "refs为空，实际推理返回合法null；仅此单例无来源控制通过。",
+          "tags": [
+            "no_source_control"
+          ]
+        },
+        "audience": {
+          "value": null,
+          "ref_id": null,
+          "judgement": "unknown",
+          "reason": "refs为空，实际推理返回合法null；仅此单例无来源控制通过。",
+          "tags": [
+            "no_source_control"
+          ]
+        },
+        "platforms": {
+          "value": null,
+          "ref_id": null,
+          "judgement": "unknown",
+          "reason": "refs为空，实际推理返回合法null；仅此单例无来源控制通过。",
+          "tags": [
+            "no_source_control"
+          ]
+        },
+        "form": {
+          "value": null,
+          "ref_id": null,
+          "judgement": "unknown",
+          "reason": "refs为空，实际推理返回合法null；仅此单例无来源控制通过。",
+          "tags": [
+            "no_source_control"
+          ]
+        },
+        "requirements": {
+          "value": null,
+          "ref_id": null,
+          "judgement": "unknown",
+          "reason": "refs为空，实际推理返回合法null；仅此单例无来源控制通过。",
+          "tags": [
+            "no_source_control"
+          ]
+        },
+        "path": {
+          "value": null,
+          "ref_id": null,
+          "judgement": "unknown",
+          "reason": "refs为空，实际推理返回合法null；仅此单例无来源控制通过。",
+          "tags": [
+            "no_source_control"
+          ]
+        },
+        "fees": {
+          "value": null,
+          "ref_id": null,
+          "judgement": "unknown",
+          "reason": "refs为空，实际推理返回合法null；仅此单例无来源控制通过。",
+          "tags": [
+            "no_source_control"
+          ]
+        },
+        "license": {
+          "value": null,
+          "ref_id": null,
+          "judgement": "unknown",
+          "reason": "refs为空，实际推理返回合法null；仅此单例无来源控制通过。",
+          "tags": [
+            "no_source_control"
+          ]
+        }
+      },
+      "judgement_counts": {
+        "unknown": 8
+      }
+    }
+  ],
+  "denominators": {
+    "repositories_requested": 6,
+    "repositories_attempted": 6,
+    "repositories_parsed": 6,
+    "source_repositories": 5,
+    "field_slots": 48,
+    "non_null_fields": 34,
+    "supported": 20,
+    "wrong": 5,
+    "insufficient": 9,
+    "unknown_null": 14,
+    "source_unknown_null": 6,
+    "control_unknown_null": 8,
+    "not_completed": 0,
+    "raw_valid_cases": 4,
+    "raw_invalid_cases": 2,
+    "non_empty_bound_cases": 3,
+    "nonempty_raw_valid_fields": 19,
+    "valid_raw_nonempty_judgements": {
+      "supported": 11,
+      "wrong": 5,
+      "insufficient": 3
+    },
+    "nonempty_invalid_raw_fields": 15,
+    "invalid_raw_nonempty_judgements": {
+      "supported": 9,
+      "wrong": 0,
+      "insufficient": 6
+    },
+    "population_semantic_accuracy": null,
+    "population_refusal_rate": null
+  },
+  "per_field": {
+    "purpose": {
+      "scheduled": 6,
+      "non_null": 5,
+      "supported": 5,
+      "unknown": 1,
+      "generalization_status": "unverified; fewer than 30 independent repositories"
+    },
+    "audience": {
+      "scheduled": 6,
+      "non_null": 5,
+      "supported": 2,
+      "insufficient": 3,
+      "unknown": 1,
+      "generalization_status": "unverified; fewer than 30 independent repositories"
+    },
+    "platforms": {
+      "scheduled": 6,
+      "non_null": 5,
+      "supported": 2,
+      "insufficient": 1,
+      "wrong": 2,
+      "unknown": 1,
+      "generalization_status": "unverified; fewer than 30 independent repositories"
+    },
+    "form": {
+      "scheduled": 6,
+      "non_null": 5,
+      "supported": 3,
+      "insufficient": 1,
+      "wrong": 1,
+      "unknown": 1,
+      "generalization_status": "unverified; fewer than 30 independent repositories"
+    },
+    "requirements": {
+      "scheduled": 6,
+      "non_null": 5,
+      "supported": 2,
+      "insufficient": 2,
+      "wrong": 1,
+      "unknown": 1,
+      "generalization_status": "unverified; fewer than 30 independent repositories"
+    },
+    "path": {
+      "scheduled": 6,
+      "non_null": 3,
+      "supported": 2,
+      "unknown": 3,
+      "wrong": 1,
+      "generalization_status": "unverified; fewer than 30 independent repositories"
+    },
+    "fees": {
+      "scheduled": 6,
+      "non_null": 3,
+      "supported": 2,
+      "insufficient": 1,
+      "unknown": 3,
+      "generalization_status": "unverified; fewer than 30 independent repositories"
+    },
+    "license": {
+      "scheduled": 6,
+      "non_null": 3,
+      "supported": 2,
+      "insufficient": 1,
+      "unknown": 3,
+      "generalization_status": "unverified; fewer than 30 independent repositories"
+    }
+  },
+  "conclusion": "Runtime completed on this runner, but project-subject and dependency-URL errors remain. Do not enter production or automatically begin unseen validation. Stop selecting models or tuning prompts on these six cases."
+}
