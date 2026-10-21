@@ -135,6 +135,7 @@ class ModelProbeTests(unittest.TestCase):
         self.assertIn('probe_only:', workflow)
         self.assertIn('timeout-minutes: 60', workflow)
         self.assertIn('pages: write', workflow)
+        self.assertIn('fetch-depth: 0', workflow)
         steps = workflow.split('      - name: ')
         pageStep = next(step for step in steps if step.startswith('Publish and verify Pages'))
         self.assertIn("github.ref == 'refs/heads/main'", pageStep)
