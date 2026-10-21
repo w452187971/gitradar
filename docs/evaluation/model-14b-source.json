@@ -1,0 +1,21 @@
+{
+  "checked_at": "2026-10-21T01:19:47.325006+00:00",
+  "metadata_url": "https://huggingface.co/api/models/Qwen/Qwen3-14B-GGUF/revision/530227a7d994db8eca5ab5ced2fb692b614357fd?blobs=true",
+  "revision": "530227a7d994db8eca5ab5ced2fb692b614357fd",
+  "license_declaration": "apache-2.0",
+  "artifact": {
+    "rfilename": "Qwen3-14B-Q4_K_M.gguf",
+    "blobId": "1805f4dd32443cb776a843d7902a385132b23ade",
+    "size": 9001752960,
+    "lfs": {
+      "sha256": "500a8806e85ee9c83f3ae08420295592451379b4f8cf2d0f41c15dffeb6b81f0",
+      "size": 9001752960,
+      "pointerSize": 135
+    }
+  },
+  "license_url": "https://huggingface.co/Qwen/Qwen3-14B-GGUF/raw/530227a7d994db8eca5ab5ced2fb692b614357fd/LICENSE",
+  "license_bytes": 11544,
+  "license_sha256": "5de36594c10839788a8c589443a8ef9d8b8d17c65a1b5807206ae037fc36c6bd",
+  "license_header": "Apache License\r\n                           Version 2.0, January 2004\r\n                        http:/",
+  "scope": "Two primary small GETs only; weights not downloaded; license/model quality/CPU fit are separate."
+}

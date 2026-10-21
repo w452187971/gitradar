@@ -1,0 +1,11 @@
+{
+  "project": "Qwen/Qwen3-14B-GGUF",
+  "revision": "530227a7d994db8eca5ab5ced2fb692b614357fd",
+  "filename": "Qwen3-14B-Q4_K_M.gguf",
+  "source": "https://huggingface.co/Qwen/Qwen3-14B-GGUF/tree/530227a7d994db8eca5ab5ced2fb692b614357fd",
+  "url": "https://huggingface.co/Qwen/Qwen3-14B-GGUF/resolve/530227a7d994db8eca5ab5ced2fb692b614357fd/Qwen3-14B-Q4_K_M.gguf",
+  "sha256": "500a8806e85ee9c83f3ae08420295592451379b4f8cf2d0f41c15dffeb6b81f0",
+  "size": 9001752960,
+  "checksum_provenance": "Official fixed-revision API and Apache-2.0 LICENSE checked 2026-10-21; docs/evaluation/model-14b-source.json",
+  "license": "Apache-2.0"
+}
