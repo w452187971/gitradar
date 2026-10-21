@@ -1,0 +1,988 @@
+{
+  "review_version": 1,
+  "review_kind": "independent_assistant_source_review",
+  "human_reviewed": false,
+  "run_id": 39524320125,
+  "run_head_sha": "61aca582ba85e3b5e2711e770beb376139d6b9c8",
+  "report_git_sha": "61aca582ba85e3b5e2711e770beb376139d6b9c8",
+  "git_sha_caveat": "report.git_sha is GITHUB_SHA, not a separately measured checkout HEAD; frozen trigger and bot child have identical script/pins/fixtures",
+  "source_report_sha256": "411a5a5ce018c98870da0828ad0e783e8d2a5ab4342990f303836a390c9a6c30",
+  "script_sha256": "8d1a5d0c1d2f4aae51815216cb876cf7ab37300154cf902d2b0d77989e2a3ede",
+  "fixture_sha256": "96978ccade1edc8841ad23d7aef2676734157c6b2826a6707d5dbcabe64917bf",
+  "columns": {
+    "s1": [
+      "ref_id",
+      "paragraph_id",
+      "relation",
+      "verdict"
+    ],
+    "s2": [
+      "value",
+      "ref_id",
+      "strict_verdict"
+    ]
+  },
+  "definitions": {
+    "stage1_supported": "selection subject/relation is justified, including correctly identified third party; not project fact accuracy",
+    "stage2_insufficient": "literal value has support but raw ref is null/unusable under current selected-source contract; never repaired",
+    "unknown": "actual raw null pair or null selection; not automatically semantically correct",
+    "all_counts": "all six fixed seen development repositories, eight slots each; failures retained"
+  },
+  "summary": {
+    "repositories": 6,
+    "stage1_slots": 48,
+    "stage2_slots": 48,
+    "stage1_counts": {
+      "支持": 9,
+      "未知": 33,
+      "错误": 4,
+      "不足": 2
+    },
+    "stage2_counts": {
+      "支持": 6,
+      "未知": 33,
+      "不足": 5,
+      "错误": 4
+    },
+    "stage1_selected": 15,
+    "stage1_relation_only_supported": 10,
+    "stage1_relation_wrong": 4,
+    "stage2_non_null": 15,
+    "stage2_non_null_supported": 6,
+    "stage2_non_null_error": 4,
+    "stage2_non_null_insufficient": 5,
+    "literal_values_supported_ignoring_invalid_refs": 11,
+    "invalid_null_pair_fields": 8,
+    "invalid_path_paragraph_fields": 1,
+    "stage1_unexecuted": 0,
+    "stage2_unexecuted": 0,
+    "truncated": 0,
+    "raw_valid_cases": 2,
+    "bound_cases": 2,
+    "bound_nonempty_cases": 1,
+    "bound_nonempty_chinese_cases": 0,
+    "semantic_metrics_status": "unverified_each_dimension_below_30_independent_repositories",
+    "model_semantic_refusal_accuracy": null,
+    "major_errors": [
+      "transformers.path dependency URL",
+      "english-ebooks.purpose wrong subject",
+      "english-ebooks.platforms wrong subject",
+      "english-ebooks.path wrong subject"
+    ],
+    "decision": "stop_tuning_these_six_cases_do_not_proceed_to_acceptance_blind_set",
+    "stage1_relation_ambiguous": 1
+  },
+  "stage2_by_dimension": {
+    "purpose": {
+      "支持": 4,
+      "错误": 1,
+      "未知": 1
+    },
+    "audience": {
+      "未知": 6
+    },
+    "platforms": {
+      "支持": 1,
+      "未知": 3,
+      "不足": 1,
+      "错误": 1
+    },
+    "form": {
+      "未知": 6
+    },
+    "requirements": {
+      "未知": 5,
+      "不足": 1
+    },
+    "path": {
+      "不足": 2,
+      "未知": 2,
+      "错误": 2
+    },
+    "fees": {
+      "未知": 6
+    },
+    "license": {
+      "支持": 1,
+      "未知": 4,
+      "不足": 1
+    }
+  },
+  "cases": [
+    {
+      "full_name": "TranslucentTB/TranslucentTB",
+      "raw_valid": false,
+      "bound_present": false,
+      "stage1_status": "completed",
+      "stage2_status": "completed",
+      "stage1_counts": {
+        "支持": 3,
+        "未知": 4,
+        "错误": 1
+      },
+      "stage2_counts": {
+        "支持": 3,
+        "未知": 4,
+        "不足": 1
+      },
+      "fields": [
+        {
+          "field": "purpose",
+          "s1": [
+            "r1",
+            "r1:p1",
+            "project",
+            "支持"
+          ],
+          "s2": [
+            "使Windows任务栏半透明/透明",
+            "r1",
+            "支持"
+          ],
+          "protocol_error": null,
+          "note": "r1:p1为本项目用途，中文断言忠实。"
+        },
+        {
+          "field": "audience",
+          "s1": [
+            null,
+            null,
+            "unknown",
+            "未知"
+          ],
+          "s2": [
+            null,
+            null,
+            "未知"
+          ],
+          "protocol_error": null,
+          "note": "未选受众，两个阶段都未作受众断言。"
+        },
+        {
+          "field": "platforms",
+          "s1": [
+            "r1",
+            "r1:p1",
+            "project",
+            "支持"
+          ],
+          "s2": [
+            "Windows 10 和 Windows 11",
+            "r1",
+            "支持"
+          ],
+          "protocol_error": null,
+          "note": "r1:p1直接支持Windows 10/11。"
+        },
+        {
+          "field": "form",
+          "s1": [
+            null,
+            null,
+            "unknown",
+            "未知"
+          ],
+          "s2": [
+            null,
+            null,
+            "未知"
+          ],
+          "protocol_error": null,
+          "note": "未选形态；r2已有app/appinstaller文字，仍未形成覆盖。"
+        },
+        {
+          "field": "requirements",
+          "s1": [
+            null,
+            null,
+            "unknown",
+            "未知"
+          ],
+          "s2": [
+            null,
+            null,
+            "未知"
+          ],
+          "protocol_error": null,
+          "note": "未选运行限制，r2:p5便携包仅Windows 11条件没有呈现。"
+        },
+        {
+          "field": "path",
+          "s1": [
+            "r2",
+            "r2:p3",
+            "dependency",
+            "错误"
+          ],
+          "s2": [
+            "https://www.microsoft.com/store/apps/9PF4KZ2VN4W9",
+            null,
+            "不足"
+          ],
+          "protocol_error": "unselected_project_evidence",
+          "note": "r2:p3是本程序Store入口却误标dependency；地址本身有证，但stage2 ref为null，不能补成有效绑定。"
+        },
+        {
+          "field": "fees",
+          "s1": [
+            null,
+            null,
+            "unknown",
+            "未知"
+          ],
+          "s2": [
+            null,
+            null,
+            "未知"
+          ],
+          "protocol_error": null,
+          "note": "r2:p3明示免费，但两阶段均未提取。"
+        },
+        {
+          "field": "license",
+          "s1": [
+            "r3",
+            "r3:p1",
+            "project",
+            "支持"
+          ],
+          "s2": [
+            "GPLv3",
+            "r3",
+            "支持"
+          ],
+          "protocol_error": null,
+          "note": "r3:p1直接支持GPLv3；名称保留英文可接受。"
+        }
+      ]
+    },
+    {
+      "full_name": "AdguardTeam/AdGuardHome",
+      "raw_valid": true,
+      "bound_present": true,
+      "stage1_status": "completed",
+      "stage2_status": "completed",
+      "stage1_counts": {
+        "支持": 1,
+        "未知": 7
+      },
+      "stage2_counts": {
+        "支持": 1,
+        "未知": 7
+      },
+      "fields": [
+        {
+          "field": "purpose",
+          "s1": [
+            "r1",
+            "r1:p1",
+            "project",
+            "支持"
+          ],
+          "s2": [
+            "Free and open source, powerful network-wide ads & trackers blocking DNS server.",
+            "r1",
+            "支持"
+          ],
+          "protocol_error": null,
+          "note": "r1:p1为本项目用途；stage2原样英文，事实有证但没有完成中文交付。"
+        },
+        {
+          "field": "audience",
+          "s1": [
+            null,
+            null,
+            "unknown",
+            "未知"
+          ],
+          "s2": [
+            null,
+            null,
+            "未知"
+          ],
+          "protocol_error": null,
+          "note": "r2:p1家庭设备已有受众线索，仍未选择。"
+        },
+        {
+          "field": "platforms",
+          "s1": [
+            null,
+            null,
+            "unknown",
+            "未知"
+          ],
+          "s2": [
+            null,
+            null,
+            "未知"
+          ],
+          "protocol_error": null,
+          "note": "冻结文字未明确操作系统，未知可以保留。"
+        },
+        {
+          "field": "form",
+          "s1": [
+            null,
+            null,
+            "unknown",
+            "未知"
+          ],
+          "s2": [
+            null,
+            null,
+            "未知"
+          ],
+          "protocol_error": null,
+          "note": "r1:p1/r2:p2的DNS服务器形态未提取。"
+        },
+        {
+          "field": "requirements",
+          "s1": [
+            null,
+            null,
+            "unknown",
+            "未知"
+          ],
+          "s2": [
+            null,
+            null,
+            "未知"
+          ],
+          "protocol_error": null,
+          "note": "设备配置及DNS无法屏蔽同域广告限制均遗漏。"
+        },
+        {
+          "field": "path",
+          "s1": [
+            null,
+            null,
+            "unknown",
+            "未知"
+          ],
+          "s2": [
+            null,
+            null,
+            "未知"
+          ],
+          "protocol_error": null,
+          "note": "安装Wiki引用没有展开成HTTPS URL，未知可保留。"
+        },
+        {
+          "field": "fees",
+          "s1": [
+            null,
+            null,
+            "unknown",
+            "未知"
+          ],
+          "s2": [
+            null,
+            null,
+            "未知"
+          ],
+          "protocol_error": null,
+          "note": "r1:p1明确Free，但费用被遗漏。"
+        },
+        {
+          "field": "license",
+          "s1": [
+            null,
+            null,
+            "unknown",
+            "未知"
+          ],
+          "s2": [
+            null,
+            null,
+            "未知"
+          ],
+          "protocol_error": null,
+          "note": "只有开源属性，没有具体许可，未知可保留。"
+        }
+      ]
+    },
+    {
+      "full_name": "sharkdp/fd",
+      "raw_valid": false,
+      "bound_present": false,
+      "stage1_status": "completed",
+      "stage2_status": "completed",
+      "stage1_counts": {
+        "支持": 1,
+        "未知": 4,
+        "错误": 3
+      },
+      "stage2_counts": {
+        "支持": 1,
+        "未知": 4,
+        "不足": 3
+      },
+      "fields": [
+        {
+          "field": "purpose",
+          "s1": [
+            "r1",
+            "r1:p1",
+            "project",
+            "支持"
+          ],
+          "s2": [
+            "寻找文件系统中的条目",
+            "r1",
+            "支持"
+          ],
+          "protocol_error": null,
+          "note": "r1:p1为本项目文件查找用途，未移植find全部能力。"
+        },
+        {
+          "field": "audience",
+          "s1": [
+            null,
+            null,
+            "unknown",
+            "未知"
+          ],
+          "s2": [
+            null,
+            null,
+            "未知"
+          ],
+          "protocol_error": null,
+          "note": "无明确目标人群，未知可保留。"
+        },
+        {
+          "field": "platforms",
+          "s1": [
+            "r2",
+            "r2:p2",
+            "dependency",
+            "错误"
+          ],
+          "s2": [
+            "Linux, macOS and Windows",
+            null,
+            "不足"
+          ],
+          "protocol_error": "unselected_project_evidence",
+          "note": "r2:p2是本项目二进制平台，误标dependency；stage2系统值有证但ref为null。"
+        },
+        {
+          "field": "form",
+          "s1": [
+            null,
+            null,
+            "unknown",
+            "未知"
+          ],
+          "s2": [
+            null,
+            null,
+            "未知"
+          ],
+          "protocol_error": null,
+          "note": "当前片段没有直接写CLI，不用常识替它补证。"
+        },
+        {
+          "field": "requirements",
+          "s1": [
+            null,
+            null,
+            "unknown",
+            "未知"
+          ],
+          "s2": [
+            null,
+            null,
+            "未知"
+          ],
+          "protocol_error": null,
+          "note": "没有明确权限或运行前提，不新增访问权限断言。"
+        },
+        {
+          "field": "path",
+          "s1": [
+            "r2",
+            "r2:p2",
+            "dependency",
+            "错误"
+          ],
+          "s2": [
+            "https://github.com/sharkdp/fd/releases",
+            null,
+            "不足"
+          ],
+          "protocol_error": "unselected_project_evidence",
+          "note": "本项目release入口误标dependency；正确URL以null ref输出，协议失败。"
+        },
+        {
+          "field": "fees",
+          "s1": [
+            null,
+            null,
+            "unknown",
+            "未知"
+          ],
+          "s2": [
+            null,
+            null,
+            "未知"
+          ],
+          "protocol_error": null,
+          "note": "没有直接费用文字，不再猜免费。"
+        },
+        {
+          "field": "license",
+          "s1": [
+            "r3",
+            "r3:p2",
+            "dependency",
+            "错误"
+          ],
+          "s2": [
+            "MIT License and Apache License 2.0",
+            null,
+            "不足"
+          ],
+          "protocol_error": "unselected_project_evidence",
+          "note": "r3:p2是fd自身许可，误标dependency；两个名称有证但ref为null。"
+        }
+      ]
+    },
+    {
+      "full_name": "huggingface/transformers",
+      "raw_valid": false,
+      "bound_present": false,
+      "stage1_status": "completed",
+      "stage2_status": "completed",
+      "stage1_counts": {
+        "支持": 1,
+        "未知": 5,
+        "不足": 2
+      },
+      "stage2_counts": {
+        "支持": 1,
+        "未知": 5,
+        "不足": 1,
+        "错误": 1
+      },
+      "fields": [
+        {
+          "field": "purpose",
+          "s1": [
+            "r1",
+            "r1:p1",
+            "project",
+            "支持"
+          ],
+          "s2": [
+            "提供最先进的机器学习模型定义框架",
+            "r1",
+            "支持"
+          ],
+          "protocol_error": null,
+          "note": "r1:p1为项目模型定义框架，中文用途支持。"
+        },
+        {
+          "field": "audience",
+          "s1": [
+            null,
+            null,
+            "unknown",
+            "未知"
+          ],
+          "s2": [
+            null,
+            null,
+            "未知"
+          ],
+          "protocol_error": null,
+          "note": "未选择受众，不能算受众正确覆盖。"
+        },
+        {
+          "field": "platforms",
+          "s1": [
+            null,
+            null,
+            "unknown",
+            "未知"
+          ],
+          "s2": [
+            null,
+            null,
+            "未知"
+          ],
+          "protocol_error": null,
+          "note": "Python/PyTorch没有再错填操作系统，保持未知。"
+        },
+        {
+          "field": "form",
+          "s1": [
+            null,
+            null,
+            "unknown",
+            "未知"
+          ],
+          "s2": [
+            null,
+            null,
+            "未知"
+          ],
+          "protocol_error": null,
+          "note": "r3:p2明示library却未选，形态仍无覆盖。"
+        },
+        {
+          "field": "requirements",
+          "s1": [
+            "r2",
+            "r2:p2",
+            "dependency",
+            "不足"
+          ],
+          "s2": [
+            "支持Python 3.10+和PyTorch 2.6+",
+            null,
+            "不足"
+          ],
+          "protocol_error": "unselected_project_evidence",
+          "note": "r2:p2是项目的依赖要求，project/dependency划分有歧义；当前只接收project使其不可用，不能无条件判模型关系错误。stage2版本值有证但ref为null。"
+        },
+        {
+          "field": "path",
+          "s1": [
+            "r2",
+            "r2:p6",
+            "project",
+            "不足"
+          ],
+          "s2": [
+            "https://pytorch.org/get-started/locally/",
+            "r2",
+            "错误"
+          ],
+          "protocol_error": "path_not_in_selected_paragraph",
+          "note": "r2:p6确为本项目pip安装命令但无HTTPS URL；stage2转而给PyTorch依赖页，且该URL不在所选段。"
+        },
+        {
+          "field": "fees",
+          "s1": [
+            null,
+            null,
+            "unknown",
+            "未知"
+          ],
+          "s2": [
+            null,
+            null,
+            "未知"
+          ],
+          "protocol_error": null,
+          "note": "冻结输入没有价格，未知可保留。"
+        },
+        {
+          "field": "license",
+          "s1": [
+            null,
+            null,
+            "unknown",
+            "未知"
+          ],
+          "s2": [
+            null,
+            null,
+            "未知"
+          ],
+          "protocol_error": null,
+          "note": "冻结输入没有具体许可，未知可保留。"
+        }
+      ]
+    },
+    {
+      "full_name": "hehonghui/awesome-english-ebooks",
+      "raw_valid": false,
+      "bound_present": false,
+      "stage1_status": "completed",
+      "stage2_status": "completed",
+      "stage1_counts": {
+        "支持": 3,
+        "未知": 5
+      },
+      "stage2_counts": {
+        "错误": 3,
+        "未知": 5
+      },
+      "fields": [
+        {
+          "field": "purpose",
+          "s1": [
+            "r1",
+            "r1:p3",
+            "third_party",
+            "支持"
+          ],
+          "s2": [
+            "提供英语阅读工具",
+            null,
+            "错误"
+          ],
+          "protocol_error": "unselected_project_evidence",
+          "note": "stage1正确识别r1:p3为third_party；stage2仍把英阅App工具用途归给资料仓库。"
+        },
+        {
+          "field": "audience",
+          "s1": [
+            null,
+            null,
+            "unknown",
+            "未知"
+          ],
+          "s2": [
+            null,
+            null,
+            "未知"
+          ],
+          "protocol_error": null,
+          "note": "未对仓库目标人群作无证推断。"
+        },
+        {
+          "field": "platforms",
+          "s1": [
+            "r1",
+            "r1:p3",
+            "third_party",
+            "支持"
+          ],
+          "s2": [
+            "iOS和Android",
+            null,
+            "错误"
+          ],
+          "protocol_error": "unselected_project_evidence",
+          "note": "stage1正确识别第三方App；stage2仍把iOS/Android归给仓库且ref为null。"
+        },
+        {
+          "field": "form",
+          "s1": [
+            null,
+            null,
+            "unknown",
+            "未知"
+          ],
+          "s2": [
+            null,
+            null,
+            "未知"
+          ],
+          "protocol_error": null,
+          "note": "未再直接把仓库形态填成App，保持未知。"
+        },
+        {
+          "field": "requirements",
+          "s1": [
+            null,
+            null,
+            "unknown",
+            "未知"
+          ],
+          "s2": [
+            null,
+            null,
+            "未知"
+          ],
+          "protocol_error": null,
+          "note": "未再编造必须安装App/联网的仓库前提。"
+        },
+        {
+          "field": "path",
+          "s1": [
+            "r1",
+            "r1:p3",
+            "third_party",
+            "支持"
+          ],
+          "s2": [
+            "https://apps.apple.com/cn/app/ereader-%E8%8B%B1%E9%98%85%E9%98%85%E8%AF%BB%E5%99%A8/id1558805880",
+            null,
+            "错误"
+          ],
+          "protocol_error": "unselected_project_evidence",
+          "note": "stage1正确识别第三方商店链接；stage2仍作为仓库获取地址输出且ref为null。"
+        },
+        {
+          "field": "fees",
+          "s1": [
+            null,
+            null,
+            "unknown",
+            "未知"
+          ],
+          "s2": [
+            null,
+            null,
+            "未知"
+          ],
+          "protocol_error": null,
+          "note": "原文没有价格，未再猜付费。"
+        },
+        {
+          "field": "license",
+          "s1": [
+            null,
+            null,
+            "unknown",
+            "未知"
+          ],
+          "s2": [
+            null,
+            null,
+            "未知"
+          ],
+          "protocol_error": null,
+          "note": "原文无具体许可，保持真实null而非字符串未提及。"
+        }
+      ]
+    },
+    {
+      "full_name": "squoosh/squoosh",
+      "raw_valid": true,
+      "bound_present": true,
+      "stage1_status": "completed",
+      "stage2_status": "completed",
+      "stage1_counts": {
+        "未知": 8
+      },
+      "stage2_counts": {
+        "未知": 8
+      },
+      "fields": [
+        {
+          "field": "purpose",
+          "s1": [
+            null,
+            null,
+            "unknown",
+            "未知"
+          ],
+          "s2": [
+            null,
+            null,
+            "未知"
+          ],
+          "protocol_error": null,
+          "note": "无来源控制，两个阶段均保持未知；只描述本控制，不外推语义拒答率。"
+        },
+        {
+          "field": "audience",
+          "s1": [
+            null,
+            null,
+            "unknown",
+            "未知"
+          ],
+          "s2": [
+            null,
+            null,
+            "未知"
+          ],
+          "protocol_error": null,
+          "note": "无来源控制，两个阶段均保持未知；只描述本控制，不外推语义拒答率。"
+        },
+        {
+          "field": "platforms",
+          "s1": [
+            null,
+            null,
+            "unknown",
+            "未知"
+          ],
+          "s2": [
+            null,
+            null,
+            "未知"
+          ],
+          "protocol_error": null,
+          "note": "无来源控制，两个阶段均保持未知；只描述本控制，不外推语义拒答率。"
+        },
+        {
+          "field": "form",
+          "s1": [
+            null,
+            null,
+            "unknown",
+            "未知"
+          ],
+          "s2": [
+            null,
+            null,
+            "未知"
+          ],
+          "protocol_error": null,
+          "note": "无来源控制，两个阶段均保持未知；只描述本控制，不外推语义拒答率。"
+        },
+        {
+          "field": "requirements",
+          "s1": [
+            null,
+            null,
+            "unknown",
+            "未知"
+          ],
+          "s2": [
+            null,
+            null,
+            "未知"
+          ],
+          "protocol_error": null,
+          "note": "无来源控制，两个阶段均保持未知；只描述本控制，不外推语义拒答率。"
+        },
+        {
+          "field": "path",
+          "s1": [
+            null,
+            null,
+            "unknown",
+            "未知"
+          ],
+          "s2": [
+            null,
+            null,
+            "未知"
+          ],
+          "protocol_error": null,
+          "note": "无来源控制，两个阶段均保持未知；只描述本控制，不外推语义拒答率。"
+        },
+        {
+          "field": "fees",
+          "s1": [
+            null,
+            null,
+            "unknown",
+            "未知"
+          ],
+          "s2": [
+            null,
+            null,
+            "未知"
+          ],
+          "protocol_error": null,
+          "note": "无来源控制，两个阶段均保持未知；只描述本控制，不外推语义拒答率。"
+        },
+        {
+          "field": "license",
+          "s1": [
+            null,
+            null,
+            "unknown",
+            "未知"
+          ],
+          "s2": [
+            null,
+            null,
+            "未知"
+          ],
+          "protocol_error": null,
+          "note": "无来源控制，两个阶段均保持未知；只描述本控制，不外推语义拒答率。"
+        }
+      ]
+    }
+  ]
+}

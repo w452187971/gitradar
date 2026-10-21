@@ -1,0 +1,548 @@
+{
+  "run_id": 39524153820,
+  "input_code_commit": "61aca582ba85e3b5e2711e770beb376139d6b9c8",
+  "previous_data_commit": "fc7436b18e9f0a8310fb0776da1ef7dd19f9e7cf",
+  "bot_commit": "83ba30c12ae7dbea095af7a25c8fa3c21283db65",
+  "bot_parent": "61aca582ba85e3b5e2711e770beb376139d6b9c8",
+  "batch_id": "217947df35da48d29457f9938c5434cc",
+  "generated_at": "2026-10-21T01:00:28.698358Z",
+  "manifest_source_commit": "61aca582ba85e3b5e2711e770beb376139d6b9c8",
+  "candidate_source_commit": "61aca582ba85e3b5e2711e770beb376139d6b9c8",
+  "history": {
+    "previous_keys": 2562,
+    "current_keys": 3452,
+    "previous_points": 2562,
+    "preserved_old_points": 2562,
+    "removed_keys": [],
+    "changed_old_points": [],
+    "new_points": 3449,
+    "new_points_by_date": {
+      "2026-10-21": 3449
+    },
+    "unobserved_new_points": [],
+    "fresh_projects_without_matching_today_value": [],
+    "prior_date_counts": {
+      "2026-10-20": 2562
+    }
+  },
+  "projects": {
+    "total": 3451,
+    "observation_status_counts": {
+      "fresh": 3449,
+      "not_found": 2
+    },
+    "new_candidates": 890
+  },
+  "recommendations": {
+    "selected": 20,
+    "eligible_recomputed": 28,
+    "eligible_reported": 28,
+    "invalid_selected": [],
+    "discovery_counts": {
+      "automatic_new": 0,
+      "seed": 0,
+      "baseline_backfill": 0,
+      "manual_addition": 0,
+      "rotation": 20
+    }
+  },
+  "source_clocks": {
+    "checked_timestamp_count": 1959,
+    "latest_checked": "2026-10-21T01:00:28.697277+00:00",
+    "future_or_invalid": []
+  },
+  "restored_bindings": [
+    {
+      "project": "Flow-Launcher/Flow.Launcher",
+      "identity_unchanged": true,
+      "eligible": true,
+      "bindings": [
+        {
+          "ref_id": "repository",
+          "seed_content_hash_equal": true,
+          "seed_text_equal": true,
+          "source_hash_unchanged_from_repair": true,
+          "source_hash_equal_seed": false,
+          "checked_at_before": "2026-10-20T17:14:23.503171Z",
+          "checked_at_after": "2026-10-20T17:14:23.503171Z",
+          "refreshed_in_this_run": false,
+          "status": 200,
+          "context_changed": false
+        }
+      ]
+    },
+    {
+      "project": "FreeTubeApp/FreeTube",
+      "identity_unchanged": true,
+      "eligible": true,
+      "bindings": [
+        {
+          "ref_id": "repository",
+          "seed_content_hash_equal": true,
+          "seed_text_equal": true,
+          "source_hash_unchanged_from_repair": true,
+          "source_hash_equal_seed": false,
+          "checked_at_before": "2026-10-20T17:14:25.956755Z",
+          "checked_at_after": "2026-10-20T17:14:25.956755Z",
+          "refreshed_in_this_run": false,
+          "status": 200,
+          "context_changed": false
+        },
+        {
+          "ref_id": "license_document_review",
+          "seed_content_hash_equal": true,
+          "seed_text_equal": true,
+          "source_hash_unchanged_from_repair": true,
+          "source_hash_equal_seed": true,
+          "checked_at_before": "2026-10-20T17:14:29.830401Z",
+          "checked_at_after": "2026-10-20T17:14:29.830401Z",
+          "refreshed_in_this_run": false,
+          "status": 200,
+          "context_changed": false
+        }
+      ]
+    },
+    {
+      "project": "Zettlr/Zettlr",
+      "identity_unchanged": true,
+      "eligible": true,
+      "bindings": [
+        {
+          "ref_id": "repository",
+          "seed_content_hash_equal": true,
+          "seed_text_equal": true,
+          "source_hash_unchanged_from_repair": true,
+          "source_hash_equal_seed": false,
+          "checked_at_before": "2026-10-20T17:14:31.605442Z",
+          "checked_at_after": "2026-10-20T17:14:31.605442Z",
+          "refreshed_in_this_run": false,
+          "status": 200,
+          "context_changed": false
+        },
+        {
+          "ref_id": "license_document_review",
+          "seed_content_hash_equal": true,
+          "seed_text_equal": true,
+          "source_hash_unchanged_from_repair": true,
+          "source_hash_equal_seed": true,
+          "checked_at_before": "2026-10-20T17:15:23.858686Z",
+          "checked_at_after": "2026-10-20T17:15:23.858686Z",
+          "refreshed_in_this_run": false,
+          "status": 200,
+          "context_changed": false
+        }
+      ]
+    },
+    {
+      "project": "KDE/kdenlive",
+      "identity_unchanged": true,
+      "eligible": true,
+      "bindings": [
+        {
+          "ref_id": "repository",
+          "seed_content_hash_equal": true,
+          "seed_text_equal": true,
+          "source_hash_unchanged_from_repair": true,
+          "source_hash_equal_seed": false,
+          "checked_at_before": "2026-10-20T17:15:25.152140Z",
+          "checked_at_after": "2026-10-20T17:15:25.152140Z",
+          "refreshed_in_this_run": false,
+          "status": 200,
+          "context_changed": false
+        },
+        {
+          "ref_id": "license_document_review",
+          "seed_content_hash_equal": true,
+          "seed_text_equal": true,
+          "source_hash_unchanged_from_repair": true,
+          "source_hash_equal_seed": true,
+          "checked_at_before": "2026-10-20T17:15:28.038511Z",
+          "checked_at_after": "2026-10-20T17:15:28.038511Z",
+          "refreshed_in_this_run": false,
+          "status": 200,
+          "context_changed": false
+        }
+      ]
+    },
+    {
+      "project": "bleachbit/bleachbit",
+      "identity_unchanged": true,
+      "eligible": true,
+      "bindings": [
+        {
+          "ref_id": "repository",
+          "seed_content_hash_equal": true,
+          "seed_text_equal": true,
+          "source_hash_unchanged_from_repair": true,
+          "source_hash_equal_seed": false,
+          "checked_at_before": "2026-10-20T17:15:31.068428Z",
+          "checked_at_after": "2026-10-20T17:15:31.068428Z",
+          "refreshed_in_this_run": false,
+          "status": 200,
+          "context_changed": false
+        },
+        {
+          "ref_id": "license_document_review",
+          "seed_content_hash_equal": true,
+          "seed_text_equal": true,
+          "source_hash_unchanged_from_repair": true,
+          "source_hash_equal_seed": true,
+          "checked_at_before": "2026-10-20T17:15:33.498470Z",
+          "checked_at_after": "2026-10-20T17:15:33.498470Z",
+          "refreshed_in_this_run": false,
+          "status": 200,
+          "context_changed": false
+        }
+      ]
+    },
+    {
+      "project": "HandBrake/HandBrake",
+      "identity_unchanged": true,
+      "eligible": true,
+      "bindings": [
+        {
+          "ref_id": "repository",
+          "seed_content_hash_equal": true,
+          "seed_text_equal": true,
+          "source_hash_unchanged_from_repair": true,
+          "source_hash_equal_seed": false,
+          "checked_at_before": "2026-10-20T17:15:34.812076Z",
+          "checked_at_after": "2026-10-20T17:15:34.812076Z",
+          "refreshed_in_this_run": false,
+          "status": 200,
+          "context_changed": false
+        }
+      ]
+    },
+    {
+      "project": "WinMerge/winmerge",
+      "identity_unchanged": true,
+      "eligible": true,
+      "bindings": [
+        {
+          "ref_id": "repository",
+          "seed_content_hash_equal": true,
+          "seed_text_equal": true,
+          "source_hash_unchanged_from_repair": true,
+          "source_hash_equal_seed": false,
+          "checked_at_before": "2026-10-20T17:15:37.150162Z",
+          "checked_at_after": "2026-10-20T17:15:37.150162Z",
+          "refreshed_in_this_run": false,
+          "status": 200,
+          "context_changed": false
+        },
+        {
+          "ref_id": "license_document_review",
+          "seed_content_hash_equal": true,
+          "seed_text_equal": true,
+          "source_hash_unchanged_from_repair": true,
+          "source_hash_equal_seed": true,
+          "checked_at_before": "2026-10-20T17:15:40.000098Z",
+          "checked_at_after": "2026-10-20T17:15:40.000098Z",
+          "refreshed_in_this_run": false,
+          "status": 200,
+          "context_changed": false
+        }
+      ]
+    },
+    {
+      "project": "arsenetar/dupeguru",
+      "identity_unchanged": true,
+      "eligible": true,
+      "bindings": [
+        {
+          "ref_id": "repository",
+          "seed_content_hash_equal": true,
+          "seed_text_equal": true,
+          "source_hash_unchanged_from_repair": true,
+          "source_hash_equal_seed": false,
+          "checked_at_before": "2026-10-20T17:15:41.511084Z",
+          "checked_at_after": "2026-10-20T17:15:41.511084Z",
+          "refreshed_in_this_run": false,
+          "status": 200,
+          "context_changed": false
+        },
+        {
+          "ref_id": "license_document_review",
+          "seed_content_hash_equal": true,
+          "seed_text_equal": true,
+          "source_hash_unchanged_from_repair": true,
+          "source_hash_equal_seed": true,
+          "checked_at_before": "2026-10-20T17:15:44.046701Z",
+          "checked_at_after": "2026-10-20T17:15:44.046701Z",
+          "refreshed_in_this_run": false,
+          "status": 200,
+          "context_changed": false
+        }
+      ]
+    }
+  ],
+  "history_aliases": [
+    {
+      "full_name": "Salesflare/TheMachine",
+      "node_id": "R_kgDOVLdUZA",
+      "history_key": "JeroenCorthout/TheMachine",
+      "history_aliases": [
+        "Salesflare/TheMachine"
+      ],
+      "redundant_histories_unchanged": {
+        "Salesflare/TheMachine": true
+      },
+      "observation_status": "fresh"
+    }
+  ],
+  "saved_aliases": {
+    "JeroenCorthout/TheMachine": "Salesflare/TheMachine",
+    "AvengeMedia/DankMaterialShell": "duxlabs-dev/dux-shell",
+    "Timeregainedme/ChangeAT": "Timeregainedme/DyeingTime"
+  },
+  "usage": {
+    "search_requests": 20,
+    "rest_requests": 82,
+    "content_requests": 60,
+    "path_requests": 20,
+    "identity_requests": 2,
+    "graphql_points": 70,
+    "graphql_batches": 70,
+    "graphql_unmeasured_requests": 0,
+    "retries": 0,
+    "not_modified": 0,
+    "rest_remaining": 4955,
+    "search_remaining": 10,
+    "graphql_remaining": 4933,
+    "reset_at": null,
+    "retry_after": null,
+    "rate_limited": false
+  },
+  "manifest_artifact_count": 42,
+  "manifest_hashes_match": true,
+  "validation": {
+    "allowed": true,
+    "errors": [],
+    "warnings": [],
+    "checks": {
+      "history": true,
+      "batch": true,
+      "validated": true
+    }
+  },
+  "protected_files_byte_unchanged": {
+    "data/seed-evidence.json": true,
+    "data/curation.json": true
+  },
+  "bot_changed_files_count": 39,
+  "bot_changed_files_outside_manifest": [],
+  "file_hashes": {
+    "build-manifest.json": "787725a8e9349c4c415d3d87f0cfc8bcc576683ed9cd90b43592e7c6bab409b4",
+    "data/history.json": "46a46d699014def7286a38bda729500dc70dde38463212771226aa68f18b8f31",
+    "data/projects.json": "3fe79549262b1aed381ccc8986df50f5b30531814e5358d71c7dceec1ecee361",
+    "data/evidence.json": "3d77dde26795ac7488c830dfb862a4e1fb7ff144c1ddfbf4b012f4198c10f990",
+    "data/recommendations.json": "7be33a1694334d59f880dcbd8f17c5391c092ee4525cee5d3234a2320a21187d"
+  },
+  "issues": [],
+  "run": {
+    "id": 39524153820,
+    "status": "completed",
+    "conclusion": "success",
+    "head_sha": "61aca582ba85e3b5e2711e770beb376139d6b9c8",
+    "run_attempt": 1,
+    "created_at": "2026-10-21T00:54:40Z",
+    "updated_at": "2026-10-21T01:00:40Z",
+    "html_url": "https://github.com/w452187971/gitradar/actions/runs/39524153820",
+    "event": "workflow_dispatch",
+    "head_branch": "codex/gitradar-v4",
+    "job_completed_at": "2026-10-21T01:00:40Z",
+    "steps": [
+      {
+        "name": "Set up job",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "name": "Reject conflicting diagnostic modes",
+        "status": "completed",
+        "conclusion": "skipped"
+      },
+      {
+        "name": "Run actions/checkout@v4",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "name": "Run actions/setup-python@v5",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "name": "Run actions/setup-node@v4",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "name": "Test collector",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "name": "Test frontend",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "name": "Collect and validate isolated batch",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "name": "Probe built-in token batch access",
+        "status": "completed",
+        "conclusion": "skipped"
+      },
+      {
+        "name": "Save probe evidence",
+        "status": "completed",
+        "conclusion": "skipped"
+      },
+      {
+        "name": "Probe free open weight model on public CPU runner",
+        "status": "completed",
+        "conclusion": "skipped"
+      },
+      {
+        "name": "Preserve model probe report and small text only",
+        "status": "completed",
+        "conclusion": "skipped"
+      },
+      {
+        "name": "Promote verified batch",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "name": "Commit verified snapshots and pages",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "name": "Preserve complete failed batch and diagnostics",
+        "status": "completed",
+        "conclusion": "skipped"
+      },
+      {
+        "name": "Post Run actions/setup-node@v4",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "name": "Post Run actions/setup-python@v5",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "name": "Post Run actions/checkout@v4",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "name": "Complete job",
+        "status": "completed",
+        "conclusion": "success"
+      }
+    ]
+  },
+  "fresh_observation_timestamps_valid": true,
+  "saved_alias_checks": [
+    {
+      "alias": "JeroenCorthout/TheMachine",
+      "target": "Salesflare/TheMachine",
+      "added_this_run": false,
+      "stable_node_id": "R_kgDOVLdUZA",
+      "created_at": "2026-10-15T20:40:05Z",
+      "history_key": "JeroenCorthout/TheMachine",
+      "stable_identity_and_history_key_preserved": true,
+      "target_has_separate_history": true,
+      "separate_target_history_unchanged": true
+    },
+    {
+      "alias": "AvengeMedia/DankMaterialShell",
+      "target": "duxlabs-dev/dux-shell",
+      "added_this_run": true,
+      "stable_node_id": "R_kgDOPKVP_Q",
+      "created_at": "2025-07-10T15:18:23Z",
+      "history_key": "AvengeMedia/DankMaterialShell",
+      "stable_identity_and_history_key_preserved": true,
+      "target_has_separate_history": false,
+      "separate_target_history_unchanged": true
+    },
+    {
+      "alias": "Timeregainedme/ChangeAT",
+      "target": "Timeregainedme/DyeingTime",
+      "added_this_run": true,
+      "stable_node_id": "R_kgDOVHfbwQ",
+      "created_at": "2026-10-13T13:40:24Z",
+      "history_key": "Timeregainedme/ChangeAT",
+      "stable_identity_and_history_key_preserved": true,
+      "target_has_separate_history": false,
+      "separate_target_history_unchanged": true
+    }
+  ],
+  "not_found_projects": [
+    {
+      "project": "AndreSzymanski15/ai-jailbreaks",
+      "status": "not_found",
+      "http_status": 404,
+      "history_unchanged": true,
+      "last_observed_at": "2026-10-20T16:50:12.613629Z"
+    },
+    {
+      "project": "YuJunZhiXue/dsh-purge",
+      "status": "not_found",
+      "http_status": 404,
+      "history_unchanged": true,
+      "last_observed_at": "2026-10-20T16:06:05.671306Z"
+    }
+  ],
+  "restored_binding_refresh_summary": {
+    "projects": 8,
+    "bindings": 14,
+    "freshly_refetched_this_run": 0,
+    "conclusion": "Preserved, not exercised by this run content refresh allocation; no live license-endpoint refresh claim."
+  },
+  "content_allocation": {
+    "planned": {
+      "recommended": 8,
+      "new": 6,
+      "review": 4,
+      "rotation": 2
+    },
+    "actual": {
+      "due": 0,
+      "recommended": 8,
+      "new": 6,
+      "review": 4,
+      "rotation": 2,
+      "refill": 0
+    },
+    "attempted_count": 18,
+    "requests_used": 60,
+    "successful_count": 10,
+    "partial_count": 8,
+    "failed_count": 0,
+    "waiting": 3433
+  },
+  "candidate_count_notes": {
+    "reported_name_based_newly_discovered_count": 892,
+    "independent_new_history_keys": 890,
+    "renames_counted_in_name_metric": 2
+  },
+  "pending_candidates_count": 0,
+  "limitations": [
+    "Manual development-branch engineering run, not scheduled-run acceptance.",
+    "New candidates are not automatically qualified discoveries.",
+    "No private blind inputs, labels or new model outputs read.",
+    "Recomputed eligibility does not independently certify every semantic claim.",
+    "No repaired /license endpoint was selected for fresh content fetch in this run."
+  ],
+  "review_kind": "independent_ai_read_only",
+  "reviewed_at": "2026-10-21T01:02:34.077398+00:00"
+}

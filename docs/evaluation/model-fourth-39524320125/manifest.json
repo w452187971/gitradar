@@ -1,0 +1,25 @@
+{
+  "run_id": 39524320125,
+  "run_url": "https://github.com/w452187971/gitradar/actions/runs/39524320125",
+  "event_head_commit": "61aca582ba85e3b5e2711e770beb376139d6b9c8",
+  "reported_github_sha": "61aca582ba85e3b5e2711e770beb376139d6b9c8",
+  "scope": "Six frozen development cases; two-stage isolated CPU diagnostic; not production or unseen evaluation",
+  "archived_at": "2026-10-21T01:15:53.291949+00:00",
+  "sha256": {
+    "case-00-schema-canary.txt": "b7ccdc558e5b464862c8e832c7d59595caee17f56efadfac671f9b29dd50202c",
+    "case-01-stage1.txt": "0a637459c7a76f1e184578869632ef46ea4ecde15bbd20db23bdba8d77b0ff25",
+    "case-01-stage2.txt": "efef1d6f3a1502bc16bd6f5fe2baf193ace99c3e3d3d111d174dc8d885d7d38e",
+    "case-02-stage1.txt": "6f354d964ed9961b927cdb14e8fb842fd814897436334dfe482e184c1786fbdd",
+    "case-02-stage2.txt": "aff93d479dea388be31e2b611f5049d745df3e1f12db2ae781c4eecd0c8f0e1f",
+    "case-03-stage1.txt": "e4a17333ada1725e1b7f6ce5b58179d86db0a2c0a8f97f8d4cdb8ea7691c0d39",
+    "case-03-stage2.txt": "c31665586db6bca98eb8e25573567dedf9a5a65f5082744b6c9b4bbbd0d5dbb1",
+    "case-04-stage1.txt": "87a334393deeb51d657e1578e83b91f53a875e48ec7dbd6cae86848a97ccab6c",
+    "case-04-stage2.txt": "c3e3fd132af9c16e5b2f2f01c447be3611a579a4c59ce041177a0f293c186bfd",
+    "case-05-stage1.txt": "8f81fc0d65d5c39bdc5b011d7327793fcdf92e5538d95cc1359770838654834d",
+    "case-05-stage2.txt": "9496bc5e1e90a34a3730d44df724aef242f4c395be707041f60a4cc1bb24b00d",
+    "case-06-stage1.txt": "48182cc346ee867d524c657fecb40eb60518a118ea6345c118429e1df8005aad",
+    "case-06-stage2.txt": "e1fb33ee3ac474d6607d123878d1c21ac1160b992fe19aab2761a8e4b5bb94fb",
+    "report.json": "411a5a5ce018c98870da0828ad0e783e8d2a5ab4342990f303836a390c9a6c30",
+    "server.log": "b03049515cc232a3ab1fa9e60a05c0995ecf7021f910a1f2fbe083557d892b03"
+  }
+}

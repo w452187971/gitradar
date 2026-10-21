@@ -1,0 +1,386 @@
+{
+  "scope": "Offline replay of 22 frozen real official responses through current readEvidenceSource and mergeEvidence; no new network or production source renewal",
+  "source_commit": "83ba30c12ae7dbea095af7a25c8fa3c21283db65",
+  "audit_report_sha256": "49051b6d779311de92b6a36215c7cbb21350b351248be862575a1e39055b370e",
+  "sources": [
+    {
+      "project": "Flow-Launcher/Flow.Launcher",
+      "source": "metadata",
+      "request": {
+        "method": "GET",
+        "url": "https://api.github.com/repos/Flow-Launcher/Flow.Launcher"
+      },
+      "checks": [
+        {
+          "ref_id": "repository",
+          "binding_preserved": true,
+          "checked_at": "2026-10-20T17:14:23.503171Z"
+        }
+      ]
+    },
+    {
+      "project": "Flow-Launcher/Flow.Launcher",
+      "source": "readme",
+      "request": {
+        "method": "GET",
+        "url": "https://api.github.com/repos/Flow-Launcher/Flow.Launcher/contents/README.md?ref=dev"
+      },
+      "checks": [
+        {
+          "ref_id": "intro",
+          "binding_preserved": true,
+          "checked_at": "2026-10-20T17:14:24.874534Z"
+        },
+        {
+          "ref_id": "install",
+          "binding_preserved": true,
+          "checked_at": "2026-10-20T17:14:24.874534Z"
+        }
+      ]
+    },
+    {
+      "project": "FreeTubeApp/FreeTube",
+      "source": "metadata",
+      "request": {
+        "method": "GET",
+        "url": "https://api.github.com/repos/FreeTubeApp/FreeTube"
+      },
+      "checks": [
+        {
+          "ref_id": "repository",
+          "binding_preserved": true,
+          "checked_at": "2026-10-20T17:14:25.956755Z"
+        }
+      ]
+    },
+    {
+      "project": "FreeTubeApp/FreeTube",
+      "source": "readme",
+      "request": {
+        "method": "GET",
+        "url": "https://api.github.com/repos/FreeTubeApp/FreeTube/contents/README.md?ref=development"
+      },
+      "checks": [
+        {
+          "ref_id": "intro",
+          "binding_preserved": true,
+          "checked_at": "2026-10-20T17:14:27.153818Z"
+        },
+        {
+          "ref_id": "install",
+          "binding_preserved": true,
+          "checked_at": "2026-10-20T17:14:27.153818Z"
+        },
+        {
+          "ref_id": "license_grant_review",
+          "binding_preserved": true,
+          "checked_at": "2026-10-20T17:14:27.153818Z"
+        }
+      ]
+    },
+    {
+      "project": "FreeTubeApp/FreeTube",
+      "source": "license",
+      "request": {
+        "method": "GET",
+        "url": "https://api.github.com/repos/FreeTubeApp/FreeTube/license"
+      },
+      "checks": [
+        {
+          "ref_id": "license_document_review",
+          "binding_preserved": true,
+          "checked_at": "2026-10-20T17:14:29.830401Z"
+        }
+      ]
+    },
+    {
+      "project": "Zettlr/Zettlr",
+      "source": "metadata",
+      "request": {
+        "method": "GET",
+        "url": "https://api.github.com/repos/Zettlr/Zettlr"
+      },
+      "checks": [
+        {
+          "ref_id": "repository",
+          "binding_preserved": true,
+          "checked_at": "2026-10-20T17:14:31.605442Z"
+        }
+      ]
+    },
+    {
+      "project": "Zettlr/Zettlr",
+      "source": "readme",
+      "request": {
+        "method": "GET",
+        "url": "https://api.github.com/repos/Zettlr/Zettlr/contents/README.md?ref=develop"
+      },
+      "checks": [
+        {
+          "ref_id": "intro",
+          "binding_preserved": true,
+          "checked_at": "2026-10-20T17:15:21.908151Z"
+        },
+        {
+          "ref_id": "install",
+          "binding_preserved": true,
+          "checked_at": "2026-10-20T17:15:21.908151Z"
+        }
+      ]
+    },
+    {
+      "project": "Zettlr/Zettlr",
+      "source": "license",
+      "request": {
+        "method": "GET",
+        "url": "https://api.github.com/repos/Zettlr/Zettlr/license"
+      },
+      "checks": [
+        {
+          "ref_id": "license_document_review",
+          "binding_preserved": true,
+          "checked_at": "2026-10-20T17:15:23.858686Z"
+        }
+      ]
+    },
+    {
+      "project": "KDE/kdenlive",
+      "source": "metadata",
+      "request": {
+        "method": "GET",
+        "url": "https://api.github.com/repos/KDE/kdenlive"
+      },
+      "checks": [
+        {
+          "ref_id": "repository",
+          "binding_preserved": true,
+          "checked_at": "2026-10-20T17:15:25.152140Z"
+        }
+      ]
+    },
+    {
+      "project": "KDE/kdenlive",
+      "source": "readme",
+      "request": {
+        "method": "GET",
+        "url": "https://api.github.com/repos/KDE/kdenlive/contents/README.md?ref=master"
+      },
+      "checks": [
+        {
+          "ref_id": "intro",
+          "binding_preserved": true,
+          "checked_at": "2026-10-20T17:15:26.444620Z"
+        },
+        {
+          "ref_id": "install",
+          "binding_preserved": true,
+          "checked_at": "2026-10-20T17:15:26.444620Z"
+        }
+      ]
+    },
+    {
+      "project": "KDE/kdenlive",
+      "source": "license",
+      "request": {
+        "method": "GET",
+        "url": "https://api.github.com/repos/KDE/kdenlive/license"
+      },
+      "checks": [
+        {
+          "ref_id": "license_document_review",
+          "binding_preserved": true,
+          "checked_at": "2026-10-20T17:15:28.038511Z"
+        }
+      ]
+    },
+    {
+      "project": "bleachbit/bleachbit",
+      "source": "metadata",
+      "request": {
+        "method": "GET",
+        "url": "https://api.github.com/repos/bleachbit/bleachbit"
+      },
+      "checks": [
+        {
+          "ref_id": "repository",
+          "binding_preserved": true,
+          "checked_at": "2026-10-20T17:15:31.068428Z"
+        }
+      ]
+    },
+    {
+      "project": "bleachbit/bleachbit",
+      "source": "readme",
+      "request": {
+        "method": "GET",
+        "url": "https://api.github.com/repos/bleachbit/bleachbit/contents/README.md?ref=master"
+      },
+      "checks": [
+        {
+          "ref_id": "intro",
+          "binding_preserved": true,
+          "checked_at": "2026-10-20T17:15:32.439690Z"
+        },
+        {
+          "ref_id": "install",
+          "binding_preserved": true,
+          "checked_at": "2026-10-20T17:15:32.439690Z"
+        }
+      ]
+    },
+    {
+      "project": "bleachbit/bleachbit",
+      "source": "license",
+      "request": {
+        "method": "GET",
+        "url": "https://api.github.com/repos/bleachbit/bleachbit/license"
+      },
+      "checks": [
+        {
+          "ref_id": "license_document_review",
+          "binding_preserved": true,
+          "checked_at": "2026-10-20T17:15:33.498470Z"
+        }
+      ]
+    },
+    {
+      "project": "HandBrake/HandBrake",
+      "source": "metadata",
+      "request": {
+        "method": "GET",
+        "url": "https://api.github.com/repos/HandBrake/HandBrake"
+      },
+      "checks": [
+        {
+          "ref_id": "repository",
+          "binding_preserved": true,
+          "checked_at": "2026-10-20T17:15:34.812076Z"
+        }
+      ]
+    },
+    {
+      "project": "HandBrake/HandBrake",
+      "source": "readme",
+      "request": {
+        "method": "GET",
+        "url": "https://api.github.com/repos/HandBrake/HandBrake/contents/README.markdown?ref=master"
+      },
+      "checks": [
+        {
+          "ref_id": "intro",
+          "binding_preserved": true,
+          "checked_at": "2026-10-20T17:15:35.863476Z"
+        },
+        {
+          "ref_id": "install",
+          "binding_preserved": true,
+          "checked_at": "2026-10-20T17:15:35.863476Z"
+        }
+      ]
+    },
+    {
+      "project": "WinMerge/winmerge",
+      "source": "metadata",
+      "request": {
+        "method": "GET",
+        "url": "https://api.github.com/repos/WinMerge/winmerge"
+      },
+      "checks": [
+        {
+          "ref_id": "repository",
+          "binding_preserved": true,
+          "checked_at": "2026-10-20T17:15:37.150162Z"
+        }
+      ]
+    },
+    {
+      "project": "WinMerge/winmerge",
+      "source": "readme",
+      "request": {
+        "method": "GET",
+        "url": "https://api.github.com/repos/WinMerge/winmerge/contents/README.md?ref=master"
+      },
+      "checks": [
+        {
+          "ref_id": "intro",
+          "binding_preserved": true,
+          "checked_at": "2026-10-20T17:15:38.374270Z"
+        },
+        {
+          "ref_id": "install",
+          "binding_preserved": true,
+          "checked_at": "2026-10-20T17:15:38.374270Z"
+        }
+      ]
+    },
+    {
+      "project": "WinMerge/winmerge",
+      "source": "license",
+      "request": {
+        "method": "GET",
+        "url": "https://api.github.com/repos/WinMerge/winmerge/license"
+      },
+      "checks": [
+        {
+          "ref_id": "license_document_review",
+          "binding_preserved": true,
+          "checked_at": "2026-10-20T17:15:40.000098Z"
+        }
+      ]
+    },
+    {
+      "project": "arsenetar/dupeguru",
+      "source": "metadata",
+      "request": {
+        "method": "GET",
+        "url": "https://api.github.com/repos/arsenetar/dupeguru"
+      },
+      "checks": [
+        {
+          "ref_id": "repository",
+          "binding_preserved": true,
+          "checked_at": "2026-10-20T17:15:41.511084Z"
+        }
+      ]
+    },
+    {
+      "project": "arsenetar/dupeguru",
+      "source": "readme",
+      "request": {
+        "method": "GET",
+        "url": "https://api.github.com/repos/arsenetar/dupeguru/contents/README.md?ref=master"
+      },
+      "checks": [
+        {
+          "ref_id": "intro",
+          "binding_preserved": true,
+          "checked_at": "2026-10-20T17:15:42.397539Z"
+        },
+        {
+          "ref_id": "install",
+          "binding_preserved": true,
+          "checked_at": "2026-10-20T17:15:42.397539Z"
+        }
+      ]
+    },
+    {
+      "project": "arsenetar/dupeguru",
+      "source": "license",
+      "request": {
+        "method": "GET",
+        "url": "https://api.github.com/repos/arsenetar/dupeguru/license"
+      },
+      "checks": [
+        {
+          "ref_id": "license_document_review",
+          "binding_preserved": true,
+          "checked_at": "2026-10-20T17:15:44.046701Z"
+        }
+      ]
+    }
+  ],
+  "passed_sources": 22,
+  "passed_bindings": 31,
+  "network_requests": 0,
+  "data_modified": false
+}
