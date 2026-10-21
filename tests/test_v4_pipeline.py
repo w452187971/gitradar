@@ -371,6 +371,50 @@ class PipelineTests(unittest.TestCase):
             self.assertTrue(report['allowed'], report)
             self.assertEqual(json.loads((Path(output)/'data/projects.json').read_text())['generated_at'], AS_OF)
 
+    def test_new_content_slots_prioritize_existing_score_before_repository_name(self):
+        projects = [{'full_name': f'a/low{i}', 'discovery_origin': 'automatic', 'discovery_score': 1} for i in range(6)]
+        projects += [{'full_name': 'z/high', 'discovery_origin': 'automatic', 'discovery_score': 500}]
+        original = copy.deepcopy(projects)
+        selected, report = pipeline.scheduleContent(projects, {}, {}, AS_OF)
+        self.assertEqual(selected[0]['full_name'], 'z/high')
+        self.assertEqual(report['actual']['new'], 6)
+        self.assertEqual(report['planned'], {'recommended': 8, 'new': 6, 'review': 4, 'rotation': 2})
+        self.assertEqual(projects, original)
+
+    def test_new_content_score_missing_nonfinite_boolean_and_strings_fall_back_safely(self):
+        invalid = [None, float('nan'), float('inf'), -float('inf'), '999999', True]
+        projects = [{'full_name': f'a/invalid{i}', 'discovery_origin': 'automatic', 'discovery_score': score}
+                    for i, score in enumerate(invalid)]
+        projects.append({'full_name': 'a/missing', 'discovery_origin': 'automatic'})
+        projects += [{'full_name': f'z/valid{i}', 'discovery_origin': 'automatic', 'discovery_score': i+1}
+                     for i in range(6)]
+        selected, _ = pipeline.scheduleContent(projects, {}, {}, AS_OF)
+        self.assertEqual([p['full_name'] for p in selected[:6]], [f'z/valid{i}' for i in range(5,-1,-1)])
+
+    def test_new_content_queue_keeps_attempt_fairness_and_uses_first_seen_for_equal_scores(self):
+        projects = [{'full_name': 'a/younger', 'discovery_origin': 'automatic', 'discovery_score': 20,
+                     'first_observed_at': '2026-10-20T01:00:00Z'},
+                    {'full_name': 'z/older', 'discovery_origin': 'automatic', 'discovery_score': 20,
+                     'first_observed_at': '2026-10-19T01:00:00Z'},
+                    {'full_name': 'retry/higher', 'discovery_origin': 'automatic', 'discovery_score': 500}]
+        evidence = {'projects': {'retry/higher': {'last_attempt_at': '2026-10-19T02:00:00Z'}}}
+        for supplied in [projects, list(reversed(projects))]:
+            selected, _ = pipeline.scheduleContent(supplied, evidence, {}, AS_OF)
+            self.assertEqual([p['full_name'] for p in selected[:3]], ['z/older', 'a/younger', 'retry/higher'])
+
+    def test_statistics_caller_uses_previous_primary_history_key_after_existing_rename(self):
+        with tempfile.TemporaryDirectory() as source, tempfile.TemporaryDirectory() as output:
+            root = self.makeState(Path(source))
+            project = {'full_name': 'o/current', 'history_key': 'o/original', 'node_id': 'N',
+                       'created_at': '2020-01-01T00:00:00Z', 'html_url': 'https://github.com/o/current',
+                       'stargazers_count': 10}
+            pipeline.writeJson(root/'data/projects.json', {'projects': [project]})
+            pipeline.writeJson(root/'data/history.json', {'o/original': {'2026-10-19': 10}})
+            result = pipeline.run(root, Path(output), offline=True, asOf=AS_OF, sourceCommit='known-rename')
+            self.assertTrue(result['allowed'], result)
+            stats = json.loads((Path(output)/'data/projects.json').read_text())['collection_stats']
+            self.assertEqual(stats['newly_discovered_count'], 0)
+
     def makeState(self, root):
         (root / 'data').mkdir()
         project = {'full_name': 'o/p', 'created_at': '2020-01-01T00:00:00Z',

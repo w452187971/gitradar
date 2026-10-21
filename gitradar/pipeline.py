@@ -6,6 +6,7 @@ import copy
 import datetime as dt
 import hashlib
 import json
+import math
 import os
 import shutil
 import subprocess
@@ -214,6 +215,13 @@ def _lastAttempt(project: Record, evidence: Record) -> str:
     return str(bundle.get('last_attempt_at', ''))
 
 
+def _discoveryScore(project: Record) -> int | float:
+    score = project.get('discovery_score')
+    if type(score) is int:
+        return score
+    return score if type(score) is float and math.isfinite(score) else 0
+
+
 def _due(project: Record, evidence: Record, asOf: str) -> bool:
     bundle = _record(_record(evidence.get('projects')).get(str(project['full_name'])))
     dates = [str(ref.get('checked_at')) for ref in _records(bundle.get('refs')) if ref.get('checked_at')]
@@ -226,11 +234,14 @@ def _due(project: Record, evidence: Record, asOf: str) -> bool:
 def scheduleContent(projects: list[Record], evidence: Record, previousFeed: Record,
                     asOf: str) -> tuple[list[Record], Record]:
     ordered = sorted(projects, key=lambda project: (_lastAttempt(project, evidence), str(project['full_name'])))
+    newProjects = [project for project in ordered if project.get('discovery_origin') == 'automatic'
+                   and not _record(_record(evidence.get('projects')).get(str(project['full_name']))).get('refs')]
+    newProjects.sort(key=lambda project: (_lastAttempt(project, evidence), -_discoveryScore(project),
+                                         str(project.get('first_observed_at', '')), str(project['full_name'])))
     recommended = {str(item.get('full_name')) for item in _records(previousFeed.get('recommendations'))}
     pools = [('due', [project for project in ordered if _due(project, evidence, asOf)], 20),
              ('recommended', [project for project in ordered if project['full_name'] in recommended], 8),
-             ('new', [project for project in ordered if project.get('discovery_origin') == 'automatic'
-                      and not _record(_record(evidence.get('projects')).get(str(project['full_name']))).get('refs')], 6),
+             ('new', newProjects, 6),
              ('review', [project for project in ordered if _record(project.get('content')).get('effective_status')
                          in ('review_required', 'blocked')], 4), ('rotation', ordered, 2)]
     selected: list[Record] = []
@@ -404,7 +415,8 @@ def _prepare(previous: Record, client: GitHubClient, budget: Budget, asOf: str,
     projects = _records(snapshot.get('projects'))
     collect.attachSummaries(projects, _record(snapshot.get('summaries')), dt.date.fromisoformat(asOf[:10]))
     stats = collect.collectionStats(projects, snapshot['history'],
-                                    {str(p['full_name']).lower() for p in _records(previous.get('projects'))}, reports)
+                                    {str(p.get('history_key') or p['full_name']).lower()
+                                     for p in _records(previous.get('projects'))}, reports)
     snapshot.update(metadata)
     snapshot.update(collection_stats=stats, count=len(projects), search_reports=reports, usage=asdict(client.usage),
                     offline_preview=offline, observation_started_at=previous.get('observation_started_at') or asOf,

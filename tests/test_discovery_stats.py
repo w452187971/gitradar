@@ -65,6 +65,24 @@ class CollectionStatsTests(unittest.TestCase):
         actual = discovery_stats.collectionStats(items, {}, {'SAMPLE/OLD'}, [])
         self.assertEqual(2, actual['newly_discovered_count'])
 
+    def testRenameAndVerifiedInitialBindingAreKnownByOriginalHistoryKey(self):
+        for identity in [None, 'R1']:
+            with self.subTest(node_id=identity):
+                item = {'full_name': 'new/owner', 'history_key': 'Old/Owner', 'observation_status': 'retained'}
+                if identity:
+                    item['node_id'] = identity
+                actual = discovery_stats.collectionStats([item], {}, {'old/owner'}, [])
+                self.assertEqual(actual['newly_discovered_count'], 0)
+                self.assertEqual(actual['retained_count'], 1)
+
+    def testNewCandidatesDeduplicatePrimaryKeysWithoutMergingSimilarNames(self):
+        items = [{'full_name': 'renamed/tool', 'history_key': 'OLD/TOOL'},
+                 {'full_name': 'second/name', 'history_key': 'new/tool'},
+                 {'full_name': 'second/alias', 'history_key': 'NEW/TOOL'},
+                 {'full_name': 'old/tool-similar'}, {'full_name': 'legacy/new'}, {}]
+        actual = discovery_stats.collectionStats(items, {}, {'old/tool'}, [])
+        self.assertEqual(actual['newly_discovered_count'], 3)
+
     def testDeltaCoverageIncludesZeroAndNegativeIntegersButExcludesBooleans(self):
         items = [{'delta_1d': 0, 'delta_7d': -3}, {'delta_1d': -2, 'delta_7d': 5},
                  {'delta_1d': 4, 'delta_7d': 0}, {'delta_1d': True, 'delta_7d': False},

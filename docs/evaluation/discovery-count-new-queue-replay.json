@@ -1,0 +1,73 @@
+{
+  "before": "fc7436b18e9f0a8310fb0776da1ef7dd19f9e7cf",
+  "after": "83ba30c12ae7dbea095af7a25c8fa3c21283db65",
+  "execution_parent": "61aca582ba85e3b5e2711e770beb376139d6b9c8",
+  "snapshot_as_of": "2026-10-21T00:54:51.434047Z",
+  "baseline_matches_execution_parent": true,
+  "previous_candidates": 2561,
+  "current_candidates": 3451,
+  "saved_name_based_count": 892,
+  "replayed_primary_key_count": 890,
+  "renames": [
+    {
+      "from": "AvengeMedia/DankMaterialShell",
+      "to": "duxlabs-dev/dux-shell",
+      "node_id": "R_kgDOPKVP_Q"
+    },
+    {
+      "from": "Timeregainedme/ChangeAT",
+      "to": "Timeregainedme/DyeingTime",
+      "node_id": "R_kgDOVHfbwQ"
+    }
+  ],
+  "allocation_actual": {
+    "due": 0,
+    "recommended": 8,
+    "new": 6,
+    "review": 4,
+    "rotation": 2,
+    "refill": 0
+  },
+  "old_new_slots": [
+    "00200200/usagetrim",
+    "0xgetz/tokenharbor-bulk-creator",
+    "10291124jcjc-dotcom/ai-character-swap",
+    "1115714829/llama.cpp-v100",
+    "2501035-wq/mobile-sim-streamer",
+    "2kuai/ForwardWidgets"
+  ],
+  "new_new_slots": [
+    {
+      "full_name": "dominikmartn/harp",
+      "discovery_score": 448.6,
+      "last_attempt_at": ""
+    },
+    {
+      "full_name": "zhuyansen/new-term-radar",
+      "discovery_score": 423.9,
+      "last_attempt_at": ""
+    },
+    {
+      "full_name": "withmarbleapp/os-taxonomy",
+      "discovery_score": 322.1,
+      "last_attempt_at": ""
+    },
+    {
+      "full_name": "mw00/project-maya",
+      "discovery_score": 321.8,
+      "last_attempt_at": ""
+    },
+    {
+      "full_name": "UniXNU/UniXNU",
+      "discovery_score": 306.0,
+      "last_attempt_at": ""
+    },
+    {
+      "full_name": "AjncSystem/ShadowOfTheColossus-PC",
+      "discovery_score": 288.6,
+      "last_attempt_at": ""
+    }
+  ],
+  "unchanged_first_eight_recommendations": true,
+  "snapshot_projects_sha256": "3fe79549262b1aed381ccc8986df50f5b30531814e5358d71c7dceec1ecee361"
+}

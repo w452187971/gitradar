@@ -578,7 +578,8 @@ def legacyMain() -> None:
     generatedAt = dt.datetime.now(dt.timezone.utc)
     if generatedAt.date() != today:
         raise RuntimeError('Collection crossed UTC midnight; keeping existing data. Run again.')
-    stats = collectionStats(items, history, {project['full_name'].lower() for project in previous}, reports)
+    stats = collectionStats(items, history,
+                            {(project.get('history_key') or project['full_name']).lower() for project in previous}, reports)
     document = {'rules_version': 'v3.3', 'generated_at': generatedAt.isoformat(), 'count': len(items), 'projects': items,
                 'warnings': warnings, 'collection_stats': stats, 'search_reports': reports}
     saveSnapshots(DATA_DIR, history, summaries, document)

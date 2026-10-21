@@ -27,6 +27,7 @@ class ObservationFields(TypedDict, total=False):
 
 class StatsProject(ObservationFields, total=False):
     full_name: str
+    history_key: str
     delta_1d: Optional[int]
     delta_7d: Optional[int]
     readme_checked: bool
@@ -61,15 +62,16 @@ def observationMetadata(name: str, history: History, refreshed: bool) -> Observa
 def collectionStats(items: Sequence[StatsProject], history: History,
                     previousNames: set[str], searches: Sequence[SearchReport]) -> CollectionStats:
     dates = {date for series in history.values() for date in series}
-    knownNames = {name.lower() for name in previousNames}
-    currentNames = {name.lower() for item in items if (name := item.get('full_name'))}
+    knownKeys = {name.lower() for name in previousNames}
+    currentKeys = {(item.get('history_key') or name).lower()
+                   for item in items if (name := item.get('full_name'))}
     return {
         'observed_since': min(dates) if dates else None,
         'observed_through': max(dates) if dates else None,
         'observed_dates': len(dates),
         'refreshed_count': sum(item.get('observation_status') == 'fresh' for item in items),
         'retained_count': sum(item.get('observation_status') == 'retained' for item in items),
-        'newly_discovered_count': len(currentNames - knownNames),
+        'newly_discovered_count': len(currentKeys - knownKeys),
         'daily_coverage': sum(type(item.get('delta_1d')) is int for item in items),
         'weekly_coverage': sum(type(item.get('delta_7d')) is int for item in items),
         'readme_checked_count': sum(item.get('readme_checked') is True for item in items),
