@@ -1,0 +1,13 @@
+{
+  "run_id": 39527528160,
+  "run_url": "https://github.com/w452187971/gitradar/actions/runs/39527528160",
+  "scope": "Fixed v3 method and six seen development cases with 14B Q4 instead of 4B Q5; no unseen evaluation or production writes",
+  "archived_at": "2026-10-21T02:22:18.575658+00:00",
+  "sha256": {
+    "case-00-schema-canary.txt": "b7ccdc558e5b464862c8e832c7d59595caee17f56efadfac671f9b29dd50202c",
+    "case-06.txt": "33437ad3220ab1604b3645ed30ae10ed680455a1e0f06a64220aacc453d443f7",
+    "comparison-provenance.json": "1c87cd6b3ec2a1853be7b29c40f732f044756f467e85e162fa5def82a2145fe2",
+    "report.json": "d709d5fde21ef7574aeb78ae3cc14cbd8290e5c602fa70825bfc1c0ec3be6cf5",
+    "server.log": "071350291a347c68cd2d6cb27d93bc64b4f1c5cfe50a91ee5dcc8db7a205542a"
+  }
+}

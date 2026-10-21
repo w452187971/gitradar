@@ -1,0 +1,278 @@
+{
+  "version": 1,
+  "review_kind": "independent_ai_frozen_source_review",
+  "human_reviewed": false,
+  "run_id": 39527528160,
+  "baseline_commit": "980b7657415796f9d9c67181dac69365a22e2838",
+  "checkout_head": "8bb4c748b179f10c9c403c1e62b0dc7ce86bdee6",
+  "source_sha256": "0871654d0a1f0731daa75133c46ab632332bcd9fabde8719f0e44be49e1b74ae",
+  "fixture_sha256": "96978ccade1edc8841ad23d7aef2676734157c6b2826a6707d5dbcabe64917bf",
+  "harness_pins_sha256": "3c28a9749d6833dfcd36c22cd4c948308c1951f0dedef56b93e304e29678e0e5",
+  "raw_report_sha256": "d709d5fde21ef7574aeb78ae3cc14cbd8290e5c602fa70825bfc1c0ec3be6cf5",
+  "provenance_sha256": "1c87cd6b3ec2a1853be7b29c40f732f044756f467e85e162fa5def82a2145fe2",
+  "scope": "Six seen development repositories, not unseen validation. Request timeouts are neither refusals nor semantic errors.",
+  "denominators": {
+    "repositories_requested": 6,
+    "repositories_attempted": 6,
+    "source_repositories_requested": 5,
+    "source_repositories_with_raw": 0,
+    "field_slots_scheduled": 48,
+    "unscorable_timeout_slots": 40,
+    "returned_control_null_slots": 8,
+    "returned_non_null_assertions": 0,
+    "supported_non_null_assertions": 0,
+    "wrong_non_null_assertions": 0,
+    "insufficient_non_null_assertions": 0,
+    "non_null_semantic_accuracy": null,
+    "semantic_refusal_rate": null
+  },
+  "per_field": {
+    "purpose": {
+      "scheduled_repositories": 6,
+      "unscorable_timeout": 5,
+      "returned_control_null": 1,
+      "returned_non_null": 0,
+      "semantic_accuracy": null,
+      "generalization_status": "unverified"
+    },
+    "audience": {
+      "scheduled_repositories": 6,
+      "unscorable_timeout": 5,
+      "returned_control_null": 1,
+      "returned_non_null": 0,
+      "semantic_accuracy": null,
+      "generalization_status": "unverified"
+    },
+    "platforms": {
+      "scheduled_repositories": 6,
+      "unscorable_timeout": 5,
+      "returned_control_null": 1,
+      "returned_non_null": 0,
+      "semantic_accuracy": null,
+      "generalization_status": "unverified"
+    },
+    "form": {
+      "scheduled_repositories": 6,
+      "unscorable_timeout": 5,
+      "returned_control_null": 1,
+      "returned_non_null": 0,
+      "semantic_accuracy": null,
+      "generalization_status": "unverified"
+    },
+    "requirements": {
+      "scheduled_repositories": 6,
+      "unscorable_timeout": 5,
+      "returned_control_null": 1,
+      "returned_non_null": 0,
+      "semantic_accuracy": null,
+      "generalization_status": "unverified"
+    },
+    "path": {
+      "scheduled_repositories": 6,
+      "unscorable_timeout": 5,
+      "returned_control_null": 1,
+      "returned_non_null": 0,
+      "semantic_accuracy": null,
+      "generalization_status": "unverified"
+    },
+    "fees": {
+      "scheduled_repositories": 6,
+      "unscorable_timeout": 5,
+      "returned_control_null": 1,
+      "returned_non_null": 0,
+      "semantic_accuracy": null,
+      "generalization_status": "unverified"
+    },
+    "license": {
+      "scheduled_repositories": 6,
+      "unscorable_timeout": 5,
+      "returned_control_null": 1,
+      "returned_non_null": 0,
+      "semantic_accuracy": null,
+      "generalization_status": "unverified"
+    }
+  },
+  "runtime_observation": {
+    "total_wall_seconds": 749.187,
+    "peak_server_rss_kib": 15161836,
+    "request_timeout_cases": 5,
+    "server_cancel_messages": 5,
+    "server_release_truncated_values": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "oom_observed": false,
+    "oom_scope": "No OOM/crash message in preserved server.log; kernel/system logs were not provided. Server subsequently returned control and cleaned up.",
+    "accumulating_queue_evidence": false,
+    "all_context_budgets_fit": true,
+    "schema_canary_status": "passed",
+    "whole_deadline_triggered": false
+  },
+  "cases": [
+    {
+      "full_name": "TranslucentTB/TranslucentTB",
+      "kind": "desktop",
+      "returned_raw": false,
+      "case_status": "failed",
+      "binding_status": "not_attempted",
+      "wall_seconds": 120.561,
+      "prompt_tokens": 707,
+      "field_judgements": {
+        "purpose": "not_scored_request_timeout",
+        "audience": "not_scored_request_timeout",
+        "platforms": "not_scored_request_timeout",
+        "form": "not_scored_request_timeout",
+        "requirements": "not_scored_request_timeout",
+        "path": "not_scored_request_timeout",
+        "fees": "not_scored_request_timeout",
+        "license": "not_scored_request_timeout"
+      },
+      "error": "TimeoutError: timed out",
+      "reason": "有冻结来源，但非流式请求在 120 秒超时，未保存可评分的模型正文；八字段均不可评分，不能当作拒答、未知或错误断言。"
+    },
+    {
+      "full_name": "AdguardTeam/AdGuardHome",
+      "kind": "self_hosted",
+      "returned_raw": false,
+      "case_status": "failed",
+      "binding_status": "not_attempted",
+      "wall_seconds": 120.547,
+      "prompt_tokens": 723,
+      "field_judgements": {
+        "purpose": "not_scored_request_timeout",
+        "audience": "not_scored_request_timeout",
+        "platforms": "not_scored_request_timeout",
+        "form": "not_scored_request_timeout",
+        "requirements": "not_scored_request_timeout",
+        "path": "not_scored_request_timeout",
+        "fees": "not_scored_request_timeout",
+        "license": "not_scored_request_timeout"
+      },
+      "error": "TimeoutError: timed out",
+      "reason": "有冻结来源，但非流式请求在 120 秒超时，未保存可评分的模型正文；八字段均不可评分，不能当作拒答、未知或错误断言。"
+    },
+    {
+      "full_name": "sharkdp/fd",
+      "kind": "cli",
+      "returned_raw": false,
+      "case_status": "failed",
+      "binding_status": "not_attempted",
+      "wall_seconds": 120.336,
+      "prompt_tokens": 630,
+      "field_judgements": {
+        "purpose": "not_scored_request_timeout",
+        "audience": "not_scored_request_timeout",
+        "platforms": "not_scored_request_timeout",
+        "form": "not_scored_request_timeout",
+        "requirements": "not_scored_request_timeout",
+        "path": "not_scored_request_timeout",
+        "fees": "not_scored_request_timeout",
+        "license": "not_scored_request_timeout"
+      },
+      "error": "TimeoutError: timed out",
+      "reason": "有冻结来源，但非流式请求在 120 秒超时，未保存可评分的模型正文；八字段均不可评分，不能当作拒答、未知或错误断言。"
+    },
+    {
+      "full_name": "huggingface/transformers",
+      "kind": "library",
+      "returned_raw": false,
+      "case_status": "failed",
+      "binding_status": "not_attempted",
+      "wall_seconds": 120.546,
+      "prompt_tokens": 842,
+      "field_judgements": {
+        "purpose": "not_scored_request_timeout",
+        "audience": "not_scored_request_timeout",
+        "platforms": "not_scored_request_timeout",
+        "form": "not_scored_request_timeout",
+        "requirements": "not_scored_request_timeout",
+        "path": "not_scored_request_timeout",
+        "fees": "not_scored_request_timeout",
+        "license": "not_scored_request_timeout"
+      },
+      "error": "TimeoutError: timed out",
+      "reason": "有冻结来源，但非流式请求在 120 秒超时，未保存可评分的模型正文；八字段均不可评分，不能当作拒答、未知或错误断言。"
+    },
+    {
+      "full_name": "hehonghui/awesome-english-ebooks",
+      "kind": "collection_other_subject",
+      "returned_raw": false,
+      "case_status": "failed",
+      "binding_status": "not_attempted",
+      "wall_seconds": 120.323,
+      "prompt_tokens": 644,
+      "field_judgements": {
+        "purpose": "not_scored_request_timeout",
+        "audience": "not_scored_request_timeout",
+        "platforms": "not_scored_request_timeout",
+        "form": "not_scored_request_timeout",
+        "requirements": "not_scored_request_timeout",
+        "path": "not_scored_request_timeout",
+        "fees": "not_scored_request_timeout",
+        "license": "not_scored_request_timeout"
+      },
+      "error": "TimeoutError: timed out",
+      "reason": "有冻结来源，但非流式请求在 120 秒超时，未保存可评分的模型正文；八字段均不可评分，不能当作拒答、未知或错误断言。"
+    },
+    {
+      "full_name": "squoosh/squoosh",
+      "kind": "missing_official_source",
+      "returned_raw": true,
+      "case_status": "raw_contract_passed_semantics_pending",
+      "binding_status": "program_bound_by_reference_not_semantically_verified",
+      "wall_seconds": 88.78,
+      "prompt_tokens": 413,
+      "field_judgements": {
+        "purpose": "control_null",
+        "audience": "control_null",
+        "platforms": "control_null",
+        "form": "control_null",
+        "requirements": "control_null",
+        "path": "control_null",
+        "fees": "control_null",
+        "license": "control_null"
+      },
+      "reason": "实际无来源控制返回八组合法 null；value 并未被 schema 强制为 null；只证明此单例控制通过。",
+      "raw_fields": {
+        "purpose": {
+          "value": null,
+          "ref_id": null
+        },
+        "audience": {
+          "value": null,
+          "ref_id": null
+        },
+        "platforms": {
+          "value": null,
+          "ref_id": null
+        },
+        "form": {
+          "value": null,
+          "ref_id": null
+        },
+        "requirements": {
+          "value": null,
+          "ref_id": null
+        },
+        "path": {
+          "value": null,
+          "ref_id": null
+        },
+        "fees": {
+          "value": null,
+          "ref_id": null
+        },
+        "license": {
+          "value": null,
+          "ref_id": null
+        }
+      },
+      "finish_reason": "stop"
+    }
+  ]
+}
