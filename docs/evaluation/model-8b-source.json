@@ -1,0 +1,22 @@
+{
+  "checked_at": "2026-10-21T02:23:39.290465+00:00",
+  "metadata_url": "https://huggingface.co/api/models/Qwen/Qwen3-8B-GGUF/revision/7c41481f57cb95916b40956ab2f0b139b296d974?blobs=true",
+  "revision": "7c41481f57cb95916b40956ab2f0b139b296d974",
+  "license_declaration": "apache-2.0",
+  "artifact": {
+    "rfilename": "Qwen3-8B-Q4_K_M.gguf",
+    "blobId": "d4ee8ae7f4de3a5046b1a29776a3f011ba28017e",
+    "size": 5027783488,
+    "lfs": {
+      "sha256": "d98cdcbd03e17ce47681435b5150e34c1417f50b5c0019dd560e4882c5745785",
+      "size": 5027783488,
+      "pointerSize": 135
+    }
+  },
+  "license_url": "https://huggingface.co/Qwen/Qwen3-8B-GGUF/raw/7c41481f57cb95916b40956ab2f0b139b296d974/LICENSE",
+  "license_bytes": 11544,
+  "license_sha256": "5de36594c10839788a8c589443a8ef9d8b8d17c65a1b5807206ae037fc36c6bd",
+  "license_header": "Apache License, Version 2.0, January 2004",
+  "license_footer": "See the License for the specific language governing permissions and limitations under the License.",
+  "scope": "Two primary small GETs; full license body checked; no weight download. SHA256 has 64 hex characters; earlier suspected value matches official LFS metadata."
+}

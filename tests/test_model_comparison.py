@@ -1,4 +1,4 @@
-"""14B 容量对照只测封装与隔离，不下载或执行权重。"""
+"""容量对照只测封装与隔离，不下载或执行权重。"""
 import hashlib
 import json
 import os
@@ -11,6 +11,46 @@ from scripts import probe_model_comparison as comparison
 
 
 class ModelComparisonTests(unittest.TestCase):
+    def test_default_14b_matches_explicit_choice(self):
+        self.assertEqual(comparison.verifiedInputs({}), comparison.verifiedInputs({}, '14b'))
+
+    def test_8b_changes_only_model_and_keeps_exact_baseline_inputs(self):
+        source, fixture, pins = comparison.verifiedInputs({}, '8b')
+        defaultSource, defaultFixture, defaultPins = comparison.verifiedInputs({})
+        self.assertEqual((source, fixture), (defaultSource, defaultFixture))
+        current, previous = json.loads(pins), json.loads(defaultPins)
+        self.assertEqual(current['runtime'], previous['runtime'])
+        self.assertEqual(current['model']['size'], 5027783488)
+        self.assertEqual(current['model']['revision'], '7c41481f57cb95916b40956ab2f0b139b296d974')
+        self.assertEqual(current['model']['sha256'], 'd98cdcbd03e17ce47681435b5150e34c1417f50b5c0019dd560e4882c5745785')
+        self.assertEqual(len(current['model']['sha256']), 64)
+        current.pop('model')
+        previous.pop('model')
+        self.assertEqual(current, previous)
+
+    def test_8b_pin_tampering_is_rejected(self):
+        blobs = {path: comparison.gitBytes(path) for path in [comparison.SOURCE, comparison.FIXTURE, comparison.PINS]}
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            fixture = root / comparison.FIXTURE
+            fixture.parent.mkdir(parents=True)
+            fixture.write_bytes(blobs[comparison.FIXTURE])
+            pins = root / 'scripts/model_comparison_8b.json'
+            pins.parent.mkdir(parents=True)
+            pins.write_text('{}')
+            with patch.object(comparison, 'ROOT', root), patch.object(comparison, 'gitBytes', side_effect=blobs.__getitem__):
+                with self.assertRaisesRegex(ValueError, 'pins SHA256'):
+                    comparison.verifiedInputs({}, '8b')
+
+    def test_unsupported_model_key_is_rejected_before_loading_or_network(self):
+        with tempfile.TemporaryDirectory() as directory:
+            with patch.object(comparison, 'loadBaseline') as load, patch('urllib.request.urlopen') as request:
+                self.assertEqual(comparison.runComparison(Path(directory), '32b'), 1)
+            report = json.loads((Path(directory) / 'report.json').read_text())
+        self.assertIn('Unsupported comparison modelKey', report['error'])
+        load.assert_not_called()
+        request.assert_not_called()
+
     def test_tampered_baseline_source_is_rejected_before_loading(self):
         original = comparison.gitBytes
         with patch.object(comparison, 'gitBytes', side_effect=lambda path: b'altered' if path == comparison.SOURCE else original(path)):
@@ -89,6 +129,14 @@ class ModelComparisonTests(unittest.TestCase):
             self.assertIn(required, text)
         for forbidden in ['schedule:', 'collect.py', 'git push', 'secrets.', '.v4-output']:
             self.assertNotIn(forbidden, text)
+
+    def test_8b_workflow_only_changes_model_selection_and_artifact_identity(self):
+        original = (comparison.ROOT / '.github/workflows/model-comparison.yml').read_text()
+        expected = original.replace('14B', '8B').replace('model-14b-', 'model-8b-')
+        expected = expected.replace('python3 scripts/probe_model_comparison.py\n',
+                                    'python3 scripts/probe_model_comparison.py --model-key 8b\n')
+        actual = (comparison.ROOT / '.github/workflows/model-comparison-8b.yml').read_text()
+        self.assertEqual(actual, expected)
 
 
 if __name__ == '__main__':

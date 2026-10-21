@@ -1,0 +1,42 @@
+name: Isolated 8B model capacity comparison
+on:
+  workflow_dispatch:
+    inputs:
+      model_probe_only:
+        type: boolean
+        default: false
+      probe_only:
+        type: boolean
+        default: false
+permissions:
+  contents: read
+jobs:
+  compare:
+    runs-on: ubuntu-latest
+    timeout-minutes: 17
+    steps:
+      - name: Require exclusive public model diagnostic
+        if: ${{ inputs.model_probe_only != true || inputs.probe_only == true || github.event.repository.private != false }}
+        run: exit 1
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+          persist-credentials: false
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Run immutable v3 method with fixed 8B weight
+        run: timeout --signal=TERM --kill-after=15s 900s python3 scripts/probe_model_comparison.py --model-key 8b
+      - uses: actions/upload-artifact@v4
+        if: ${{ always() && inputs.model_probe_only == true && inputs.probe_only != true }}
+        with:
+          name: gitradar-model-8b-comparison-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            .model-probe/report.json
+            .model-probe/comparison-provenance.json
+            .model-probe/case-*.txt
+            .model-probe/server.log
+          include-hidden-files: true
+          if-no-files-found: error
+          retention-days: 7

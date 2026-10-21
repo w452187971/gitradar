@@ -1,6 +1,7 @@
-"""固定 v3 方法、仅替换14B权重的隔离容量对照。"""
+"""固定 v3 方法、仅选择已冻结权重的隔离容量对照。"""
 from __future__ import annotations
 
+import argparse
 import hashlib
 import json
 import os
@@ -20,6 +21,10 @@ MODEL = 'scripts/model_comparison_14b.json'
 SOURCE_SHA256 = '0871654d0a1f0731daa75133c46ab632332bcd9fabde8719f0e44be49e1b74ae'
 FIXTURE_SHA256 = '96978ccade1edc8841ad23d7aef2676734157c6b2826a6707d5dbcabe64917bf'
 MODEL_SHA256 = 'd1ff6d33271fa0e8e8f7ba32302845fe04ec6ea8b6ff57aa915e5ca168b68ef4'
+MODEL_CONFIGS = {
+    '14b': (MODEL, MODEL_SHA256),
+    '8b': ('scripts/model_comparison_8b.json', '2ac76850f9afa2f1f44050bad3e65f374d8f5acff775236b283dbaf00cf8b191'),
+}
 
 
 def gitBytes(relative: str) -> bytes:
@@ -27,7 +32,10 @@ def gitBytes(relative: str) -> bytes:
                           capture_output=True, check=True, timeout=20).stdout
 
 
-def verifiedInputs(provenance: dict) -> tuple[bytes, bytes, bytes]:
+def verifiedInputs(provenance: dict, modelKey: str = '14b') -> tuple[bytes, bytes, bytes]:
+    if modelKey not in MODEL_CONFIGS:
+        raise ValueError('Unsupported comparison modelKey: ' + modelKey)
+    modelPath, modelHash = MODEL_CONFIGS[modelKey]
     source, fixture = gitBytes(SOURCE), gitBytes(FIXTURE)
     provenance.update(source_sha256=hashlib.sha256(source).hexdigest(),
                       baseline_fixture_sha256=hashlib.sha256(fixture).hexdigest())
@@ -35,9 +43,10 @@ def verifiedInputs(provenance: dict) -> tuple[bytes, bytes, bytes]:
         raise ValueError('Immutable baseline source SHA256 mismatch')
     if provenance['baseline_fixture_sha256'] != FIXTURE_SHA256 or (ROOT / FIXTURE).read_bytes() != fixture:
         raise ValueError('Baseline/current fixture bytes mismatch')
-    model = (ROOT / MODEL).read_bytes()
-    if hashlib.sha256(model).hexdigest() != MODEL_SHA256:
+    model = (ROOT / modelPath).read_bytes()
+    if hashlib.sha256(model).hexdigest() != modelHash:
         raise ValueError('Comparison model pins SHA256 mismatch')
+    provenance.update(model_key=modelKey, model_pins_sha256=modelHash)
     pins = json.loads(gitBytes(PINS))
     pins['model'] = json.loads(model)
     return source, fixture, (json.dumps(pins, ensure_ascii=False, indent=2) + '\n').encode()
@@ -78,7 +87,7 @@ def invokeBaseline(module: types.ModuleType, fixture: bytes, pins: bytes, output
             sys.argv = previous
 
 
-def runComparison(output: Path) -> int:
+def runComparison(output: Path, modelKey: str = '14b') -> int:
     output.mkdir(parents=True, exist_ok=True)
     provenance = {'baseline_commit': BASELINE, 'expected_source_sha256': SOURCE_SHA256,
                   'event_github_sha': os.environ.get('GITHUB_SHA'),
@@ -86,7 +95,7 @@ def runComparison(output: Path) -> int:
     try:
         provenance['checkout_head'] = subprocess.run(['git', 'rev-parse', 'HEAD'], cwd=ROOT,
             capture_output=True, check=True, timeout=20).stdout.decode().strip()
-        source, fixture, pins = verifiedInputs(provenance)
+        source, fixture, pins = verifiedInputs(provenance, modelKey)
         module = loadBaseline(source)
         module.requirePublicRunner()
         requireSpace(json.loads(pins))
@@ -107,4 +116,6 @@ def runComparison(output: Path) -> int:
 
 
 if __name__ == '__main__':
-    raise SystemExit(runComparison(ROOT / '.model-probe'))
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--model-key', choices=tuple(MODEL_CONFIGS), default='14b')
+    raise SystemExit(runComparison(ROOT / '.model-probe', parser.parse_args().model_key))
