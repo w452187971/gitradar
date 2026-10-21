@@ -9800,12 +9800,263 @@
         "status": "awaiting_independent_human_reference",
         "items": []
       }
+    },
+    {
+      "batch_id": "217947df35da48d29457f9938c5434cc",
+      "observed_at": "2026-10-21T01:00:28.698358Z",
+      "utc_date": "2026-10-21",
+      "run_kind": "workflow_dispatch",
+      "planned_run": false,
+      "fresh_count": 3449,
+      "cohort_size": 1970,
+      "cohort_fresh": 1968,
+      "pool_size": 3451,
+      "pending_candidate_count": 0,
+      "usage": {
+        "search_requests": 20,
+        "rest_requests": 82,
+        "content_requests": 60,
+        "path_requests": 20,
+        "identity_requests": 2,
+        "graphql_points": 70,
+        "graphql_batches": 70,
+        "graphql_unmeasured_requests": 0,
+        "retries": 0,
+        "not_modified": 0,
+        "rest_remaining": 4955,
+        "search_remaining": 10,
+        "graphql_remaining": 4933,
+        "reset_at": null,
+        "retry_after": null,
+        "rate_limited": false
+      },
+      "new_recommendations": [],
+      "discovery_counts": {
+        "automatic_new": 0,
+        "seed": 0,
+        "baseline_backfill": 0,
+        "manual_addition": 0,
+        "rotation": 20
+      },
+      "recommendation_count": 20,
+      "recommendation_fresh_count": 20,
+      "all_selected": [
+        {
+          "full_name": "HandBrake/HandBrake",
+          "node_id": "MDEwOlJlcG9zaXRvcnk0MTIxNTgzNQ==",
+          "observation_status": "fresh",
+          "first_recommended_at": "2026-10-20T16:05:01.116030Z",
+          "discovery_kind": "rotation"
+        },
+        {
+          "full_name": "KDE/kdenlive",
+          "node_id": "MDEwOlJlcG9zaXRvcnk0MjcyMzI2OA==",
+          "observation_status": "fresh",
+          "first_recommended_at": "2026-10-20T16:05:01.116030Z",
+          "discovery_kind": "rotation"
+        },
+        {
+          "full_name": "arsenetar/dupeguru",
+          "node_id": "MDEwOlJlcG9zaXRvcnkxMDg1NjM0MA==",
+          "observation_status": "fresh",
+          "first_recommended_at": "2026-10-20T16:05:01.116030Z",
+          "discovery_kind": "rotation"
+        },
+        {
+          "full_name": "Zettlr/Zettlr",
+          "node_id": "MDEwOlJlcG9zaXRvcnkxMTU0NDYwODE=",
+          "observation_status": "fresh",
+          "first_recommended_at": "2026-10-20T16:05:01.116030Z",
+          "discovery_kind": "rotation"
+        },
+        {
+          "full_name": "FreeTubeApp/FreeTube",
+          "node_id": "MDEwOlJlcG9zaXRvcnkxMjMyMjAxNTI=",
+          "observation_status": "fresh",
+          "first_recommended_at": "2026-10-20T16:05:01.116030Z",
+          "discovery_kind": "rotation"
+        },
+        {
+          "full_name": "bleachbit/bleachbit",
+          "node_id": "MDEwOlJlcG9zaXRvcnkxNzU3ODU5Mg==",
+          "observation_status": "fresh",
+          "first_recommended_at": "2026-10-20T16:05:01.116030Z",
+          "discovery_kind": "rotation"
+        },
+        {
+          "full_name": "Flow-Launcher/Flow.Launcher",
+          "node_id": "MDEwOlJlcG9zaXRvcnkyNTc1MjYyMTI=",
+          "observation_status": "fresh",
+          "first_recommended_at": "2026-10-20T16:05:01.116030Z",
+          "discovery_kind": "rotation"
+        },
+        {
+          "full_name": "WinMerge/winmerge",
+          "node_id": "MDEwOlJlcG9zaXRvcnkyNjQ5NDAxOA==",
+          "observation_status": "fresh",
+          "first_recommended_at": "2026-10-20T16:05:01.116030Z",
+          "discovery_kind": "rotation"
+        },
+        {
+          "full_name": "keepassxreboot/keepassxc",
+          "node_id": "MDEwOlJlcG9zaXRvcnk1MjcyOTI0Mg==",
+          "observation_status": "fresh",
+          "first_recommended_at": "2026-10-20T16:05:01.116030Z",
+          "discovery_kind": "rotation"
+        },
+        {
+          "full_name": "laurent22/joplin",
+          "node_id": "MDEwOlJlcG9zaXRvcnk3OTE2MjY4Mg==",
+          "observation_status": "fresh",
+          "first_recommended_at": "2026-10-20T16:05:01.116030Z",
+          "discovery_kind": "rotation"
+        },
+        {
+          "full_name": "flameshot-org/flameshot",
+          "node_id": "MDEwOlJlcG9zaXRvcnk5MDkwMjEzMg==",
+          "observation_status": "fresh",
+          "first_recommended_at": "2026-10-20T16:05:01.116030Z",
+          "discovery_kind": "rotation"
+        },
+        {
+          "full_name": "marktext/marktext",
+          "node_id": "MDEwOlJlcG9zaXRvcnkxMTA0NDY4NDQ=",
+          "observation_status": "fresh",
+          "first_recommended_at": "2026-10-20T16:05:01.116030Z",
+          "discovery_kind": "rotation"
+        },
+        {
+          "full_name": "sindresorhus/Gifski",
+          "node_id": "MDEwOlJlcG9zaXRvcnkxMTk4MjIzMDQ=",
+          "observation_status": "fresh",
+          "first_recommended_at": "2026-10-20T16:05:01.116030Z",
+          "discovery_kind": "rotation"
+        },
+        {
+          "full_name": "obsproject/obs-studio",
+          "node_id": "MDEwOlJlcG9zaXRvcnkxMzIzMzE1OA==",
+          "observation_status": "fresh",
+          "first_recommended_at": "2026-10-20T16:05:01.116030Z",
+          "discovery_kind": "rotation"
+        },
+        {
+          "full_name": "syncthing/syncthing",
+          "node_id": "MDEwOlJlcG9zaXRvcnkxNDcxMjg1MA==",
+          "observation_status": "fresh",
+          "first_recommended_at": "2026-10-20T16:05:01.116030Z",
+          "discovery_kind": "rotation"
+        },
+        {
+          "full_name": "cryptomator/cryptomator",
+          "node_id": "MDEwOlJlcG9zaXRvcnkxNjQ0NjA5OQ==",
+          "observation_status": "fresh",
+          "first_recommended_at": "2026-10-20T16:05:01.116030Z",
+          "discovery_kind": "rotation"
+        },
+        {
+          "full_name": "microsoft/PowerToys",
+          "node_id": "MDEwOlJlcG9zaXRvcnkxODQ0NTYyNTE=",
+          "observation_status": "fresh",
+          "first_recommended_at": "2026-10-20T16:05:01.116030Z",
+          "discovery_kind": "rotation"
+        },
+        {
+          "full_name": "lively-community/lively",
+          "node_id": "MDEwOlJlcG9zaXRvcnkyMDExODgxMjI=",
+          "observation_status": "fresh",
+          "first_recommended_at": "2026-10-20T16:05:01.116030Z",
+          "discovery_kind": "rotation"
+        },
+        {
+          "full_name": "paulpacifico/shutter-encoder",
+          "node_id": "MDEwOlJlcG9zaXRvcnkyNjIzODI5NjI=",
+          "observation_status": "fresh",
+          "first_recommended_at": "2026-10-20T16:05:01.116030Z",
+          "discovery_kind": "rotation"
+        },
+        {
+          "full_name": "pbek/QOwnNotes",
+          "node_id": "MDEwOlJlcG9zaXRvcnkyNzQzNjQ5MQ==",
+          "observation_status": "fresh",
+          "first_recommended_at": "2026-10-20T16:05:01.116030Z",
+          "discovery_kind": "rotation"
+        }
+      ],
+      "automatic_new_recommendations": [],
+      "content_allocation": {
+        "planned": {
+          "recommended": 8,
+          "new": 6,
+          "review": 4,
+          "rotation": 2
+        },
+        "actual": {
+          "due": 0,
+          "recommended": 8,
+          "new": 6,
+          "review": 4,
+          "rotation": 2,
+          "refill": 0
+        },
+        "selected": [
+          "Tichau/FileConverter",
+          "audacity/audacity",
+          "cryptomator/cryptomator",
+          "flameshot-org/flameshot",
+          "giuspen/cherrytree",
+          "jellyfin/jellyfin",
+          "keepassxreboot/keepassxc",
+          "laurent22/joplin",
+          "00200200/usagetrim",
+          "0xgetz/tokenharbor-bulk-creator",
+          "10291124jcjc-dotcom/ai-character-swap",
+          "1115714829/llama.cpp-v100",
+          "2501035-wq/mobile-sim-streamer",
+          "2kuai/ForwardWidgets",
+          "2dust/v2rayN",
+          "34823/tg-pane",
+          "422658476/banana-detect-adblock",
+          "4v3ngR/aLauncher",
+          "5-whys/adh-rules",
+          "521xueweihan/GitHub520"
+        ],
+        "waiting": 3433,
+        "attempted": [
+          "Tichau/FileConverter",
+          "audacity/audacity",
+          "cryptomator/cryptomator",
+          "flameshot-org/flameshot",
+          "giuspen/cherrytree",
+          "jellyfin/jellyfin",
+          "keepassxreboot/keepassxc",
+          "laurent22/joplin",
+          "00200200/usagetrim",
+          "0xgetz/tokenharbor-bulk-creator",
+          "10291124jcjc-dotcom/ai-character-swap",
+          "1115714829/llama.cpp-v100",
+          "2501035-wq/mobile-sim-streamer",
+          "2kuai/ForwardWidgets",
+          "2dust/v2rayN",
+          "34823/tg-pane",
+          "422658476/banana-detect-adblock",
+          "4v3ngR/aLauncher"
+        ],
+        "attempted_count": 18,
+        "requests_used": 60,
+        "successful_count": 10,
+        "partial_count": 8,
+        "failed_count": 0
+      },
+      "future_reference_set": {
+        "status": "awaiting_independent_human_reference",
+        "items": []
+      }
     }
   ],
   "schema_version": "4.0",
   "rules_version": "v3.3",
   "recommendation_version": "v4.0",
-  "batch_id": "139a919b7fd54489b7a7ec0db93a2158",
-  "generated_at": "2026-10-20T16:49:09.942365Z",
-  "source_commit": "f88b0dbf5ce770866fa3457e89b3b7ac999eccc6"
+  "batch_id": "217947df35da48d29457f9938c5434cc",
+  "generated_at": "2026-10-21T01:00:28.698358Z",
+  "source_commit": "61aca582ba85e3b5e2711e770beb376139d6b9c8"
 }
