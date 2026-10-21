@@ -1,103 +1,42 @@
-name: Update GitRadar data
+name: Isolated 14B model capacity comparison
 on:
-  schedule:
-    - cron: '23 2 * * *'
   workflow_dispatch:
     inputs:
-      probe_only:
-        description: 'Only probe batch access; do not collect, commit or publish'
+      model_probe_only:
         type: boolean
         default: false
-      model_probe_only:
-        description: 'Only run isolated public CPU model probe; no collection, commit or publish'
+      probe_only:
         type: boolean
         default: false
 permissions:
-  contents: write
-concurrency:
-  group: gitradar-update
-  cancel-in-progress: false
+  contents: read
 jobs:
-  collect:
+  compare:
     runs-on: ubuntu-latest
-    timeout-minutes: ${{ inputs.model_probe_only == true && 17 || 360 }}
+    timeout-minutes: 17
     steps:
-      - name: Reject conflicting diagnostic modes
-        if: ${{ inputs.probe_only == true && inputs.model_probe_only == true }}
-        run: |
-          echo 'probe_only and model_probe_only are mutually exclusive'
-          exit 1
+      - name: Require exclusive public model diagnostic
+        if: ${{ inputs.model_probe_only != true || inputs.probe_only == true || github.event.repository.private != false }}
+        run: exit 1
       - uses: actions/checkout@v4
         with:
           ref: ${{ github.ref_name }}
-          persist-credentials: ${{ inputs.model_probe_only != true }}
+          persist-credentials: false
+          fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '22'
-      - name: Test collector
-        if: ${{ inputs.probe_only != true && inputs.model_probe_only != true }}
-        run: python -m unittest discover -s tests
-      - name: Test frontend
-        if: ${{ inputs.probe_only != true && inputs.model_probe_only != true }}
-        run: node --test tests/*.test.cjs
-      - name: Collect and validate isolated batch
-        id: collect
-        if: ${{ inputs.probe_only != true && inputs.model_probe_only != true }}
-        env:
-          GH_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: python collect.py --output-dir .v4-output
-      - name: Probe built-in token batch access
-        if: ${{ inputs.probe_only == true && inputs.model_probe_only != true }}
-        env:
-          GH_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: python scripts/probe_github.py
-      - name: Save probe evidence
-        if: ${{ always() && inputs.probe_only == true && inputs.model_probe_only != true }}
-        uses: actions/upload-artifact@v4
-        with:
-          name: gitradar-batch-probe
-          path: probe-report.json
-          if-no-files-found: error
-      - name: Probe free open weight model on public CPU runner
-        if: ${{ inputs.model_probe_only == true && inputs.probe_only != true }}
-        run: bash scripts/model_probe.sh
-      - name: Preserve model probe report and small text only
+      - name: Run immutable v3 method with fixed 14B weight
+        run: timeout --signal=TERM --kill-after=15s 900s python3 scripts/probe_model_comparison.py
+      - uses: actions/upload-artifact@v4
         if: ${{ always() && inputs.model_probe_only == true && inputs.probe_only != true }}
-        uses: actions/upload-artifact@v4
         with:
-          name: gitradar-model-probe-${{ github.run_id }}-${{ github.run_attempt }}
+          name: gitradar-model-14b-comparison-${{ github.run_id }}-${{ github.run_attempt }}
           path: |
             .model-probe/report.json
+            .model-probe/comparison-provenance.json
             .model-probe/case-*.txt
             .model-probe/server.log
           include-hidden-files: true
           if-no-files-found: error
-          retention-days: 7
-      - name: Promote verified batch
-        if: ${{ inputs.probe_only != true && inputs.model_probe_only != true }}
-        run: python collect.py --output-dir .v4-output --promote-only --publish-to .
-      - name: Commit verified snapshots and pages
-        id: commit
-        if: ${{ inputs.probe_only != true && inputs.model_probe_only != true }}
-        run: |
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          python -c 'import json, subprocess; manifest = json.load(open("build-manifest.json")); subprocess.run(["git", "add", "--", *manifest["artifacts"], "build-manifest.json"], check=True)'
-          if ! git diff --cached --quiet; then
-            git commit -m 'data: refresh verified GitRadar V4 batch'
-            git push origin "HEAD:${GITHUB_REF_NAME}"
-          fi
-      - name: Preserve complete failed batch and diagnostics
-        if: ${{ failure() && inputs.probe_only != true && inputs.model_probe_only != true }}
-        uses: actions/upload-artifact@v4
-        with:
-          name: gitradar-v4-failed-${{ github.run_id }}-${{ github.run_attempt }}
-          path: |
-            .v4-output/
-            build-manifest.json
-          include-hidden-files: true
-          if-no-files-found: warn
           retention-days: 7
