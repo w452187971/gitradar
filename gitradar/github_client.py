@@ -462,9 +462,10 @@ class GitHubClient:
     def webEvidence(self, text: str, source: SourceRequest, ref: RepositoryRef) -> list[EvidenceRef]:
         kinds = {old.get('source_kind', source.kind) for old in source.old_refs} or {source.kind}
         refs = [self.makeEvidenceRef(text, kind, 'source', {'html_url': source.url}, ref) for kind in kinds]
+        generatedIds = {evidence['id'] for evidence in refs}
         for old in source.old_refs:
             fragment = old.get('text')
-            if isinstance(fragment, str) and fragment and fragment in text:
+            if old.get('id') not in generatedIds and isinstance(fragment, str) and fragment and fragment in text:
                 evidence = copy.deepcopy(old)
                 evidence.update(checked_at=self.now(), status=200,
                                 source_hash=hashlib.sha256(text.encode()).hexdigest())

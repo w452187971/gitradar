@@ -122,13 +122,15 @@ class ModelComparisonTests(unittest.TestCase):
         for path, body in before.items():
             self.assertEqual((comparison.ROOT / path).read_bytes(), body)
 
-    def test_workflow_is_manual_read_only_and_never_collects_or_promotes(self):
-        text = (comparison.ROOT / '.github/workflows/model-comparison.yml').read_text()
-        for required in ['workflow_dispatch:', 'contents: read', 'persist-credentials: false', 'fetch-depth: 0',
-                         'timeout-minutes: 17', '900s', 'comparison-provenance.json', 'model_probe_only != true', 'probe_only == true']:
-            self.assertIn(required, text)
-        for forbidden in ['schedule:', 'collect.py', 'git push', 'secrets.', '.v4-output']:
-            self.assertNotIn(forbidden, text)
+    def test_archived_workflows_are_disabled_read_only_and_never_publish(self):
+        for name in ['model-comparison.yml', 'model-comparison-8b.yml']:
+            text = (comparison.ROOT / '.github/workflows' / name).read_text()
+            for required in ['name: Archived/disabled', 'jobs:\n  compare:\n    if: ${{ false }}',
+                             'workflow_dispatch:', 'contents: read', 'persist-credentials: false', 'fetch-depth: 0',
+                             'timeout-minutes: 17', '900s', 'comparison-provenance.json', 'model_probe_only != true', 'probe_only == true']:
+                self.assertIn(required, text)
+            for forbidden in ['schedule:', 'collect.py', 'git push', 'secrets.', '.v4-output']:
+                self.assertNotIn(forbidden, text)
 
     def test_8b_workflow_only_changes_model_selection_and_artifact_identity(self):
         original = (comparison.ROOT / '.github/workflows/model-comparison.yml').read_text()

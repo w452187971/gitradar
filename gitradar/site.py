@@ -145,6 +145,7 @@ def _transparency(snapshot: Record, count: int) -> str:
     stats = _json(snapshot.get('collection_stats', {}))
     return (warning + '<details class="transparency"><summary>这些推荐怎么选？查看数据与资料边界</summary>'
             f'<p>当前批次 {_text(snapshot.get("batch_id") or "旧版数据")} · {_text(_date(snapshot.get("generated_at")))} · {count} 项推荐。</p>'
+            '<p>中文精选依据官方资料编辑整理；自动发现的候选保留原简介和规则线索，资料不足不补写完整解读。</p>'
             '<p>先满足中文用途、适合人群、设备、前置条件、官方路径和许可证的资料门槛，再按场景、新颖性和真实增长证据组合。'
             '首页最多 20 项，首 6 项优先普通用户软件；资料不足时展示实际数量。</p>'
             '<p>资料已核对与实际试用分别记录。开源许可证不代表全部服务免费；费用和依赖请看详情。'

@@ -90,6 +90,7 @@ class EvidenceRef(TypedDict, total=False):
     status: Union[str, int]
     published_at: str
     source_hash: str
+    navigation_equivalent_hash: str
     previous_source_hash: str
     context_changed: bool
     path_checks: dict[str, PathCheck]

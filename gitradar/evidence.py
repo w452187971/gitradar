@@ -10,7 +10,7 @@ from typing import Callable
 from gitradar.content import Record, _record, _records, _strings, isOfficialUrl, pathClaimRefs, hasSourceContext
 from gitradar.github_client import BudgetExceeded, GitHubClient
 from gitradar.models import Budget
-from gitradar.sources import isRepositoryMetadataUrl
+from gitradar.sources import githubNavigationContext, isRepositoryMetadataUrl
 
 
 def sourceLocation(url: object, kind: object) -> str:
@@ -59,12 +59,43 @@ def _unchanged(ref: Record, source: Record) -> bool:
         return old == new
 
 
-def _refreshRef(ref: Record, source: Record) -> Record:
+def _completeSource(ref: Record, sources: list[Record], digest: object) -> Record:
+    matches = [source for source in sources if source.get('url') == ref.get('url')
+               and source.get('source_kind') == ref.get('source_kind') and source.get('section') == 'source'
+               and source.get('content_hash') == digest
+               and source.get('id') == str(ref.get('source_kind')) + ':source:' + str(digest)
+               and isinstance(source.get('text'), str)
+               and hashlib.sha256(str(source['text']).encode()).hexdigest() == digest]
+    return matches[0] if len(matches) == 1 else {}
+
+
+def _navigationEquivalent(ref: Record, source: Record, previous: Record, fetched: Record) -> bool:
+    name, identity = previous.get('full_name'), previous.get('node_id')
+    if (not isinstance(name, str) or not isinstance(identity, str) or not identity or identity != fetched.get('node_id')
+            or name != fetched.get('full_name') or ref.get('context_changed')
+            or 'identity_conflict' in _strings(previous.get('critical_unknowns')) + _strings(fetched.get('critical_unknowns'))
+            or ref.get('source_kind') != 'official_site' or ref.get('url') != 'https://github.com/' + name + '/releases'):
+        return False
+    old = _completeSource(ref, _records(previous.get('refs')), ref.get('source_hash'))
+    current = _completeSource(ref, _records(fetched.get('refs')), source.get('source_hash') or source.get('content_hash'))
+    fragment = ref.get('text')
+    if (not old or not current or not isinstance(fragment, str) or not fragment
+            or hashlib.sha256(fragment.encode()).hexdigest() != ref.get('content_hash')
+            or fragment not in str(old['text']) or fragment not in str(current['text']) or not _unchanged(ref, source)):
+        return False
+    before = githubNavigationContext(str(old['text']), name)
+    return before is not None and before == githubNavigationContext(str(current['text']), name)
+
+
+def _refreshRef(ref: Record, source: Record, navigationEquivalent: bool = False) -> Record:
     result = copy.deepcopy(ref)
     sourceHash = source.get('source_hash') or source.get('content_hash')
     result.update(checked_at=source.get('checked_at'), status=source.get('status', 200), source_hash=sourceHash)
     if hasSourceContext(ref) and ref.get('source_hash'):
-        if ref.get('context_changed') or ref.get('source_hash') != sourceHash:
+        if navigationEquivalent:
+            result['navigation_equivalent_hash'] = ref.get('navigation_equivalent_hash') or ref['source_hash']
+        elif ref.get('context_changed') or ref.get('source_hash') != sourceHash:
+            result.pop('navigation_equivalent_hash', None)
             result.update(context_changed=True, previous_source_hash=ref.get('previous_source_hash') or ref['source_hash'])
     if not _unchanged(ref, source):
         text = str(source.get('text', ''))[:16000]
@@ -80,7 +111,8 @@ def mergeEvidence(previous: Record, fetched: Record) -> Record:
              for refId in _strings(_record(fact).get('ref_ids'))}
     old = [ref for ref in _records(previous.get('refs'))
            if not latest or ':' not in str(ref.get('id', '')) or ref.get('id') in bound]
-    refs = [_refreshRef(ref, source) if (source := _matchingSource(ref, latest)) else copy.deepcopy(ref)
+    refs = [_refreshRef(ref, source, _navigationEquivalent(ref, source, previous, fetched))
+            if (source := _matchingSource(ref, latest)) else copy.deepcopy(ref)
             for ref in old]
     ids = {ref.get('id') for ref in refs}
     refs.extend(copy.deepcopy(ref) for ref in latest if ref.get('id') not in ids)

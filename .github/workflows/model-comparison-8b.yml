@@ -1,4 +1,4 @@
-name: Isolated 8B model capacity comparison
+name: Archived/disabled - 8B model capacity comparison
 on:
   workflow_dispatch:
     inputs:
@@ -12,6 +12,7 @@ permissions:
   contents: read
 jobs:
   compare:
+    if: ${{ false }}
     runs-on: ubuntu-latest
     timeout-minutes: 17
     steps:

@@ -1,5 +1,7 @@
 # GitRadar V4 完整改造实施计划
 
+> 2026-10-21 最新决定：用户要求简化快速交付，生产零模型。本文件保留原探索设计；本次发布范围以 [README](../README.md) 和 [当前状态](evaluation/V4_ACCEPTANCE_STATUS.md) 为准，原模型、真人与长期观察门槛不再阻塞此次简化发布。
+
 > 执行时按任务使用 superpowers:subagent-driven-development 或 superpowers:executing-plans。2026-10-20 用户确认开始执行；工程、读者任务和持续运行效果分别记录。
 
 **执行进度：** 下文任务清单保留原验收设计，不能据未勾选项重复开发；当前已实现内容、失败证据与未验证门槛以 [V4_ACCEPTANCE_STATUS.md](evaluation/V4_ACCEPTANCE_STATUS.md) 和文末“本轮交付状态”为准。

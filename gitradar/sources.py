@@ -3,12 +3,34 @@ from __future__ import annotations
 
 from dataclasses import dataclass, field
 from html.parser import HTMLParser
+import re
 from urllib.parse import quote, unquote, urlencode, urlsplit
 
 from .models import EvidenceBundle, EvidenceRef, RepositoryRef
 
 MAX_SOURCE_BYTES = 1024 * 1024
 SOURCE_TEXT_NORMALIZATION = 'seed_v1'
+
+
+def githubNavigationContext(text: str, fullName: str) -> str | None:
+    # 未知或重复导航结构仍交给全文变化保护，绝不全局清除数字。
+    lines = text.split('\n')
+    if lines.count('Repository navigation') != 1:
+        return None
+    start = lines.index('Repository navigation')
+    expected = ['Code', None, None, 'Discussions', 'Actions', 'Projects',
+                'Security and quality', 'Insights', 'More items', 'Releases: ' + fullName]
+    if start < 2 or lines[start - 2:start] != fullName.split('/'):
+        return None
+    block = lines[start + 1:start + 11]
+    if len(block) != len(expected) or any(value is not None and block[index] != value
+                                         for index, value in enumerate(expected)):
+        return None
+    for offset, label in ((2, 'Issues'), (3, 'Pull requests')):
+        if not re.fullmatch(re.escape(label) + r'(0|[1-9][0-9]*)\xa0\(\1\)', lines[start + offset]):
+            return None
+        lines[start + offset] = label + '<repository-navigation-count>'
+    return '\n'.join(lines)
 
 
 @dataclass

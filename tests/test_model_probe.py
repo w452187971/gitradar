@@ -128,16 +128,20 @@ class ModelProbeTests(unittest.TestCase):
         self.assertEqual(payload['temperature'], 0)
         self.assertFalse(payload['chat_template_kwargs']['enable_thinking'])
 
-    def test_model_mode_guards_all_production_and_other_probe_steps(self):
+    def test_production_workflow_has_no_model_entry_and_keeps_batch_probe(self):
         workflow = Path('.github/workflows/update.yml').read_text()
+        self.assertNotIn('model_probe', workflow)
+        self.assertNotIn('.model-probe', workflow)
+        self.assertIn('probe_only:', workflow)
+        self.assertIn('timeout-minutes: 60', workflow)
+        self.assertIn('pages: write', workflow)
         steps = workflow.split('      - name: ')
-        for name in ['Test collector', 'Test frontend', 'Collect and validate isolated batch',
-                     'Promote verified batch', 'Commit verified snapshots and pages',
-                     'Preserve complete failed batch and diagnostics', 'Probe built-in token batch access']:
-            step = next(step for step in steps if step.startswith(name + '\n'))
-            self.assertIn('inputs.model_probe_only != true', step)
-        self.assertIn('model_probe_only:\n', workflow)
-        self.assertIn('probe_only == true && inputs.model_probe_only == true', workflow)
+        pageStep = next(step for step in steps if step.startswith('Publish and verify Pages'))
+        self.assertIn("github.ref == 'refs/heads/main'", pageStep)
+        self.assertIn('inputs.probe_only != true', pageStep)
+        self.assertIn('python scripts/publish_pages.py', pageStep)
+        self.assertLess(workflow.index('Promote verified batch'), workflow.index('Commit verified snapshots'))
+        self.assertLess(workflow.index('Commit verified snapshots'), workflow.index('Publish and verify Pages'))
 
     def test_fixtures_are_six_public_development_cases_with_frozen_hashes(self):
         cases = loadCases(Path('tests/fixtures/model_probe/cases.json'))

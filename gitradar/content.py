@@ -211,6 +211,8 @@ def _contextProblems(content: Record, refs: dict[str, Record]) -> list[str]:
         if not hasSourceContext(ref):
             continue
         current, reviewed = ref.get('source_hash'), expected.get(refId)
+        if reviewed and not ref.get('context_changed') and reviewed == ref.get('navigation_equivalent_hash'):
+            continue
         if (ref.get('context_changed') and (not reviewed or current != reviewed)) or (reviewed and current != reviewed):
             reasons.append('context_changed:' + refId)
     return reasons
