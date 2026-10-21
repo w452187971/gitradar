@@ -191,7 +191,7 @@ def _evidenceProblems(content: Record, asOf: dt.datetime, reviewed: bool) -> lis
             reasons.extend(_checkRef(refId, field, ref, hashes, reviewed, asOf))
     reasons.extend(_contextProblems(content, refs))
     reasons.extend(_pathEvidenceProblems(content, refs, asOf))
-    if content.get('identity_conflict'):
+    if content.get('identity_conflict') or 'identity_conflict' in _strings(content.get('critical_unknowns')):
         reasons.append('identity_conflict')
     return list(dict.fromkeys(reasons))
 

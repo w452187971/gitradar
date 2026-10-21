@@ -29,6 +29,15 @@ class BudgetExceeded(RuntimeError):
     """本轮已无法安全发出请求。"""
 
 
+class EvidenceIdentityError(ValueError):
+    """已返回的稳定身份与绑定身份不一致，不代表普通响应缺失。"""
+    def __init__(self, expectedNodeId: str, actualNodeId: str, sourceUrl: str):
+        super().__init__('Evidence repository identity changed.')
+        self.expectedNodeId = expectedNodeId
+        self.actualNodeId = actualNodeId
+        self.sourceUrl = sourceUrl
+
+
 class HttpStatusError(ValueError):
     def __init__(self, status: int, url: str):
         super().__init__(f'Official source HTTP {status}: {url}')
@@ -380,19 +389,26 @@ class GitHubClient:
                             budget: Budget) -> EvidenceBundle:
         previous = previousEvidence or {}
         sameIdentity = previous.get('node_id') == ref.get('node_id')
-        cache = dict(previous.get('cache', {})) if sameIdentity else {}
+        cache = copy.deepcopy(previous.get('cache', {})) if sameIdentity else {}
         requests, errors = boundSourceRequests(previous if sameIdentity else {}, ref)
         refs: list[EvidenceRef] = []
+        criticalUnknowns = list(previous.get('critical_unknowns', []))
+        confirmedConflict = False
         defaults = self.defaultSources(ref, requests)
         for source in requests + defaults:
             try:
                 refs.extend(self.readEvidenceSource(source, ref, budget, cache))
             except (OSError, ValueError, BudgetExceeded) as error:
                 errors.append(str(error))
+                if isinstance(error, EvidenceIdentityError):
+                    confirmedConflict = True
+                    criticalUnknowns.append('identity_conflict')
                 refs.extend(self.failedEvidenceSource(source, error))
+        if confirmedConflict:
+            refs = copy.deepcopy(previous.get('refs', []))
         return {'full_name': ref['full_name'], 'node_id': ref.get('node_id', ''), 'refs': refs,
                 'cache': cache, 'official_urls': previous.get('official_urls', []),
-                'errors': errors, 'status': 'partial' if refs and errors else ('success' if refs else 'failed')}
+                'critical_unknowns': list(dict.fromkeys(criticalUnknowns)), 'errors': errors, 'status': 'partial' if refs and errors else ('success' if refs else 'failed')}
 
     def defaultSources(self, ref: RepositoryRef, required: list[SourceRequest]) -> list[SourceRequest]:
         root = '/repos/' + urllib.parse.quote(ref['full_name'], safe='/')
@@ -418,13 +434,7 @@ class GitHubClient:
             raise ValueError('Official evidence response must be an object.')
         metadataSource = source.kind == 'repository' and isRepositoryMetadataUrl(source.url)
         if metadataSource:
-            payload = self.repositoryFacts(payload)
-            key = source.endpoint if source.endpoint.startswith('https://') else API_ROOT + source.endpoint
-            entry = cache.get(key)
-            if isinstance(entry, dict):
-                entry['body'] = payload
-            if ref.get('node_id') != payload.get('node_id'):
-                raise ValueError('Evidence repository identity changed.')
+            payload = self.checkedRepositoryFacts(payload, ref, source, cache)
         kind = 'readme' if payload.get('encoding') == 'base64' else source.kind
         refs = self.evidenceRefs(payload, kind, ref)
         for evidence in refs:
@@ -432,6 +442,22 @@ class GitHubClient:
             if source.old_refs or not payload.get('html_url'):
                 evidence['url'] = source.url
         return refs
+
+    def checkedRepositoryFacts(self, payload: dict[str, object], ref: RepositoryRef, source: SourceRequest,
+                               cache: dict[str, object]) -> dict[str, object]:
+        facts = self.repositoryFacts(payload)
+        key = source.endpoint if source.endpoint.startswith('https://') else API_ROOT + source.endpoint
+        entry = cache.get(key)
+        if isinstance(entry, dict):
+            entry['body'] = facts
+        expected, actual = ref.get('node_id'), facts.get('node_id')
+        if not isinstance(expected, str) or not expected or not isinstance(actual, str) or not actual:
+            raise ValueError('Evidence repository metadata has no confirmed identity.')
+        if actual != expected:
+            if isinstance(entry, dict):
+                entry['identity'] = actual
+            raise EvidenceIdentityError(expected, actual, source.url)
+        return facts
 
     def webEvidence(self, text: str, source: SourceRequest, ref: RepositoryRef) -> list[EvidenceRef]:
         kinds = {old.get('source_kind', source.kind) for old in source.old_refs} or {source.kind}

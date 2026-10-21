@@ -439,6 +439,22 @@ class ClientTests(unittest.TestCase):
         self.assertEqual(cached, {'node_id': 'REPLACEMENT_NODE', 'full_name': 'a/tool'})
         self.assertNotIn('synthetic-never-persist', str(result))
 
+    def test_authenticated_metadata_304_does_not_mutate_previous_evidence_cache(self):
+        import copy
+        url = 'https://api.github.com/repos/a/tool'
+        client = self.client([HttpResponse(304, {}, None)])
+        previous = {'full_name': 'a/tool', 'node_id': 'R1', 'refs': [{
+            'id': 'metadata', 'source_kind': 'repository', 'url': url, 'text': '{}'}],
+            'cache': {url: {'identity': 'R1', 'authenticated': True, 'etag': 'same',
+                           'auth_scope': client.authScope(),
+                           'body': {'node_id': 'R1', 'full_name': 'a/tool',
+                                    'permissions': {'push': False}, 'stargazers_count': 100}}}}
+        before = copy.deepcopy(previous)
+        result = client.readProjectEvidence(previous, previous, Budget(content_requests=1))
+        self.assertEqual(client.usage.not_modified, 1)
+        self.assertEqual(previous, before)
+        self.assertEqual(result['cache'][url]['body'], {'node_id': 'R1', 'full_name': 'a/tool'})
+
     def test_repository_kind_license_endpoint_is_fetched_as_the_bound_document(self):
         import base64
         previous = {'full_name': 'a/tool', 'node_id': 'R1', 'refs': [{
@@ -455,3 +471,71 @@ class ClientTests(unittest.TestCase):
         self.assertEqual(document['source_kind'], 'repository')
         self.assertEqual(document['url'], previous['refs'][0]['url'])
         self.assertEqual(document['checked_at'], NOW)
+
+    def identityBundle(self):
+        import json
+        from pathlib import Path
+        root = Path(__file__).resolve().parents[1]
+        old = json.loads((root/'data/seed-evidence.json').read_text())['projects']['HandBrake/HandBrake']
+        editorial = json.loads((root/'data/curation.json').read_text())['projects']['HandBrake/HandBrake']
+        metadata = next(ref for ref in old['refs'] if ref['id'] == 'repository')
+        return old, editorial, json.loads(metadata['text'])
+
+    def test_confirmed_metadata_identity_conflict_blocks_previous_published_content(self):
+        import copy
+        from gitradar.content import deriveFacts, resolveContent
+        from gitradar.evidence import mergeEvidence
+        from gitradar.sources import isRepositoryMetadataUrl
+        previous, editorial, metadata = self.identityBundle()
+        before = copy.deepcopy(previous)
+        metadata['node_id'] = 'CONFIRMED_REPLACEMENT_ID'
+        def transport(method, url, headers, body):
+            if isRepositoryMetadataUrl(url):
+                return HttpResponse(200, {'ETag': 'replacement'}, metadata)
+            raise OSError('temporary outage')
+        client = GitHubClient(transport=transport, now=lambda: NOW, sleep=lambda _:None)
+        fetched = client.readProjectEvidence(previous, previous, Budget(max_retries=0))
+        self.assertIn('identity_conflict', fetched.get('critical_unknowns', []))
+        self.assertEqual(fetched['refs'], before['refs'])
+        content = resolveContent(deriveFacts(mergeEvidence(previous, fetched)), editorial, '2026-10-20T20:00:00Z')
+        self.assertEqual(content['effective_status'], 'blocked')
+        self.assertFalse(content['eligibility']['eligible'])
+        self.assertEqual(previous, before)
+
+    def test_network_missing_identity_and_message_lookalikes_do_not_confirm_conflict(self):
+        from gitradar.sources import isRepositoryMetadataUrl
+        previous, _, metadata = self.identityBundle()
+        metadata.pop('node_id')
+        for response in [OSError('offline'), ValueError('Evidence repository identity changed.'),
+                         HttpResponse(200, {}, metadata)]:
+            def transport(method, url, headers, body):
+                if isRepositoryMetadataUrl(url):
+                    if isinstance(response, Exception):
+                        raise response
+                    return response
+                raise OSError('offline')
+            client = GitHubClient(transport=transport, now=lambda: NOW, sleep=lambda _:None)
+            fetched = client.readProjectEvidence(previous, previous, Budget(max_retries=0))
+            self.assertNotIn('identity_conflict', fetched.get('critical_unknowns', []))
+            self.assertEqual(fetched['refs'], previous['refs'])
+
+    def test_identity_conflict_takes_precedence_over_later_success_in_same_batch(self):
+        previous = {'full_name': 'a/tool', 'node_id': 'R1', 'refs': [
+            {'id': 'one', 'source_kind': 'repository', 'url': 'https://api.github.com/repos/a/tool',
+             'text': '{"node_id": "R1"}', 'checked_at': '2026-10-01T00:00:00Z'},
+            {'id': 'two', 'source_kind': 'repository', 'url': 'https://github.com/a/tool',
+             'text': '{"node_id": "R1"}', 'checked_at': '2026-10-01T00:00:00Z'}]}
+        client = self.client([HttpResponse(200, {}, {'node_id': 'R2'}),
+                              HttpResponse(200, {}, {'node_id': 'R1'})])
+        fetched = client.readProjectEvidence(previous, previous, Budget(content_requests=2))
+        self.assertIn('identity_conflict', fetched.get('critical_unknowns', []))
+        self.assertEqual(fetched['refs'], previous['refs'])
+
+    def test_later_same_identity_recheck_does_not_clear_unreviewed_identity_conflict(self):
+        previous = {'full_name': 'a/tool', 'node_id': 'R1', 'critical_unknowns': ['identity_conflict', 'account_review'],
+                    'refs': [{'id': 'meta', 'source_kind': 'repository', 'url': 'https://api.github.com/repos/a/tool',
+                              'text': '{"node_id": "R1"}', 'checked_at': '2026-10-01T00:00:00Z'}]}
+        client = self.client([HttpResponse(200, {}, {'node_id': 'R1'})])
+        fetched = client.readProjectEvidence(previous, previous, Budget(content_requests=1))
+        self.assertIn('identity_conflict', fetched.get('critical_unknowns', []))
+        self.assertIn('account_review', fetched.get('critical_unknowns', []))

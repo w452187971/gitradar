@@ -88,8 +88,11 @@ def mergeEvidence(previous: Record, fetched: Record) -> Record:
                   node_id=fetched.get('node_id', previous.get('node_id')), refs=refs,
                   cache=copy.deepcopy(fetched.get('cache', previous.get('cache', {}))),
                   errors=fetched.get('errors', []), status=fetched.get('status', 'failed'))
-    if previous.get('node_id') and fetched.get('node_id') not in (None, previous.get('node_id')):
-        result['critical_unknowns'] = ['identity_conflict']
+    unknowns = _strings(previous.get('critical_unknowns')) + _strings(fetched.get('critical_unknowns'))
+    fetchedId = fetched.get('node_id')
+    if previous.get('node_id') and isinstance(fetchedId, str) and fetchedId and fetchedId != previous['node_id']:
+        unknowns.append('identity_conflict')
+    result['critical_unknowns'] = list(dict.fromkeys(unknowns))
     return result
 
 

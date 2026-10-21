@@ -240,3 +240,14 @@ class RepositoryDocumentContextTests(unittest.TestCase):
         self.assertEqual(content['effective_status'], 'review_required')
         self.assertIn('context_changed:license', content['invalidation_reasons'])
         self.assertFalse(content['eligibility']['eligible'])
+
+
+class ConfirmedSourceIdentityTests(unittest.TestCase):
+    def test_machine_confirmed_identity_conflict_is_blocked_after_editorial_merge(self):
+        facts, editorial = sampleContent()
+        facts['critical_unknowns'] = ['identity_conflict']
+        editorial['critical_unknowns'] = []
+        content = resolveContent(facts, editorial, NOW)
+        self.assertEqual(content['effective_status'], 'blocked')
+        self.assertIn('identity_conflict', content['invalidation_reasons'])
+        self.assertFalse(content['eligibility']['eligible'])

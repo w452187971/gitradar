@@ -176,6 +176,25 @@ class EvidenceRefreshTests(unittest.TestCase):
         self.assertEqual(refreshed['content_hash'], 'original')
         self.assertFalse(refreshed.get('context_changed'))
 
+    def test_confirmed_source_identity_flag_is_merged_without_losing_prior_unknowns(self):
+        self.old['critical_unknowns'] = ['account_review']
+        self.new['critical_unknowns'] = ['identity_conflict']
+        merged = mergeEvidence(self.old, self.new)
+        self.assertEqual(set(merged['critical_unknowns']), {'account_review', 'identity_conflict'})
+        ordinarySuccess = copy.deepcopy(self.new)
+        ordinarySuccess['critical_unknowns'] = []
+        later = mergeEvidence(merged, ordinarySuccess)
+        self.assertIn('identity_conflict', later['critical_unknowns'])
+        self.assertIn('account_review', later['critical_unknowns'])
+
+    def test_identity_change_does_not_clear_an_independent_context_change(self):
+        self.old['critical_unknowns'] = ['identity_conflict']
+        self.old['refs'][0].update(context_changed=True, source_hash='same-source')
+        self.new['refs'][0]['content_hash'] = 'same-source'
+        merged = mergeEvidence(self.old, self.new)
+        self.assertTrue(merged['refs'][0]['context_changed'])
+        self.assertIn('identity_conflict', merged['critical_unknowns'])
+
     def multiPathInput(self):
         paths = [{'url': 'https://official.example/first'}, {'url': 'https://official.example/second'}]
         project = {'full_name': 'o/a', 'content': {'official_urls': ['https://official.example'],
